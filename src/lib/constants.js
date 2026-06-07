@@ -45,6 +45,7 @@ export const SAMPLE_LEADS = [
     phone: '+1 (415) 555-0142',
     location: 'San Francisco, CA',
     linkedin: '/in/sarahchen',
+    avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
     signals: [
       { label: 'New in role · 3 wks', tier: 'strong' },
       { label: 'Posted last 30 days', tier: 'supporting' },
@@ -59,6 +60,7 @@ export const SAMPLE_LEADS = [
     phone: '+1 (650) 555-0188',
     location: 'San Mateo, CA',
     linkedin: '/in/marcusreid',
+    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
     signals: [
       { label: 'Headcount +22% · 90d', tier: 'strong' },
       { label: 'Hiring 14 GTM roles', tier: 'supporting' },
@@ -73,6 +75,7 @@ export const SAMPLE_LEADS = [
     phone: '+1 (617) 555-0119',
     location: 'Boston, MA',
     linkedin: '/in/priyanair',
+    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
     signals: [
       { label: 'Changed jobs · 90d', tier: 'strong' },
       { label: 'Decision-maker fit', tier: 'supporting' },
@@ -87,6 +90,7 @@ export const SAMPLE_LEADS = [
     phone: '+1 (212) 555-0173',
     location: 'New York, NY',
     linkedin: '/in/tombecker',
+    avatar: 'https://randomuser.me/api/portraits/men/52.jpg',
     signals: [
       { label: 'Series C raised', tier: 'strong' },
       { label: 'New VP hire', tier: 'strong' },

@@ -4,6 +4,7 @@ import { Loader2, Check, X, Minus, ShieldCheck, BadgeCheck } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import BrandLogo from './BrandLogo'
+import Avatar from './Avatar'
 
 // Illustrative waterfall run: providers are tried in order until a verified hit.
 const PROVIDERS = [
@@ -14,7 +15,13 @@ const PROVIDERS = [
 const HIT = 1 // SalesQL returns the match
 const CYCLE = HIT + 6 // animation steps before looping (incl. a hold on the result)
 
-const LEAD = { name: 'Sarah Chen', title: 'VP Marketing', company: 'Datadog', email: 'sarah.chen@datadoghq.com' }
+const LEAD = {
+  name: 'Sarah Chen',
+  title: 'VP Marketing',
+  company: 'Datadog',
+  email: 'sarah.chen@datadoghq.com',
+  avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
+}
 
 function StatusPill({ state }) {
   const map = {
@@ -73,9 +80,7 @@ export default function WaterfallEnrichment() {
 
             {/* Lead being enriched */}
             <div className="relative flex items-center gap-3 border-b border-hairline pb-5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-light/15 text-xs font-semibold text-accent">
-                {LEAD.name.split(' ').map((n) => n[0]).join('')}
-              </span>
+              <Avatar src={LEAD.avatar} name={LEAD.name} size={40} />
               <div className="min-w-0">
                 <div className="text-sm font-semibold text-ink">{LEAD.name}</div>
                 <div className="truncate text-xs text-muted">

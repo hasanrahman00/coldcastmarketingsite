@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import Logo from './Logo'
 import Counter from './Counter'
+import Avatar from './Avatar'
 import { SAMPLE_LEADS } from '../lib/constants'
 
 const SIDEBAR = [
@@ -148,12 +149,7 @@ export default function DashboardMock() {
                       {/* Name (scraped — always shown) */}
                       <td className="px-3 py-2.5">
                         <div className="flex items-center gap-2">
-                          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-light/15 text-[10px] font-semibold text-accent">
-                            {lead.name
-                              .split(' ')
-                              .map((n) => n[0])
-                              .join('')}
-                          </span>
+                          <Avatar src={lead.avatar} name={lead.name} size={24} />
                           <span className="font-medium text-ink">{lead.name}</span>
                         </div>
                       </td>
