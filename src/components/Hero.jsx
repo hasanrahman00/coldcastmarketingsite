@@ -140,13 +140,14 @@ export default function Hero() {
             className="mt-7 text-balance text-[2.6rem] font-bold leading-[0.98] tracking-[-0.03em] text-ink sm:text-6xl lg:text-7xl"
           >
             <motion.span variants={child} className="inline-block">
-              Your GTM engine for
-            </motion.span>{' '}
-            <motion.span variants={child} className="text-gradient inline-block">
-              personalized cold outreach.
+              The best GTM stack for SDRs.
             </motion.span>{' '}
             <motion.span variants={child} className="inline-block">
-              20,000 leads a day — without the ban.
+              Personalized outreach,
+            </motion.span>{' '}
+            {/* [PLACEHOLDER] "3×" reply lift — substantiate before publishing as a hard claim */}
+            <motion.span variants={child} className="text-gradient inline-block">
+              3× the replies.
             </motion.span>
           </motion.h1>
 
