@@ -140,14 +140,11 @@ export default function Hero() {
             className="mt-7 text-balance text-[2.6rem] font-bold leading-[0.98] tracking-[-0.03em] text-ink sm:text-6xl lg:text-7xl"
           >
             <motion.span variants={child} className="inline-block">
-              The best GTM stack for SDRs.
+              More replies.
             </motion.span>{' '}
-            <motion.span variants={child} className="inline-block">
-              Personalized outreach,
-            </motion.span>{' '}
-            {/* [PLACEHOLDER] "3×" reply lift — substantiate before publishing as a hard claim */}
+            {/* "Zero bans" = factual track record (0 bans in 6+ months internal use), not a guarantee */}
             <motion.span variants={child} className="text-gradient inline-block">
-              3× the replies.
+              Zero bans.
             </motion.span>
           </motion.h1>
 
@@ -157,10 +154,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-7 max-w-2xl text-pretty text-base leading-relaxed text-muted sm:text-lg"
           >
-            Coldcast scrapes Sales Navigator in your{' '}
-            <span className="font-semibold text-ink">own browser</span>, waterfall-enriches verified
-            emails, and scores every lead with buying signals — so you can launch personalized cold
-            outreach at scale, without risking your account.
+            Coldcast scrapes Sales Navigator at human pace in your{' '}
+            <span className="font-semibold text-ink">own browser</span> — up to 20,000 leads a day —
+            then waterfall-enriches verified emails and phones and scores every lead by buying
+            signals before you hit send.
           </motion.p>
 
           <motion.div
