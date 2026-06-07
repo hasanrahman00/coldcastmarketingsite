@@ -16,11 +16,11 @@ const HIT = 1 // SalesQL returns the match
 const CYCLE = HIT + 6 // animation steps before looping (incl. a hold on the result)
 
 const LEAD = {
-  name: 'Sarah Chen',
-  title: 'VP Marketing',
-  company: 'Datadog',
-  email: 'sarah.chen@datadoghq.com',
-  avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
+  name: 'Tiffanie K.',
+  title: 'Chief Revenue Officer',
+  company: 'illumenature candle co',
+  email: 'tiffanie.k@illumenature.com',
+  avatar: 'https://randomuser.me/api/portraits/women/63.jpg',
 }
 
 function StatusPill({ state }) {

@@ -37,68 +37,87 @@ export const RATING = {
   claim: 'Rated #1 account-safe Sales Navigator scraper', // [PLACEHOLDER] needs ranking evidence
 }
 
-// Realistic example rows for the hero mock + output-preview table.
-// Each lead carries captured intent "signals" (tier: 'strong' | 'supporting').
-// NOTE: illustrative SAMPLE DATA — not real people or customers.
+// Example rows for the hero mock + output-preview table.
+// Derived from a real Coldcast export, but PRIVACY-SAFE for a public page:
+// last names are reduced to an initial, LinkedIn handles are de-identified, and
+// emails/phones are illustrative (the raw scrape has no email/phone — those come
+// from the enrichment step; 555 numbers are reserved/fake). Signals are derived
+// from real fields (title, company size, founded year, tenure).
+// [PLACEHOLDER] swap for full real values only with consent / a private demo.
 export const SAMPLE_LEADS = [
   {
-    name: 'Sarah Chen',
-    title: 'VP Marketing',
-    company: 'Datadog',
-    website: 'datadoghq.com',
-    email: 'sarah.chen@datadoghq.com',
-    phone: '+1 (415) 555-0142',
-    location: 'San Francisco, CA',
-    linkedin: '/in/sarahchen',
-    avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
-    signals: [
-      { label: 'New in role · 3 wks', tier: 'strong' },
-      { label: 'Posted last 30 days', tier: 'supporting' },
-    ],
-  },
-  {
-    name: 'Marcus Reid',
-    title: 'Head of Sales',
-    company: 'Snowflake',
-    website: 'snowflake.com',
-    email: 'marcus.reid@snowflake.com',
-    phone: '+1 (650) 555-0188',
-    location: 'San Mateo, CA',
-    linkedin: '/in/marcusreid',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-    signals: [
-      { label: 'Headcount +22% · 90d', tier: 'strong' },
-      { label: 'Hiring 14 GTM roles', tier: 'supporting' },
-    ],
-  },
-  {
-    name: 'Priya Nair',
-    title: 'Director of Demand Gen',
-    company: 'HubSpot',
-    website: 'hubspot.com',
-    email: 'priya.nair@hubspot.com',
-    phone: '+1 (617) 555-0119',
-    location: 'Boston, MA',
-    linkedin: '/in/priyanair',
-    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-    signals: [
-      { label: 'Changed jobs · 90d', tier: 'strong' },
-      { label: 'Decision-maker fit', tier: 'supporting' },
-    ],
-  },
-  {
-    name: 'Tom Becker',
+    name: 'Tiffanie K.',
     title: 'Chief Revenue Officer',
-    company: 'Ramp',
-    website: 'ramp.com',
-    email: 'tom.becker@ramp.com',
-    phone: '+1 (212) 555-0173',
-    location: 'New York, NY',
-    linkedin: '/in/tombecker',
-    avatar: 'https://randomuser.me/api/portraits/men/52.jpg',
+    company: 'illumenature candle co',
+    website: 'illumenature.com',
+    email: 'tiffanie.k@illumenature.com',
+    phone: '+1 (614) 555-0132',
+    location: 'Lewis Center, OH',
+    linkedin: '/in/tiffanie-k',
+    avatar: 'https://randomuser.me/api/portraits/women/63.jpg',
     signals: [
-      { label: 'Series C raised', tier: 'strong' },
-      { label: 'New VP hire', tier: 'strong' },
+      { label: 'CRO · decision-maker', tier: 'strong' },
+      { label: '201–500 employees', tier: 'supporting' },
+    ],
+  },
+  {
+    name: 'Tyler B.',
+    title: 'Chief Executive Officer',
+    company: 'Scalawags Franchise Systems',
+    website: 'scalawagswhitefish.com',
+    email: 'tyler.b@scalawagswhitefish.com',
+    phone: '+1 (313) 555-0119',
+    location: 'Detroit, MI',
+    linkedin: '/in/tyler-b',
+    avatar: 'https://randomuser.me/api/portraits/men/22.jpg',
+    signals: [
+      { label: 'CEO · decision-maker', tier: 'strong' },
+      { label: 'Restaurants · 200+', tier: 'supporting' },
+    ],
+  },
+  {
+    name: 'Kenneth F.',
+    title: 'Owner & Director of Marketing',
+    company: 'Parallax Coffee Lab',
+    website: 'parallax.coffee',
+    email: 'kenneth.f@parallax.coffee',
+    phone: '+1 (919) 555-0176',
+    location: 'Raleigh-Durham, NC',
+    linkedin: '/in/kenneth-f',
+    avatar: 'https://randomuser.me/api/portraits/men/76.jpg',
+    signals: [
+      { label: 'Owner · decision-maker', tier: 'strong' },
+      { label: '51–200 employees', tier: 'supporting' },
+    ],
+  },
+  {
+    name: 'Camille H.',
+    title: 'Retail Operations Manager',
+    company: 'Trove',
+    website: 'trovestudio.com',
+    email: 'camille.h@trovestudio.com',
+    phone: '+1 (212) 555-0184',
+    location: 'New York, NY',
+    linkedin: '/in/camille-h',
+    avatar: 'https://randomuser.me/api/portraits/women/29.jpg',
+    signals: [
+      { label: 'New in role · ’24', tier: 'strong' },
+      { label: 'Luxury retail', tier: 'supporting' },
+    ],
+  },
+  {
+    name: 'Elijah O.',
+    title: 'Owner',
+    company: 'U Wine Bar',
+    website: 'uwinebar.com',
+    email: 'elijah.o@uwinebar.com',
+    phone: '+1 (206) 555-0148',
+    location: 'Seattle, WA',
+    linkedin: '/in/elijah-o',
+    avatar: 'https://randomuser.me/api/portraits/men/41.jpg',
+    signals: [
+      { label: 'Owner · decision-maker', tier: 'strong' },
+      { label: 'New venture · 2025', tier: 'supporting' },
     ],
   },
 ]
