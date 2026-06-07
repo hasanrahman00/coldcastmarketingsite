@@ -11,6 +11,36 @@ const TINT = {
   safe: { dot: 'bg-safe', text: 'text-safe', ring: 'ring-safe/50', glow: 'shadow-glow-safe' },
 }
 
+// Real brand logo on a white tile. Tries the Clearbit logo API first (best
+// quality), falls back to the Google favicon service (near-universal coverage),
+// then to initials if both fail (e.g. offline / sandboxed preview).
+function BrandLogo({ domain, name }) {
+  const [stage, setStage] = useState(0)
+  const initials = name.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase()
+  const src =
+    stage === 0
+      ? `https://logo.clearbit.com/${domain}`
+      : `https://www.google.com/s2/favicons?domain=${domain}&sz=128`
+  return (
+    <span
+      className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg border border-hairline bg-white"
+      title={name}
+    >
+      {stage >= 2 || !domain ? (
+        <span className="text-[11px] font-bold text-[#0b0a1f]">{initials}</span>
+      ) : (
+        <img
+          src={src}
+          alt={`${name} logo`}
+          loading="lazy"
+          onError={() => setStage((s) => s + 1)}
+          className="h-6 w-6 object-contain"
+        />
+      )}
+    </span>
+  )
+}
+
 const STAGES = [
   {
     key: 'scrape',
@@ -30,11 +60,11 @@ const STAGES = [
     tint: 'violet',
     caption: 'Verified emails, phones, domains & company data — waterfalled.',
     nodes: [
-      { name: 'Lusha' },
-      { name: 'SalesQL' },
-      { name: 'ContactOut' },
-      { name: 'OceanLeads' },
-      { name: 'Crunchbase' },
+      { name: 'Lusha', domain: 'lusha.com' },
+      { name: 'SalesQL', domain: 'salesql.com' },
+      { name: 'ContactOut', domain: 'contactout.com' },
+      { name: 'OceanLeads', domain: 'ocean.io' },
+      { name: 'Crunchbase', domain: 'crunchbase.com' },
     ],
   },
   {
@@ -44,7 +74,11 @@ const STAGES = [
     icon: Send,
     tint: 'safe',
     caption: 'Pushed straight into your outreach sequencer & CRM.',
-    nodes: [{ name: 'Instantly' }, { name: 'Smartlead' }, { name: 'HubSpot CRM' }],
+    nodes: [
+      { name: 'Instantly', domain: 'instantly.ai' },
+      { name: 'Smartlead', domain: 'smartlead.ai' },
+      { name: 'HubSpot', domain: 'hubspot.com' },
+    ],
   },
 ]
 
@@ -98,21 +132,18 @@ function StageCard({ stage, active }) {
         <span className="text-xs font-semibold tabular-nums text-muted/50">{stage.step}</span>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-4 flex flex-wrap gap-x-3 gap-y-3">
         {stage.source ? (
-          <span className="inline-flex items-center gap-2 rounded-xl bg-brand-gradient px-3 py-2 text-sm font-semibold text-white shadow-brand-btn">
+          <span className="inline-flex items-center gap-2 rounded-xl bg-brand-gradient px-3 py-2.5 text-sm font-semibold text-white shadow-brand-btn">
             <Logo size={18} />
             Coldcast
           </span>
         ) : (
           stage.nodes.map((n) => (
-            <span
-              key={n.name}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-hairline bg-white/[0.04] px-2.5 py-1.5 text-xs font-medium text-ink/90"
-            >
-              <span className={`h-1.5 w-1.5 rounded-full ${tint.dot}`} />
-              {n.name}
-            </span>
+            <div key={n.name} className="flex w-[60px] flex-col items-center gap-1.5 text-center">
+              <BrandLogo domain={n.domain} name={n.name} />
+              <span className="text-[10px] font-medium leading-tight text-muted">{n.name}</span>
+            </div>
           ))
         )}
       </div>

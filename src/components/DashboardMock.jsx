@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import {
   LayoutDashboard,
   ListChecks,
@@ -5,8 +7,9 @@ import {
   Puzzle,
   Lock,
   Download,
-  Search,
   TrendingUp,
+  BadgeCheck,
+  Loader2,
 } from 'lucide-react'
 import Logo from './Logo'
 import Counter from './Counter'
@@ -19,9 +22,30 @@ const SIDEBAR = [
   { label: 'Extension', icon: Puzzle },
 ]
 
-// A CSS/div mock of the Coldcast app dashboard — browser chrome, sidebar, and
-// a live-looking leads table. No external image needed.
+const TOTAL = SAMPLE_LEADS.length
+const HOLD = 3 // ticks to hold the "fully enriched" state before looping
+
+// A CSS/div mock of the Coldcast app dashboard with a table that animates its
+// enrichment: email + signal cells resolve row-by-row, progress climbs, loops.
 export default function DashboardMock() {
+  const reduce = useReducedMotion()
+  const [step, setStep] = useState(reduce ? TOTAL : 0)
+
+  useEffect(() => {
+    if (reduce) return undefined
+    const id = setInterval(() => setStep((s) => (s + 1) % (TOTAL + HOLD)), 850)
+    return () => clearInterval(id)
+  }, [reduce])
+
+  const enriched = Math.min(step, TOTAL) // rows fully enriched
+  const progress = Math.round((enriched / TOTAL) * 100)
+
+  const stateFor = (i) => {
+    if (reduce || enriched > i) return 'done'
+    if (enriched === i) return 'enriching'
+    return 'pending'
+  }
+
   return (
     <div className="overflow-hidden rounded-2xl border border-hairline bg-panel/80 shadow-card backdrop-blur-xl">
       {/* Browser chrome */}
@@ -96,9 +120,12 @@ export default function DashboardMock() {
             <span className="text-[11px] font-medium text-ink">Enriching emails, phones &amp; signals</span>
             <div className="ml-auto flex w-28 items-center gap-2">
               <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
-                <div className="h-full w-[84%] rounded-full bg-gradient-to-r from-accent to-brand-light" />
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-accent to-brand-light transition-[width] duration-700 ease-out"
+                  style={{ width: `${Math.max(progress, 6)}%` }}
+                />
               </div>
-              <span className="text-[11px] tabular-nums text-muted">84%</span>
+              <span className="w-8 text-right text-[11px] tabular-nums text-muted">{progress}%</span>
             </div>
           </div>
 
@@ -114,29 +141,66 @@ export default function DashboardMock() {
                 </tr>
               </thead>
               <tbody>
-                {SAMPLE_LEADS.map((lead, i) => (
-                  <tr key={lead.email} className={i % 2 ? 'bg-white/[0.015]' : ''}>
-                    <td className="px-3 py-2.5">
-                      <div className="flex items-center gap-2">
-                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-light/15 text-[10px] font-semibold text-accent">
-                          {lead.name
-                            .split(' ')
-                            .map((n) => n[0])
-                            .join('')}
-                        </span>
-                        <span className="font-medium text-ink">{lead.name}</span>
-                      </div>
-                    </td>
-                    <td className="px-3 py-2.5 text-muted">{lead.company}</td>
-                    <td className="hidden px-3 py-2.5 text-muted md:table-cell">{lead.email}</td>
-                    <td className="px-3 py-2.5">
-                      <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-amber/15 px-2 py-0.5 text-[10px] font-medium text-amber">
-                        <span className="h-1.5 w-1.5 rounded-full bg-amber" />
-                        {lead.signals?.[0]?.label ?? 'Verified'}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
+                {SAMPLE_LEADS.map((lead, i) => {
+                  const state = stateFor(i)
+                  return (
+                    <tr key={lead.email} className={i % 2 ? 'bg-white/[0.015]' : ''}>
+                      {/* Name (scraped — always shown) */}
+                      <td className="px-3 py-2.5">
+                        <div className="flex items-center gap-2">
+                          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-light/15 text-[10px] font-semibold text-accent">
+                            {lead.name
+                              .split(' ')
+                              .map((n) => n[0])
+                              .join('')}
+                          </span>
+                          <span className="font-medium text-ink">{lead.name}</span>
+                        </div>
+                      </td>
+                      {/* Company (scraped) */}
+                      <td className="px-3 py-2.5 text-muted">{lead.company}</td>
+                      {/* Work email (enriched) */}
+                      <td className="hidden px-3 py-2.5 md:table-cell">
+                        {state === 'done' ? (
+                          <motion.span
+                            initial={{ opacity: 0, x: -4 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.35 }}
+                            className="inline-flex items-center gap-1 text-accent"
+                          >
+                            <BadgeCheck size={12} className="shrink-0" />
+                            {lead.email}
+                          </motion.span>
+                        ) : state === 'enriching' ? (
+                          <span className="inline-flex items-center gap-1.5 text-muted/70">
+                            <Loader2 size={11} className="animate-spin text-accent" />
+                            finding…
+                          </span>
+                        ) : (
+                          <span className="block h-2 w-28 rounded bg-white/[0.06]" />
+                        )}
+                      </td>
+                      {/* Signal (enriched) */}
+                      <td className="px-3 py-2.5">
+                        {state === 'done' ? (
+                          <motion.span
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.35 }}
+                            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-amber/15 px-2 py-0.5 text-[10px] font-medium text-amber"
+                          >
+                            <span className="h-1.5 w-1.5 rounded-full bg-amber" />
+                            {lead.signals?.[0]?.label ?? 'Verified'}
+                          </motion.span>
+                        ) : state === 'enriching' ? (
+                          <span className="block h-3.5 w-20 animate-pulse rounded-full bg-amber/15" />
+                        ) : (
+                          <span className="block h-3.5 w-16 rounded-full bg-white/[0.06]" />
+                        )}
+                      </td>
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
           </div>
