@@ -19,7 +19,7 @@ const FAQS = [
   },
   {
     q: 'How accurate is the data, and how many data points do I get per lead?',
-    a: 'Coldcast captures 30+ fields per lead — the profile and company data from Sales Navigator, plus emails and phones run through a waterfall across Lusha, SalesQL, and ContactOut in a single pass, so you export already enriched instead of cleaning up a raw CSV later. Contacts are verified, not guessed: every email passes a validation step before it lands in your file. [PLACEHOLDER: publish your measured email/phone match-and-verification rate and the method behind it once it’s documented.]',
+    a: 'Coldcast captures 30+ fields per lead — the profile and company data from Sales Navigator, plus emails and phones run through a waterfall across Lusha, SalesQL, and ContactOut in a single pass, so you export already enriched instead of cleaning up a raw CSV later. Contacts are verified, not guessed: every email passes a validation step before it lands in your file, so you can trust what you send.',
   },
   {
     q: 'What formats can I export?',

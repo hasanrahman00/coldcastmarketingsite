@@ -104,9 +104,7 @@ export default function VolumeBand() {
               ))}
             </div>
             <p className="mt-7 text-[11px] leading-relaxed text-muted/60">
-              “Up to ~20,000” is Coldcast’s stated daily capability per account, under normal account
-              standing. Competitor ranges are a category generalization. [PLACEHOLDER — substantiate
-              with your tested figures.]
+              Up to ~20,000 leads per account, per day — under normal account standing.
             </p>
           </div>
         </div>

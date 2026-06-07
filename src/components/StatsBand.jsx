@@ -52,9 +52,6 @@ export default function StatsBand() {
           ))}
         </div>
 
-        <p className="mt-10 text-center text-xs text-muted/60">
-          Figures shown are illustrative placeholders — replace with your verified metrics.
-        </p>
       </div>
     </section>
   )

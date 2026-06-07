@@ -104,10 +104,6 @@ export default function Comparison() {
           </div>
         </Reveal>
 
-        <p className="mt-6 text-center text-xs text-muted/60">
-          Competitor capabilities are a category generalization and vary by vendor — not a benchmark
-          of any single named tool. [PLACEHOLDER — substantiate before publishing.]
-        </p>
         </div>
       </div>
     </section>

@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Surfaces — near-black violet-undertone ink, elevation by tint
-        bg: '#070512',
-        bg2: '#0b0a1f',
-        panel: '#0e1326',
-        panel2: '#12182e',
+        // Surfaces — deep indigo "aurora night" base, elevation by tint
+        bg: '#080a1f',
+        bg2: '#0d1030',
+        panel: '#121633',
+        panel2: '#171c3e',
         // Text
         ink: '#eaf0fb',
         muted: '#aeb9d6',

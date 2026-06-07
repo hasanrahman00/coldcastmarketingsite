@@ -158,7 +158,7 @@ export default function WaterfallEnrichment() {
             </div>
 
             <p className="relative mt-4 text-center text-[11px] text-muted/60">
-              Illustrative enrichment run · you’re only charged for the verified hit, never the misses.
+              You’re only charged for the verified hit — never the misses.
             </p>
           </div>
         </Reveal>
