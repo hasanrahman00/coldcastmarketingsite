@@ -16,8 +16,9 @@ const REASSURANCE = ['No password sharing', 'Runs in your own browser', 'Cancel 
 
 const ROTATING = [
   { text: 'export at scale', color: 'text-brand-light' },
-  { text: 'enrich in one pass', color: 'text-violet' },
+  { text: 'waterfall-enrich', color: 'text-violet' },
   { text: 'spot buying intent', color: 'text-amber' },
+  { text: 'personalize outreach', color: 'text-accent' },
   { text: 'stay account-safe', color: 'text-safe' },
 ]
 
@@ -138,12 +139,14 @@ export default function Hero() {
             animate="show"
             className="mt-7 text-balance text-[2.6rem] font-bold leading-[0.98] tracking-[-0.03em] text-ink sm:text-6xl lg:text-7xl"
           >
-            <motion.span variants={child} className="inline-block">Export</motion.span>{' '}
+            <motion.span variants={child} className="inline-block">
+              Your GTM engine for
+            </motion.span>{' '}
             <motion.span variants={child} className="text-gradient inline-block">
-              20,000 leads a day.
+              personalized cold outreach.
             </motion.span>{' '}
             <motion.span variants={child} className="inline-block">
-              Without getting your account banned.
+              20,000 leads a day — without the ban.
             </motion.span>
           </motion.h1>
 
@@ -153,10 +156,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-7 max-w-2xl text-pretty text-base leading-relaxed text-muted sm:text-lg"
           >
-            Coldcast runs your Sales Navigator searches in your{' '}
-            <span className="font-semibold text-ink">own browser</span>, at human pace — so you pull
-            clean, enriched, signal-scored lists while your LinkedIn account stays safe. No cloud
-            bots. No throttling.
+            Coldcast scrapes Sales Navigator in your{' '}
+            <span className="font-semibold text-ink">own browser</span>, waterfall-enriches verified
+            emails, and scores every lead with buying signals — so you can launch personalized cold
+            outreach at scale, without risking your account.
           </motion.p>
 
           <motion.div

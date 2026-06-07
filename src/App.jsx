@@ -9,6 +9,7 @@ import Safety from './components/Safety'
 import StatsBand from './components/StatsBand'
 import Features from './components/Features'
 import IntentSignals from './components/IntentSignals'
+import WaterfallEnrichment from './components/WaterfallEnrichment'
 import OutputPreview from './components/OutputPreview'
 import Comparison from './components/Comparison'
 import HowItWorks from './components/HowItWorks'
@@ -44,6 +45,7 @@ export default function App() {
         <StatsBand />
         <Features />
         <IntentSignals />
+        <WaterfallEnrichment />
         <OutputPreview />
         <Comparison />
         <HowItWorks />
