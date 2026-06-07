@@ -96,7 +96,7 @@ export default function FAQ() {
           subtitle="Everything reps ask before their first export."
         />
 
-        <Reveal delay={0.1} className="mx-auto mt-12 flex max-w-3xl flex-col gap-4">
+        <Reveal delay={0.1} className="mx-auto mt-14 flex max-w-3xl flex-col gap-4">
           {FAQS.map((item, i) => (
             <FaqItem
               key={item.q}

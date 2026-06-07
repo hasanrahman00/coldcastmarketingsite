@@ -43,7 +43,7 @@ const ROWS = [
 
 export default function Comparison() {
   return (
-    <section className="relative py-20 sm:py-28">
+    <section className="relative py-24 sm:py-32">
       <div className="container-px">
         <div className="relative overflow-hidden rounded-[2rem] border border-hairline bg-bg2/70 px-6 py-12 shadow-card backdrop-blur-md sm:px-10 sm:py-16">
         <SectionHeading
@@ -93,7 +93,7 @@ export default function Comparison() {
                       className={`px-5 py-4 align-top ${i === 0 ? '' : 'border-t border-hairline'}`}
                     >
                       <span className="flex items-start gap-2.5 text-muted">
-                        <X size={16} className="mt-0.5 shrink-0 text-danger/60" />
+                        <X size={16} className="mt-0.5 shrink-0 text-danger" />
                         {row.others}
                       </span>
                     </td>

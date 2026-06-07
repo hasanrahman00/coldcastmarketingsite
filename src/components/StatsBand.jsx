@@ -33,7 +33,7 @@ const STATS = [
 
 export default function StatsBand() {
   return (
-    <section className="relative py-12 sm:py-16">
+    <section className="relative py-16 sm:py-24">
       <div className="container-px">
         <div className="floating-panel grid grid-cols-2 gap-x-6 gap-y-10 px-6 py-10 sm:px-10 lg:grid-cols-4">
           {STATS.map(({ icon: Icon, value, label, tag }, i) => (
@@ -41,7 +41,7 @@ export default function StatsBand() {
               <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-accent">
                 <Icon size={18} />
               </span>
-              <div className="bg-gradient-to-br from-brand to-violet bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl">
+              <div className="bg-gradient-to-br from-brand to-violet bg-clip-text font-display text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
                 {value}
               </div>
               <div className="mt-1 text-[0.7rem] font-semibold uppercase tracking-wider text-accent">

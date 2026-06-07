@@ -14,7 +14,7 @@ export default function TrustBar() {
           </p>
 
           <div className="flex flex-col items-center gap-3">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted/70">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
               Enriches from the sources you already use
             </span>
             <ul className="flex flex-wrap items-center justify-center gap-3.5">

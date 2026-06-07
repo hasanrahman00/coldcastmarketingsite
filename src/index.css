@@ -63,12 +63,29 @@
     padding: 1px;
   }
 
+  /* Gradient ring border — masked so the gradient shows only as a 1px frame.
+     Declared as a real CSS rule so the `mask` shorthand can't reset
+     mask-composite (Tailwind arbitrary values render it as add/add). */
+  .gradient-ring {
+    border-radius: 1.5rem; /* matches rounded-3xl */
+    padding: 1px;
+    background-image: linear-gradient(135deg, #4f7cf5, #a855f7, #d946ef);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+
   /* Floating section panel — translucent white card with layered 3D depth */
   .floating-panel {
     position: relative;
     border-radius: 2rem;
     border: 1px solid rgba(12, 18, 45, 0.08);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(18px);
     box-shadow:
       0 2px 4px -2px rgba(20, 30, 80, 0.08),

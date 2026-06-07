@@ -19,12 +19,12 @@ export default {
           dark: '#2546b8',
         },
         // Accents (color = meaning)
-        accent: '#0891b2', // cyan-600 — DATA / ACCURACY (readable on white)
-        violet: '#7c3aed', // violet-600 — ENRICHMENT / AI (readable on white)
-        magenta: '#d946ef', // aurora / hero-text only
-        amber: '#b45309', // amber-700 — INTENT SIGNAL (readable on white)
-        safe: '#059669', // emerald-600 — safety (readable on white)
-        danger: '#e11d48', // rose-600 — contrast / "others" (readable on white)
+        accent: '#0e7490', // cyan-700 — DATA / ACCURACY (AA on white)
+        violet: '#7c3aed', // violet-600 — ENRICHMENT / AI (AA on white)
+        magenta: '#d946ef', // aurora / hero-text only (decorative, not body text)
+        amber: '#b45309', // amber-700 — INTENT SIGNAL (AA on white)
+        safe: '#047857', // emerald-700 — safety (AA on white)
+        danger: '#e11d48', // rose-600 — contrast / "others"
         // Hairline border
         hairline: 'rgba(12,18,45,0.10)',
       },

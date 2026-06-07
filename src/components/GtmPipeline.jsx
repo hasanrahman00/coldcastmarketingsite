@@ -95,7 +95,7 @@ function StageCard({ stage, active }) {
     >
       <div className="flex items-center justify-between">
         <span className="flex items-center gap-2">
-          <span className={`flex h-8 w-8 items-center justify-center rounded-lg border border-hairline bg-black/5 ${tint.text}`}>
+          <span className={`flex h-8 w-8 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft ${tint.text}`}>
             <Icon size={16} />
           </span>
           <span className="text-sm font-semibold text-ink">{stage.title}</span>
@@ -135,7 +135,7 @@ export default function GtmPipeline() {
   }, [reduce])
 
   return (
-    <section className="relative px-6 pb-8 pt-4 sm:px-8 sm:pb-12">
+    <section className="relative px-6 pb-12 pt-10 sm:px-8 sm:pb-16 sm:pt-14">
       <div className="mx-auto max-w-6xl">
         <Reveal className="mb-7 flex flex-col items-center text-center">
           <Eyebrow>
@@ -152,7 +152,7 @@ export default function GtmPipeline() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-hairline bg-bg2/60 p-4 shadow-card backdrop-blur-md sm:p-6">
+          <div className="relative overflow-hidden rounded-[2rem] border border-hairline bg-bg2/60 p-4 shadow-card backdrop-blur-md sm:p-6">
             <div aria-hidden className="pointer-events-none absolute inset-0">
               <div className="absolute -left-10 top-0 h-48 w-48 rounded-full bg-brand-light/15 blur-[90px]" />
               <div className="absolute left-1/2 top-1/2 h-40 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet/12 blur-[90px]" />

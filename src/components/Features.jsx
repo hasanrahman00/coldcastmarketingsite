@@ -51,7 +51,7 @@ export default function Features() {
             <SpotlightCard glow={TINT.amber.glow} className="flex flex-col p-7">
               <Bloom tint="amber" />
               <TileIcon icon={Radar} tint="amber" />
-              <h3 className="relative mt-5 text-lg font-semibold text-ink">Buying-intent signals</h3>
+              <h3 className="relative mt-5 text-base font-semibold text-ink">Buying-intent signals</h3>
               <p className="relative mt-2 max-w-md text-sm leading-relaxed text-muted">
                 Person + company signals — job changes, new-in-role, growth, hiring, funding — captured
                 live at export.
@@ -60,7 +60,7 @@ export default function Features() {
                 {INTENT_PILLS.map((p) => (
                   <span
                     key={p}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-amber/10 px-2.5 py-1 text-[11px] font-medium text-amber"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-amber/10 px-2.5 py-1 text-[11px] font-medium text-[#92400e]"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-amber" />
                     {p}
@@ -75,7 +75,7 @@ export default function Features() {
             <SpotlightCard glow={TINT.violet.glow} className="flex flex-col p-7">
               <Bloom tint="violet" />
               <TileIcon icon={Sparkles} tint="violet" />
-              <h3 className="relative mt-5 text-lg font-semibold text-ink">Multi-source enrichment</h3>
+              <h3 className="relative mt-5 text-base font-semibold text-ink">Multi-source enrichment</h3>
               <p className="relative mt-2 text-sm leading-relaxed text-muted">
                 Verified emails, phones, and domains from Lusha, SalesQL, and ContactOut — one waterfall
                 pass.
@@ -131,7 +131,7 @@ export default function Features() {
               <div className="relative flex items-start gap-4">
                 <TileIcon icon={ShieldCheck} tint="safe" />
                 <div>
-                  <h3 className="text-lg font-semibold text-ink">Account-safe by design</h3>
+                  <h3 className="text-base font-semibold text-ink">Account-safe by design</h3>
                   <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">
                     Your real session, your IP, human-paced — no headless bots, no stored credentials.
                   </p>

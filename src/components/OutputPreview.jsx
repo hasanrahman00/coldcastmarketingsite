@@ -22,7 +22,7 @@ function SignalPills({ signals = [] }) {
           key={s.label}
           className={`inline-flex w-fit items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-medium ${
             s.tier === 'strong'
-              ? 'bg-amber/15 text-amber'
+              ? 'bg-amber/15 text-[#92400e]'
               : 'bg-black/5 text-muted'
           }`}
         >
@@ -54,7 +54,7 @@ export default function OutputPreview() {
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                 Example preview · sample data
               </span>
-              <span className="hidden text-[11px] text-muted/70 sm:inline">
+              <span className="hidden text-[11px] text-muted sm:inline">
                 <span className="text-amber">●</span> Strong signal &nbsp;·&nbsp;
                 <span className="text-muted/60">●</span> Supporting
               </span>

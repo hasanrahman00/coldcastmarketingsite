@@ -15,7 +15,7 @@ import { LOGIN_URL, RATING } from '../lib/constants'
 const REASSURANCE = ['No password sharing', 'Runs in your own browser', 'Cancel anytime']
 
 const ROTATING = [
-  { text: 'export at scale', color: 'text-brand-light' },
+  { text: 'export at scale', color: 'text-brand' },
   { text: 'waterfall-enrich', color: 'text-violet' },
   { text: 'spot buying intent', color: 'text-amber' },
   { text: 'personalize outreach', color: 'text-accent' },

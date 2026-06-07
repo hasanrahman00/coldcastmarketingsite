@@ -5,7 +5,7 @@ import { LOGIN_URL } from '../lib/constants'
 
 export default function FinalCTA() {
   return (
-    <section className="relative px-6 py-12 sm:px-8 sm:py-20">
+    <section className="relative px-6 py-16 sm:px-8 sm:py-24">
       <Reveal
         className="relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-white/15 px-6 py-16 text-center shadow-glow-violet sm:px-12 sm:py-24"
         style={{ backgroundImage: 'linear-gradient(135deg, #6d3df0 0%, #4f7cf5 55%, #d946ef 130%)' }}

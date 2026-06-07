@@ -31,7 +31,7 @@ export default function SectionHeading({
       )}
       <Reveal delay={0.05}>
         <h2
-          className={`max-w-3xl text-balance text-3xl font-extrabold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1] ${isCenter ? 'mx-auto' : ''}`}
+          className={`max-w-3xl text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1] ${isCenter ? 'mx-auto' : ''}`}
         >
           {title}
         </h2>

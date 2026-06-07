@@ -27,7 +27,7 @@ function StatusPill({ state }) {
   const map = {
     idle: { cls: 'text-muted/40', icon: <span className="h-1.5 w-1.5 rounded-full bg-muted/30" />, label: 'Queued' },
     checking: { cls: 'text-accent', icon: <Loader2 size={13} className="animate-spin" />, label: 'Checking…' },
-    miss: { cls: 'text-muted', icon: <X size={13} className="text-danger/70" />, label: 'No match' },
+    miss: { cls: 'text-muted', icon: <X size={13} className="text-danger" />, label: 'No match' },
     hit: { cls: 'text-safe', icon: <Check size={13} />, label: 'Match found' },
     verified: { cls: 'text-safe', icon: <Check size={13} />, label: 'Verified' },
     skip: { cls: 'text-muted/50', icon: <Minus size={13} />, label: 'Skipped' },
@@ -128,7 +128,7 @@ export default function WaterfallEnrichment() {
                       : 'border-hairline bg-black/[0.02] opacity-50'
                 }`}
               >
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-black/5 text-accent">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-gradient-soft text-accent">
                   <ShieldCheck size={16} />
                 </span>
                 <span className="text-sm font-medium text-ink">Email validation</span>
@@ -157,7 +157,7 @@ export default function WaterfallEnrichment() {
               )}
             </div>
 
-            <p className="relative mt-4 text-center text-[11px] text-muted/60">
+            <p className="relative mt-4 text-center text-[11px] text-muted">
               You’re only charged for the verified hit — never the misses.
             </p>
           </div>

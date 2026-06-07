@@ -80,7 +80,7 @@ export default function Safety() {
                       <Icon size={16} />
                     </span>
                     <span className="flex items-start gap-2 text-sm leading-relaxed text-muted">
-                      <X size={15} className="mt-0.5 shrink-0 text-danger/70" />
+                      <X size={15} className="mt-0.5 shrink-0 text-danger" />
                       {text}
                     </span>
                   </li>

@@ -46,7 +46,7 @@ export default function VolumeBand() {
               leads / account / day
             </p>
 
-            <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+            <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
               A scale other scrapers can’t touch.
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-muted">
@@ -54,10 +54,10 @@ export default function VolumeBand() {
               <span className="font-semibold text-ink">Per account. Per day. Not per month.</span>
             </p>
 
-            <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6">
+            <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
               {POINTS.map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="flex gap-3">
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-black/5 text-violet">
+                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft text-violet">
                     <Icon size={17} />
                   </span>
                   <div>
@@ -101,7 +101,7 @@ export default function VolumeBand() {
                 </div>
               ))}
             </div>
-            <p className="mt-7 text-[11px] leading-relaxed text-muted/60">
+            <p className="mt-7 text-[11px] leading-relaxed text-muted">
               Up to ~20,000 leads per account, per day — under normal account standing.
             </p>
           </div>

@@ -70,10 +70,7 @@ export default function Pricing() {
               >
                 {/* Gradient border for the featured card */}
                 {plan.featured && (
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 rounded-3xl p-px [background:linear-gradient(135deg,#4f7cf5,#a855f7,#d946ef)] [mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)] [mask-composite:exclude] [-webkit-mask-composite:xor]"
-                  />
+                  <span aria-hidden className="gradient-ring pointer-events-none absolute inset-0" />
                 )}
 
                 {plan.featured && (

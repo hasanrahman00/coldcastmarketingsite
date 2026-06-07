@@ -74,8 +74,8 @@ export default function CredibilityRow() {
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {TILES.map(({ icon: Icon, title, desc }, i) => (
             <Reveal key={title} delay={(i % 3) * 0.08}>
-              <div className="flex h-full items-start gap-4 rounded-2xl border border-hairline bg-white/85 p-5 shadow-card backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-hairline bg-black/5 text-accent">
+              <div className="flex h-full items-start gap-4 rounded-2xl border border-hairline bg-white/85 p-6 shadow-card backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-accent">
                   <Icon size={20} />
                 </span>
                 <div>
@@ -89,21 +89,21 @@ export default function CredibilityRow() {
 
         {/* Works-with-your-stack logo strip (real, recognizable tools — honest framing) */}
         <Reveal delay={0.1} className="mt-16 flex flex-col items-center gap-7">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted/70">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
             Your enriched leads drop straight into the tools you already use
           </span>
           <div className="flex flex-wrap items-center justify-center gap-x-9 gap-y-5">
             {STACK.map(({ icon: Icon, name }) => (
               <span
                 key={name}
-                className="flex items-center gap-2 text-muted/55 transition-colors duration-200 hover:text-ink"
+                className="flex items-center gap-2 text-muted transition-colors duration-200 hover:text-ink"
               >
                 <Icon className="h-6 w-6 shrink-0" aria-hidden />
                 <span className="text-sm font-medium">{name}</span>
               </span>
             ))}
           </div>
-          <span className="text-[11px] text-muted/50">
+          <span className="text-[11px] text-muted">
             Export as CSV or XLSX — works with anything that takes a spreadsheet.
           </span>
         </Reveal>
