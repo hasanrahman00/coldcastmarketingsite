@@ -4,14 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Surfaces — deep indigo "aurora night" base, elevation by tint
-        bg: '#080a1f',
-        bg2: '#0d1030',
-        panel: '#121633',
-        panel2: '#171c3e',
+        // Surfaces — light "soft gradient" theme
+        bg: '#f6f8ff',
+        bg2: '#eef1fc',
+        panel: '#ffffff',
+        panel2: '#f4f6fe',
         // Text
-        ink: '#eaf0fb',
-        muted: '#aeb9d6',
+        ink: '#0c1228',
+        muted: '#586079',
         // Brand blue — EXPORT / SCALE
         brand: {
           light: '#4f7cf5',
@@ -19,14 +19,14 @@ export default {
           dark: '#2546b8',
         },
         // Accents (color = meaning)
-        accent: '#22d3ee', // cyan — DATA / ACCURACY
+        accent: '#0891b2', // cyan-600 — DATA / ACCURACY (darkened for contrast on white)
         violet: '#a855f7', // ENRICHMENT / AI
         magenta: '#d946ef', // aurora / hero-text only
         amber: '#f59e0b', // INTENT SIGNAL (reserved)
         safe: '#34d399', // safety "account safe"
         danger: '#f43f5e', // safety contrast / comparison "others"
         // Hairline border
-        hairline: 'rgba(255,255,255,0.08)',
+        hairline: 'rgba(12,18,45,0.10)',
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
@@ -41,7 +41,7 @@ export default {
         'lit-edge': 'linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0))',
       },
       boxShadow: {
-        card: '0 18px 50px -20px rgba(0,0,0,0.7)',
+        card: '0 20px 50px -24px rgba(28,40,100,0.22)',
         glow: '0 0 80px -10px rgba(79,124,245,0.45)',
         'glow-violet': '0 8px 50px -12px rgba(168,85,247,0.45)',
         'glow-safe': '0 0 70px -14px rgba(52,211,153,0.45)',

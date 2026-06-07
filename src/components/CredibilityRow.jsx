@@ -75,7 +75,7 @@ export default function CredibilityRow() {
           {TILES.map(({ icon: Icon, title, desc }, i) => (
             <Reveal key={title} delay={(i % 3) * 0.08}>
               <div className="flex h-full items-start gap-4 rounded-2xl border border-hairline bg-panel/60 p-5 backdrop-blur-sm">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-hairline bg-white/5 text-accent">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-hairline bg-black/5 text-accent">
                   <Icon size={20} />
                 </span>
                 <div>

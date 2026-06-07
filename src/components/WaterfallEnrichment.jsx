@@ -105,7 +105,7 @@ export default function WaterfallEnrichment() {
                         ? 'border-safe/30 bg-safe/[0.06]'
                         : state === 'checking'
                           ? 'border-accent/30 bg-accent/[0.05]'
-                          : 'border-hairline bg-white/[0.02]'
+                          : 'border-hairline bg-black/[0.02]'
                     } ${dim ? 'opacity-50' : 'opacity-100'}`}
                   >
                     <BrandLogo domain={p.domain} name={p.name} size={28} />
@@ -125,10 +125,10 @@ export default function WaterfallEnrichment() {
                     ? 'border-safe/30 bg-safe/[0.06]'
                     : validate === 'checking'
                       ? 'border-accent/30 bg-accent/[0.05]'
-                      : 'border-hairline bg-white/[0.02] opacity-50'
+                      : 'border-hairline bg-black/[0.02] opacity-50'
                 }`}
               >
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/5 text-accent">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-black/5 text-accent">
                   <ShieldCheck size={16} />
                 </span>
                 <span className="text-sm font-medium text-ink">Email validation</span>

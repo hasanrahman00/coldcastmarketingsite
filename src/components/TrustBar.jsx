@@ -5,7 +5,7 @@ import { ENRICHMENT_SOURCES } from '../lib/constants'
 
 export default function TrustBar() {
   return (
-    <section className="border-y border-hairline bg-white/[0.015] py-10">
+    <section className="border-y border-hairline bg-black/[0.015] py-10">
       <div className="container-px">
         <Reveal className="flex flex-col items-center gap-6 text-center">
           <p className="flex items-center gap-2.5 text-sm font-medium text-ink sm:text-base">

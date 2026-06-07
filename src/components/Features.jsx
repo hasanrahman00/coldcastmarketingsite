@@ -5,7 +5,7 @@ import SpotlightCard from './SpotlightCard'
 
 function TileIcon({ icon: Icon, className }) {
   return (
-    <span className={`inline-flex h-11 w-11 items-center justify-center rounded-xl border border-hairline bg-white/5 ${className}`}>
+    <span className={`inline-flex h-11 w-11 items-center justify-center rounded-xl border border-hairline bg-black/5 ${className}`}>
       <Icon size={20} />
     </span>
   )
@@ -61,7 +61,7 @@ export default function Features() {
                 {SOURCES.map((s) => (
                   <div
                     key={s}
-                    className="flex items-center justify-between rounded-lg border border-hairline bg-white/[0.03] px-3 py-2 text-xs"
+                    className="flex items-center justify-between rounded-lg border border-hairline bg-black/[0.03] px-3 py-2 text-xs"
                   >
                     <span className="text-muted">{s}</span>
                     <span className="inline-flex items-center gap-1 text-violet">

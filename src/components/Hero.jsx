@@ -60,14 +60,14 @@ function RotatingWords() {
 function RatingChip() {
   // [PLACEHOLDER] only ship "#1" / rating once backed by real reviews.
   return (
-    <span className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-white/5 px-3.5 py-1.5 text-xs font-medium text-muted backdrop-blur">
+    <span className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-black/5 px-3.5 py-1.5 text-xs font-medium text-muted backdrop-blur">
       <span className="flex items-center gap-0.5" aria-hidden>
         {Array.from({ length: 5 }).map((_, i) => (
           <Star key={i} size={12} className="fill-amber text-amber" />
         ))}
       </span>
       <span className="font-semibold text-ink">{RATING.stars}</span>
-      <span className="h-3 w-px bg-white/15" />
+      <span className="h-3 w-px bg-black/15" />
       <span>{RATING.claim}</span>
     </span>
   )
@@ -90,8 +90,8 @@ export default function Hero() {
     return () => controls.stop()
   }, [color, reduce])
 
-  const animatedBg = useMotionTemplate`radial-gradient(130% 120% at 50% 0%, #070512 42%, ${color})`
-  const spotlight = useMotionTemplate`radial-gradient(600px circle at ${spotX}px ${spotY}px, rgba(168,85,247,0.10), transparent 70%)`
+  const animatedBg = useMotionTemplate`radial-gradient(130% 120% at 50% -10%, #f6f8ff 55%, ${color})`
+  const spotlight = useMotionTemplate`radial-gradient(600px circle at ${spotX}px ${spotY}px, rgba(168,85,247,0.12), transparent 70%)`
 
   const handleMove = (e) => {
     spotX.set(e.clientX)
@@ -107,7 +107,7 @@ export default function Hero() {
       {/* Animated aurora gradient */}
       <motion.div
         aria-hidden
-        className="absolute inset-0 -z-10 opacity-60"
+        className="absolute inset-0 -z-10 opacity-30"
         style={{ backgroundImage: animatedBg }}
       />
       {/* Cursor spotlight */}

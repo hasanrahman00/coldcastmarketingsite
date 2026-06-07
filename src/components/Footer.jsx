@@ -55,7 +55,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-hairline bg-white/5 text-muted transition-colors hover:bg-white/10 hover:text-ink"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-hairline bg-black/5 text-muted transition-colors hover:bg-black/10 hover:text-ink"
                 >
                   <Icon size={16} />
                 </a>
@@ -90,7 +90,7 @@ export default function Footer() {
             <a href={LOGIN_URL} className="text-muted transition-colors hover:text-ink">
               Log in
             </a>
-            <a href={APP_URL} className="font-medium text-accent transition-colors hover:text-white">
+            <a href={APP_URL} className="font-medium text-brand transition-colors hover:text-brand-dark">
               Get started
             </a>
           </div>

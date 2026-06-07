@@ -41,7 +41,7 @@ export default function StatsBand() {
               <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-accent">
                 <Icon size={18} />
               </span>
-              <div className="bg-gradient-to-b from-white to-muted bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl">
+              <div className="bg-gradient-to-br from-brand to-violet bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl">
                 {value}
               </div>
               <div className="mt-1 text-[0.7rem] font-semibold uppercase tracking-wider text-accent">

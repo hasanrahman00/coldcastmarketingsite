@@ -50,7 +50,7 @@ export default function HowItWorks() {
                   <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-hairline bg-panel2 text-accent shadow-card">
                     <Icon size={24} />
                   </span>
-                  <span className="text-5xl font-extrabold tracking-tight text-white/[0.07]">
+                  <span className="text-5xl font-extrabold tracking-tight text-black/[0.07]">
                     {i + 1}
                   </span>
                 </div>

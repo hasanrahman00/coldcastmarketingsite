@@ -127,10 +127,10 @@ export default function Safety() {
 
         {/* Track-record badge */}
         <Reveal delay={0.15} className="mt-10 flex justify-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-white/15 bg-brand-gradient-soft px-5 py-3 text-center text-sm font-semibold text-ink shadow-glow">
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-black/15 bg-brand-gradient-soft px-5 py-3 text-center text-sm font-semibold text-ink shadow-glow">
             <ShieldCheck size={18} className="text-safe" />
             6+ months of daily internal use
-            <span className="hidden h-4 w-px bg-white/20 sm:block" />
+            <span className="hidden h-4 w-px bg-black/20 sm:block" />
             <span className="text-safe">0 account bans</span>
             <span className="text-xs font-normal text-muted">(our track record — not a guarantee)</span>
           </div>

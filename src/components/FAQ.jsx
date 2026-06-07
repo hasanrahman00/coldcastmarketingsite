@@ -47,7 +47,7 @@ function FaqItem({ item, isOpen, onToggle, index }) {
   const panelId = `faq-panel-${index}`
   const buttonId = `faq-button-${index}`
   return (
-    <div className="overflow-hidden rounded-2xl border border-hairline bg-panel/50 backdrop-blur-sm transition-colors hover:border-white/15">
+    <div className="overflow-hidden rounded-2xl border border-hairline bg-panel/50 backdrop-blur-sm transition-colors hover:border-black/15">
       <h3>
         <button
           id={buttonId}

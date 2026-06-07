@@ -57,7 +57,7 @@ function Connector({ reduce }) {
   return (
     <div className="flex items-center justify-center self-stretch py-1.5 lg:w-12 lg:flex-none lg:py-0">
       {/* mobile: vertical */}
-      <div className="relative h-7 w-px overflow-hidden bg-gradient-to-b from-white/20 to-transparent lg:hidden">
+      <div className="relative h-7 w-px overflow-hidden bg-gradient-to-b from-black/20 to-transparent lg:hidden">
         {!reduce && (
           <motion.span
             className="absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-accent"
@@ -68,7 +68,7 @@ function Connector({ reduce }) {
         )}
       </div>
       {/* desktop: horizontal */}
-      <div className="relative hidden h-px w-full bg-gradient-to-r from-hairline via-white/20 to-hairline lg:block">
+      <div className="relative hidden h-px w-full bg-gradient-to-r from-hairline via-black/20 to-hairline lg:block">
         {!reduce &&
           [0, 1, 2].map((i) => (
             <motion.span
@@ -95,7 +95,7 @@ function StageCard({ stage, active }) {
     >
       <div className="flex items-center justify-between">
         <span className="flex items-center gap-2">
-          <span className={`flex h-8 w-8 items-center justify-center rounded-lg border border-hairline bg-white/5 ${tint.text}`}>
+          <span className={`flex h-8 w-8 items-center justify-center rounded-lg border border-hairline bg-black/5 ${tint.text}`}>
             <Icon size={16} />
           </span>
           <span className="text-sm font-semibold text-ink">{stage.title}</span>

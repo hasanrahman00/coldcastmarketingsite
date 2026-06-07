@@ -11,9 +11,9 @@ const VARIANTS = {
   primary:
     'bg-brand-gradient text-white shadow-brand-btn hover:-translate-y-0.5 hover:bg-brand-gradient-vivid hover:shadow-brand-btn-hover',
   ghost:
-    'border border-hairline bg-white/5 text-ink/90 backdrop-blur hover:bg-white/10 hover:text-white',
+    'border border-hairline bg-black/[0.04] text-ink/90 hover:bg-black/[0.07] hover:text-ink',
   light:
-    'bg-white text-[#070512] shadow-[0_10px_30px_-8px_rgba(0,0,0,0.45)] hover:-translate-y-0.5 hover:bg-white/95',
+    'bg-white text-[#0c1228] shadow-[0_10px_30px_-8px_rgba(20,30,80,0.35)] hover:-translate-y-0.5 hover:bg-white/90',
 }
 
 export default function Button({

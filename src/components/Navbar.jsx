@@ -75,7 +75,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-hairline bg-white/5 text-ink md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-hairline bg-black/5 text-ink md:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -101,7 +101,7 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-3 text-base font-medium text-ink/90 transition-colors hover:bg-white/5"
+                    className="block rounded-lg px-3 py-3 text-base font-medium text-ink/90 transition-colors hover:bg-black/5"
                   >
                     {link.label}
                   </a>

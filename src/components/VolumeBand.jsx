@@ -39,7 +39,7 @@ export default function VolumeBand() {
             <div className="mt-6 flex items-end gap-2">
               <Counter
                 to={20000}
-                className="bg-gradient-to-br from-white via-violet to-brand-light bg-clip-text font-display text-6xl font-bold leading-none tracking-tight text-transparent sm:text-7xl"
+                className="bg-gradient-to-br from-brand via-violet to-brand-light bg-clip-text font-display text-6xl font-bold leading-none tracking-tight text-transparent sm:text-7xl"
               />
             </div>
             <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-violet">
@@ -59,7 +59,7 @@ export default function VolumeBand() {
             <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               {POINTS.map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="flex gap-3">
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-white/5 text-violet">
+                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-black/5 text-violet">
                     <Icon size={17} />
                   </span>
                   <div>
@@ -87,7 +87,7 @@ export default function VolumeBand() {
                       {bar.value.toLocaleString('en-US')}
                     </span>
                   </div>
-                  <div className="h-3 w-full overflow-hidden rounded-full bg-white/5">
+                  <div className="h-3 w-full overflow-hidden rounded-full bg-black/5">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${bar.pct}%` }}
@@ -96,7 +96,7 @@ export default function VolumeBand() {
                       className={`h-full rounded-full ${
                         bar.strong
                           ? 'bg-gradient-to-r from-brand-light to-violet shadow-[0_0_24px_-4px_rgba(168,85,247,0.7)]'
-                          : 'bg-white/15'
+                          : 'bg-black/15'
                       }`}
                     />
                   </div>
