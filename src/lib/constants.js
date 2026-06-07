@@ -17,8 +17,13 @@ export const NAV_LINKS = [
   { href: '#faq', label: 'FAQ' },
 ]
 
-// Enrichment sources shown in the trust bar
-export const ENRICHMENT_SOURCES = ['Lusha', 'SalesQL', 'ContactOut', 'LinkedIn']
+// Enrichment sources shown in the trust bar (logo + domain for BrandLogo)
+export const ENRICHMENT_SOURCES = [
+  { name: 'Lusha', domain: 'lusha.com' },
+  { name: 'SalesQL', domain: 'salesql.com' },
+  { name: 'ContactOut', domain: 'contactout.com' },
+  { name: 'LinkedIn', domain: 'linkedin.com' },
+]
 
 // ─────────────────────────────────────────────────────────────
 // Social proof — [PLACEHOLDER] swap for real, substantiated values.
