@@ -16,9 +16,9 @@ const REASSURANCE = ['No password sharing', 'Runs in your own browser', 'Cancel 
 
 const ROTATING = [
   { text: 'export at scale', color: 'text-brand' },
-  { text: 'waterfall-enrich', color: 'text-violet' },
-  { text: 'spot buying intent', color: 'text-amber' },
-  { text: 'personalize outreach', color: 'text-accent' },
+  { text: 'enrich every lead', color: 'text-violet' },
+  { text: 'surface buying intent', color: 'text-amber' },
+  { text: 'validate every email', color: 'text-accent' },
   { text: 'stay account-safe', color: 'text-safe' },
 ]
 
@@ -137,13 +137,13 @@ export default function Hero() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="mt-7 text-balance text-[2.6rem] font-bold leading-[0.98] tracking-[-0.03em] text-ink sm:text-6xl lg:text-7xl"
+            className="mt-7 text-balance text-[2.1rem] font-bold leading-[1.05] tracking-[-0.025em] text-ink sm:text-5xl lg:text-6xl"
           >
-            <motion.span variants={child} className="inline-block">The</motion.span>{' '}
             <motion.span variants={child} className="text-gradient inline-block">
-              automated GTM stack
+              Export, enrich &amp; verify
             </motion.span>{' '}
-            <motion.span variants={child} className="inline-block">for cold outreach.</motion.span>
+            <motion.span variants={child} className="inline-block">Sales Navigator leads</motion.span>{' '}
+            <motion.span variants={child} className="inline-block">— 20,000 a day, ban-free.</motion.span>
           </motion.h1>
 
           <motion.p
@@ -152,8 +152,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-7 max-w-2xl text-pretty text-base leading-relaxed text-muted sm:text-lg"
           >
-            Scrape Sales Navigator, waterfall-enrich verified emails, and score every lead by buying
-            intent — then push it to your sequencer. Pipeline on autopilot, in your{' '}
+            Scrape your exact search, waterfall-enrich across Lusha, SalesQL &amp; ContactOut, validate
+            every email, and push send-ready rows to your CRM — all from your{' '}
             <span className="font-semibold text-ink">own browser</span>.
           </motion.p>
 
