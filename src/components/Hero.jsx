@@ -137,13 +137,10 @@ export default function Hero() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="mt-7 text-balance text-[2.1rem] font-bold leading-[1.05] tracking-[-0.025em] text-ink sm:text-5xl lg:text-6xl"
+            className="mt-7 text-balance text-[2.4rem] font-bold leading-[1.02] tracking-[-0.03em] text-ink sm:text-6xl lg:text-7xl"
           >
-            <motion.span variants={child} className="text-gradient inline-block">
-              Export, enrich &amp; verify
-            </motion.span>{' '}
-            <motion.span variants={child} className="inline-block">Sales Navigator leads</motion.span>{' '}
-            <motion.span variants={child} className="inline-block">— 20,000 a day, ban-free.</motion.span>
+            <motion.span variants={child} className="inline-block">The Sales Navigator scraper that</motion.span>{' '}
+            <motion.span variants={child} className="text-gradient inline-block">won’t get you banned.</motion.span>
           </motion.h1>
 
           <motion.p
@@ -152,9 +149,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-7 max-w-2xl text-pretty text-base leading-relaxed text-muted sm:text-lg"
           >
-            Scrape your exact search, waterfall-enrich across Lusha, SalesQL &amp; ContactOut, validate
-            every email, and push send-ready rows to your CRM — all from your{' '}
-            <span className="font-semibold text-ink">own browser</span>.
+            Export up to 20,000 leads a day — 10× what other scrapers risk — with verified emails, phones
+            &amp; buying signals on every row. It all runs in your{' '}
+            <span className="font-semibold text-ink">own browser</span> at human pace, so your account
+            never trips a flag.
           </motion.p>
 
           <motion.div
