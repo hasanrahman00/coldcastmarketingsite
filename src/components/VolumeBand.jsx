@@ -5,10 +5,10 @@ import Counter from './Counter'
 import { Eyebrow } from './SectionHeading'
 
 const POINTS = [
-  { icon: Gauge, title: 'Beyond the practical export limit', desc: 'Built to pull up to ~20,000 leads per account, per day — an order of magnitude past what typical Sales Nav scrapers deliver before they choke.' },
-  { icon: InfinityIcon, title: 'No throttling, no mystery caps', desc: 'No daily credits that slow to a crawl mid-export — a steady, human-paced flow from the first row to the last.' },
-  { icon: CalendarClock, title: 'A whole campaign in a day', desc: 'An entire territory or ICP captured, enriched, and de-duplicated in one sitting instead of rationed over a week.' },
-  { icon: Layers, title: 'Scales across accounts', desc: 'Per-account volume means a team of seats compounds into serious daily throughput.' },
+  { icon: Gauge, title: 'Past the ceiling', desc: '10× typical scraper caps.' },
+  { icon: InfinityIcon, title: 'No throttling', desc: 'Steady flow, start to finish.' },
+  { icon: CalendarClock, title: 'A campaign a day', desc: 'A full ICP in one sitting.' },
+  { icon: Layers, title: 'Scales with seats', desc: 'Volume compounds per account.' },
 ]
 
 // Comparison bars (categorical, not a named-competitor benchmark).
@@ -21,7 +21,7 @@ const BARS = [
 export default function VolumeBand() {
   return (
     <section className="relative px-6 py-16 sm:px-8 sm:py-24">
-      <Reveal className="relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-hairline bg-bg2/80 p-8 shadow-card backdrop-blur-md sm:p-12 lg:p-16">
+      <Reveal className="floating-panel relative mx-auto max-w-6xl overflow-hidden p-8 sm:p-12 lg:p-16">
         {/* violet→blue aurora bloom */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="absolute -left-20 -top-24 h-[420px] w-[420px] rounded-full bg-violet/25 blur-[120px]" />
@@ -47,16 +47,14 @@ export default function VolumeBand() {
             </p>
 
             <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Export at a scale other scrapers can’t touch.
+              A scale other scrapers can’t touch.
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
-              Sales Navigator quietly throttles exports, and most scrapers hit a wall at a few hundred
-              to a couple thousand rows before they stall or get blocked. Coldcast keeps going — so
-              your list size is decided by your strategy, not someone else’s cap.{' '}
+            <p className="mt-4 max-w-md text-base leading-relaxed text-muted">
+              Others stall at a few thousand rows. Coldcast keeps going.{' '}
               <span className="font-semibold text-ink">Per account. Per day. Not per month.</span>
             </p>
 
-            <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6">
               {POINTS.map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="flex gap-3">
                   <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-black/5 text-violet">

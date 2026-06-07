@@ -24,7 +24,7 @@ export default function SpotlightCard({
       <motion.div
         whileHover={{ y: -4 }}
         transition={{ type: 'spring', stiffness: 300, damping: 26 }}
-        className={`relative h-full overflow-hidden rounded-[1.2rem] bg-panel2/80 shadow-inner-top backdrop-blur-xl ${className}`}
+        className={`relative h-full overflow-hidden rounded-[1.2rem] bg-white/85 shadow-float backdrop-blur-xl ${className}`}
       >
         <motion.div
           aria-hidden

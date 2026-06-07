@@ -59,7 +59,7 @@ export default function Safety() {
         <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-2">
           {/* Them */}
           <Reveal>
-            <div className="relative h-full overflow-hidden rounded-3xl border border-danger/20 bg-panel/50 p-7 backdrop-blur-sm sm:p-8">
+            <div className="relative h-full overflow-hidden rounded-3xl border border-danger/20 bg-white/85 p-7 shadow-card backdrop-blur-sm sm:p-8">
               <div
                 aria-hidden
                 className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-danger/15 blur-[90px]"
@@ -91,7 +91,7 @@ export default function Safety() {
 
           {/* Coldcast */}
           <Reveal delay={0.1}>
-            <div className="relative h-full overflow-hidden rounded-3xl border border-safe/25 bg-panel/60 p-7 shadow-glow-safe backdrop-blur-sm sm:p-8">
+            <div className="relative h-full overflow-hidden rounded-3xl border border-safe/25 bg-white/85 p-7 shadow-card backdrop-blur-sm sm:p-8">
               <div
                 aria-hidden
                 className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-safe/20 blur-[90px]"

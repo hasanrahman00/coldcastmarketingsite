@@ -18,74 +18,26 @@ import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 
 const COMPANY_SIGNALS = [
-  {
-    icon: TrendingUp,
-    title: 'Headcount growth',
-    desc: 'Teams scaling fast are actively buying tooling — catch the growth spike while decisions are still open.',
-  },
-  {
-    icon: Banknote,
-    title: 'New funding round',
-    desc: 'Fresh capital resets budgets — reach out in the weeks after the announcement, before vendors lock in.',
-  },
-  {
-    icon: Briefcase,
-    title: 'Active hiring by role',
-    desc: 'The roles a company opens reveal its priorities — map the function being hired to your buyer.',
-  },
-  {
-    icon: UserPlus,
-    title: 'New executive hires',
-    desc: 'New leaders rebuild the stack early — land while they’re still choosing tools in their first quarter.',
-  },
-  {
-    icon: Layers,
-    title: 'Tech stack in use',
-    desc: 'What a company adopts or drops tells you when to run a displacement play or pitch the next tool.',
-  },
-  {
-    icon: Building2,
-    title: 'Company size & industry',
-    desc: 'Firmographics on every row, so you can segment by fit and stack signals for sharper targeting.',
-  },
+  { icon: TrendingUp, title: 'Headcount growth', desc: 'Scaling teams are buying.' },
+  { icon: Banknote, title: 'New funding', desc: 'Fresh budget, new vendors.' },
+  { icon: Briefcase, title: 'Active hiring', desc: 'Open roles reveal priorities.' },
+  { icon: UserPlus, title: 'New exec hires', desc: 'New leaders rebuild the stack.' },
+  { icon: Layers, title: 'Tech stack', desc: 'Spot displacement openings.' },
+  { icon: Building2, title: 'Size & industry', desc: 'Firmographics on every row.' },
 ]
 
 const PERSON_SIGNALS = [
-  {
-    icon: Repeat,
-    title: 'Changed jobs recently',
-    desc: 'A new role means no incumbent vendor and a fresh stack to build — the strongest person-level trigger.',
-  },
-  {
-    icon: ArrowUpCircle,
-    title: 'Promotion / expanded scope',
-    desc: 'A bigger title shifts budget and priorities — engage on their new mandate once they’ve settled in.',
-  },
-  {
-    icon: Clock,
-    title: 'New in current role',
-    desc: 'New managers buy fast to prove early impact — anchor your pitch to their first-90-day goals.',
-  },
-  {
-    icon: Activity,
-    title: 'Recently active on LinkedIn',
-    desc: 'People posting or engaging in the last 30 days reply at far higher rates — prioritize the reachable.',
-  },
-  {
-    icon: BadgeCheck,
-    title: 'Seniority & decision-maker fit',
-    desc: 'Confirm the person can actually buy before you layer behavioral signals — the targeting baseline.',
-  },
-  {
-    icon: MailCheck,
-    title: 'Verified, reachable contact',
-    desc: 'A valid email or phone is itself a signal of actionability — enriched and verified, not guessed.',
-  },
+  { icon: Repeat, title: 'Changed jobs', desc: 'No incumbent vendor yet.' },
+  { icon: ArrowUpCircle, title: 'Promotion', desc: 'New budget, new mandate.' },
+  { icon: Clock, title: 'New in role', desc: 'Buys fast to prove impact.' },
+  { icon: Activity, title: 'Recently active', desc: 'Far higher reply rates.' },
+  { icon: BadgeCheck, title: 'Decision-maker fit', desc: 'Confirm they can buy.' },
+  { icon: MailCheck, title: 'Verified contact', desc: 'Real email or phone — not guessed.' },
 ]
 
 function SignalGroup({ label, accentIcon: AccentIcon, signals }) {
   return (
-    <div className="relative h-full overflow-hidden rounded-3xl border border-hairline bg-panel/60 p-6 backdrop-blur-sm sm:p-8">
+    <div className="floating-panel relative h-full overflow-hidden p-6 sm:p-8">
       <div className="flex items-center gap-3">
         <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-accent">
           <AccentIcon size={20} />

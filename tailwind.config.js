@@ -19,12 +19,12 @@ export default {
           dark: '#2546b8',
         },
         // Accents (color = meaning)
-        accent: '#0891b2', // cyan-600 — DATA / ACCURACY (darkened for contrast on white)
-        violet: '#a855f7', // ENRICHMENT / AI
+        accent: '#0891b2', // cyan-600 — DATA / ACCURACY (readable on white)
+        violet: '#7c3aed', // violet-600 — ENRICHMENT / AI (readable on white)
         magenta: '#d946ef', // aurora / hero-text only
-        amber: '#f59e0b', // INTENT SIGNAL (reserved)
-        safe: '#34d399', // safety "account safe"
-        danger: '#f43f5e', // safety contrast / comparison "others"
+        amber: '#b45309', // amber-700 — INTENT SIGNAL (readable on white)
+        safe: '#059669', // emerald-600 — safety (readable on white)
+        danger: '#e11d48', // rose-600 — contrast / "others" (readable on white)
         // Hairline border
         hairline: 'rgba(12,18,45,0.10)',
       },
@@ -41,7 +41,8 @@ export default {
         'lit-edge': 'linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0))',
       },
       boxShadow: {
-        card: '0 20px 50px -24px rgba(28,40,100,0.22)',
+        card: '0 1px 2px rgba(20,30,80,0.06), 0 14px 30px -12px rgba(20,30,80,0.16), 0 40px 80px -40px rgba(28,40,110,0.22)',
+        float: '0 2px 4px -2px rgba(20,30,80,0.08), 0 18px 40px -14px rgba(20,30,80,0.18), 0 50px 90px -45px rgba(28,40,110,0.26)',
         glow: '0 0 80px -10px rgba(79,124,245,0.45)',
         'glow-violet': '0 8px 50px -12px rgba(168,85,247,0.45)',
         'glow-safe': '0 0 70px -14px rgba(52,211,153,0.45)',

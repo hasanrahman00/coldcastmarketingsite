@@ -33,9 +33,9 @@ const STATS = [
 
 export default function StatsBand() {
   return (
-    <section className="relative border-b border-hairline py-16 sm:py-20">
+    <section className="relative py-12 sm:py-16">
       <div className="container-px">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+        <div className="floating-panel grid grid-cols-2 gap-x-6 gap-y-10 px-6 py-10 sm:px-10 lg:grid-cols-4">
           {STATS.map(({ icon: Icon, value, label, tag }, i) => (
             <Reveal key={label} delay={(i % 4) * 0.08} className="flex flex-col items-center text-center">
               <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-accent">

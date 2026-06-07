@@ -62,10 +62,10 @@ export default function Pricing() {
           {PLANS.map((plan, i) => (
             <Reveal key={plan.name} delay={i * 0.08} className="h-full">
               <div
-                className={`relative flex h-full flex-col rounded-3xl p-7 ${
+                className={`relative flex h-full flex-col rounded-3xl p-7 transition-transform duration-200 hover:-translate-y-1 ${
                   plan.featured
-                    ? 'bg-gradient-to-b from-violet/[0.14] to-transparent shadow-glow-violet'
-                    : 'border border-hairline bg-panel/60 backdrop-blur-sm'
+                    ? 'bg-white/90 shadow-float backdrop-blur-sm'
+                    : 'border border-hairline bg-white/85 shadow-card backdrop-blur-sm'
                 }`}
               >
                 {/* Gradient border for the featured card */}
