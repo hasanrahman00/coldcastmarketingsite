@@ -33,6 +33,14 @@ export default function App() {
 
       <BackgroundFX />
       <Grain />
+
+      {/* Rounded "framed website" — a thin dark gutter + hairline bezel that
+          rounds all 4 corners of the viewport. Drawn above content, click-through. */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 z-[70] rounded-[1.35rem] border-[7px] border-black shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.14)] sm:rounded-[2rem] sm:border-[11px]"
+      />
+
       <Navbar />
 
       <main id="main">

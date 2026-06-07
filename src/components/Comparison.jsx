@@ -43,8 +43,9 @@ const ROWS = [
 
 export default function Comparison() {
   return (
-    <section className="relative border-y border-hairline bg-bg2/60 py-24 sm:py-32">
+    <section className="relative py-20 sm:py-28">
       <div className="container-px">
+        <div className="relative overflow-hidden rounded-[2rem] border border-hairline bg-bg2/70 px-6 py-12 shadow-card backdrop-blur-md sm:px-10 sm:py-16">
         <SectionHeading
           eyebrow="The difference"
           title="Coldcast vs. other Sales Navigator scrapers."
@@ -107,6 +108,7 @@ export default function Comparison() {
           Competitor capabilities are a category generalization and vary by vendor — not a benchmark
           of any single named tool. [PLACEHOLDER — substantiate before publishing.]
         </p>
+        </div>
       </div>
     </section>
   )

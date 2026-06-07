@@ -65,12 +65,22 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-24px)' },
         },
+        drift: {
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '50%': { transform: 'translate(40px, -28px) scale(1.12)' },
+        },
+        'drift-alt': {
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '50%': { transform: 'translate(-34px, 30px) scale(1.1)' },
+        },
       },
       animation: {
         shine: 'shine 6s linear infinite',
         marquee: 'marquee 32s linear infinite',
         float: 'float 7s ease-in-out infinite',
         'float-slow': 'float-slow 11s ease-in-out infinite',
+        drift: 'drift 20s ease-in-out infinite',
+        'drift-alt': 'drift-alt 26s ease-in-out infinite',
       },
     },
   },
