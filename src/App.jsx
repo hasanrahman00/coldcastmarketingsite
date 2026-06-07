@@ -44,21 +44,6 @@ export default function App() {
 
       <main id="main">
         <Hero />
-
-        {/* Curved divider after the hero — flush, fades out at the bottom so it
-            blends into the page with no hard seam. */}
-        <div aria-hidden className="relative block w-full overflow-hidden leading-[0]">
-          <svg viewBox="0 0 1440 90" preserveAspectRatio="none" className="block h-10 w-full sm:h-16">
-            <defs>
-              <linearGradient id="curveGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="#7c3aed" stopOpacity="0.16" />
-                <stop offset="1" stopColor="#7c3aed" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path d="M0,30 C 400,82 1040,6 1440,50 L1440,90 L0,90 Z" fill="url(#curveGrad)" />
-          </svg>
-        </div>
-
         <GtmPipeline />
         <TrustBar />
         {/* The two differentiators, back to back */}

@@ -216,6 +216,16 @@ export default function Hero() {
           <DashboardMock />
         </motion.div>
       </div>
+
+      {/* Curved bottom edge of the hero */}
+      <svg
+        aria-hidden
+        viewBox="0 0 1440 90"
+        preserveAspectRatio="none"
+        className="absolute inset-x-0 bottom-[-1px] z-[1] h-10 w-full sm:h-16"
+      >
+        <path d="M0,90 L0,40 C 420,92 1020,8 1440,46 L1440,90 Z" fill="#f6f8ff" />
+      </svg>
     </section>
   )
 }
