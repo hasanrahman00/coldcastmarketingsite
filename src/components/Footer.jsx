@@ -1,6 +1,6 @@
 import { Twitter, Linkedin, Github } from 'lucide-react'
 import Wordmark from './Wordmark'
-import { APP_URL, LOGIN_URL } from '../lib/constants'
+import { LOGIN_URL } from '../lib/constants'
 
 const COLUMNS = [
   {
@@ -87,11 +87,8 @@ export default function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-7 sm:flex-row">
           <p className="text-sm text-muted">© 2026 Coldcast · coldcast.io</p>
           <div className="flex items-center gap-5 text-sm">
-            <a href={LOGIN_URL} className="text-muted transition-colors hover:text-ink">
+            <a href={LOGIN_URL} className="font-medium text-brand transition-colors hover:text-brand-dark">
               Log in
-            </a>
-            <a href={APP_URL} className="font-medium text-brand transition-colors hover:text-brand-dark">
-              Get started
             </a>
           </div>
         </div>

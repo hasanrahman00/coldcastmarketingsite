@@ -2,7 +2,7 @@ import { Check } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import Button from './Button'
-import { APP_URL } from '../lib/constants'
+import { LOGIN_URL } from '../lib/constants'
 
 const PLANS = [
   {
@@ -15,7 +15,7 @@ const PLANS = [
       'Account-safe exporting',
       'Email support',
     ],
-    cta: 'Get started',
+    cta: 'Log in',
     featured: false,
   },
   {
@@ -29,7 +29,7 @@ const PLANS = [
       'CSV & XLSX export',
       'Priority support',
     ],
-    cta: 'Start with Pro',
+    cta: 'Log in',
     featured: true,
   },
   {
@@ -43,7 +43,7 @@ const PLANS = [
       'Usage analytics',
       'Dedicated support',
     ],
-    cta: 'Talk to us',
+    cta: 'Log in',
     featured: false,
   },
 ]
@@ -98,7 +98,7 @@ export default function Pricing() {
 
                   <Button
                     as="a"
-                    href={APP_URL}
+                    href={LOGIN_URL}
                     variant={plan.featured ? 'primary' : 'ghost'}
                     size="lg"
                     className="mt-6 w-full"
