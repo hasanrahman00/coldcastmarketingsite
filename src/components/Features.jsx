@@ -3,11 +3,32 @@ import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import SpotlightCard from './SpotlightCard'
 
-function TileIcon({ icon: Icon, className }) {
+const TINT = {
+  amber: { grad: 'from-[#fbbf24] to-[#f59e0b]', glow: 'rgba(245,158,11,0.22)' },
+  violet: { grad: 'from-[#a855f7] to-[#7c3aed]', glow: 'rgba(124,58,237,0.22)' },
+  brand: { grad: 'from-[#60a5fa] to-[#3257d6]', glow: 'rgba(79,124,245,0.22)' },
+  cyan: { grad: 'from-[#22d3ee] to-[#0891b2]', glow: 'rgba(8,145,178,0.22)' },
+  safe: { grad: 'from-[#34d399] to-[#059669]', glow: 'rgba(5,150,105,0.22)' },
+}
+
+function TileIcon({ icon: Icon, tint }) {
   return (
-    <span className={`inline-flex h-11 w-11 items-center justify-center rounded-xl border border-hairline bg-black/5 ${className}`}>
-      <Icon size={20} />
+    <span
+      className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${TINT[tint].grad} text-white`}
+      style={{ boxShadow: `0 10px 24px -8px ${TINT[tint].glow}` }}
+    >
+      <Icon size={22} />
     </span>
+  )
+}
+
+function Bloom({ tint }) {
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full blur-2xl"
+      style={{ background: TINT[tint].glow }}
+    />
   )
 }
 
@@ -21,20 +42,21 @@ export default function Features() {
         <SectionHeading
           eyebrow="Features"
           title="Everything you need to build a clean, signal-rich list."
-          subtitle="From the search you’re already running to a CRM-ready spreadsheet scored by buying intent — every step handled, nothing risky."
+          subtitle="From the search you’re already running to a CRM-ready spreadsheet scored by buying intent."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:auto-rows-[minmax(196px,1fr)] lg:grid-flow-dense lg:grid-cols-3">
           {/* Intent — wide */}
           <Reveal className="lg:col-span-2" as="div">
-            <SpotlightCard glow="rgba(245,158,11,0.16)" className="flex flex-col p-7">
-              <TileIcon icon={Radar} className="text-amber" />
-              <h3 className="mt-5 text-lg font-semibold text-ink">Buying-intent signals</h3>
-              <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">
-                Person and company signals — job changes, new-in-role, headcount growth, hiring, and
-                funding — captured live from your session at export time.
+            <SpotlightCard glow={TINT.amber.glow} className="flex flex-col p-7">
+              <Bloom tint="amber" />
+              <TileIcon icon={Radar} tint="amber" />
+              <h3 className="relative mt-5 text-lg font-semibold text-ink">Buying-intent signals</h3>
+              <p className="relative mt-2 max-w-md text-sm leading-relaxed text-muted">
+                Person + company signals — job changes, new-in-role, growth, hiring, funding — captured
+                live at export.
               </p>
-              <div className="mt-auto flex flex-wrap gap-2 pt-5">
+              <div className="relative mt-auto flex flex-wrap gap-2 pt-5">
                 {INTENT_PILLS.map((p) => (
                   <span
                     key={p}
@@ -50,18 +72,19 @@ export default function Features() {
 
           {/* Enrichment — tall */}
           <Reveal className="lg:row-span-2" as="div">
-            <SpotlightCard glow="rgba(168,85,247,0.18)" className="flex flex-col p-7">
-              <TileIcon icon={Sparkles} className="text-violet" />
-              <h3 className="mt-5 text-lg font-semibold text-ink">Multi-source enrichment</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                Verified emails, phones, and domains from your own Lusha, SalesQL, and ContactOut
-                accounts — combined in one waterfall pass.
+            <SpotlightCard glow={TINT.violet.glow} className="flex flex-col p-7">
+              <Bloom tint="violet" />
+              <TileIcon icon={Sparkles} tint="violet" />
+              <h3 className="relative mt-5 text-lg font-semibold text-ink">Multi-source enrichment</h3>
+              <p className="relative mt-2 text-sm leading-relaxed text-muted">
+                Verified emails, phones, and domains from Lusha, SalesQL, and ContactOut — one waterfall
+                pass.
               </p>
-              <div className="mt-auto flex flex-col gap-2 pt-6">
+              <div className="relative mt-auto flex flex-col gap-2 pt-6">
                 {SOURCES.map((s) => (
                   <div
                     key={s}
-                    className="flex items-center justify-between rounded-lg border border-hairline bg-black/[0.03] px-3 py-2 text-xs"
+                    className="flex items-center justify-between rounded-lg border border-hairline bg-black/[0.02] px-3 py-2 text-xs"
                   >
                     <span className="text-muted">{s}</span>
                     <span className="inline-flex items-center gap-1 text-violet">
@@ -79,38 +102,38 @@ export default function Features() {
 
           {/* One-click export */}
           <Reveal as="div">
-            <SpotlightCard glow="rgba(79,124,245,0.16)" className="flex flex-col p-6">
-              <TileIcon icon={MousePointerClick} className="text-brand-light" />
-              <h3 className="mt-5 text-base font-semibold text-ink">One-click export</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                Capture the exact Sales Navigator search you’re viewing — no copy-paste, no
-                page-by-page.
+            <SpotlightCard glow={TINT.brand.glow} className="flex flex-col p-6">
+              <Bloom tint="brand" />
+              <TileIcon icon={MousePointerClick} tint="brand" />
+              <h3 className="relative mt-5 text-base font-semibold text-ink">One-click export</h3>
+              <p className="relative mt-2 text-sm leading-relaxed text-muted">
+                Capture the exact Sales Navigator search you’re viewing — no copy-paste.
               </p>
             </SpotlightCard>
           </Reveal>
 
           {/* Verified emails */}
           <Reveal as="div">
-            <SpotlightCard glow="rgba(34,211,238,0.16)" className="flex flex-col p-6">
-              <TileIcon icon={MailCheck} className="text-accent" />
-              <h3 className="mt-5 text-base font-semibold text-ink">Verified emails &amp; domains</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                Business-only, de-duplicated, and validated before they ever land in your file.
+            <SpotlightCard glow={TINT.cyan.glow} className="flex flex-col p-6">
+              <Bloom tint="cyan" />
+              <TileIcon icon={MailCheck} tint="cyan" />
+              <h3 className="relative mt-5 text-base font-semibold text-ink">Verified emails &amp; domains</h3>
+              <p className="relative mt-2 text-sm leading-relaxed text-muted">
+                Business-only, de-duplicated, validated before they land in your file.
               </p>
             </SpotlightCard>
           </Reveal>
 
           {/* Account-safe — wide */}
           <Reveal className="lg:col-span-2" as="div">
-            <SpotlightCard glow="rgba(52,211,153,0.16)" className="flex h-full flex-col justify-center p-7">
-              <div className="flex items-start gap-4">
-                <TileIcon icon={ShieldCheck} className="text-safe" />
+            <SpotlightCard glow={TINT.safe.glow} className="flex h-full flex-col justify-center p-7">
+              <Bloom tint="safe" />
+              <div className="relative flex items-start gap-4">
+                <TileIcon icon={ShieldCheck} tint="safe" />
                 <div>
                   <h3 className="text-lg font-semibold text-ink">Account-safe by design</h3>
                   <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">
-                    Your real session, your IP, human-paced — no headless bots and no stored
-                    credentials. The fingerprints that get LinkedIn accounts flagged simply never
-                    happen.
+                    Your real session, your IP, human-paced — no headless bots, no stored credentials.
                   </p>
                 </div>
               </div>
@@ -119,11 +142,12 @@ export default function Features() {
 
           {/* Company intelligence */}
           <Reveal as="div">
-            <SpotlightCard glow="rgba(79,124,245,0.16)" className="flex flex-col p-6">
-              <TileIcon icon={Building2} className="text-brand-light" />
-              <h3 className="mt-5 text-base font-semibold text-ink">Company intelligence</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                Website, size, industry, growth, and location attached to every lead.
+            <SpotlightCard glow={TINT.brand.glow} className="flex flex-col p-6">
+              <Bloom tint="brand" />
+              <TileIcon icon={Building2} tint="brand" />
+              <h3 className="relative mt-5 text-base font-semibold text-ink">Company intelligence</h3>
+              <p className="relative mt-2 text-sm leading-relaxed text-muted">
+                Website, size, industry, growth, and location on every lead.
               </p>
             </SpotlightCard>
           </Reveal>
