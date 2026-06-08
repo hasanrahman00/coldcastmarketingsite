@@ -2,48 +2,58 @@ import { Check } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import Button from './Button'
-import { LOGIN_URL } from '../lib/constants'
+import { LOGIN_URL, SALES_URL } from '../lib/constants'
 
+// Each feature is { label, tag? } — tag is the small badge on the right
+// (e.g. usage-based rates or "included").
 const PLANS = [
   {
-    name: 'Starter',
-    blurb: 'For solo reps getting their first clean lists out the door.',
+    name: 'Free',
+    blurb: 'Kick the tyres — connect your accounts and pull real, enriched leads.',
+    price: 'Free',
+    note: '1-day trial · no card required',
     features: [
-      '500 enriched leads / month',
-      '1 enrichment source',
-      'CSV & XLSX export',
-      'Account-safe exporting',
-      'Email support',
+      { label: 'Connect unlimited accounts' },
+      { label: 'Unlimited scraping' },
+      { label: '1,000 email enrichments', tag: 'included' },
+      { label: '100 catch-all cleans', tag: 'included' },
+      { label: 'Single job at a time' },
     ],
-    cta: 'Log in',
+    cta: 'Start free trial',
+    href: LOGIN_URL,
     featured: false,
   },
   {
-    name: 'Pro',
-    blurb: 'For full-time prospectors who live in Sales Navigator.',
+    name: 'Elite',
+    blurb: 'For full-time prospectors who scrape and enrich every single day.',
+    price: '$49',
+    period: '/mo',
+    note: '+ usage-based enrichment',
     features: [
-      '5,000 enriched leads / month',
-      'All enrichment sources',
-      'Priority enrichment queue',
-      'De-duplication across lists',
-      'CSV & XLSX export',
-      'Priority support',
+      { label: 'Connect unlimited accounts' },
+      { label: 'Unlimited scraping' },
+      { label: 'Email enrichment', tag: '$3 / 1,000' },
+      { label: 'Catch-all cleaner', tag: '$15 / 10,000' },
+      { label: 'Single job at a time' },
     ],
-    cta: 'Log in',
+    cta: 'Choose Elite',
+    href: LOGIN_URL,
     featured: true,
   },
   {
-    name: 'Team',
-    blurb: 'For sales teams that need shared lists and seats.',
+    name: 'Custom',
+    blurb: 'For teams that need unlimited volume, enrichment, and concurrency.',
+    price: 'Let’s talk',
+    note: 'Custom volume & pricing',
     features: [
-      '20,000 enriched leads / month',
-      'All enrichment sources',
-      '5 team seats included',
-      'Shared workspace & lists',
-      'Usage analytics',
-      'Dedicated support',
+      { label: 'Everything in Elite' },
+      { label: 'Email enrichment', tag: 'unlimited' },
+      { label: 'Catch-all cleaner', tag: 'unlimited' },
+      { label: 'Concurrent jobs', tag: 'unlimited' },
+      { label: 'Priority support' },
     ],
-    cta: 'Log in',
+    cta: 'Talk to sales',
+    href: SALES_URL,
     featured: false,
   },
 ]
@@ -54,8 +64,8 @@ export default function Pricing() {
       <div className="container-px">
         <SectionHeading
           eyebrow="Pricing"
-          title="Simple pricing."
-          subtitle="Pick a plan that matches how many leads you pull. Upgrade, downgrade, or cancel anytime."
+          title="Start free. Scale when you need to."
+          subtitle="Connect unlimited accounts and scrape unlimited data on every plan — you only pay to enrich and verify the contacts you actually want."
         />
 
         <div className="mt-14 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
@@ -79,23 +89,25 @@ export default function Pricing() {
                   </span>
                 )}
 
-                <div className="relative">
+                <div className="relative flex h-full flex-col">
                   <h3 className="text-lg font-semibold text-ink">{plan.name}</h3>
                   <p className="mt-2 min-h-[40px] text-sm leading-relaxed text-muted">{plan.blurb}</p>
 
                   <div className="mt-6 flex flex-wrap items-end gap-x-1.5">
-                    {/* [PLACEHOLDER_PRICE] — swap for a real price (e.g. "$49"). Sized so the long
-                        placeholder token fits on one line in the narrow card; with a short real
-                        price you can comfortably bump this to text-4xl. */}
-                    <span className="text-xl font-extrabold leading-none tracking-tight text-ink">
-                      [PLACEHOLDER_PRICE]
+                    <span
+                      className={`font-display font-bold leading-none tracking-tight text-ink ${
+                        plan.period ? 'text-5xl' : 'text-4xl'
+                      }`}
+                    >
+                      {plan.price}
                     </span>
-                    <span className="pb-0.5 text-sm text-muted">/mo</span>
+                    {plan.period && <span className="pb-1 text-sm text-muted">{plan.period}</span>}
                   </div>
+                  <p className="mt-2 text-xs font-medium text-muted">{plan.note}</p>
 
                   <Button
                     as="a"
-                    href={LOGIN_URL}
+                    href={plan.href}
                     variant={plan.featured ? 'primary' : 'ghost'}
                     size="lg"
                     className="mt-6 w-full"
@@ -105,11 +117,16 @@ export default function Pricing() {
 
                   <ul className="mt-7 flex flex-col gap-3">
                     {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm text-muted">
+                      <li key={feature.label} className="flex items-start gap-3 text-sm">
                         <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15">
                           <Check size={13} className="text-accent" />
                         </span>
-                        <span className="text-ink/90">{feature}</span>
+                        <span className="flex-1 text-ink/90">{feature.label}</span>
+                        {feature.tag && (
+                          <span className="shrink-0 rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent">
+                            {feature.tag}
+                          </span>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -120,7 +137,7 @@ export default function Pricing() {
         </div>
 
         <p className="mt-8 text-center text-sm text-muted">
-          All plans include account-safe exporting and CSV / XLSX downloads.
+          Every plan runs account-safe in your own browser and exports clean CSV / XLSX. Cancel anytime.
         </p>
       </div>
     </section>

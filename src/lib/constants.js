@@ -6,6 +6,8 @@
 export const APP_URL = 'https://app.coldcast.io'
 // Log-in derives from the same app origin
 export const LOGIN_URL = `${APP_URL}/login`
+// [PLACEHOLDER] sales / contact address for the Custom plan + footer "Contact"
+export const SALES_URL = 'mailto:hello@coldcast.io'
 
 // Top-nav anchor links (smooth-scroll to in-page sections)
 export const NAV_LINKS = [
