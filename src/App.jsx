@@ -7,6 +7,7 @@ import TrustBar from './components/TrustBar'
 import VolumeBand from './components/VolumeBand'
 import Safety from './components/Safety'
 import StatsBand from './components/StatsBand'
+import SpeedAccuracy from './components/SpeedAccuracy'
 import Features from './components/Features'
 import IntentSignals from './components/IntentSignals'
 import WaterfallEnrichment from './components/WaterfallEnrichment'
@@ -50,6 +51,7 @@ export default function App() {
         <VolumeBand />
         <Safety />
         <StatsBand />
+        <SpeedAccuracy />
         <Features />
         <IntentSignals />
         <WaterfallEnrichment />
