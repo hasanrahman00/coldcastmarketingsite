@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
 import Button from './Button'
-import { LOGIN_URL } from '../lib/constants'
+import { TRIAL_URL } from '../lib/constants'
 
 export default function FinalCTA() {
   return (
@@ -26,8 +26,8 @@ export default function FinalCTA() {
             LinkedIn account at risk.
           </p>
           <div className="mt-9 flex justify-center">
-            <Button as="a" href={LOGIN_URL} variant="light" size="lg">
-              Log in
+            <Button as="a" href={TRIAL_URL} variant="light" size="lg">
+              Start free trial
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
             </Button>
           </div>

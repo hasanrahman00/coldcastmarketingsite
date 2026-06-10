@@ -10,7 +10,7 @@ import {
 import { ArrowRight, PlayCircle, Star, ShieldCheck } from 'lucide-react'
 import Button from './Button'
 import DashboardMock from './DashboardMock'
-import { LOGIN_URL, RATING } from '../lib/constants'
+import { TRIAL_URL, RATING } from '../lib/constants'
 
 const REASSURANCE = ['No password sharing', 'Runs in your own browser', 'Cancel anytime']
 
@@ -171,8 +171,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.65 }}
             className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
           >
-            <Button as="a" href={LOGIN_URL} variant="primary" size="lg" className="w-full sm:w-auto">
-              Log in
+            <Button as="a" href={TRIAL_URL} variant="primary" size="lg" className="w-full sm:w-auto">
+              Start free trial
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
             </Button>
             <Button as="a" href="#how" variant="ghost" size="lg" className="w-full sm:w-auto">

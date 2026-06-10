@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Logo from './Logo'
 import Button from './Button'
-import { LOGIN_URL, TRIAL_URL, NAV_LINKS } from '../lib/constants'
+import { TRIAL_URL, DEMO_URL, NAV_LINKS } from '../lib/constants'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -65,12 +65,12 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop actions */}
-        <div className="hidden items-center gap-3 lg:flex">
-          <Button as="a" href={LOGIN_URL} variant="ghost" size="sm">
-            Log in
+        <div className="hidden items-center gap-2.5 lg:flex">
+          <Button as="a" href={DEMO_URL} variant="ghost" size="sm">
+            Book a demo
           </Button>
           <Button as="a" href={TRIAL_URL} variant="primary" size="sm">
-            Start free trial
+            Free trial
           </Button>
         </div>
 
@@ -112,10 +112,10 @@ export default function Navbar() {
               ))}
               <li className="mt-3 flex flex-col gap-3 border-t border-hairline pt-4">
                 <Button as="a" href={TRIAL_URL} variant="primary" size="lg" onClick={() => setOpen(false)}>
-                  Start free trial
+                  Free trial
                 </Button>
-                <Button as="a" href={LOGIN_URL} variant="ghost" size="lg" onClick={() => setOpen(false)}>
-                  Log in
+                <Button as="a" href={DEMO_URL} variant="ghost" size="lg" onClick={() => setOpen(false)}>
+                  Book a demo
                 </Button>
               </li>
             </ul>

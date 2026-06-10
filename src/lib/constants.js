@@ -4,10 +4,11 @@
 
 // [APP_URL] — where every "Get started" / sign-up button points
 export const APP_URL = 'https://app.coldcast.io'
-// Log-in derives from the same app origin
-export const LOGIN_URL = `${APP_URL}/login`
 // Self-serve free-trial page — lives on the dashboard app (app.coldcast.io/#trial).
+// This is where every primary "Free trial" CTA points.
 export const TRIAL_URL = `${APP_URL}/#trial`
+// [PLACEHOLDER] demo-booking link (Calendly / Cal.com) for the "Book a demo" CTA
+export const DEMO_URL = 'https://calendly.com/coldcast/demo'
 // [PLACEHOLDER] sales / contact address for the Custom plan + footer "Contact"
 export const SALES_URL = 'mailto:hello@coldcast.io'
 

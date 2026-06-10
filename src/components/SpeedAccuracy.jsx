@@ -4,7 +4,7 @@ import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import Button from './Button'
 import Logo from './Logo'
-import { LOGIN_URL } from '../lib/constants'
+import { TRIAL_URL } from '../lib/constants'
 
 // [PLACEHOLDER] The speed / match-rate / price figures below are competitive
 // illustrations framed against typical cloud scrapers. Confirm them against your
@@ -85,7 +85,7 @@ export default function SpeedAccuracy() {
                 <div />
                 <div />
                 <div className="rounded-b-[1.4rem] border-x-2 border-b-2 border-brand/30 bg-white px-5 pb-6 pt-5 text-center">
-                  <Button as="a" href={LOGIN_URL} variant="primary" size="md" className="w-full">
+                  <Button as="a" href={TRIAL_URL} variant="primary" size="md" className="w-full">
                     Start free trial
                   </Button>
                   <div className="mt-3 flex items-center justify-center gap-3 text-[11px] font-medium text-muted">

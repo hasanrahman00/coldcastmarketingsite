@@ -2,7 +2,7 @@ import { Check } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import Button from './Button'
-import { LOGIN_URL, SALES_URL } from '../lib/constants'
+import { TRIAL_URL, SALES_URL } from '../lib/constants'
 
 // Each feature is { label, tag? } — tag is the small badge on the right
 // (e.g. usage-based rates or "included").
@@ -20,7 +20,7 @@ const PLANS = [
       { label: 'Single job at a time' },
     ],
     cta: 'Start free trial',
-    href: LOGIN_URL,
+    href: TRIAL_URL,
     featured: false,
   },
   {
@@ -37,7 +37,7 @@ const PLANS = [
       { label: 'Single job at a time' },
     ],
     cta: 'Choose Elite',
-    href: LOGIN_URL,
+    href: TRIAL_URL,
     featured: true,
   },
   {
