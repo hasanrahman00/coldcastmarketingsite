@@ -14,10 +14,12 @@ export const SALES_URL = 'mailto:hello@coldcast.io'
 
 // Top-nav anchor links (smooth-scroll to in-page sections)
 export const NAV_LINKS = [
+  { href: '#safety', label: 'Safety' },
+  { href: '#speed', label: 'Speed' },
   { href: '#features', label: 'Features' },
   { href: '#signals', label: 'Signals' },
   { href: '#how', label: 'How it works' },
-  { href: '#safety', label: 'Safety' },
+  { href: '#use-cases', label: 'Use cases' },
   { href: '#pricing', label: 'Pricing' },
   { href: '#faq', label: 'FAQ' },
 ]
