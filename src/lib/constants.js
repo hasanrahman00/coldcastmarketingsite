@@ -39,7 +39,7 @@ export const ENRICHMENT_SOURCES = [
 export const RATING = {
   stars: '4.9', // [PLACEHOLDER] real aggregate rating
   source: 'G2', // [PLACEHOLDER] where the rating actually lives
-  claim: 'Rated #1 account-safe Sales Navigator scraper', // [PLACEHOLDER] needs ranking evidence
+  claim: 'The world’s safest Sales Navigator scraper', // [PLACEHOLDER] "world's safest" is a strong claim — keep defensible / scope to your track record
 }
 
 // Example rows for the hero mock + output-preview table.

@@ -14,6 +14,7 @@ import WaterfallEnrichment from './components/WaterfallEnrichment'
 import OutputPreview from './components/OutputPreview'
 import Comparison from './components/Comparison'
 import HowItWorks from './components/HowItWorks'
+import UseCases from './components/UseCases'
 import CredibilityRow from './components/CredibilityRow'
 import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
@@ -58,6 +59,7 @@ export default function App() {
         <OutputPreview />
         <Comparison />
         <HowItWorks />
+        <UseCases />
         <CredibilityRow />
         <Pricing />
         <FAQ />

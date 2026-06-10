@@ -15,11 +15,11 @@ import { TRIAL_URL, RATING } from '../lib/constants'
 const REASSURANCE = ['No password sharing', 'Runs in your own browser', 'Cancel anytime']
 
 const ROTATING = [
-  { text: 'export at scale', color: 'text-brand' },
+  { text: 'export in minutes', color: 'text-brand' },
   { text: 'enrich every lead', color: 'text-violet' },
   { text: 'surface buying intent', color: 'text-amber' },
   { text: 'validate every email', color: 'text-accent' },
-  { text: 'stay account-safe', color: 'text-safe' },
+  { text: 'stay suspension-free', color: 'text-safe' },
 ]
 
 const container = {
@@ -139,8 +139,8 @@ export default function Hero() {
             animate="show"
             className="mt-7 text-balance text-[2.4rem] font-bold leading-[1.02] tracking-[-0.03em] text-ink sm:text-6xl lg:text-7xl"
           >
-            <motion.span variants={child} className="inline-block">The Sales Navigator scraper that</motion.span>{' '}
-            <motion.span variants={child} className="text-gradient inline-block">won’t get you banned.</motion.span>
+            <motion.span variants={child} className="inline-block">Scrape Sales Navigator in minutes —</motion.span>{' '}
+            <motion.span variants={child} className="text-gradient inline-block">with zero account suspensions.</motion.span>
           </motion.h1>
 
           <motion.p
@@ -149,10 +149,11 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-7 max-w-2xl text-pretty text-base leading-relaxed text-muted sm:text-lg"
           >
-            Export up to 20,000 leads a day — 10× what other scrapers risk — with verified emails, phones
-            &amp; buying signals on every row. It all runs in your{' '}
-            <span className="font-semibold text-ink">own browser</span> at human pace, so your account
-            never trips a flag.
+            Coldcast is the world’s first account-safe Sales Navigator scraper — export up to 20,000
+            verified leads a day from your{' '}
+            <span className="font-semibold text-ink">own browser</span>, with emails, phones &amp; buying
+            signals on every row. 6 months of daily use, <span className="font-semibold text-ink">zero
+            account suspensions</span>.
           </motion.p>
 
           <motion.div

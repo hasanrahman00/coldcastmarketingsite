@@ -10,6 +10,10 @@ const FAQS = [
     a: 'Yes — that’s the whole point of Coldcast. It runs through your own browser session and IP, only on pages you’re already logged into, at human pace with natural scrolling and click-to-next pagination. There are no headless browsers, no API hammering, and no bot fingerprints. We’ve used it daily with internal sales teams for 6+ months with zero account bans.',
   },
   {
+    q: 'How is Coldcast different from other Sales Navigator scrapers?',
+    a: 'Three ways. Speed: a typical 2,500-lead export takes minutes, not the 30 minutes to two hours cloud scrapers need. Safety: Coldcast runs in your own browser on your own IP and session — most other scrapers spin up a cloud browser on shared IPs and ask for your LinkedIn password, which is exactly what gets accounts suspended. And data: every lead comes back already enriched with verified emails, phone numbers and buying-intent signals, where other tools hand you a raw export you still have to clean and enrich yourself.',
+  },
+  {
     q: 'What intent signals does Coldcast capture?',
     a: 'Every export doubles as a signal layer, pulled live from your own Sales Navigator session — not from a stale third-party database. On the person side: job changes and new roles, promotions, time in current role, seniority and decision-maker fit, and recent LinkedIn activity. On the company side: headcount and growth, hiring activity, industry and firmographics, and company size. We tier them honestly — a recent job change or fast headcount growth carries real weight, while lighter signals are labelled as supporting context — so you can filter for clusters and time your outreach instead of blasting a flat list. (The richest signals depend on your Sales Navigator plan.)',
   },
@@ -20,6 +24,10 @@ const FAQS = [
   {
     q: 'How accurate is the data, and how many data points do I get per lead?',
     a: 'Coldcast captures 30+ fields per lead — the profile and company data from Sales Navigator, plus emails and phones run through a waterfall across Lusha, SalesQL, and ContactOut in a single pass, so you export already enriched instead of cleaning up a raw CSV later. Contacts are verified, not guessed: every email passes a validation step before it lands in your file, so you can trust what you send.',
+  },
+  {
+    q: 'How fast is Coldcast — how long does it take to export leads?',
+    a: 'Fast. Most exports finish in minutes — a 2,500-lead list typically takes around five minutes, where other Sales Navigator scrapers can take 30 minutes to two hours for the same job. Because it runs at a natural, human pace in your own browser, you get the speed without the bot-like bursts that trip LinkedIn’s defences. You can pull up to roughly 20,000 leads per account, per day.',
   },
   {
     q: 'What formats can I export?',
@@ -36,6 +44,10 @@ const FAQS = [
   {
     q: 'Where does my data go?',
     a: 'Only to your own Coldcast workspace. Your leads are yours — we don’t sell or share your data with anyone.',
+  },
+  {
+    q: 'Is Coldcast free to try?',
+    a: 'Yes. Every account starts with a free trial — connect an account, scrape unlimited leads, and use your free enrichment credits to test the verified emails and catch-all cleaning before you pay anything. No credit card is required to start, and scraping itself stays free on every plan; you only pay to enrich and verify the contacts you choose.',
   },
   {
     q: 'Can I cancel anytime?',
