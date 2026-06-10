@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 24 80 80" width="80" height="80">
+  <!-- Swirl mark only, white, transparent background — for dark / photo / colored backgrounds. -->
+  <g stroke="#ffffff" stroke-width="11" stroke-linecap="round" fill="none">
+    <g transform="rotate(0 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+    <g transform="rotate(60 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+    <g transform="rotate(120 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+    <g transform="rotate(180 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+    <g transform="rotate(240 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+    <g transform="rotate(300 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+  </g>
+</svg>
