@@ -6,10 +6,8 @@
 export const APP_URL = 'https://app.coldcast.io'
 // Log-in derives from the same app origin
 export const LOGIN_URL = `${APP_URL}/login`
-
-// Backend API base (the contacout_lusha_salesql_multiuser server). The free-trial
-// button POSTs to `${API_URL}/api/trial`. Override per-deploy via VITE_API_URL.
-export const API_URL = import.meta.env.VITE_API_URL || 'https://sales-scraper.daddy-leads.com'
+// Self-serve free-trial page — lives on the dashboard app (app.coldcast.io/#trial).
+export const TRIAL_URL = `${APP_URL}/#trial`
 // [PLACEHOLDER] sales / contact address for the Custom plan + footer "Contact"
 export const SALES_URL = 'mailto:hello@coldcast.io'
 

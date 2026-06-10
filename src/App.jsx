@@ -16,7 +16,6 @@ import Comparison from './components/Comparison'
 import HowItWorks from './components/HowItWorks'
 import CredibilityRow from './components/CredibilityRow'
 import Pricing from './components/Pricing'
-import TrialSection from './components/TrialSection'
 import FAQ from './components/FAQ'
 import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
@@ -60,7 +59,6 @@ export default function App() {
         <Comparison />
         <HowItWorks />
         <CredibilityRow />
-        <TrialSection />
         <Pricing />
         <FAQ />
         <FinalCTA />
