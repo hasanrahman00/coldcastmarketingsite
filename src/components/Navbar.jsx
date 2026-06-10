@@ -66,8 +66,11 @@ export default function Navbar() {
 
         {/* Desktop actions */}
         <div className="hidden items-center gap-3 lg:flex">
-          <Button as="a" href={LOGIN_URL} variant="primary" size="sm">
+          <Button as="a" href={LOGIN_URL} variant="ghost" size="sm">
             Log in
+          </Button>
+          <Button as="a" href="#trial" variant="primary" size="sm">
+            Start free trial
           </Button>
         </div>
 
@@ -108,7 +111,10 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="mt-3 flex flex-col gap-3 border-t border-hairline pt-4">
-                <Button as="a" href={LOGIN_URL} variant="primary" size="lg" onClick={() => setOpen(false)}>
+                <Button as="a" href="#trial" variant="primary" size="lg" onClick={() => setOpen(false)}>
+                  Start free trial
+                </Button>
+                <Button as="a" href={LOGIN_URL} variant="ghost" size="lg" onClick={() => setOpen(false)}>
                   Log in
                 </Button>
               </li>
