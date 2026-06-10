@@ -19,7 +19,7 @@ export default function Navbar() {
 
   // Close the mobile panel when resizing up to desktop.
   useEffect(() => {
-    const onResize = () => window.innerWidth >= 1280 && setOpen(false)
+    const onResize = () => window.innerWidth >= 1024 && setOpen(false)
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
@@ -51,7 +51,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-6 xl:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <a
@@ -65,7 +65,7 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop actions */}
-        <div className="hidden items-center gap-2.5 xl:flex">
+        <div className="hidden items-center gap-2.5 lg:flex">
           <Button as="a" href={DEMO_URL} variant="ghost" size="sm">
             Book a demo
           </Button>
@@ -78,7 +78,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-hairline bg-black/5 text-ink xl:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-hairline bg-black/5 text-ink lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -96,7 +96,7 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden border-t border-hairline bg-bg/95 backdrop-blur-xl xl:hidden"
+            className="overflow-hidden border-t border-hairline bg-bg/95 backdrop-blur-xl lg:hidden"
           >
             <ul className="container-px flex flex-col gap-1 py-4">
               {NAV_LINKS.map((link) => (
