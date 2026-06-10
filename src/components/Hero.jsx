@@ -124,7 +124,7 @@ export default function Hero() {
       </div>
 
       <div className="container-px relative">
-        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+        <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={reduce ? {} : { opacity: 1, y: 0 }}
@@ -137,7 +137,7 @@ export default function Hero() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="mt-7 text-balance text-[2.4rem] font-bold leading-[1.02] tracking-[-0.03em] text-ink sm:text-6xl lg:text-7xl"
+            className="mt-7 text-balance text-[2.15rem] font-bold leading-[1.04] tracking-[-0.03em] text-ink sm:text-5xl lg:text-6xl"
           >
             <motion.span variants={child} className="inline-block">Scrape Sales Navigator in minutes —</motion.span>{' '}
             <motion.span variants={child} className="text-gradient inline-block">with zero account suspensions.</motion.span>
