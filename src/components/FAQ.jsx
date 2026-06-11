@@ -30,6 +30,10 @@ const FAQS = [
     a: 'Fast. Most exports finish in minutes — a 2,500-lead list typically takes around five minutes, where other Sales Navigator scrapers can take 30 minutes to two hours for the same job. Because it runs at a natural, human pace in your own browser, you get the speed without the bot-like bursts that trip LinkedIn’s defences. You can pull up to roughly 20,000 leads per account, per day.',
   },
   {
+    q: 'Does “unlimited scraping” really mean unlimited?',
+    a: 'Unlimited scraping means there’s no monthly quota and no per-export cap — connect as many accounts as you like and run as many jobs as you need. For fair use, and to protect every account from abuse, there’s a safety ceiling of roughly 20,000 leads per account, per day — which also happens to be the safe daily limit for keeping a LinkedIn account healthy. In normal day-to-day prospecting you’ll never hit it.',
+  },
+  {
     q: 'What formats can I export?',
     a: 'CSV and XLSX. Both download as clean, de-duplicated spreadsheets — signal columns included — that drop straight into your CRM or sequencer.',
   },

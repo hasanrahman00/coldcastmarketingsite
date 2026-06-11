@@ -9,11 +9,11 @@ import { TRIAL_URL, SALES_URL } from '../lib/constants'
 const PLANS = [
   {
     name: 'Free',
-    blurb: 'Kick the tyres — connect your account and pull real, enriched leads.',
+    blurb: 'Kick the tyres — connect your accounts and pull real, enriched leads.',
     price: 'Free',
     note: '1-day trial · no card required',
     features: [
-      { label: 'Connect 1 account' },
+      { label: 'Connect unlimited accounts' },
       { label: 'Unlimited scraping' },
       { label: 'Email enrichment', tag: '50 credits' },
       { label: 'Catch-all cleaner', tag: '50 credits' },
@@ -30,7 +30,7 @@ const PLANS = [
     period: '/mo',
     note: '+ usage-based enrichment',
     features: [
-      { label: 'Connect 1 account' },
+      { label: 'Connect unlimited accounts' },
       { label: 'Unlimited scraping' },
       { label: 'Email enrichment', tag: '$3 / 1,000' },
       { label: 'Catch-all cleaner', tag: '$15 / 10,000' },
@@ -47,7 +47,6 @@ const PLANS = [
     note: 'Custom volume & pricing',
     features: [
       { label: 'Everything in Elite' },
-      { label: 'Connect unlimited accounts' },
       { label: 'Email enrichment', tag: 'unlimited' },
       { label: 'Catch-all cleaner', tag: 'unlimited' },
       { label: 'Concurrent jobs', tag: 'unlimited' },
