@@ -13,8 +13,9 @@ const PLANS = [
     price: 'Free',
     note: '1-day trial · no card required',
     features: [
+      { label: '1-day trial access' },
       { label: 'Connect unlimited accounts' },
-      { label: 'Unlimited scraping' },
+      { label: 'Scraping', tag: '1,000 leads' },
       { label: 'Email enrichment', tag: '50 credits' },
       { label: 'Catch-all cleaner', tag: '50 credits' },
       { label: 'Single job at a time' },
