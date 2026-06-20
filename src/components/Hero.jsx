@@ -1,227 +1,141 @@
-import { useEffect, useState } from 'react'
-import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  useMotionTemplate,
-  animate,
-  useReducedMotion,
-} from 'framer-motion'
-import { ArrowRight, PlayCircle, Star, ShieldCheck } from 'lucide-react'
+import { motion, useReducedMotion } from 'framer-motion'
+import { ArrowRight, ShieldCheck, CreditCard, Lock, Star } from 'lucide-react'
 import Button from './Button'
 import DashboardMock from './DashboardMock'
-import { TRIAL_URL, RATING } from '../lib/constants'
+import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 
-const REASSURANCE = ['No password sharing', 'Runs in your own browser', 'Cancel anytime']
-
-const ROTATING = [
-  { text: 'export in minutes', color: 'text-brand' },
-  { text: 'enrich every lead', color: 'text-violet' },
-  { text: 'surface buying intent', color: 'text-amber' },
-  { text: 'validate every email', color: 'text-accent' },
-  { text: 'stay suspension-free', color: 'text-safe' },
+// Trust row under the CTAs (Zeliq-style badge strip).
+const TRUST = [
+  { icon: ShieldCheck, label: '0 account suspensions', color: '#5dd3a8' },
+  { icon: CreditCard, label: 'No credit card', color: 'rgba(255,255,255,0.7)' },
+  { icon: Lock, label: 'GDPR-ready', color: 'rgba(255,255,255,0.7)' },
+  { icon: Star, label: 'G2 high performer', color: '#f5bd4f' },
 ]
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.06 } },
 }
 const child = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 22 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } },
-}
-
-function RotatingWords() {
-  const [i, setI] = useState(0)
-  const reduce = useReducedMotion()
-  useEffect(() => {
-    if (reduce) return undefined
-    const id = setInterval(() => setI((v) => (v + 1) % ROTATING.length), 2400)
-    return () => clearInterval(id)
-  }, [reduce])
-  return (
-    <span className="relative inline-flex h-[1.2em] min-w-[12ch] items-center justify-center overflow-hidden align-bottom sm:justify-start">
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={i}
-          initial={{ y: '0.6em', opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: '-0.6em', opacity: 0 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className={`font-semibold ${ROTATING[i].color}`}
-        >
-          {ROTATING[i].text}
-        </motion.span>
-      </AnimatePresence>
-    </span>
-  )
-}
-
-function RatingChip() {
-  // [PLACEHOLDER] only ship "#1" / rating once backed by real reviews.
-  return (
-    <span className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-black/5 px-3.5 py-1.5 text-xs font-medium text-muted backdrop-blur">
-      <span className="flex items-center gap-0.5" aria-hidden>
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} size={12} className="fill-amber text-amber" />
-        ))}
-      </span>
-      <span className="font-semibold text-ink">{RATING.stars}</span>
-      <span className="h-3 w-px bg-black/15" />
-      <span>{RATING.claim}</span>
-    </span>
-  )
 }
 
 export default function Hero() {
   const reduce = useReducedMotion()
-  const color = useMotionValue('#4f7cf5')
-  const spotX = useMotionValue(-300)
-  const spotY = useMotionValue(-300)
-
-  useEffect(() => {
-    if (reduce) return undefined
-    const controls = animate(color, ['#4f7cf5', '#a855f7', '#22d3ee', '#3257d6', '#4f7cf5'], {
-      duration: 16,
-      repeat: Infinity,
-      repeatType: 'mirror',
-      ease: 'easeInOut',
-    })
-    return () => controls.stop()
-  }, [color, reduce])
-
-  const animatedBg = useMotionTemplate`radial-gradient(130% 120% at 50% -10%, #f6f8ff 55%, ${color})`
-  const spotlight = useMotionTemplate`radial-gradient(600px circle at ${spotX}px ${spotY}px, rgba(168,85,247,0.12), transparent 70%)`
-
-  const handleMove = (e) => {
-    spotX.set(e.clientX)
-    spotY.set(e.clientY)
-  }
 
   return (
     <section
       id="top"
-      onMouseMove={handleMove}
-      className="relative overflow-hidden pb-20 pt-32 sm:pb-28 sm:pt-40"
+      className="relative overflow-hidden pb-24 pt-32 sm:pb-28 sm:pt-36"
+      style={{ backgroundColor: '#0a1020' }}
     >
-      {/* Animated aurora gradient */}
-      <motion.div
+      {/* Dark gradient + aurora background */}
+      <div
         aria-hidden
-        className="absolute inset-0 -z-10 opacity-30"
-        style={{ backgroundImage: animatedBg }}
-      />
-      {/* Cursor spotlight */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 hidden lg:block"
-        style={{ background: spotlight }}
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage:
+            'radial-gradient(110% 80% at 50% -12%, rgba(79,124,245,0.32), transparent 55%), radial-gradient(80% 60% at 86% 0%, rgba(34,211,238,0.16), transparent 50%), radial-gradient(70% 60% at 12% 16%, rgba(124,58,237,0.22), transparent 55%), linear-gradient(180deg, #0a1020 0%, #0c1226 58%, #0a1020 100%)',
+        }}
       />
       {/* Floating orbs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-[8%] top-[22%] h-44 w-44 animate-float rounded-full bg-brand-light/20 blur-3xl" />
-        <div className="absolute right-[10%] top-[14%] h-56 w-56 animate-float-slow rounded-full bg-violet/20 blur-3xl" />
-        <div className="absolute right-[26%] top-[44%] h-40 w-40 animate-float rounded-full bg-accent/15 blur-3xl" />
+        <div className="absolute left-[9%] top-[16%] h-56 w-56 animate-float rounded-full bg-brand/30 blur-[110px]" />
+        <div className="absolute right-[11%] top-[8%] h-64 w-64 animate-float-slow rounded-full bg-violet/25 blur-[120px]" />
       </div>
+      {/* Fade the dark hero into the light body */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-44"
+        style={{ backgroundImage: 'linear-gradient(180deg, transparent, #f6f8ff)' }}
+      />
 
-      <div className="container-px relative">
-        <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={reduce ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+      <motion.div
+        variants={container}
+        initial={reduce ? false : 'hidden'}
+        animate="show"
+        className="container-px relative"
+      >
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          {/* Eyebrow pill — spotlights the new AI SDR product */}
+          <motion.a
+            variants={child}
+            href="#how"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-3.5 py-1.5 text-sm text-white/85 backdrop-blur transition-colors hover:bg-white/[0.12]"
           >
-            <RatingChip />
-          </motion.div>
+            <span className="rounded-full bg-brand/50 px-2 py-0.5 text-[11px] font-semibold text-white">
+              New
+            </span>
+            AI SDR runs your outreach
+            <ArrowRight size={14} className="text-white/55" />
+          </motion.a>
 
+          {/* Headline */}
           <motion.h1
-            variants={container}
-            initial="hidden"
-            animate="show"
-            className="mt-7 text-balance text-[2.15rem] font-bold leading-[1.04] tracking-[-0.03em] text-ink sm:text-5xl lg:text-6xl"
+            variants={child}
+            className="mt-7 text-balance text-[2.4rem] font-bold leading-[1.04] tracking-[-0.03em] text-white sm:text-5xl lg:text-[3.75rem]"
           >
-            <motion.span variants={child} className="inline-block">Scrape Sales Navigator in minutes —</motion.span>{' '}
-            <motion.span variants={child} className="text-gradient inline-block">with zero account suspensions.</motion.span>
+            Find, enrich &amp; email{' '}
+            <span className="text-gradient">your next customers.</span>
           </motion.h1>
 
+          {/* Subtitle */}
           <motion.p
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={reduce ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-7 max-w-2xl text-pretty text-base leading-relaxed text-muted sm:text-lg"
+            variants={child}
+            className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg"
           >
-            Coldcast is the world’s first account-safe Sales Navigator scraper — export up to 20,000
-            verified leads a day from your{' '}
-            <span className="font-semibold text-ink">own browser</span>, with emails, phones &amp; buying
-            signals on every row. 6 months of daily use, <span className="font-semibold text-ink">zero
-            account suspensions</span>.
+            One account-safe platform — scrape Sales Navigator, Apollo &amp; ZoomInfo, get verified
+            emails, and let an AI SDR run the outreach. From your own browser.{' '}
+            <span className="font-semibold text-white">Zero account suspensions.</span>
           </motion.p>
 
+          {/* CTAs */}
           <motion.div
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={reduce ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-5 flex items-center justify-center gap-2 text-base text-muted sm:text-lg"
-          >
-            <span>Built to</span>
-            <RotatingWords />
-          </motion.div>
-
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={reduce ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.65 }}
-            className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
+            variants={child}
+            className="mt-9 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row"
           >
             <Button as="a" href={TRIAL_URL} variant="primary" size="lg" className="w-full sm:w-auto">
               Start free trial
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
             </Button>
-            <Button as="a" href="#how" variant="ghost" size="lg" className="w-full sm:w-auto">
-              <PlayCircle size={18} />
-              See how it works
+            <Button
+              as="a"
+              href={DEMO_URL}
+              variant="outline-light"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Book a demo
             </Button>
           </motion.div>
 
+          {/* Trust row */}
           <motion.ul
-            initial={reduce ? false : { opacity: 0 }}
-            animate={reduce ? {} : { opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted"
+            variants={child}
+            className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5"
           >
-            {REASSURANCE.map((item, i) => (
-              <li key={item} className="flex items-center gap-2">
-                {i > 0 && <span className="text-muted/40">·</span>}
-                <ShieldCheck size={13} className="text-safe" />
-                {item}
+            {TRUST.map(({ icon: Icon, label, color }) => (
+              <li
+                key={label}
+                className="flex items-center gap-2 text-xs text-white/60 sm:text-[13px]"
+              >
+                <Icon size={15} style={{ color }} />
+                {label}
               </li>
             ))}
           </motion.ul>
         </div>
 
-        {/* Hero visual */}
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 40 }}
-          animate={reduce ? {} : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="relative mx-auto mt-16 max-w-5xl"
-        >
+        {/* Product screenshot peeking up from the dark hero into the light body */}
+        <motion.div variants={child} className="relative mx-auto mt-16 max-w-5xl">
           <div
             aria-hidden
-            className="absolute inset-x-6 -top-8 bottom-0 -z-10 rounded-[2.5rem] bg-violet/15 blur-3xl"
+            className="absolute inset-x-8 -top-6 bottom-8 -z-10 rounded-[2.5rem] bg-brand/25 blur-3xl"
           />
           <DashboardMock />
         </motion.div>
-      </div>
-
-      {/* Curved bottom edge of the hero */}
-      <svg
-        aria-hidden
-        viewBox="0 0 1440 90"
-        preserveAspectRatio="none"
-        className="absolute inset-x-0 bottom-[-1px] z-[1] h-10 w-full sm:h-16"
-      >
-        <path d="M0,90 L0,40 C 420,92 1020,8 1440,46 L1440,90 Z" fill="#f6f8ff" />
-      </svg>
+      </motion.div>
     </section>
   )
 }

@@ -14,6 +14,8 @@ const VARIANTS = {
     'border border-hairline bg-black/[0.04] text-ink/90 hover:bg-black/[0.07] hover:text-ink',
   light:
     'bg-white text-[#0c1228] shadow-[0_10px_30px_-8px_rgba(20,30,80,0.35)] hover:-translate-y-0.5 hover:bg-white/90',
+  'outline-light':
+    'border border-white/30 bg-white/[0.06] text-white backdrop-blur hover:-translate-y-0.5 hover:border-white/55 hover:bg-white/[0.12]',
 }
 
 export default function Button({

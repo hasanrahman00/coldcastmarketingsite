@@ -32,6 +32,10 @@ export default function Navbar() {
     }
   }, [open])
 
+  // Over the dark hero the nav uses light text; once scrolled (or the mobile
+  // panel opens) the header goes light, so text flips back to ink.
+  const overHero = !scrolled && !open
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
@@ -47,7 +51,11 @@ export default function Navbar() {
         {/* Brand */}
         <a href="#top" className="flex items-center gap-2.5" aria-label="Coldcast — home">
           <Logo size={36} />
-          <span className="text-lg font-bold tracking-tight">Coldcast</span>
+          <span
+            className={`text-lg font-bold tracking-tight ${overHero ? 'text-white' : 'text-ink'}`}
+          >
+            Coldcast
+          </span>
         </a>
 
         {/* Desktop links */}
@@ -56,7 +64,9 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded text-sm font-medium text-muted transition-colors hover:text-ink"
+                className={`rounded text-sm font-medium transition-colors ${
+                  overHero ? 'text-white/75 hover:text-white' : 'text-muted hover:text-ink'
+                }`}
               >
                 {link.label}
               </a>
@@ -66,7 +76,7 @@ export default function Navbar() {
 
         {/* Desktop actions */}
         <div className="hidden items-center gap-2.5 lg:flex">
-          <Button as="a" href={DEMO_URL} variant="ghost" size="sm">
+          <Button as="a" href={DEMO_URL} variant={overHero ? 'outline-light' : 'ghost'} size="sm">
             Book a demo
           </Button>
           <Button as="a" href={TRIAL_URL} variant="primary" size="sm">
@@ -78,7 +88,11 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-hairline bg-black/5 text-ink lg:hidden"
+          className={`inline-flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden ${
+            overHero
+              ? 'border-white/25 bg-white/10 text-white'
+              : 'border-hairline bg-black/5 text-ink'
+          }`}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-menu"
