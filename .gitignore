@@ -16,6 +16,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Licensed/demo fonts — not committed (personal-use demo; buy the
+# commercial license and add the file locally / via the host for production)
+public/fonts/
+
 # Editor / OS
 .vscode/*
 !.vscode/extensions.json

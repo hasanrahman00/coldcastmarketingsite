@@ -74,7 +74,7 @@ export default function Hero() {
           {/* Headline */}
           <motion.h1
             variants={child}
-            className="mt-7 text-balance text-[2.4rem] font-bold leading-[1.04] tracking-[-0.03em] text-white sm:text-5xl lg:text-[3.75rem]"
+            className="mt-7 text-balance font-freudian text-[2.5rem] font-bold uppercase leading-[0.98] tracking-[-0.01em] text-white sm:text-[3.4rem] lg:text-[4.25rem]"
           >
             Find, enrich &amp; email{' '}
             <span className="text-gradient">your next customers.</span>

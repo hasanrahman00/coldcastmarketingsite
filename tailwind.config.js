@@ -29,6 +29,7 @@ export default {
         hairline: 'rgba(12,18,45,0.10)',
       },
       fontFamily: {
+        freudian: ['Freudian', '"Space Grotesk"', 'sans-serif'],
         display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
