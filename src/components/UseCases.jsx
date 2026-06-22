@@ -45,7 +45,7 @@ export default function UseCases() {
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {CASES.map(({ icon: Icon, color, title, desc }, i) => (
             <Reveal key={title} delay={(i % 2) * 0.08}>
-              <div className="flex h-full flex-col rounded-2xl border border-hairline bg-white/85 p-7 shadow-card backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1">
+              <div className="flex h-full flex-col rounded-2xl border border-hairline bg-white/[0.045] p-7 shadow-card backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1">
                 <span
                   className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-hairline bg-brand-gradient-soft ${color}`}
                 >

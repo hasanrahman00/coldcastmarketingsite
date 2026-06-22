@@ -75,8 +75,8 @@ export default function Pricing() {
               <div
                 className={`relative flex h-full flex-col rounded-3xl p-7 transition-transform duration-200 hover:-translate-y-1 ${
                   plan.featured
-                    ? 'bg-white/90 shadow-float backdrop-blur-sm'
-                    : 'border border-hairline bg-white/85 shadow-card backdrop-blur-sm'
+                    ? 'bg-white/[0.06] shadow-float backdrop-blur-sm'
+                    : 'border border-hairline bg-white/[0.045] shadow-card backdrop-blur-sm'
                 }`}
               >
                 {/* Gradient border for the featured card */}

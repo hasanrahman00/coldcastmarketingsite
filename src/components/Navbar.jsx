@@ -91,7 +91,7 @@ export default function Navbar() {
           className={`inline-flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden ${
             overHero
               ? 'border-white/25 bg-white/10 text-white'
-              : 'border-hairline bg-black/5 text-ink'
+              : 'border-hairline bg-white/5 text-ink'
           }`}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
@@ -118,7 +118,7 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-3 text-base font-medium text-ink/90 transition-colors hover:bg-black/5"
+                    className="block rounded-lg px-3 py-3 text-base font-medium text-ink/90 transition-colors hover:bg-white/5"
                   >
                     {link.label}
                   </a>

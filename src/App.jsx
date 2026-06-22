@@ -39,7 +39,7 @@ export default function App() {
           rounds all 4 corners of the viewport. Drawn above content, click-through. */}
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 z-[70] rounded-[1.35rem] border-[7px] border-[#e7eaf6] shadow-[inset_0_0_0_1.5px_rgba(12,18,45,0.12)] sm:rounded-[2rem] sm:border-[10px]"
+        className="pointer-events-none fixed inset-0 z-[70] rounded-[1.35rem] border-[7px] border-[#0a1020] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.08)] sm:rounded-[2rem] sm:border-[10px]"
       />
 
       <Navbar />

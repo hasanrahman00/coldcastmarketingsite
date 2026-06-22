@@ -4,29 +4,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Surfaces — light "soft gradient" theme
-        bg: '#f6f8ff',
-        bg2: '#eef1fc',
-        panel: '#ffffff',
-        panel2: '#f4f6fe',
+        // Surfaces — dark theme (matches the hero)
+        bg: '#0a1020',
+        bg2: '#0d1430',
+        panel: '#121a33',
+        panel2: '#0e1630',
         // Text
-        ink: '#0c1228',
-        muted: '#586079',
+        ink: '#eef1fc',
+        muted: '#97a1bd',
         // Brand blue — EXPORT / SCALE
         brand: {
-          light: '#4f7cf5',
-          DEFAULT: '#3257d6',
-          dark: '#2546b8',
+          light: '#6ea0ff',
+          DEFAULT: '#4f7cf5',
+          dark: '#3257d6',
         },
-        // Accents (color = meaning)
-        accent: '#0e7490', // cyan-700 — DATA / ACCURACY (AA on white)
-        violet: '#7c3aed', // violet-600 — ENRICHMENT / AI (AA on white)
-        magenta: '#d946ef', // aurora / hero-text only (decorative, not body text)
-        amber: '#b45309', // amber-700 — INTENT SIGNAL (AA on white)
-        safe: '#047857', // emerald-700 — safety (AA on white)
-        danger: '#e11d48', // rose-600 — contrast / "others"
+        // Accents (lightened for legibility on dark)
+        accent: '#22d3ee', // cyan-400 — DATA / ACCURACY
+        violet: '#a78bfa', // violet-400 — ENRICHMENT / AI
+        magenta: '#e879f9', // aurora / hero-text accent
+        amber: '#fbbf24', // amber-400 — INTENT SIGNAL
+        safe: '#34d399', // emerald-400 — safety
+        danger: '#fb7185', // rose-400 — contrast / "others"
         // Hairline border
-        hairline: 'rgba(12,18,45,0.10)',
+        hairline: 'rgba(255,255,255,0.10)',
       },
       fontFamily: {
         freudian: ['Freudian', '"Space Grotesk"', 'sans-serif'],

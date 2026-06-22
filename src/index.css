@@ -48,8 +48,8 @@
   }
 
   ::selection {
-    background-color: rgba(79, 124, 245, 0.22);
-    color: #0c1228;
+    background-color: rgba(79, 124, 245, 0.32);
+    color: #eef1fc;
   }
 }
 
@@ -71,7 +71,7 @@
   /* Gradient lit-edge wrapper for glass cards */
   .lit-edge {
     border-radius: 1.25rem;
-    background-image: linear-gradient(to bottom, rgba(12, 18, 45, 0.1), rgba(12, 18, 45, 0));
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
     padding: 1px;
   }
 
@@ -96,19 +96,36 @@
   .floating-panel {
     position: relative;
     border-radius: 2rem;
-    border: 1px solid rgba(12, 18, 45, 0.08);
-    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.035);
     backdrop-filter: blur(18px);
     box-shadow:
-      0 2px 4px -2px rgba(20, 30, 80, 0.08),
-      0 18px 40px -16px rgba(20, 30, 80, 0.16),
-      0 50px 90px -48px rgba(28, 40, 110, 0.26);
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 30px 80px -40px rgba(0, 0, 0, 0.7);
   }
 }
 
 @keyframes text-shine {
   to {
     background-position: 200% center;
+  }
+}
+
+/* Falling rain streaks (hero) */
+@keyframes rain-fall {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(900%);
+    opacity: 0;
   }
 }
 

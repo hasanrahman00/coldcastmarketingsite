@@ -85,7 +85,7 @@ export default function VolumeBand() {
                       {bar.value.toLocaleString('en-US')}
                     </span>
                   </div>
-                  <div className="h-3 w-full overflow-hidden rounded-full bg-black/5">
+                  <div className="h-3 w-full overflow-hidden rounded-full bg-white/5">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${bar.pct}%` }}
@@ -94,7 +94,7 @@ export default function VolumeBand() {
                       className={`h-full rounded-full ${
                         bar.strong
                           ? 'bg-gradient-to-r from-brand-light to-violet shadow-[0_0_24px_-4px_rgba(168,85,247,0.7)]'
-                          : 'bg-black/15'
+                          : 'bg-white/15'
                       }`}
                     />
                   </div>

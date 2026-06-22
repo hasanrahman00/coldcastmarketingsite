@@ -59,7 +59,7 @@ export default function Safety() {
         <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-2">
           {/* Them */}
           <Reveal>
-            <div className="relative h-full overflow-hidden rounded-3xl border border-danger/20 bg-white/85 p-7 shadow-card backdrop-blur-sm sm:p-8">
+            <div className="relative h-full overflow-hidden rounded-3xl border border-danger/20 bg-white/[0.045] p-7 shadow-card backdrop-blur-sm sm:p-8">
               <div
                 aria-hidden
                 className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-danger/15 blur-[90px]"
@@ -91,7 +91,7 @@ export default function Safety() {
 
           {/* Coldcast */}
           <Reveal delay={0.1}>
-            <div className="relative h-full overflow-hidden rounded-3xl border border-safe/25 bg-white/85 p-7 shadow-card backdrop-blur-sm sm:p-8">
+            <div className="relative h-full overflow-hidden rounded-3xl border border-safe/25 bg-white/[0.045] p-7 shadow-card backdrop-blur-sm sm:p-8">
               <div
                 aria-hidden
                 className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-safe/20 blur-[90px]"
@@ -127,10 +127,10 @@ export default function Safety() {
 
         {/* Track-record badge */}
         <Reveal delay={0.15} className="mt-10 flex justify-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-black/15 bg-brand-gradient-soft px-5 py-3 text-center text-sm font-semibold text-ink shadow-glow">
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-white/15 bg-brand-gradient-soft px-5 py-3 text-center text-sm font-semibold text-ink shadow-glow">
             <ShieldCheck size={18} className="text-safe" />
             6+ months of daily internal use
-            <span className="hidden h-4 w-px bg-black/20 sm:block" />
+            <span className="hidden h-4 w-px bg-white/20 sm:block" />
             <span className="text-safe">0 account bans</span>
             <span className="text-xs font-normal text-muted">(our track record — not a guarantee)</span>
           </div>

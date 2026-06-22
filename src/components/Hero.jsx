@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, ShieldCheck, CreditCard, Lock, Star } from 'lucide-react'
 import Button from './Button'
 import DashboardMock from './DashboardMock'
+import Rain from './Rain'
 import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 
 // Trust row under the CTAs (Zeliq-style badge strip).
@@ -44,12 +45,8 @@ export default function Hero() {
         <div className="absolute left-[9%] top-[16%] h-56 w-56 animate-float rounded-full bg-brand/30 blur-[110px]" />
         <div className="absolute right-[11%] top-[8%] h-64 w-64 animate-float-slow rounded-full bg-violet/25 blur-[120px]" />
       </div>
-      {/* Fade the dark hero into the light body */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-44"
-        style={{ backgroundImage: 'linear-gradient(180deg, transparent, #f6f8ff)' }}
-      />
+      {/* Falling rain */}
+      <Rain className="-z-10 opacity-70" />
 
       <motion.div
         variants={container}
@@ -136,6 +133,29 @@ export default function Hero() {
           <DashboardMock />
         </motion.div>
       </motion.div>
+
+      {/* Curved horizon — the hero's lower edge curves into the body */}
+      <svg
+        aria-hidden
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        className="absolute inset-x-0 bottom-[-1px] z-0 h-14 w-full sm:h-20"
+      >
+        <defs>
+          <linearGradient id="hero-horizon" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#4f7cf5" stopOpacity="0" />
+            <stop offset="0.5" stopColor="#8fb0ff" stopOpacity="0.7" />
+            <stop offset="1" stopColor="#a78bfa" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M0,120 L0,64 C 480,128 960,8 1440,64 L1440,120 Z" fill="#0a1020" />
+        <path
+          d="M0,64 C 480,128 960,8 1440,64"
+          fill="none"
+          stroke="url(#hero-horizon)"
+          strokeWidth="1.5"
+        />
+      </svg>
     </section>
   )
 }
