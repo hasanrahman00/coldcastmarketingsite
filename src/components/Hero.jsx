@@ -46,7 +46,7 @@ export default function Hero() {
         <div className="absolute right-[11%] top-[8%] h-64 w-64 animate-float-slow rounded-full bg-violet/25 blur-[120px]" />
       </div>
       {/* Falling rain */}
-      <Rain className="-z-10 opacity-70" />
+      <Rain className="-z-10 opacity-90" />
 
       <motion.div
         variants={container}

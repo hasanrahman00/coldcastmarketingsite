@@ -2,6 +2,8 @@ import BackgroundFX from './components/BackgroundFX'
 import Grain from './components/Grain'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import ProductSuite from './components/ProductSuite'
+import AiSdr from './components/AiSdr'
 import GtmPipeline from './components/GtmPipeline'
 import TrustBar from './components/TrustBar'
 import VolumeBand from './components/VolumeBand'
@@ -46,6 +48,8 @@ export default function App() {
 
       <main id="main">
         <Hero />
+        <ProductSuite />
+        <AiSdr />
         <GtmPipeline />
         <TrustBar />
         {/* The two differentiators, back to back */}

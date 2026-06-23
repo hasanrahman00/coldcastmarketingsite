@@ -12,14 +12,14 @@ function streaks(count) {
       left: (r * 100).toFixed(2),
       delay: (r2 * 4).toFixed(2),
       duration: (2.6 + r * 2.8).toFixed(2),
-      height: Math.round(40 + r2 * 90),
-      opacity: (0.12 + r * 0.3).toFixed(2),
+      height: Math.round(46 + r2 * 100),
+      opacity: (0.22 + r * 0.4).toFixed(2),
     })
   }
   return out
 }
 
-export default function Rain({ count = 46, className = '' }) {
+export default function Rain({ count = 60, className = '' }) {
   const drops = useMemo(() => streaks(count), [count])
   return (
     <div
@@ -35,7 +35,7 @@ export default function Rain({ count = 46, className = '' }) {
             height: `${d.height}px`,
             opacity: d.opacity,
             background:
-              'linear-gradient(to bottom, transparent, rgba(140,180,255,0.85), transparent)',
+              'linear-gradient(to bottom, transparent, rgba(150,190,255,0.95), transparent)',
             animation: `rain-fall ${d.duration}s linear ${d.delay}s infinite`,
           }}
         />
