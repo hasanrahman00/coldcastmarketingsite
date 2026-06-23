@@ -1,21 +1,40 @@
-import { Bot, Target, Rocket, Building2, Droplet, MailCheck, Globe, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import Rain from './Rain'
 
+// Per-card accent: a soft tile tint + a corner glow that brightens on hover.
+const TINT = {
+  brand: { tile: 'bg-brand/20', glow: 'rgba(79,124,245,0.30)' },
+  violet: { tile: 'bg-violet/20', glow: 'rgba(167,139,250,0.28)' },
+  cyan: { tile: 'bg-accent/20', glow: 'rgba(34,211,238,0.26)' },
+  safe: { tile: 'bg-safe/20', glow: 'rgba(52,211,153,0.26)' },
+  amber: { tile: 'bg-amber/20', glow: 'rgba(251,191,36,0.26)' },
+}
+
 const TOOLS = [
-  { icon: Target, name: 'Sales Navigator Scraper', tag: 'Live', desc: 'Export any Sales Nav search in minutes — at human pace.' },
-  { icon: Rocket, name: 'Apollo Scraper', tag: 'Soon', desc: 'Pull whole lists straight out of Apollo.' },
-  { icon: Building2, name: 'ZoomInfo Scraper', tag: 'Soon', desc: 'Export ZoomInfo company & contact data.' },
-  { icon: Droplet, name: 'Waterfall Enricher', tag: 'Soon', desc: 'Cascade across sources for verified emails & phones.' },
-  { icon: MailCheck, name: 'Email Verify', tag: 'Soon', desc: 'Validate every address before you send.' },
-  { icon: Globe, name: 'Domain Enrichment', tag: 'Soon', desc: 'Firmographics & website data from any domain.' },
+  { emoji: '🎯', color: 'brand', name: 'Sales Navigator Scraper', tag: 'Live', desc: 'Export any Sales Nav search in minutes — at human pace.' },
+  { emoji: '🚀', color: 'violet', name: 'Apollo Scraper', tag: 'Soon', desc: 'Pull whole lists straight out of Apollo.' },
+  { emoji: '🏢', color: 'cyan', name: 'ZoomInfo Scraper', tag: 'Soon', desc: 'Export ZoomInfo company & contact data.' },
+  { emoji: '💧', color: 'cyan', name: 'Waterfall Enricher', tag: 'Soon', desc: 'Cascade across sources for verified emails & phones.' },
+  { emoji: '✅', color: 'safe', name: 'Email Verify', tag: 'Soon', desc: 'Validate every address before you send.' },
+  { emoji: '🌐', color: 'amber', name: 'Domain Enrichment', tag: 'Soon', desc: 'Firmographics & website data from any domain.' },
 ]
 
 const TAG = {
   Live: 'bg-safe/15 text-safe',
   Soon: 'bg-white/10 text-muted',
   New: 'bg-brand/25 text-brand-light',
+}
+
+function Glow({ color, className = '' }) {
+  return (
+    <span
+      aria-hidden
+      className={`pointer-events-none absolute rounded-full opacity-50 blur-2xl transition-opacity duration-300 group-hover:opacity-100 ${className}`}
+      style={{ background: TINT[color].glow }}
+    />
+  )
 }
 
 export default function ProductSuite() {
@@ -36,14 +55,11 @@ export default function ProductSuite() {
           <Reveal as="div" className="sm:col-span-2 lg:col-span-3">
             <a
               href="#ai-sdr"
-              className="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border-2 border-brand/40 bg-white/[0.04] p-7 backdrop-blur-sm transition-colors hover:bg-white/[0.06] sm:flex-row sm:items-center"
+              className="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border-2 border-brand/40 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/60 sm:flex-row sm:items-center"
             >
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-brand/25 blur-[90px]"
-              />
-              <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-brand-btn">
-                <Bot size={26} />
+              <Glow color="brand" className="-right-10 -top-10 h-48 w-48 opacity-60" />
+              <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-gradient text-2xl shadow-brand-btn">
+                🤖
               </span>
               <div className="relative flex-1">
                 <div className="flex items-center gap-2.5">
@@ -63,19 +79,20 @@ export default function ProductSuite() {
           </Reveal>
 
           {/* The 6 data tools */}
-          {TOOLS.map(({ icon: Icon, name, tag, desc }, i) => (
+          {TOOLS.map(({ emoji, color, name, tag, desc }, i) => (
             <Reveal as="div" key={name} delay={(i % 3) * 0.06}>
-              <div className="flex h-full flex-col rounded-2xl border border-hairline bg-white/[0.04] p-6 backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1">
-                <div className="flex items-center justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-accent">
-                    <Icon size={20} />
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-hairline bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:border-white/15">
+                <Glow color={color} className="-right-8 -top-8 h-28 w-28" />
+                <div className="relative flex items-center justify-between">
+                  <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ${TINT[color].tile}`}>
+                    {emoji}
                   </span>
                   <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${TAG[tag]}`}>
                     {tag}
                   </span>
                 </div>
-                <h3 className="mt-5 text-base font-semibold text-ink">{name}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{desc}</p>
+                <h3 className="relative mt-5 text-base font-semibold text-ink">{name}</h3>
+                <p className="relative mt-1.5 text-sm leading-relaxed text-muted">{desc}</p>
               </div>
             </Reveal>
           ))}
