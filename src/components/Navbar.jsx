@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import {
-  Menu, X, ChevronDown, ArrowRight, Bot, Target, Rocket, Building2, Droplet,
-  MailCheck, Globe, TrendingUp, Briefcase, Database, Users, ShieldCheck,
-} from 'lucide-react'
+import { Menu, X, ChevronDown, ArrowRight, Bot, ShieldCheck } from 'lucide-react'
 import Logo from './Logo'
 import Button from './Button'
 import { TRIAL_URL, DEMO_URL } from '../lib/constants'
@@ -18,45 +15,45 @@ const PRODUCT_COLUMNS = [
   {
     heading: 'Scrape',
     items: [
-      { icon: Target, name: 'Sales Navigator Scraper', desc: 'Export any Sales Nav search', tag: 'Live', href: '#products' },
-      { icon: Rocket, name: 'Apollo Scraper', desc: 'Pull lists from Apollo', tag: 'Soon', href: '#products' },
-      { icon: Building2, name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo data', tag: 'Soon', href: '#products' },
+      { emoji: '🎯', name: 'Sales Navigator Scraper', desc: 'Export any Sales Nav search', tag: 'Live', href: '#products' },
+      { emoji: '🚀', name: 'Apollo Scraper', desc: 'Pull lists from Apollo', tag: 'Soon', href: '#products' },
+      { emoji: '🏢', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo data', tag: 'Soon', href: '#products' },
     ],
   },
   {
     heading: 'Enrich & verify',
     items: [
-      { icon: Droplet, name: 'Waterfall Enricher', desc: 'Verified emails & phones', tag: 'Soon', href: '#products' },
-      { icon: MailCheck, name: 'Email Verify', desc: 'Validate before you send', tag: 'Soon', href: '#products' },
-      { icon: Globe, name: 'Domain Enrichment', desc: 'Company data from a domain', tag: 'Soon', href: '#products' },
+      { emoji: '💧', name: 'Waterfall Enricher', desc: 'Verified emails & phones', tag: 'Soon', href: '#products' },
+      { emoji: '✅', name: 'Email Verify', desc: 'Validate before you send', tag: 'Soon', href: '#products' },
+      { emoji: '🌐', name: 'Domain Enrichment', desc: 'Company data from a domain', tag: 'Soon', href: '#products' },
     ],
   },
   {
     heading: 'Reach',
     items: [
-      { icon: Bot, name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', href: '#ai-sdr' },
+      { emoji: '🤖', name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', href: '#ai-sdr' },
     ],
   },
 ]
 
 const ROLES = [
-  { icon: Target, name: 'SDRs & AEs', desc: 'Fill your pipeline faster' },
-  { icon: Rocket, name: 'Founders', desc: 'Go to market without a data budget' },
-  { icon: TrendingUp, name: 'Sales leaders', desc: 'Scale outbound, safely' },
-  { icon: Briefcase, name: 'Agencies', desc: 'Deliver leads for every client' },
-  { icon: Database, name: 'RevOps', desc: 'Clean, enriched data on tap' },
-  { icon: Users, name: 'Recruiters', desc: 'Source verified candidate contacts' },
+  { emoji: '🎯', name: 'SDRs & AEs', desc: 'Fill your pipeline faster' },
+  { emoji: '🚀', name: 'Founders', desc: 'Go to market without a data budget' },
+  { emoji: '📈', name: 'Sales leaders', desc: 'Scale outbound, safely' },
+  { emoji: '💼', name: 'Agencies', desc: 'Deliver leads for every client' },
+  { emoji: '⚙️', name: 'RevOps', desc: 'Clean, enriched data on tap' },
+  { emoji: '🔎', name: 'Recruiters', desc: 'Source verified candidate contacts' },
 ]
 
-function ItemRow({ icon: Icon, name, desc, tag, href, onClick }) {
+function ItemRow({ emoji, name, desc, tag, href, onClick }) {
   return (
     <a
       href={href}
       onClick={onClick}
       className="group/item flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-white/[0.05]"
     >
-      <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft text-accent">
-        <Icon size={17} />
+      <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft text-[17px] leading-none">
+        {emoji}
       </span>
       <span className="min-w-0">
         <span className="flex items-center gap-2">
@@ -173,7 +170,7 @@ export default function Navbar() {
               exit="exit"
               onMouseEnter={() => clearTimeout(closeTimer.current)}
               onMouseLeave={scheduleClose}
-              className="absolute left-1/2 top-full hidden w-[min(64rem,calc(100vw-2rem))] -translate-x-1/2 lg:block"
+              className="absolute inset-x-0 top-full mx-auto hidden w-[min(64rem,calc(100vw-2rem))] lg:block"
             >
               <div className="mt-2 overflow-hidden rounded-2xl border border-hairline bg-bg2/95 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)] backdrop-blur-xl">
                 {menu === 'products' && (
@@ -258,14 +255,16 @@ export default function Navbar() {
               <p className="px-3 pt-4 text-xs font-semibold uppercase tracking-wider text-muted/70">Products</p>
               {PRODUCT_COLUMNS.flatMap((c) => c.items).map((it) => (
                 <a key={it.name} href={it.href} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
-                  {it.name}
+                  <span className="flex items-center gap-2.5"><span className="text-base">{it.emoji}</span>{it.name}</span>
                   <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[it.tag]}`}>{it.tag}</span>
                 </a>
               ))}
 
               <p className="px-3 pt-4 text-xs font-semibold uppercase tracking-wider text-muted/70">Role</p>
               {ROLES.map((r) => (
-                <a key={r.name} href="#use-cases" onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">{r.name}</a>
+                <a key={r.name} href="#use-cases" onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
+                  <span className="text-base">{r.emoji}</span>{r.name}
+                </a>
               ))}
 
               <a href="#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Pricing</a>
