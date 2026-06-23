@@ -11,11 +11,13 @@ const TAG = {
   New: 'bg-brand/25 text-brand-light',
 }
 
+const AI_SDR = { emoji: '🤖', name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', href: '#ai-sdr' }
+
 const PRODUCT_COLUMNS = [
   {
     heading: 'Scrape',
     items: [
-      { emoji: '🎯', name: 'Sales Navigator Scraper', desc: 'Export any Sales Nav search', tag: 'Live', href: '#products' },
+      { emoji: '🎯', name: 'Sales Nav Scraper', desc: 'Export any Sales Navigator search', tag: 'Live', href: '#products' },
       { emoji: '🚀', name: 'Apollo Scraper', desc: 'Pull lists from Apollo', tag: 'Soon', href: '#products' },
       { emoji: '🏢', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo data', tag: 'Soon', href: '#products' },
     ],
@@ -26,12 +28,6 @@ const PRODUCT_COLUMNS = [
       { emoji: '💧', name: 'Waterfall Enricher', desc: 'Verified emails & phones', tag: 'Soon', href: '#products' },
       { emoji: '✅', name: 'Email Verify', desc: 'Validate before you send', tag: 'Soon', href: '#products' },
       { emoji: '🌐', name: 'Domain Enrichment', desc: 'Company data from a domain', tag: 'Soon', href: '#products' },
-    ],
-  },
-  {
-    heading: 'Reach',
-    items: [
-      { emoji: '🤖', name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', href: '#ai-sdr' },
     ],
   },
 ]
@@ -174,14 +170,16 @@ export default function Navbar() {
             >
               <div className="mt-2 overflow-hidden rounded-2xl border border-hairline bg-bg2/95 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)] backdrop-blur-xl">
                 {menu === 'products' && (
-                  <div className="grid grid-cols-[1.6fr_0.9fr]">
-                    <div className="grid grid-cols-3 gap-x-4 gap-y-1 p-6">
+                  <div className="grid grid-cols-[1.5fr_1fr]">
+                    <div className="grid grid-cols-2 gap-x-8 p-7">
                       {PRODUCT_COLUMNS.map((col) => (
                         <div key={col.heading}>
-                          <p className="px-2.5 pb-1 text-xs font-semibold uppercase tracking-wider text-muted/70">{col.heading}</p>
-                          {col.items.map((it) => (
-                            <ItemRow key={it.name} {...it} onClick={() => setMenu(null)} />
-                          ))}
+                          <p className="px-2.5 pb-2 text-xs font-semibold uppercase tracking-wider text-muted/70">{col.heading}</p>
+                          <div className="flex flex-col gap-1">
+                            {col.items.map((it) => (
+                              <ItemRow key={it.name} {...it} onClick={() => setMenu(null)} />
+                            ))}
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -253,7 +251,7 @@ export default function Navbar() {
               <a href="#ai-sdr" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Coldcast Agent</a>
 
               <p className="px-3 pt-4 text-xs font-semibold uppercase tracking-wider text-muted/70">Products</p>
-              {PRODUCT_COLUMNS.flatMap((c) => c.items).map((it) => (
+              {[AI_SDR, ...PRODUCT_COLUMNS.flatMap((c) => c.items)].map((it) => (
                 <a key={it.name} href={it.href} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
                   <span className="flex items-center gap-2.5"><span className="text-base">{it.emoji}</span>{it.name}</span>
                   <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[it.tag]}`}>{it.tag}</span>
