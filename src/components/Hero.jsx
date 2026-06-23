@@ -82,9 +82,10 @@ export default function Hero() {
             variants={child}
             className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg"
           >
-            One account-safe platform — scrape Sales Navigator, Apollo &amp; ZoomInfo, get verified
-            emails, and let an AI SDR run the outreach. From your own browser.{' '}
-            <span className="font-semibold text-white">Zero account suspensions.</span>
+            The account-safe platform that scrapes Sales Navigator, Apollo &amp; ZoomInfo, verifies
+            every email, and lets an <span className="font-semibold text-white">AI SDR</span> run your
+            outreach — all from your own browser, with{' '}
+            <span className="font-semibold text-white">zero account suspensions</span>.
           </motion.p>
 
           {/* CTAs */}
