@@ -1,35 +1,97 @@
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { Sparkles, Send, ChevronDown } from 'lucide-react'
+import { Sparkles, Send, ChevronDown, Brain, PenLine, Database } from 'lucide-react'
 import Logo from './Logo'
 import BrandLogo from './BrandLogo'
 import Reveal from './Reveal'
 import { Eyebrow } from './SectionHeading'
 
-// Enrich + Activate stacks — recognizable GTM tools with verified domains
-// (logos resolve via Clearbit, with a favicon fallback in BrandLogo).
-const ENRICH = [
-  { name: 'Lusha', domain: 'lusha.com' },
-  { name: 'SalesQL', domain: 'salesql.com' },
-  { name: 'ContactOut', domain: 'contactout.com' },
-  { name: 'Crunchbase', domain: 'crunchbase.com' },
+// Sources & services that radiate from Coldcast (real logos + own services).
+const SOURCES = [
+  { name: 'LinkedIn', domain: 'linkedin.com' },
+  { name: 'Apollo', domain: 'apollo.io' },
+  { name: 'ZoomInfo', domain: 'zoominfo.com' },
+  { name: 'Website', emoji: '🌐' },
+  { name: 'Email verify', emoji: '✅' },
+  { name: 'Email enrich', emoji: '✉️' },
+  { name: 'Domain enrich', emoji: '🏢' },
 ]
-const ACTIVATE = [
-  { name: 'Instantly', domain: 'instantly.ai' },
-  { name: 'Smartlead', domain: 'smartlead.ai' },
-  { name: 'Lemlist', domain: 'lemlist.com' },
-  { name: 'HubSpot', domain: 'hubspot.com' },
-  { name: 'Salesforce', domain: 'salesforce.com' },
+
+const STAGES = [
+  {
+    step: '02', title: 'ICP scoring', icon: Brain, tint: 'cyan',
+    caption: 'Score every lead by fit — with the AI you trust.',
+    nodes: [
+      { name: 'Claude', domain: 'anthropic.com' },
+      { name: 'DeepSeek', domain: 'deepseek.com' },
+      { name: 'ChatGPT', domain: 'openai.com' },
+    ],
+  },
+  { step: '03', title: 'Enrich · emails & phones', icon: Sparkles, tint: 'violet', caption: 'Waterfall-enriched verified emails & direct phones.', coldcast: true },
+  { step: '04', title: 'Personalise copy', icon: PenLine, tint: 'violet', caption: 'Signal-led first lines written for every lead.', coldcast: true },
+  {
+    step: '05', title: 'Email marketing', icon: Send, tint: 'safe',
+    caption: 'Pushed straight into your outreach sequencer.',
+    nodes: [
+      { name: 'Lemlist', domain: 'lemlist.com' },
+      { name: 'Smartlead', domain: 'smartlead.ai' },
+      { name: 'Instantly', domain: 'instantly.ai' },
+      { name: 'Reachinbox', domain: 'reachinbox.ai' },
+    ],
+  },
+  {
+    step: '06', title: 'CRM', icon: Database, tint: 'safe',
+    caption: 'Synced to your CRM, ready to work.',
+    nodes: [
+      { name: 'HubSpot', domain: 'hubspot.com' },
+      { name: 'Salesforce', domain: 'salesforce.com' },
+    ],
+  },
 ]
 
 const TINT = {
+  cyan: { icon: 'text-accent', ring: 'ring-accent/40', glow: 'shadow-glow' },
   violet: { icon: 'text-violet', ring: 'ring-violet/40', glow: 'shadow-glow-violet' },
   safe: { icon: 'text-safe', ring: 'ring-safe/40', glow: 'shadow-glow-safe' },
 }
 
+const ARMS = [0, 60, 120, 180, 240, 300]
+function SwirlMark({ size = 44 }) {
+  return (
+    <svg viewBox="20 20 88 88" width={size} height={size} fill="none" aria-hidden>
+      <g stroke="#fff" strokeWidth="11" strokeLinecap="round" fill="none">
+        {ARMS.map((d) => (
+          <g key={d} transform={`rotate(${d} 64 64)`}>
+            <path d="M64 56 C 71 46 86 48 92 60" />
+            <circle cx="92" cy="60" r="6" fill="#fff" stroke="none" />
+          </g>
+        ))}
+      </g>
+    </svg>
+  )
+}
+
+function Node({ domain, name, emoji, size = 38 }) {
+  return (
+    <div className="flex flex-col items-center gap-1.5 text-center" style={{ width: 64 }}>
+      {domain ? (
+        <BrandLogo domain={domain} name={name} size={size} />
+      ) : (
+        <span
+          className="flex items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft text-[18px] leading-none"
+          style={{ width: size, height: size }}
+        >
+          {emoji}
+        </span>
+      )}
+      <span className="text-[10px] font-medium leading-tight text-muted">{name}</span>
+    </div>
+  )
+}
+
 function Connector({ reduce }) {
   return (
-    <div className="relative flex h-12 w-px items-stretch justify-center overflow-visible">
+    <div className="relative flex h-12 w-px items-stretch justify-center">
       <div className="relative h-full w-px overflow-hidden bg-gradient-to-b from-white/25 to-white/5">
         {!reduce && (
           <motion.span
@@ -45,21 +107,48 @@ function Connector({ reduce }) {
   )
 }
 
-function Stack({ nodes }) {
+function Hub({ active }) {
+  const N = SOURCES.length
+  const nodes = SOURCES.map((s, i) => {
+    const a = (-90 + (i * 360) / N) * (Math.PI / 180)
+    return { ...s, x: 50 + 38 * Math.cos(a), y: 50 + 38 * Math.sin(a) }
+  })
   return (
-    <div className="mt-4 flex flex-wrap items-start justify-center gap-x-4 gap-y-3">
+    <div className="relative mx-auto aspect-square w-full max-w-[380px]">
+      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full">
+        <defs>
+          <linearGradient id="spoke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#4f7cf5" stopOpacity="0.6" />
+            <stop offset="1" stopColor="#22d3ee" stopOpacity="0.15" />
+          </linearGradient>
+        </defs>
+        {nodes.map((n, i) => (
+          <line key={i} x1="50" y1="50" x2={n.x} y2={n.y} stroke="url(#spoke)" strokeWidth="0.4" />
+        ))}
+      </svg>
+
+      {/* Center — Coldcast */}
+      <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
+        <div className={`relative flex h-[84px] w-[84px] items-center justify-center rounded-full bg-brand-gradient shadow-brand-btn transition-all duration-500 ${active ? 'ring-2 ring-brand-light/60' : ''}`}>
+          <div aria-hidden className="absolute inset-0 -z-10 rounded-full bg-brand/40 blur-xl" />
+          <SwirlMark size={44} />
+        </div>
+        <span className="mt-2 text-sm font-semibold text-ink">Coldcast</span>
+      </div>
+
+      {/* Sources & services */}
       {nodes.map((n) => (
-        <div key={n.name} className="flex w-[62px] flex-col items-center gap-1.5 text-center">
-          <BrandLogo domain={n.domain} name={n.name} size={38} />
-          <span className="text-[10px] font-medium leading-tight text-muted">{n.name}</span>
+        <div key={n.name} className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
+          <Node {...n} />
         </div>
       ))}
     </div>
   )
 }
 
-function StageCard({ step, title, icon: Icon, tint, active, children, caption }) {
-  const t = TINT[tint]
+function StageCard({ stage, active }) {
+  const t = TINT[stage.tint]
+  const Icon = stage.icon
   return (
     <div
       className={`relative w-full max-w-md rounded-2xl border border-hairline bg-white/[0.04] p-5 backdrop-blur-sm transition-all duration-500 ${
@@ -71,12 +160,23 @@ function StageCard({ step, title, icon: Icon, tint, active, children, caption })
           <span className={`flex h-8 w-8 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft ${t.icon}`}>
             <Icon size={16} />
           </span>
-          <span className="text-sm font-semibold text-ink">{title}</span>
+          <span className="text-sm font-semibold text-ink">{stage.title}</span>
         </span>
-        <span className="text-xs font-semibold tabular-nums text-muted/50">{step}</span>
+        <span className="text-xs font-semibold tabular-nums text-muted/50">{stage.step}</span>
       </div>
-      {children}
-      <p className="mt-4 text-center text-xs leading-relaxed text-muted">{caption}</p>
+
+      <div className="mt-4 flex flex-wrap items-start justify-center gap-x-4 gap-y-3">
+        {stage.coldcast ? (
+          <span className="inline-flex items-center gap-2 rounded-xl bg-brand-gradient px-3.5 py-2.5 text-sm font-semibold text-white shadow-brand-btn">
+            <Logo size={18} />
+            Coldcast
+          </span>
+        ) : (
+          stage.nodes.map((n) => <Node key={n.name} {...n} />)
+        )}
+      </div>
+
+      <p className="mt-4 text-center text-xs leading-relaxed text-muted">{stage.caption}</p>
     </div>
   )
 }
@@ -87,7 +187,7 @@ export default function GtmPipeline() {
 
   useEffect(() => {
     if (reduce) return undefined
-    const id = setInterval(() => setActive((v) => (v + 1) % 3), 2200)
+    const id = setInterval(() => setActive((v) => (v + 1) % (STAGES.length + 1)), 1900)
     return () => clearInterval(id)
   }, [reduce])
 
@@ -103,8 +203,8 @@ export default function GtmPipeline() {
             From scrape to send — your whole stack, connected.
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
-            Coldcast sits at the top of your pipeline: it prospects, waterfall-enriches across your
-            tools, and hands finished leads straight to your sequencer and CRM.
+            Coldcast sits at the centre of your pipeline: it sources, scores, enriches, personalises
+            and hands finished leads straight to your sequencer and CRM.
           </p>
         </Reveal>
 
@@ -117,38 +217,20 @@ export default function GtmPipeline() {
             </div>
 
             <div className="relative flex flex-col items-center">
-              {/* Coldcast — the source, in focus */}
-              <div className="relative w-full max-w-md">
-                <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 rounded-2xl bg-brand/25 blur-2xl" />
-                <div
-                  className={`relative flex items-center gap-4 rounded-2xl border-2 border-brand/40 bg-white/[0.05] p-5 backdrop-blur-sm transition-all duration-500 ${
-                    active === 0 ? 'ring-1 ring-brand-light/50 shadow-brand-btn' : ''
-                  }`}
-                >
-                  <Logo size={48} />
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="text-base font-semibold text-ink">Coldcast</span>
-                      <span className="rounded-full bg-brand/25 px-2 py-0.5 text-[10px] font-semibold text-brand-light">01 · Scrape</span>
-                    </div>
-                    <p className="mt-1 text-xs leading-relaxed text-muted">
-                      GTM prospecting in your own browser, at human pace.
-                    </p>
-                  </div>
+              {/* Hub — Coldcast + sources */}
+              <Hub active={active === 0} />
+              <p className="-mt-2 mb-1 max-w-xs text-center text-xs leading-relaxed text-muted">
+                01 · GTM prospecting in your own browser, at human pace.
+              </p>
+
+              <Connector reduce={reduce} />
+
+              {STAGES.map((stage, i) => (
+                <div key={stage.step} className="contents">
+                  <StageCard stage={stage} active={active === i + 1} />
+                  {i < STAGES.length - 1 && <Connector reduce={reduce} />}
                 </div>
-              </div>
-
-              <Connector reduce={reduce} />
-
-              <StageCard step="02" title="Enrich" icon={Sparkles} tint="violet" active={active === 1} caption="Verified emails, phones, domains & company data — waterfalled.">
-                <Stack nodes={ENRICH} />
-              </StageCard>
-
-              <Connector reduce={reduce} />
-
-              <StageCard step="03" title="Activate" icon={Send} tint="safe" active={active === 2} caption="Pushed straight into your outreach sequencer & CRM.">
-                <Stack nodes={ACTIVATE} />
-              </StageCard>
+              ))}
             </div>
           </div>
         </Reveal>
