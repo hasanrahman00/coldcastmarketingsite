@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X, ChevronDown, ArrowRight, Bot, ShieldCheck } from 'lucide-react'
 import Logo from './Logo'
@@ -11,23 +12,23 @@ const TAG = {
   New: 'bg-brand/25 text-brand-light',
 }
 
-const AI_SDR = { emoji: '🤖', name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', href: '#ai-sdr' }
+const AI_SDR = { emoji: '🤖', name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', to: '/#ai-sdr' }
 
 const PRODUCT_COLUMNS = [
   {
     heading: 'Scrape',
     items: [
-      { emoji: '🎯', name: 'Sales Nav Scraper', desc: 'Export any Sales Navigator search', tag: 'Live', href: '#products' },
-      { emoji: '🚀', name: 'Apollo Scraper', desc: 'Pull lists from Apollo', tag: 'Soon', href: '#products' },
-      { emoji: '🏢', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo data', tag: 'Soon', href: '#products' },
+      { emoji: '🎯', name: 'Sales Nav Scraper', desc: 'Export any Sales Navigator search', tag: 'Live', to: '/products' },
+      { emoji: '🚀', name: 'Apollo Scraper', desc: 'Pull lists from Apollo', tag: 'Soon', to: '/products' },
+      { emoji: '🏢', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo data', tag: 'Soon', to: '/products' },
     ],
   },
   {
     heading: 'Enrich & verify',
     items: [
-      { emoji: '💧', name: 'Waterfall Enricher', desc: 'Verified emails & phones', tag: 'Soon', href: '#products' },
-      { emoji: '✅', name: 'Email Verify', desc: 'Validate before you send', tag: 'Soon', href: '#products' },
-      { emoji: '🌐', name: 'Domain Enrichment', desc: 'Company data from a domain', tag: 'Soon', href: '#products' },
+      { emoji: '💧', name: 'Waterfall Enricher', desc: 'Verified emails & phones', tag: 'Live', to: '/products' },
+      { emoji: '✅', name: 'Email Verify', desc: 'Validate before you send', tag: 'Soon', to: '/products' },
+      { emoji: '🌐', name: 'Domain Enrichment', desc: 'Company data from a domain', tag: 'Soon', to: '/products' },
     ],
   },
 ]
@@ -42,16 +43,16 @@ const ROLES = [
 ]
 
 const NAV = [
-  { key: 'agent', label: 'Coldcast Agent', href: '#ai-sdr' },
-  { key: 'products', label: 'Products', menu: 'products', caret: true },
-  { key: 'role', label: 'Role', menu: 'role', caret: true },
-  { key: 'pricing', label: 'Pricing', href: '#pricing' },
-  { key: 'tools', label: 'Free Tools', href: '#' },
+  { key: 'agent', label: 'Coldcast Agent', to: '/#ai-sdr' },
+  { key: 'products', label: 'Products', to: '/products', menu: 'products', caret: true },
+  { key: 'role', label: 'Role', to: '/roles', menu: 'role', caret: true },
+  { key: 'pricing', label: 'Pricing', to: '/#pricing' },
+  { key: 'tools', label: 'Free Tools', to: '#', placeholder: true },
 ]
 
-function ItemRow({ emoji, name, desc, tag, href, onClick }) {
+function ItemRow({ emoji, name, desc, tag, to, onClick }) {
   return (
-    <a href={href} onClick={onClick} className="group/item flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-white/[0.05]">
+    <Link to={to} onClick={onClick} className="group/item flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-white/[0.05]">
       <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft text-[17px] leading-none">{emoji}</span>
       <span className="min-w-0">
         <span className="flex items-center gap-2">
@@ -60,7 +61,7 @@ function ItemRow({ emoji, name, desc, tag, href, onClick }) {
         </span>
         <span className="mt-0.5 block text-xs leading-snug text-muted">{desc}</span>
       </span>
-    </a>
+    </Link>
   )
 }
 
@@ -100,12 +101,11 @@ export default function Navbar() {
   const openMenu = (m) => { clearTimeout(closeTimer.current); setMenu(m) }
   const scheduleClose = () => { closeTimer.current = setTimeout(() => setMenu(null), 130) }
 
+  const linkCls = 'relative z-10 flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-white/80 transition-colors hover:text-white'
+
   return (
     <>
-      <header
-        onMouseLeave={() => { scheduleClose(); setHovered(null) }}
-        className="fixed inset-x-0 top-0 z-[80]"
-      >
+      <header onMouseLeave={() => { scheduleClose(); setHovered(null) }} className="fixed inset-x-0 top-0 z-[80]">
         <div className="mx-auto max-w-6xl px-4 pt-3 sm:px-6">
           {/* Floating glass pill */}
           <div
@@ -115,35 +115,25 @@ export default function Navbar() {
                 : 'border-white/10 bg-white/[0.05] backdrop-blur-xl'
             }`}
           >
-            <a href="#top" onClick={() => setMenu(null)} className="flex shrink-0 items-center gap-2.5 pl-1" aria-label="Coldcast — home">
+            <Link to="/" onClick={() => setMenu(null)} className="flex shrink-0 items-center gap-2.5 pl-1" aria-label="Coldcast — home">
               <Logo size={32} />
               <span className="text-base font-bold tracking-tight text-white">Coldcast</span>
-            </a>
+            </Link>
 
             {/* Center nav with sliding hover pill */}
             <ul className="relative hidden items-center lg:flex" onMouseLeave={() => setHovered(null)}>
               {NAV.map((item) => (
-                <li
-                  key={item.key}
-                  className="relative"
-                  onMouseEnter={() => { setHovered(item.key); openMenu(item.menu || null) }}
-                >
+                <li key={item.key} className="relative" onMouseEnter={() => { setHovered(item.key); openMenu(item.menu || null) }}>
                   {hovered === item.key && (
-                    <motion.span
-                      layoutId="nav-hover"
-                      className="absolute inset-0 rounded-full bg-white/10"
-                      transition={{ type: 'spring', stiffness: 420, damping: 32 }}
-                    />
+                    <motion.span layoutId="nav-hover" className="absolute inset-0 rounded-full bg-white/10" transition={{ type: 'spring', stiffness: 420, damping: 32 }} />
                   )}
-                  {item.href ? (
-                    <a href={item.href} className="relative z-10 flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-white/80 transition-colors hover:text-white">
-                      {item.label}
-                    </a>
+                  {item.placeholder ? (
+                    <a href={item.to} className={linkCls} onClick={() => setMenu(null)}>{item.label}</a>
                   ) : (
-                    <button type="button" aria-expanded={menu === item.menu} className="relative z-10 flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-white/80 transition-colors hover:text-white">
+                    <Link to={item.to} className={linkCls} onClick={() => setMenu(null)} aria-expanded={item.menu ? menu === item.menu : undefined}>
                       {item.label}
                       {item.caret && <ChevronDown size={14} className={`transition-transform ${menu === item.menu ? 'rotate-180' : ''}`} />}
-                    </button>
+                    </Link>
                   )}
                 </li>
               ))}
@@ -197,7 +187,7 @@ export default function Navbar() {
                         <h4 className="mt-3 text-base font-semibold text-ink">Meet your AI SDR</h4>
                         <p className="mt-1.5 text-sm leading-relaxed text-muted">Let an autonomous rep write, send and follow up off your enriched lists.</p>
                       </div>
-                      <a href="#ai-sdr" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-white">See how it works <ArrowRight size={15} /></a>
+                      <Link to="/#ai-sdr" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-white">See how it works <ArrowRight size={15} /></Link>
                     </div>
                   </div>
                 )}
@@ -205,7 +195,7 @@ export default function Navbar() {
                 {menu === 'role' && (
                   <div className="grid grid-cols-[1.5fr_1fr]">
                     <div className="grid grid-cols-2 gap-x-6 p-7">
-                      {ROLES.map((r) => (<ItemRow key={r.name} {...r} href="#use-cases" onClick={() => setMenu(null)} />))}
+                      {ROLES.map((r) => (<ItemRow key={r.name} {...r} to="/roles" onClick={() => setMenu(null)} />))}
                     </div>
                     <div className="flex flex-col justify-between border-l border-white/10 bg-white/[0.02] p-6">
                       <div>
@@ -213,7 +203,7 @@ export default function Navbar() {
                         <h4 className="mt-3 text-base font-semibold text-ink">Built for trust</h4>
                         <p className="mt-1.5 text-sm leading-relaxed text-muted">6+ months of daily use · 0 account suspensions · 97% verified emails.</p>
                       </div>
-                      <a href="#safety" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-white">Why it’s safe <ArrowRight size={15} /></a>
+                      <Link to="/#safety" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-white">Why it’s safe <ArrowRight size={15} /></Link>
                     </div>
                   </div>
                 )}
@@ -242,21 +232,21 @@ export default function Navbar() {
             className="fixed inset-x-0 top-[4.75rem] bottom-0 z-[70] overflow-y-auto border-t border-white/10 bg-bg/95 backdrop-blur-xl lg:hidden"
           >
             <div className="container-px flex flex-col gap-1 py-5">
-              <a href="#ai-sdr" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Coldcast Agent</a>
-              <p className="px-3 pt-4 text-xs font-semibold uppercase tracking-wider text-muted/70">Products</p>
+              <Link to="/#ai-sdr" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Coldcast Agent</Link>
+              <Link to="/products" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Products</Link>
               {[AI_SDR, ...PRODUCT_COLUMNS.flatMap((c) => c.items)].map((it) => (
-                <a key={it.name} href={it.href} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
+                <Link key={it.name} to={it.to} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
                   <span className="flex items-center gap-2.5"><span className="text-base">{it.emoji}</span>{it.name}</span>
                   <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[it.tag]}`}>{it.tag}</span>
-                </a>
+                </Link>
               ))}
-              <p className="px-3 pt-4 text-xs font-semibold uppercase tracking-wider text-muted/70">Role</p>
+              <Link to="/roles" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Role</Link>
               {ROLES.map((r) => (
-                <a key={r.name} href="#use-cases" onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
+                <Link key={r.name} to="/roles" onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
                   <span className="text-base">{r.emoji}</span>{r.name}
-                </a>
+                </Link>
               ))}
-              <a href="#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Pricing</a>
+              <Link to="/#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Pricing</Link>
               <a href="#" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Free Tools</a>
               <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-5">
                 <Button as="a" href={TRIAL_URL} variant="primary" size="lg" onClick={() => setOpen(false)}>Free trial</Button>

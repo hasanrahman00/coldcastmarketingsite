@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Twitter, Linkedin, Github } from 'lucide-react'
 import Wordmark from './Wordmark'
 import { TRIAL_URL } from '../lib/constants'
@@ -6,24 +7,26 @@ const COLUMNS = [
   {
     title: 'Product',
     links: [
-      { label: 'Features', href: '#features' },
-      { label: 'Pricing', href: '#pricing' },
-      { label: 'How it works', href: '#how' },
+      { label: 'Products', to: '/products' },
+      { label: 'By role', to: '/roles' },
+      { label: 'Pricing', to: '/#pricing' },
+      { label: 'How it works', to: '/#how' },
     ],
   },
   {
     title: 'Company',
     links: [
       // [PLACEHOLDER] point these at real pages
-      { label: 'About', href: '#' },
-      { label: 'Contact', href: '#' },
+      { label: 'About', to: '#', external: true },
+      { label: 'Contact', to: '#', external: true },
     ],
   },
   {
     title: 'Legal',
     links: [
-      { label: 'Privacy', href: '/privacy/' },
-      { label: 'Terms', href: '/terms/' },
+      // Static directory pages (not router routes) → full navigation.
+      { label: 'Privacy', to: '/privacy/', external: true },
+      { label: 'Terms', to: '/terms/', external: true },
     ],
   },
 ]
@@ -42,9 +45,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-2">
-            <a href="#top" className="inline-flex" aria-label="Coldcast — home">
+            <Link to="/" className="inline-flex" aria-label="Coldcast — home">
               <Wordmark size={40} />
-            </a>
+            </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               Export and enrich LinkedIn Sales Navigator leads — clean spreadsheets, verified data,
               and an account that stays safe.
@@ -70,12 +73,15 @@ export default function Footer() {
               <ul className="mt-4 flex flex-col gap-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-muted transition-colors hover:text-ink"
-                    >
-                      {link.label}
-                    </a>
+                    {link.external ? (
+                      <a href={link.to} className="text-sm text-muted transition-colors hover:text-ink">
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link to={link.to} className="text-sm text-muted transition-colors hover:text-ink">
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

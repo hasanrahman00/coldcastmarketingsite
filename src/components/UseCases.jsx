@@ -32,15 +32,17 @@ const CASES = [
   },
 ]
 
-export default function UseCases() {
+export default function UseCases({ showHeading = true }) {
   return (
     <section id="use-cases" className="relative py-24 sm:py-32">
       <div className="container-px">
-        <SectionHeading
-          eyebrow="Who it’s for"
-          title="Built for everyone who lives in Sales Navigator."
-          subtitle="From a single SDR to a full lead-generation agency, Coldcast turns LinkedIn Sales Navigator searches into clean, enriched, ready-to-send lead lists — without the throttling, the per-lead bill, or the banned accounts."
-        />
+        {showHeading && (
+          <SectionHeading
+            eyebrow="Who it’s for"
+            title="Built for everyone who lives in Sales Navigator."
+            subtitle="From a single SDR to a full lead-generation agency, Coldcast turns LinkedIn Sales Navigator searches into clean, enriched, ready-to-send lead lists — without the throttling, the per-lead bill, or the banned accounts."
+          />
+        )}
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {CASES.map(({ icon: Icon, color, title, desc }, i) => (

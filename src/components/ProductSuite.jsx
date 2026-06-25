@@ -16,7 +16,7 @@ const TOOLS = [
   { emoji: '🎯', color: 'brand', name: 'Sales Navigator Scraper', tag: 'Live', desc: 'Export any Sales Nav search in minutes — at human pace.' },
   { emoji: '🚀', color: 'violet', name: 'Apollo Scraper', tag: 'Soon', desc: 'Pull whole lists straight out of Apollo.' },
   { emoji: '🏢', color: 'cyan', name: 'ZoomInfo Scraper', tag: 'Soon', desc: 'Export ZoomInfo company & contact data.' },
-  { emoji: '💧', color: 'cyan', name: 'Waterfall Enricher', tag: 'Soon', desc: 'Cascade across sources for verified emails & phones.' },
+  { emoji: '💧', color: 'cyan', name: 'Waterfall Enricher', tag: 'Live', desc: 'Cascade across sources for verified emails & phones.' },
   { emoji: '✅', color: 'safe', name: 'Email Verify', tag: 'Soon', desc: 'Validate every address before you send.' },
   { emoji: '🌐', color: 'amber', name: 'Domain Enrichment', tag: 'Soon', desc: 'Firmographics & website data from any domain.' },
 ]
@@ -37,18 +37,20 @@ function Glow({ color, className = '' }) {
   )
 }
 
-export default function ProductSuite() {
+export default function ProductSuite({ showHeading = true }) {
   return (
     <section id="products" className="relative overflow-hidden py-24 sm:py-32">
       {/* Rain continues from the hero into this section */}
       <Rain count={34} className="opacity-25" />
 
       <div className="container-px relative">
-        <SectionHeading
-          eyebrow="One platform"
-          title="Seven tools. One account-safe platform."
-          subtitle="Scrape, enrich, verify and reach — all from your own browser. Use any tool on its own, or run the whole pipeline end to end."
-        />
+        {showHeading && (
+          <SectionHeading
+            eyebrow="One platform"
+            title="Seven tools. One account-safe platform."
+            subtitle="Scrape, enrich, verify and reach — all from your own browser. Use any tool on its own, or run the whole pipeline end to end."
+          />
+        )}
 
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {/* AI SDR — featured, full width */}
