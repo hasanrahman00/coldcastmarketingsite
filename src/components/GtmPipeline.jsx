@@ -107,7 +107,7 @@ function Connector({ reduce }) {
   )
 }
 
-function Hub({ active }) {
+function Hub({ active, reduce }) {
   const N = SOURCES.length
   const nodes = SOURCES.map((s, i) => {
     const a = (-90 + (i * 360) / N) * (Math.PI / 180)
@@ -115,32 +115,58 @@ function Hub({ active }) {
   })
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[380px]">
-      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full">
+      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
         <defs>
           <linearGradient id="spoke" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#4f7cf5" stopOpacity="0.6" />
-            <stop offset="1" stopColor="#22d3ee" stopOpacity="0.15" />
+            <stop offset="0" stopColor="#4f7cf5" stopOpacity="0.7" />
+            <stop offset="1" stopColor="#22d3ee" stopOpacity="0.2" />
           </linearGradient>
         </defs>
         {nodes.map((n, i) => (
-          <line key={i} x1="50" y1="50" x2={n.x} y2={n.y} stroke="url(#spoke)" strokeWidth="0.4" />
+          <line key={i} x1="50" y1="50" x2={n.x} y2={n.y} stroke="url(#spoke)" strokeWidth="0.45" />
         ))}
+        {/* Data flowing from each source into Coldcast */}
+        {!reduce &&
+          nodes.map((n, i) => (
+            <motion.circle
+              key={`p${i}`}
+              r="1.3"
+              fill="#5eead4"
+              style={{ filter: 'drop-shadow(0 0 2.5px rgba(34,211,238,0.95))' }}
+              initial={{ cx: n.x, cy: n.y, opacity: 0 }}
+              animate={{ cx: [n.x, 50], cy: [n.y, 50], opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 2, repeat: Infinity, delay: i * 0.26, ease: 'easeIn' }}
+            />
+          ))}
       </svg>
 
       {/* Center — Coldcast */}
       <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
         <div className={`relative flex h-[84px] w-[84px] items-center justify-center rounded-full bg-brand-gradient shadow-brand-btn transition-all duration-500 ${active ? 'ring-2 ring-brand-light/60' : ''}`}>
-          <div aria-hidden className="absolute inset-0 -z-10 rounded-full bg-brand/40 blur-xl" />
+          <motion.span
+            aria-hidden
+            className="absolute inset-0 -z-10 rounded-full bg-brand/45 blur-xl"
+            animate={reduce ? {} : { scale: [1, 1.3, 1], opacity: [0.5, 0.9, 0.5] }}
+            transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
+          />
           <SwirlMark size={44} />
         </div>
         <span className="mt-2 text-sm font-semibold text-ink">Coldcast</span>
       </div>
 
-      {/* Sources & services */}
-      {nodes.map((n) => (
-        <div key={n.name} className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
+      {/* Sources & services — staggered pop-in */}
+      {nodes.map((n, i) => (
+        <motion.div
+          key={n.name}
+          className="absolute"
+          style={{ left: `${n.x}%`, top: `${n.y}%`, x: '-50%', y: '-50%' }}
+          initial={{ scale: 0.4, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ delay: 0.1 + i * 0.07, type: 'spring', stiffness: 240, damping: 16 }}
+        >
           <Node {...n} />
-        </div>
+        </motion.div>
       ))}
     </div>
   )
@@ -172,7 +198,17 @@ function StageCard({ stage, active }) {
             Coldcast
           </span>
         ) : (
-          stage.nodes.map((n) => <Node key={n.name} {...n} />)
+          stage.nodes.map((n, idx) => (
+            <motion.div
+              key={n.name}
+              initial={{ scale: 0.6, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ delay: idx * 0.08, type: 'spring', stiffness: 260, damping: 18 }}
+            >
+              <Node {...n} />
+            </motion.div>
+          ))
         )}
       </div>
 
@@ -218,7 +254,7 @@ export default function GtmPipeline() {
 
             <div className="relative flex flex-col items-center">
               {/* Hub — Coldcast + sources */}
-              <Hub active={active === 0} />
+              <Hub active={active === 0} reduce={reduce} />
               <p className="-mt-2 mb-1 max-w-xs text-center text-xs leading-relaxed text-muted">
                 01 · GTM prospecting in your own browser, at human pace.
               </p>
