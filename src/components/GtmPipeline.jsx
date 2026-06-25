@@ -89,18 +89,20 @@ function Node({ domain, name, emoji, size = 38 }) {
   )
 }
 
-function Connector({ reduce }) {
+function Connector({ reduce, index = 0 }) {
   return (
-    <div className="relative flex h-12 w-px items-stretch justify-center">
-      <div className="relative h-full w-px overflow-hidden bg-gradient-to-b from-white/25 to-white/5">
-        {!reduce && (
-          <motion.span
-            className="absolute left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-accent"
-            style={{ boxShadow: '0 0 10px 2px rgba(34,211,238,0.7)' }}
-            animate={{ top: ['-10%', '110%'], opacity: [0, 1, 1, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: 'linear' }}
-          />
-        )}
+    <div className="relative flex h-14 w-px items-stretch justify-center">
+      <div className="relative h-full w-px overflow-hidden bg-gradient-to-b from-accent/40 via-white/15 to-accent/40">
+        {!reduce &&
+          [0, 1].map((p) => (
+            <motion.span
+              key={p}
+              className="absolute left-1/2 h-2 w-2 -translate-x-1/2 rounded-full"
+              style={{ background: '#5eead4', boxShadow: '0 0 9px 2px rgba(34,211,238,0.85)' }}
+              animate={{ top: ['-12%', '112%'], opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: 'linear', delay: index * 0.3 + p * 0.8 }}
+            />
+          ))}
       </div>
       <ChevronDown size={16} className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 text-muted/60" />
     </div>
@@ -259,12 +261,12 @@ export default function GtmPipeline() {
                 01 · GTM prospecting in your own browser, at human pace.
               </p>
 
-              <Connector reduce={reduce} />
+              <Connector reduce={reduce} index={0} />
 
               {STAGES.map((stage, i) => (
                 <div key={stage.step} className="contents">
                   <StageCard stage={stage} active={active === i + 1} />
-                  {i < STAGES.length - 1 && <Connector reduce={reduce} />}
+                  {i < STAGES.length - 1 && <Connector reduce={reduce} index={i + 1} />}
                 </div>
               ))}
             </div>
