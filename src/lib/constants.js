@@ -21,11 +21,22 @@ export const NAV_LINKS = [
 
 // Enrichment sources shown in the trust bar (logo + domain for BrandLogo)
 export const ENRICHMENT_SOURCES = [
-  { name: 'Lusha', domain: 'lusha.com' },
-  { name: 'SalesQL', domain: 'salesql.com' },
-  { name: 'ContactOut', domain: 'contactout.com' },
   { name: 'LinkedIn', domain: 'linkedin.com' },
+  { name: 'Apollo', domain: 'apollo.io' },
+  { name: 'ZoomInfo', domain: 'zoominfo.com' },
+  { name: 'Lusha', domain: 'lusha.com' },
+  { name: 'ContactOut', domain: 'contactout.com' },
+  { name: 'SalesQL', domain: 'salesql.com' },
+  { name: 'RocketReach', domain: 'rocketreach.co' },
+  { name: 'Hunter', domain: 'hunter.io' },
+  { name: 'Crunchbase', domain: 'crunchbase.com' },
+  { name: 'Seamless.ai', domain: 'seamless.ai' },
+  { name: 'Cognism', domain: 'cognism.com' },
 ]
+
+// Social-proof customer count shown in the trust bar.
+// [PLACEHOLDER] keep this a real, substantiated figure before launch.
+export const CUSTOMER_COUNT = '2,500+'
 
 // ─────────────────────────────────────────────────────────────
 // Social proof — [PLACEHOLDER] swap for real, substantiated values.
