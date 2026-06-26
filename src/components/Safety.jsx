@@ -56,7 +56,15 @@ export default function Safety() {
         </div>
 
         {/* Contrast panels */}
-        <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="relative mx-auto mt-14 max-w-5xl">
+          {/* VS divider */}
+          <div aria-hidden className="absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 lg:block">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-hairline bg-bg2 text-xs font-bold uppercase tracking-[0.15em] text-muted shadow-card">
+              vs
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {/* Them */}
           <Reveal>
             <div className="relative h-full overflow-hidden rounded-3xl border border-danger/20 bg-white/[0.045] p-7 shadow-card backdrop-blur-sm sm:p-8">
@@ -73,17 +81,24 @@ export default function Safety() {
                   Account flagged &amp; suspended
                 </span>
               </div>
-              <ul className="relative mt-6 flex flex-col gap-4">
-                {THEM.map(({ icon: Icon, text }) => (
-                  <li key={text} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-danger/10 text-danger">
+              <ul className="relative mt-6 flex flex-col gap-1.5">
+                {THEM.map(({ icon: Icon, text }, i) => (
+                  <motion.li
+                    key={text}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: '-50px' }}
+                    transition={{ duration: 0.4, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-white/[0.03]"
+                  >
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-danger/10 text-danger ring-1 ring-danger/20">
                       <Icon size={16} />
                     </span>
                     <span className="flex items-start gap-2 text-sm leading-relaxed text-muted">
                       <X size={15} className="mt-0.5 shrink-0 text-danger" />
                       {text}
                     </span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
@@ -108,21 +123,29 @@ export default function Safety() {
                   Account stays safe
                 </span>
               </div>
-              <ul className="relative mt-6 flex flex-col gap-4">
-                {US.map(({ icon: Icon, text }) => (
-                  <li key={text} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-safe/10 text-safe">
+              <ul className="relative mt-6 flex flex-col gap-1.5">
+                {US.map(({ icon: Icon, text }, i) => (
+                  <motion.li
+                    key={text}
+                    initial={{ opacity: 0, x: 12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: '-50px' }}
+                    transition={{ duration: 0.4, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-white/[0.03]"
+                  >
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-safe/10 text-safe ring-1 ring-safe/20">
                       <Icon size={16} />
                     </span>
                     <span className="flex items-start gap-2 text-sm leading-relaxed text-ink/90">
                       <Check size={15} className="mt-0.5 shrink-0 text-safe" />
                       {text}
                     </span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
           </Reveal>
+          </div>
         </div>
 
         {/* Track-record badge */}
