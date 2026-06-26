@@ -42,7 +42,7 @@ export default function VolumeBand() {
           <div className="absolute -bottom-24 right-[-6%] h-[420px] w-[520px] rounded-full bg-brand-light/20 blur-[120px]" />
         </div>
 
-        <div className="relative grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
+        <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Left — the claim */}
           <div>
             <Eyebrow>
