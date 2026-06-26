@@ -17,18 +17,25 @@ const SOURCES = [
   { name: 'Domain enrich', emoji: '🏢' },
 ]
 
+// AI models Coldcast orchestrates for scoring + copy.
+const AI = [
+  { name: 'Claude', domain: 'anthropic.com' },
+  { name: 'DeepSeek', domain: 'deepseek.com' },
+  { name: 'ChatGPT', domain: 'openai.com' },
+]
+
 const STAGES = [
   {
     step: '02', title: 'ICP scoring', icon: Brain, tint: 'cyan',
-    caption: 'Score every lead by fit — with the AI you trust.',
-    nodes: [
-      { name: 'Claude', domain: 'anthropic.com' },
-      { name: 'DeepSeek', domain: 'deepseek.com' },
-      { name: 'ChatGPT', domain: 'openai.com' },
-    ],
+    caption: 'Coldcast scores every lead by fit — with the AI you trust.',
+    hub: true,
   },
   { step: '03', title: 'Enrich · emails & phones', icon: Sparkles, tint: 'violet', caption: 'Waterfall-enriched verified emails & direct phones.', coldcast: true },
-  { step: '04', title: 'Personalise copy', icon: PenLine, tint: 'violet', caption: 'Signal-led first lines written for every lead.', coldcast: true },
+  {
+    step: '04', title: 'Intent & signal-based personalised cold copy', icon: PenLine, tint: 'violet',
+    caption: 'Signal-led first lines written for every lead.',
+    hub: true,
+  },
   {
     step: '05', title: 'Email marketing', icon: Send, tint: 'safe',
     caption: 'Pushed straight into your outreach sequencer.',
@@ -174,7 +181,72 @@ function Hub({ active, reduce }) {
   )
 }
 
-function StageCard({ stage, active }) {
+// Coldcast at the centre, AI models orbiting — used for ICP scoring & copy.
+function MiniHub({ reduce }) {
+  const N = AI.length
+  const nodes = AI.map((s, i) => {
+    const a = (-90 + (i * 360) / N) * (Math.PI / 180)
+    return { ...s, x: 50 + 33 * Math.cos(a), y: 50 + 33 * Math.sin(a) }
+  })
+  return (
+    <div className="relative mx-auto mt-1 aspect-square w-full max-w-[240px]">
+      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
+        <defs>
+          <linearGradient id="mini-spoke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#a78bfa" stopOpacity="0.7" />
+            <stop offset="1" stopColor="#22d3ee" stopOpacity="0.2" />
+          </linearGradient>
+        </defs>
+        {nodes.map((n, i) => (
+          <line key={i} x1="50" y1="50" x2={n.x} y2={n.y} stroke="url(#mini-spoke)" strokeWidth="0.5" />
+        ))}
+        {!reduce &&
+          nodes.map((n, i) => (
+            <motion.circle
+              key={`mp${i}`}
+              r="1.5"
+              fill="#5eead4"
+              style={{ filter: 'drop-shadow(0 0 2.5px rgba(34,211,238,0.95))' }}
+              initial={{ cx: n.x, cy: n.y, opacity: 0 }}
+              animate={{ cx: [n.x, 50], cy: [n.y, 50], opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4, ease: 'easeIn' }}
+            />
+          ))}
+      </svg>
+
+      {/* Center — Coldcast */}
+      <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
+        <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-brand-gradient shadow-brand-btn">
+          <motion.span
+            aria-hidden
+            className="absolute inset-0 -z-10 rounded-full bg-brand/45 blur-lg"
+            animate={reduce ? {} : { scale: [1, 1.25, 1], opacity: [0.5, 0.85, 0.5] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <SwirlMark size={30} />
+        </div>
+        <span className="mt-1.5 text-[11px] font-semibold text-ink">Coldcast</span>
+      </div>
+
+      {/* AI models */}
+      {nodes.map((n, i) => (
+        <motion.div
+          key={n.name}
+          className="absolute"
+          style={{ left: `${n.x}%`, top: `${n.y}%`, x: '-50%', y: '-50%' }}
+          initial={{ scale: 0.5, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ delay: 0.1 + i * 0.08, type: 'spring', stiffness: 240, damping: 16 }}
+        >
+          <Node {...n} size={34} />
+        </motion.div>
+      ))}
+    </div>
+  )
+}
+
+function StageCard({ stage, active, reduce }) {
   const t = TINT[stage.tint]
   const Icon = stage.icon
   return (
@@ -194,7 +266,9 @@ function StageCard({ stage, active }) {
       </div>
 
       <div className="mt-4 flex flex-wrap items-start justify-center gap-x-4 gap-y-3">
-        {stage.coldcast ? (
+        {stage.hub ? (
+          <MiniHub reduce={reduce} />
+        ) : stage.coldcast ? (
           <span className="inline-flex items-center gap-2 rounded-xl bg-brand-gradient px-3.5 py-2.5 text-sm font-semibold text-white shadow-brand-btn">
             <Logo size={18} />
             Coldcast
@@ -265,7 +339,7 @@ export default function GtmPipeline() {
 
               {STAGES.map((stage, i) => (
                 <div key={stage.step} className="contents">
-                  <StageCard stage={stage} active={active === i + 1} />
+                  <StageCard stage={stage} active={active === i + 1} reduce={reduce} />
                   {i < STAGES.length - 1 && <Connector reduce={reduce} index={i + 1} />}
                 </div>
               ))}
