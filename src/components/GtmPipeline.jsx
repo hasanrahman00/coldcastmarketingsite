@@ -28,13 +28,21 @@ const STAGES = [
   {
     step: '02', title: 'ICP scoring', icon: Brain, tint: 'cyan',
     caption: 'Coldcast scores every lead by fit — with the AI you trust.',
-    hub: true,
+    hub: true, nodes: AI,
   },
-  { step: '03', title: 'Enrich · emails & phones', icon: Sparkles, tint: 'violet', caption: 'Waterfall-enriched verified emails & direct phones.', coldcast: true },
+  {
+    step: '03', title: 'Enrich · emails & phones', icon: Sparkles, tint: 'violet',
+    caption: 'Waterfall-enriched verified emails & direct phones.',
+    hub: true,
+    nodes: [
+      { name: 'Email', emoji: '✉️' },
+      { name: 'Phone', emoji: '📞' },
+    ],
+  },
   {
     step: '04', title: 'Intent & signal-based personalised cold copy', icon: PenLine, tint: 'violet',
     caption: 'Signal-led first lines written for every lead.',
-    hub: true,
+    hub: true, nodes: AI,
   },
   {
     step: '05', title: 'Email marketing', icon: Send, tint: 'safe',
@@ -182,10 +190,11 @@ function Hub({ active, reduce }) {
 }
 
 // Coldcast at the centre, AI models orbiting — used for ICP scoring & copy.
-function MiniHub({ reduce }) {
-  const N = AI.length
-  const nodes = AI.map((s, i) => {
-    const a = (-90 + (i * 360) / N) * (Math.PI / 180)
+function MiniHub({ nodes: items, reduce }) {
+  const N = items.length
+  const start = N === 2 ? 180 : -90 // 2 nodes read better left/right than top/bottom
+  const nodes = items.map((s, i) => {
+    const a = (start + (i * 360) / N) * (Math.PI / 180)
     return { ...s, x: 50 + 33 * Math.cos(a), y: 50 + 33 * Math.sin(a) }
   })
   return (
@@ -267,7 +276,7 @@ function StageCard({ stage, active, reduce }) {
 
       <div className="mt-4 flex flex-wrap items-start justify-center gap-x-4 gap-y-3">
         {stage.hub ? (
-          <MiniHub reduce={reduce} />
+          <MiniHub nodes={stage.nodes} reduce={reduce} />
         ) : stage.coldcast ? (
           <span className="inline-flex items-center gap-2 rounded-xl bg-brand-gradient px-3.5 py-2.5 text-sm font-semibold text-white shadow-brand-btn">
             <Logo size={18} />
