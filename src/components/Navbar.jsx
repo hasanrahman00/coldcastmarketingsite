@@ -7,8 +7,6 @@ import Button from './Button'
 import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 
 const TAG = {
-  Live: 'bg-safe/15 text-safe',
-  Soon: 'bg-white/10 text-muted',
   New: 'bg-brand/25 text-brand-light',
 }
 
@@ -18,17 +16,17 @@ const PRODUCT_COLUMNS = [
   {
     heading: 'Scrape',
     items: [
-      { emoji: '🎯', name: 'Sales Nav Scraper', desc: 'Export any Sales Navigator search', tag: 'Live', to: '/products' },
-      { emoji: '🚀', name: 'Apollo Scraper', desc: 'Pull lists from Apollo', tag: 'Soon', to: '/products' },
-      { emoji: '🏢', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo data', tag: 'Soon', to: '/products' },
+      { emoji: '🎯', name: 'Sales Nav Scraper', desc: 'Export any Sales Navigator search', to: '/products' },
+      { emoji: '🚀', name: 'Apollo Scraper', desc: 'Pull lists from Apollo', to: '/products' },
+      { emoji: '🏢', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo data', to: '/products' },
     ],
   },
   {
     heading: 'Enrich & verify',
     items: [
-      { emoji: '💧', name: 'Waterfall Enricher', desc: 'Verified emails & phones', tag: 'Live', to: '/products' },
-      { emoji: '✅', name: 'Email Verify', desc: 'Validate before you send', tag: 'Soon', to: '/products' },
-      { emoji: '🌐', name: 'Domain Enrichment', desc: 'Company data from a domain', tag: 'Soon', to: '/products' },
+      { emoji: '💧', name: 'Waterfall Enricher', desc: 'Verified emails & phones', to: '/products' },
+      { emoji: '✅', name: 'Email Verify', desc: 'Validate before you send', to: '/products' },
+      { emoji: '🌐', name: 'Domain Enrichment', desc: 'Company data from a domain', to: '/products' },
     ],
   },
 ]
@@ -237,7 +235,7 @@ export default function Navbar() {
               {[AI_SDR, ...PRODUCT_COLUMNS.flatMap((c) => c.items)].map((it) => (
                 <Link key={it.name} to={it.to} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
                   <span className="flex items-center gap-2.5"><span className="text-base">{it.emoji}</span>{it.name}</span>
-                  <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[it.tag]}`}>{it.tag}</span>
+                  {it.tag && <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[it.tag]}`}>{it.tag}</span>}
                 </Link>
               ))}
               <Link to="/roles" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Role</Link>

@@ -13,17 +13,15 @@ const TINT = {
 }
 
 const TOOLS = [
-  { emoji: '🎯', color: 'brand', name: 'Sales Navigator Scraper', tag: 'Live', desc: 'Export any Sales Nav search in minutes — at human pace.' },
-  { emoji: '🚀', color: 'violet', name: 'Apollo Scraper', tag: 'Soon', desc: 'Pull whole lists straight out of Apollo.' },
-  { emoji: '🏢', color: 'cyan', name: 'ZoomInfo Scraper', tag: 'Soon', desc: 'Export ZoomInfo company & contact data.' },
-  { emoji: '💧', color: 'cyan', name: 'Waterfall Enricher', tag: 'Live', desc: 'Cascade across sources for verified emails & phones.' },
-  { emoji: '✅', color: 'safe', name: 'Email Verify', tag: 'Soon', desc: 'Validate every address before you send.' },
-  { emoji: '🌐', color: 'amber', name: 'Domain Enrichment', tag: 'Soon', desc: 'Firmographics & website data from any domain.' },
+  { emoji: '🎯', color: 'brand', name: 'Sales Navigator Scraper', desc: 'Export any Sales Nav search in minutes — at human pace.' },
+  { emoji: '🚀', color: 'violet', name: 'Apollo Scraper', desc: 'Pull whole lists straight out of Apollo.' },
+  { emoji: '🏢', color: 'cyan', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo company & contact data.' },
+  { emoji: '💧', color: 'cyan', name: 'Waterfall Enricher', desc: 'Cascade across sources for verified emails & phones.' },
+  { emoji: '✅', color: 'safe', name: 'Email Verify', desc: 'Validate every address before you send.' },
+  { emoji: '🌐', color: 'amber', name: 'Domain Enrichment', desc: 'Firmographics & website data from any domain.' },
 ]
 
 const TAG = {
-  Live: 'bg-safe/15 text-safe',
-  Soon: 'bg-white/10 text-muted',
   New: 'bg-brand/25 text-brand-light',
 }
 
@@ -81,16 +79,13 @@ export default function ProductSuite({ showHeading = true }) {
           </Reveal>
 
           {/* The 6 data tools */}
-          {TOOLS.map(({ emoji, color, name, tag, desc }, i) => (
+          {TOOLS.map(({ emoji, color, name, desc }, i) => (
             <Reveal as="div" key={name} delay={(i % 3) * 0.06}>
               <div className="group relative h-full overflow-hidden rounded-2xl border border-hairline bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:border-white/15">
                 <Glow color={color} className="-right-8 -top-8 h-28 w-28" />
-                <div className="relative flex items-center justify-between">
+                <div className="relative flex items-center">
                   <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ${TINT[color].tile}`}>
                     {emoji}
-                  </span>
-                  <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${TAG[tag]}`}>
-                    {tag}
                   </span>
                 </div>
                 <h3 className="relative mt-5 text-base font-semibold text-ink">{name}</h3>
