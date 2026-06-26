@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
 import RolesPage from './pages/RolesPage'
+import FreeToolsPage from './pages/FreeToolsPage'
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/roles" element={<RolesPage />} />
+        <Route path="/tools" element={<FreeToolsPage />} />
       </Route>
     </Routes>
   )

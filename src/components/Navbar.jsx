@@ -47,7 +47,7 @@ const NAV = [
   { key: 'products', label: 'Products', to: '/products', menu: 'products', caret: true },
   { key: 'role', label: 'Role', to: '/roles', menu: 'role', caret: true },
   { key: 'pricing', label: 'Pricing', to: '/#pricing' },
-  { key: 'tools', label: 'Free Tools', to: '#', placeholder: true },
+  { key: 'tools', label: 'Free Tools', to: '/tools' },
 ]
 
 function ItemRow({ emoji, name, desc, tag, to, onClick }) {
@@ -247,7 +247,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link to="/#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Pricing</Link>
-              <a href="#" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Free Tools</a>
+              <Link to="/tools" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Free Tools</Link>
               <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-5">
                 <Button as="a" href={TRIAL_URL} variant="primary" size="lg" onClick={() => setOpen(false)}>Free trial</Button>
                 <Button as="a" href={DEMO_URL} variant="outline-light" size="lg" onClick={() => setOpen(false)}>Book a demo</Button>
