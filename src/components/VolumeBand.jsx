@@ -1,5 +1,8 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import { Boxes, Check, ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
+import Logo from './Logo'
+import BrandLogo from './BrandLogo'
 import { Eyebrow } from './SectionHeading'
 
 // Per-card emoji tile colour — variety = contrast = attention.
@@ -22,17 +25,18 @@ const POINTS = [
   { emoji: '🔑', tint: 'magenta', title: 'One login, one bill', desc: 'Your whole GTM stack on a single subscription.' },
 ]
 
-// The tools that one Coldcast subscription replaces.
+// Each row = a stack category, with the real tools one Coldcast login replaces.
 const REPLACES = [
-  { cat: 'Lead sourcing', tools: 'Sales Nav · Apollo · ZoomInfo' },
-  { cat: 'Waterfall enrichment', tools: 'Lusha · ContactOut · SalesQL' },
-  { cat: 'Email verification', tools: 'real-time, built in' },
-  { cat: 'Intent & AI cold copy', tools: 'signal-based, per lead' },
-  { cat: 'Account-safe scraping', tools: 'your own browser' },
-  { cat: 'Outreach & sending', tools: 'Instantly · Smartlead' },
+  { cat: 'Lead sourcing', logos: [{ n: 'LinkedIn', d: 'linkedin.com' }, { n: 'Apollo', d: 'apollo.io' }, { n: 'ZoomInfo', d: 'zoominfo.com' }] },
+  { cat: 'Waterfall enrichment', logos: [{ n: 'Lusha', d: 'lusha.com' }, { n: 'ContactOut', d: 'contactout.com' }, { n: 'SalesQL', d: 'salesql.com' }] },
+  { cat: 'Email verification', builtIn: true },
+  { cat: 'Intent & AI cold copy', logos: [{ n: 'Claude', d: 'anthropic.com' }, { n: 'ChatGPT', d: 'openai.com' }, { n: 'DeepSeek', d: 'deepseek.com' }] },
+  { cat: 'Account-safe scraping', builtIn: true },
+  { cat: 'Outreach & sending', logos: [{ n: 'Instantly', d: 'instantly.ai' }, { n: 'Smartlead', d: 'smartlead.ai' }] },
 ]
 
 export default function VolumeBand() {
+  const reduce = useReducedMotion()
   return (
     <section className="relative px-6 py-16 sm:px-8 sm:py-24">
       <Reveal className="floating-panel relative mx-auto max-w-6xl overflow-hidden p-8 sm:p-12 lg:p-16">
@@ -51,7 +55,12 @@ export default function VolumeBand() {
             </Eyebrow>
 
             <div className="relative mt-6 flex items-center gap-3 font-display text-6xl font-bold leading-none tracking-tight sm:text-7xl">
-              <span aria-hidden className="pointer-events-none absolute right-3 top-1/2 -z-10 h-20 w-20 -translate-y-1/2 rounded-full bg-violet/40 blur-2xl" />
+              <motion.span
+                aria-hidden
+                className="pointer-events-none absolute right-3 top-1/2 -z-10 h-20 w-20 -translate-y-1/2 rounded-full bg-violet/40 blur-2xl"
+                animate={reduce ? {} : { opacity: [0.5, 0.95, 0.5], scale: [1, 1.18, 1] }}
+                transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
+              />
               <span className="text-ink/25 line-through decoration-2">6</span>
               <ArrowRight size={40} strokeWidth={2.5} className="text-violet" />
               <span className="bg-gradient-to-br from-brand via-violet to-brand-light bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(168,85,247,0.45)]">
@@ -71,19 +80,23 @@ export default function VolumeBand() {
             </p>
 
             <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {POINTS.map(({ emoji, tint, title, desc }) => (
-                <div
+              {POINTS.map(({ emoji, tint, title, desc }, i) => (
+                <motion.div
                   key={title}
-                  className="flex gap-3 rounded-xl border border-hairline bg-white/[0.025] p-3.5 transition-colors duration-300 hover:border-white/15 hover:bg-white/[0.05]"
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-60px' }}
+                  transition={{ duration: 0.45, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex h-full gap-3 rounded-xl border border-hairline bg-white/[0.025] p-3.5 transition-colors duration-300 hover:border-white/15 hover:bg-white/[0.05]"
                 >
                   <span className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-[19px] leading-none ring-1 ${TINT[tint]}`}>
                     {emoji}
                   </span>
                   <div>
-                    <h3 className="text-sm font-semibold text-ink">{title}</h3>
+                    <h3 className="text-sm font-semibold leading-snug text-ink">{title}</h3>
                     <p className="mt-1 text-[13px] leading-relaxed text-muted">{desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -94,24 +107,42 @@ export default function VolumeBand() {
             <div className="mt-1 text-xs text-muted">Every tool one Coldcast login replaces</div>
 
             <ul className="mt-5 flex flex-col">
-              {REPLACES.map((r) => (
-                <li
+              {REPLACES.map((r, i) => (
+                <motion.li
                   key={r.cat}
-                  className="flex items-center gap-3 rounded-lg px-2 py-3 transition-colors hover:bg-white/[0.03]"
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-60px' }}
+                  transition={{ duration: 0.4, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-white/[0.03]"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-safe/20 text-safe ring-1 ring-safe/30">
                     <Check size={13} strokeWidth={3} />
                   </span>
                   <span className="flex-1 text-sm font-medium text-ink">{r.cat}</span>
-                  <span className="hidden text-xs text-muted sm:block">{r.tools}</span>
-                </li>
+                  {r.builtIn ? (
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-2.5 py-1 text-[11px] font-semibold text-brand-light">
+                      <Logo size={13} />
+                      Built in
+                    </span>
+                  ) : (
+                    <div className="flex items-center gap-1.5">
+                      {r.logos.map((l) => (
+                        <BrandLogo key={l.n} domain={l.d} name={l.n} size={24} />
+                      ))}
+                    </div>
+                  )}
+                </motion.li>
               ))}
             </ul>
 
-            <div className="mt-5 flex items-center justify-between rounded-xl bg-brand-gradient px-4 py-3.5 text-white shadow-brand-btn">
+            <a
+              href="#pricing"
+              className="group mt-5 flex items-center justify-between rounded-xl bg-brand-gradient px-4 py-3.5 text-white shadow-brand-btn transition-shadow hover:shadow-[0_0_28px_-4px_rgba(79,124,245,0.85)]"
+            >
               <span className="text-sm font-semibold">All in one Coldcast subscription</span>
-              <ArrowRight size={16} />
-            </div>
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
       </Reveal>
