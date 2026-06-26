@@ -3,15 +3,15 @@ import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import Rain from './Rain'
 
-// Per-card accent: a coloured gradient wash + tile tint + corner glow.
-// `from`/`border`/`hover` are full literal class strings so Tailwind JIT keeps them.
+// Per-card accent: a coloured gradient wash over a glass base + tile tint + glow.
+// `from`/`border`/`hover`/`tile` are full literal class strings so Tailwind JIT keeps them.
 const TINT = {
-  brand: { tile: 'bg-brand/20', glow: 'rgba(79,124,245,0.30)', from: 'from-brand/[0.15]', border: 'border-brand/25', hover: 'hover:border-brand/50' },
-  violet: { tile: 'bg-violet/20', glow: 'rgba(167,139,250,0.28)', from: 'from-violet/[0.15]', border: 'border-violet/25', hover: 'hover:border-violet/50' },
-  cyan: { tile: 'bg-accent/20', glow: 'rgba(34,211,238,0.26)', from: 'from-accent/[0.15]', border: 'border-accent/25', hover: 'hover:border-accent/50' },
-  safe: { tile: 'bg-safe/20', glow: 'rgba(52,211,153,0.26)', from: 'from-safe/[0.15]', border: 'border-safe/25', hover: 'hover:border-safe/50' },
-  amber: { tile: 'bg-amber/20', glow: 'rgba(251,191,36,0.26)', from: 'from-amber/[0.15]', border: 'border-amber/25', hover: 'hover:border-amber/50' },
-  magenta: { tile: 'bg-magenta/20', glow: 'rgba(232,121,249,0.26)', from: 'from-magenta/[0.15]', border: 'border-magenta/25', hover: 'hover:border-magenta/50' },
+  brand: { tile: 'bg-brand/25 ring-brand/40', glow: 'rgba(79,124,245,0.45)', from: 'from-brand/[0.22]', border: 'border-brand/35', hover: 'hover:border-brand/60' },
+  violet: { tile: 'bg-violet/25 ring-violet/40', glow: 'rgba(167,139,250,0.40)', from: 'from-violet/[0.22]', border: 'border-violet/35', hover: 'hover:border-violet/60' },
+  cyan: { tile: 'bg-accent/25 ring-accent/40', glow: 'rgba(34,211,238,0.38)', from: 'from-accent/[0.22]', border: 'border-accent/35', hover: 'hover:border-accent/60' },
+  safe: { tile: 'bg-safe/25 ring-safe/40', glow: 'rgba(52,211,153,0.38)', from: 'from-safe/[0.22]', border: 'border-safe/35', hover: 'hover:border-safe/60' },
+  amber: { tile: 'bg-amber/25 ring-amber/40', glow: 'rgba(251,191,36,0.38)', from: 'from-amber/[0.22]', border: 'border-amber/35', hover: 'hover:border-amber/60' },
+  magenta: { tile: 'bg-magenta/25 ring-magenta/40', glow: 'rgba(232,121,249,0.38)', from: 'from-magenta/[0.22]', border: 'border-magenta/35', hover: 'hover:border-magenta/60' },
 }
 
 const TOOLS = [
@@ -31,7 +31,7 @@ function Glow({ color, className = '' }) {
   return (
     <span
       aria-hidden
-      className={`pointer-events-none absolute rounded-full opacity-50 blur-2xl transition-opacity duration-300 group-hover:opacity-100 ${className}`}
+      className={`pointer-events-none absolute rounded-full opacity-70 blur-2xl transition-opacity duration-300 group-hover:opacity-100 ${className}`}
       style={{ background: TINT[color].glow }}
     />
   )
@@ -83,10 +83,10 @@ export default function ProductSuite({ showHeading = true }) {
           {/* The 6 data tools */}
           {TOOLS.map(({ emoji, color, name, desc }, i) => (
             <Reveal as="div" key={name} delay={(i % 3) * 0.06}>
-              <div className={`group relative h-full overflow-hidden rounded-2xl border bg-gradient-to-br via-white/[0.02] to-white/[0.02] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 ${TINT[color].from} ${TINT[color].border} ${TINT[color].hover}`}>
-                <Glow color={color} className="-right-8 -top-8 h-28 w-28" />
+              <div className={`group relative h-full overflow-hidden rounded-2xl border bg-gradient-to-br via-white/[0.05] to-white/[0.06] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 ${TINT[color].from} ${TINT[color].border} ${TINT[color].hover}`}>
+                <Glow color={color} className="-right-6 -top-6 h-36 w-36" />
                 <div className="relative flex items-center">
-                  <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ${TINT[color].tile}`}>
+                  <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${TINT[color].tile}`}>
                     {emoji}
                   </span>
                 </div>
