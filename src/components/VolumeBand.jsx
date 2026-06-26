@@ -1,15 +1,25 @@
-import { Boxes, Database, MailCheck, Layers, PenLine, ShieldCheck, Check, ArrowRight } from 'lucide-react'
+import { Boxes, Check, ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
 import { Eyebrow } from './SectionHeading'
 
+// Per-card emoji tile colour — variety = contrast = attention.
+const TINT = {
+  brand: 'bg-brand/15 ring-brand/30',
+  safe: 'bg-safe/15 ring-safe/30',
+  cyan: 'bg-accent/15 ring-accent/30',
+  violet: 'bg-violet/15 ring-violet/30',
+  amber: 'bg-amber/15 ring-amber/30',
+  magenta: 'bg-magenta/15 ring-magenta/30',
+}
+
 // The six things Coldcast does — the value props that replace a whole stack.
 const POINTS = [
-  { icon: Database, title: 'Fresh & accurate data', desc: 'Scraped live on demand — never a stale, recycled database.' },
-  { icon: MailCheck, title: 'Real-time email validation', desc: 'Every address verified the moment it’s found.' },
-  { icon: Layers, title: 'Waterfall enrichment', desc: 'Cascades across providers for maximum coverage.' },
-  { icon: PenLine, title: 'Intent & personalised copy', desc: 'Signal-led first lines, written for every lead.' },
-  { icon: ShieldCheck, title: '1000% safe scraping', desc: 'Your own browser, human pace — zero account bans.' },
-  { icon: Boxes, title: 'One login, one bill', desc: 'Your whole GTM stack on a single subscription.' },
+  { emoji: '🔄', tint: 'brand', title: 'Fresh & accurate data', desc: 'Scraped live on demand — never a stale, recycled database.' },
+  { emoji: '✅', tint: 'safe', title: 'Real-time email validation', desc: 'Every address verified the moment it’s found.' },
+  { emoji: '💧', tint: 'cyan', title: 'Waterfall enrichment', desc: 'Cascades across providers for maximum coverage.' },
+  { emoji: '✍️', tint: 'violet', title: 'Intent & personalised copy', desc: 'Signal-led first lines, written for every lead.' },
+  { emoji: '🛡️', tint: 'amber', title: '1000% safe scraping', desc: 'Your own browser, human pace — zero account bans.' },
+  { emoji: '🔑', tint: 'magenta', title: 'One login, one bill', desc: 'Your whole GTM stack on a single subscription.' },
 ]
 
 // The tools that one Coldcast subscription replaces.
@@ -40,10 +50,13 @@ export default function VolumeBand() {
               One subscription
             </Eyebrow>
 
-            <div className="mt-6 flex items-center gap-3 font-display text-6xl font-bold leading-none tracking-tight sm:text-7xl">
+            <div className="relative mt-6 flex items-center gap-3 font-display text-6xl font-bold leading-none tracking-tight sm:text-7xl">
+              <span aria-hidden className="pointer-events-none absolute right-3 top-1/2 -z-10 h-20 w-20 -translate-y-1/2 rounded-full bg-violet/40 blur-2xl" />
               <span className="text-ink/25 line-through decoration-2">6</span>
               <ArrowRight size={40} strokeWidth={2.5} className="text-violet" />
-              <span className="bg-gradient-to-br from-brand via-violet to-brand-light bg-clip-text text-transparent">1</span>
+              <span className="bg-gradient-to-br from-brand via-violet to-brand-light bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(168,85,247,0.45)]">
+                1
+              </span>
             </div>
             <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-violet">
               six tools → one subscription
@@ -57,11 +70,14 @@ export default function VolumeBand() {
               <span className="font-semibold text-ink">Coldcast is all of them — in one login.</span>
             </p>
 
-            <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
-              {POINTS.map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="flex gap-3">
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft text-violet">
-                    <Icon size={17} />
+            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {POINTS.map(({ emoji, tint, title, desc }) => (
+                <div
+                  key={title}
+                  className="flex gap-3 rounded-xl border border-hairline bg-white/[0.025] p-3.5 transition-colors duration-300 hover:border-white/15 hover:bg-white/[0.05]"
+                >
+                  <span className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-[19px] leading-none ring-1 ${TINT[tint]}`}>
+                    {emoji}
                   </span>
                   <div>
                     <h3 className="text-sm font-semibold text-ink">{title}</h3>
@@ -77,11 +93,14 @@ export default function VolumeBand() {
             <div className="text-sm font-semibold text-ink">Your GTM stack, unbundled</div>
             <div className="mt-1 text-xs text-muted">Every tool one Coldcast login replaces</div>
 
-            <ul className="mt-6 flex flex-col divide-y divide-hairline">
+            <ul className="mt-5 flex flex-col">
               {REPLACES.map((r) => (
-                <li key={r.cat} className="flex items-center gap-3 py-3.5">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-safe/15 text-safe">
-                    <Check size={14} />
+                <li
+                  key={r.cat}
+                  className="flex items-center gap-3 rounded-lg px-2 py-3 transition-colors hover:bg-white/[0.03]"
+                >
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-safe/20 text-safe ring-1 ring-safe/30">
+                    <Check size={13} strokeWidth={3} />
                   </span>
                   <span className="flex-1 text-sm font-medium text-ink">{r.cat}</span>
                   <span className="hidden text-xs text-muted sm:block">{r.tools}</span>
@@ -89,7 +108,7 @@ export default function VolumeBand() {
               ))}
             </ul>
 
-            <div className="mt-6 flex items-center justify-between rounded-xl bg-brand-gradient px-4 py-3 text-white shadow-brand-btn">
+            <div className="mt-5 flex items-center justify-between rounded-xl bg-brand-gradient px-4 py-3.5 text-white shadow-brand-btn">
               <span className="text-sm font-semibold">All in one Coldcast subscription</span>
               <ArrowRight size={16} />
             </div>
