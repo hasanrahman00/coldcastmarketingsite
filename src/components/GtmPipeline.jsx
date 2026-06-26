@@ -45,8 +45,10 @@ const STAGES = [
     hub: true, nodes: AI,
   },
   {
-    step: '05', title: 'Email marketing', icon: Send, tint: 'safe',
+    step: '05', title: 'Cold outbound', icon: Send, tint: 'safe',
     caption: 'Pushed straight into your outreach sequencer.',
+    hub: true,
+    center: { icon: Send, label: 'Cold outbound' },
     nodes: [
       { name: 'Lemlist', domain: 'lemlist.com' },
       { name: 'Smartlead', domain: 'smartlead.ai' },
@@ -57,6 +59,8 @@ const STAGES = [
   {
     step: '06', title: 'CRM', icon: Database, tint: 'safe',
     caption: 'Synced to your CRM, ready to work.',
+    hub: true,
+    center: { icon: Database, label: 'CRM' },
     nodes: [
       { name: 'HubSpot', domain: 'hubspot.com' },
       { name: 'Salesforce', domain: 'salesforce.com' },
@@ -190,9 +194,10 @@ function Hub({ active, reduce }) {
 }
 
 // Coldcast at the centre, AI models orbiting — used for ICP scoring & copy.
-function MiniHub({ nodes: items, reduce }) {
+function MiniHub({ nodes: items, reduce, center }) {
   const N = items.length
   const start = N === 2 ? 180 : -90 // 2 nodes read better left/right than top/bottom
+  const CenterIcon = center?.icon
   const nodes = items.map((s, i) => {
     const a = (start + (i * 360) / N) * (Math.PI / 180)
     return { ...s, x: 50 + 33 * Math.cos(a), y: 50 + 33 * Math.sin(a) }
@@ -223,7 +228,7 @@ function MiniHub({ nodes: items, reduce }) {
           ))}
       </svg>
 
-      {/* Center — Coldcast */}
+      {/* Center — Coldcast, or a labelled stack-category node */}
       <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
         <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-brand-gradient shadow-brand-btn">
           <motion.span
@@ -232,9 +237,9 @@ function MiniHub({ nodes: items, reduce }) {
             animate={reduce ? {} : { scale: [1, 1.25, 1], opacity: [0.5, 0.85, 0.5] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
           />
-          <SwirlMark size={30} />
+          {CenterIcon ? <CenterIcon size={24} className="text-white" /> : <SwirlMark size={30} />}
         </div>
-        <span className="mt-1.5 text-[11px] font-semibold text-ink">Coldcast</span>
+        <span className="mt-1.5 text-[11px] font-semibold text-ink">{center ? center.label : 'Coldcast'}</span>
       </div>
 
       {/* AI models */}
@@ -276,7 +281,7 @@ function StageCard({ stage, active, reduce }) {
 
       <div className="mt-4 flex flex-wrap items-start justify-center gap-x-4 gap-y-3">
         {stage.hub ? (
-          <MiniHub nodes={stage.nodes} reduce={reduce} />
+          <MiniHub nodes={stage.nodes} center={stage.center} reduce={reduce} />
         ) : stage.coldcast ? (
           <span className="inline-flex items-center gap-2 rounded-xl bg-brand-gradient px-3.5 py-2.5 text-sm font-semibold text-white shadow-brand-btn">
             <Logo size={18} />
