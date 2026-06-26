@@ -3,22 +3,24 @@ import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import Rain from './Rain'
 
-// Per-card accent: a soft tile tint + a corner glow that brightens on hover.
+// Per-card accent: a coloured gradient wash + tile tint + corner glow.
+// `from`/`border`/`hover` are full literal class strings so Tailwind JIT keeps them.
 const TINT = {
-  brand: { tile: 'bg-brand/20', glow: 'rgba(79,124,245,0.30)' },
-  violet: { tile: 'bg-violet/20', glow: 'rgba(167,139,250,0.28)' },
-  cyan: { tile: 'bg-accent/20', glow: 'rgba(34,211,238,0.26)' },
-  safe: { tile: 'bg-safe/20', glow: 'rgba(52,211,153,0.26)' },
-  amber: { tile: 'bg-amber/20', glow: 'rgba(251,191,36,0.26)' },
+  brand: { tile: 'bg-brand/20', glow: 'rgba(79,124,245,0.30)', from: 'from-brand/[0.15]', border: 'border-brand/25', hover: 'hover:border-brand/50' },
+  violet: { tile: 'bg-violet/20', glow: 'rgba(167,139,250,0.28)', from: 'from-violet/[0.15]', border: 'border-violet/25', hover: 'hover:border-violet/50' },
+  cyan: { tile: 'bg-accent/20', glow: 'rgba(34,211,238,0.26)', from: 'from-accent/[0.15]', border: 'border-accent/25', hover: 'hover:border-accent/50' },
+  safe: { tile: 'bg-safe/20', glow: 'rgba(52,211,153,0.26)', from: 'from-safe/[0.15]', border: 'border-safe/25', hover: 'hover:border-safe/50' },
+  amber: { tile: 'bg-amber/20', glow: 'rgba(251,191,36,0.26)', from: 'from-amber/[0.15]', border: 'border-amber/25', hover: 'hover:border-amber/50' },
+  magenta: { tile: 'bg-magenta/20', glow: 'rgba(232,121,249,0.26)', from: 'from-magenta/[0.15]', border: 'border-magenta/25', hover: 'hover:border-magenta/50' },
 }
 
 const TOOLS = [
   { emoji: '🎯', color: 'brand', name: 'Sales Navigator Scraper', desc: 'Export any Sales Nav search in minutes — at human pace.' },
   { emoji: '🚀', color: 'violet', name: 'Apollo Scraper', desc: 'Pull whole lists straight out of Apollo.' },
-  { emoji: '🏢', color: 'cyan', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo company & contact data.' },
+  { emoji: '🏢', color: 'amber', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo company & contact data.' },
   { emoji: '💧', color: 'cyan', name: 'Waterfall Enricher', desc: 'Cascade across sources for verified emails & phones.' },
   { emoji: '✅', color: 'safe', name: 'Email Verify', desc: 'Validate every address before you send.' },
-  { emoji: '🌐', color: 'amber', name: 'Domain Enrichment', desc: 'Firmographics & website data from any domain.' },
+  { emoji: '🌐', color: 'magenta', name: 'Domain Enrichment', desc: 'Firmographics & website data from any domain.' },
 ]
 
 const TAG = {
@@ -81,7 +83,7 @@ export default function ProductSuite({ showHeading = true }) {
           {/* The 6 data tools */}
           {TOOLS.map(({ emoji, color, name, desc }, i) => (
             <Reveal as="div" key={name} delay={(i % 3) * 0.06}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-hairline bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:border-white/15">
+              <div className={`group relative h-full overflow-hidden rounded-2xl border bg-gradient-to-br via-white/[0.02] to-white/[0.02] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 ${TINT[color].from} ${TINT[color].border} ${TINT[color].hover}`}>
                 <Glow color={color} className="-right-8 -top-8 h-28 w-28" />
                 <div className="relative flex items-center">
                   <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ${TINT[color].tile}`}>
