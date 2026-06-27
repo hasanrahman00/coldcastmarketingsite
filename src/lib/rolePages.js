@@ -8,6 +8,9 @@ export const ROLE_PAGES = {
     kind: 'role',
     emoji: '🎯',
     color: 'brand',
+    heroVariant: 'split',
+    howVariant: 'rail',
+    featuresVariant: 'list',
     hero: {
       eyebrow: 'For SDRs & AEs',
       title: 'Hit quota without the grind of building lists.',
@@ -69,6 +72,9 @@ export const ROLE_PAGES = {
     kind: 'role',
     emoji: '🚀',
     color: 'violet',
+    heroVariant: 'split',
+    howVariant: 'timeline',
+    featuresVariant: 'bento',
     hero: {
       eyebrow: 'For Founders',
       title: 'Go to market without a data budget or an SDR.',
@@ -130,6 +136,9 @@ export const ROLE_PAGES = {
     kind: 'role',
     emoji: '📈',
     color: 'cyan',
+    heroVariant: 'split',
+    howVariant: 'rail',
+    featuresVariant: 'grid',
     hero: {
       eyebrow: 'For Sales leaders',
       title: 'Scale outbound your reps can trust — safely.',
@@ -191,6 +200,9 @@ export const ROLE_PAGES = {
     kind: 'role',
     emoji: '💼',
     color: 'amber',
+    heroVariant: 'split',
+    howVariant: 'timeline',
+    featuresVariant: 'list',
     hero: {
       eyebrow: 'For Agencies',
       title: 'Deliver verified leads for every client — profitably.',
@@ -252,6 +264,9 @@ export const ROLE_PAGES = {
     kind: 'role',
     emoji: '⚙️',
     color: 'safe',
+    heroVariant: 'split',
+    howVariant: 'rail',
+    featuresVariant: 'grid',
     hero: {
       eyebrow: 'For RevOps',
       title: 'Clean, enriched, verified data on tap.',
@@ -313,6 +328,9 @@ export const ROLE_PAGES = {
     kind: 'role',
     emoji: '🔎',
     color: 'magenta',
+    heroVariant: 'split',
+    howVariant: 'timeline',
+    featuresVariant: 'bento',
     hero: {
       eyebrow: 'For Recruiters',
       title: 'Source verified candidate contacts, fast.',
