@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
@@ -15,12 +16,12 @@ const TINT = {
 }
 
 const TOOLS = [
-  { emoji: '🎯', color: 'brand', name: 'Sales Navigator Scraper', desc: 'Export any Sales Nav search in minutes — at human pace.' },
-  { emoji: '🚀', color: 'violet', name: 'Apollo Scraper', desc: 'Pull whole lists straight out of Apollo.' },
-  { emoji: '🏢', color: 'amber', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo company & contact data.' },
-  { emoji: '💧', color: 'cyan', name: 'Waterfall Enricher', desc: 'Cascade across sources for verified emails & phones.' },
-  { emoji: '✅', color: 'safe', name: 'Email Verify', desc: 'Validate every address before you send.' },
-  { emoji: '🌐', color: 'magenta', name: 'Domain Enrichment', desc: 'Firmographics & website data from any domain.' },
+  { emoji: '🎯', color: 'brand', name: 'Sales Navigator Scraper', desc: 'Export any Sales Nav search in minutes — at human pace.', to: '/products/sales-navigator-scraper' },
+  { emoji: '🚀', color: 'violet', name: 'Apollo Scraper', desc: 'Pull whole lists straight out of Apollo.', to: '/products/apollo-scraper' },
+  { emoji: '🏢', color: 'amber', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo company & contact data.', to: '/products/zoominfo-scraper' },
+  { emoji: '💧', color: 'cyan', name: 'Waterfall Enricher', desc: 'Cascade across sources for verified emails & phones.', to: '/products/waterfall-enricher' },
+  { emoji: '✅', color: 'safe', name: 'Email Verify', desc: 'Validate every address before you send.', to: '/products/email-verify' },
+  { emoji: '🌐', color: 'magenta', name: 'Domain Enrichment', desc: 'Firmographics & website data from any domain.', to: '/products/domain-enrichment' },
 ]
 
 const TAG = {
@@ -55,8 +56,8 @@ export default function ProductSuite({ showHeading = true }) {
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {/* AI SDR — featured, full width */}
           <Reveal as="div" className="sm:col-span-2 lg:col-span-3">
-            <a
-              href="#ai-sdr"
+            <Link
+              to="/coldcast-agent"
               className="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border-2 border-brand/40 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/60 sm:flex-row sm:items-center"
             >
               <Glow color="brand" className="-right-10 -top-10 h-48 w-48 opacity-60" />
@@ -77,22 +78,23 @@ export default function ProductSuite({ showHeading = true }) {
                 Meet your AI SDR
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
               </span>
-            </a>
+            </Link>
           </Reveal>
 
           {/* The 6 data tools */}
-          {TOOLS.map(({ emoji, color, name, desc }, i) => (
+          {TOOLS.map(({ emoji, color, name, desc, to }, i) => (
             <Reveal as="div" key={name} delay={(i % 3) * 0.06}>
-              <div className={`group relative h-full overflow-hidden rounded-2xl border bg-gradient-to-br via-white/[0.05] to-white/[0.06] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 ${TINT[color].from} ${TINT[color].border} ${TINT[color].hover}`}>
+              <Link to={to} className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-gradient-to-br via-white/[0.05] to-white/[0.06] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 ${TINT[color].from} ${TINT[color].border} ${TINT[color].hover}`}>
                 <Glow color={color} className="-right-6 -top-6 h-36 w-36" />
-                <div className="relative flex items-center">
+                <div className="relative flex items-center justify-between">
                   <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${TINT[color].tile}`}>
                     {emoji}
                   </span>
+                  <ArrowRight size={16} className="text-muted opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" />
                 </div>
                 <h3 className="relative mt-5 text-base font-semibold text-ink">{name}</h3>
                 <p className="relative mt-1.5 text-sm leading-relaxed text-muted">{desc}</p>
-              </div>
+              </Link>
             </Reveal>
           ))}
         </div>

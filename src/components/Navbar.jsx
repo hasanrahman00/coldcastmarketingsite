@@ -10,23 +10,23 @@ const TAG = {
   New: 'bg-brand/25 text-brand-light',
 }
 
-const AI_SDR = { emoji: '🤖', name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', to: '/#ai-sdr' }
+const AI_SDR = { emoji: '🤖', name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', to: '/coldcast-agent' }
 
 const PRODUCT_COLUMNS = [
   {
     heading: 'Scrape',
     items: [
-      { emoji: '🎯', name: 'Sales Nav Scraper', desc: 'Export any Sales Navigator search', to: '/products' },
-      { emoji: '🚀', name: 'Apollo Scraper', desc: 'Pull lists from Apollo', to: '/products' },
-      { emoji: '🏢', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo data', to: '/products' },
+      { emoji: '🎯', name: 'Sales Nav Scraper', desc: 'Export any Sales Navigator search', to: '/products/sales-navigator-scraper' },
+      { emoji: '🚀', name: 'Apollo Scraper', desc: 'Pull lists from Apollo', to: '/products/apollo-scraper' },
+      { emoji: '🏢', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo data', to: '/products/zoominfo-scraper' },
     ],
   },
   {
     heading: 'Enrich & verify',
     items: [
-      { emoji: '💧', name: 'Waterfall Enricher', desc: 'Verified emails & phones', to: '/products' },
-      { emoji: '✅', name: 'Email Verify', desc: 'Validate before you send', to: '/products' },
-      { emoji: '🌐', name: 'Domain Enrichment', desc: 'Company data from a domain', to: '/products' },
+      { emoji: '💧', name: 'Waterfall Enricher', desc: 'Verified emails & phones', to: '/products/waterfall-enricher' },
+      { emoji: '✅', name: 'Email Verify', desc: 'Validate before you send', to: '/products/email-verify' },
+      { emoji: '🌐', name: 'Domain Enrichment', desc: 'Company data from a domain', to: '/products/domain-enrichment' },
     ],
   },
 ]
@@ -41,7 +41,7 @@ const ROLES = [
 ]
 
 const NAV = [
-  { key: 'agent', label: 'Coldcast Agent', to: '/#ai-sdr' },
+  { key: 'agent', label: 'Coldcast Agent', to: '/coldcast-agent' },
   { key: 'products', label: 'Products', to: '/products', menu: 'products', caret: true },
   { key: 'role', label: 'Role', to: '/roles', menu: 'role', caret: true },
   { key: 'pricing', label: 'Pricing', to: '/#pricing' },
@@ -230,7 +230,7 @@ export default function Navbar() {
             className="fixed inset-x-0 top-[4.75rem] bottom-0 z-[70] overflow-y-auto border-t border-white/10 bg-bg/95 backdrop-blur-xl lg:hidden"
           >
             <div className="container-px flex flex-col gap-1 py-5">
-              <Link to="/#ai-sdr" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Coldcast Agent</Link>
+              <Link to="/coldcast-agent" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Coldcast Agent</Link>
               <Link to="/products" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Products</Link>
               {[AI_SDR, ...PRODUCT_COLUMNS.flatMap((c) => c.items)].map((it) => (
                 <Link key={it.name} to={it.to} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">

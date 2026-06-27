@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
 import RolesPage from './pages/RolesPage'
 import FreeToolsPage from './pages/FreeToolsPage'
+import ProductDetailPage from './components/ProductDetailPage'
 
 export default function App() {
   return (
@@ -11,6 +12,8 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:slug" element={<ProductDetailPage />} />
+        <Route path="/coldcast-agent" element={<ProductDetailPage slug="coldcast-agent" />} />
         <Route path="/roles" element={<RolesPage />} />
         <Route path="/tools" element={<FreeToolsPage />} />
       </Route>
