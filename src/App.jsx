@@ -15,6 +15,7 @@ export default function App() {
         <Route path="/products/:slug" element={<ProductDetailPage />} />
         <Route path="/coldcast-agent" element={<ProductDetailPage slug="coldcast-agent" />} />
         <Route path="/roles" element={<RolesPage />} />
+        <Route path="/roles/:slug" element={<ProductDetailPage />} />
         <Route path="/tools" element={<FreeToolsPage />} />
       </Route>
     </Routes>

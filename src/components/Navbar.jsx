@@ -32,12 +32,12 @@ const PRODUCT_COLUMNS = [
 ]
 
 const ROLES = [
-  { emoji: '🎯', name: 'SDRs & AEs', desc: 'Fill your pipeline faster' },
-  { emoji: '🚀', name: 'Founders', desc: 'Go to market without a data budget' },
-  { emoji: '📈', name: 'Sales leaders', desc: 'Scale outbound, safely' },
-  { emoji: '💼', name: 'Agencies', desc: 'Deliver leads for every client' },
-  { emoji: '⚙️', name: 'RevOps', desc: 'Clean, enriched data on tap' },
-  { emoji: '🔎', name: 'Recruiters', desc: 'Source verified candidate contacts' },
+  { emoji: '🎯', name: 'SDRs & AEs', desc: 'Fill your pipeline faster', to: '/roles/sdrs-aes' },
+  { emoji: '🚀', name: 'Founders', desc: 'Go to market without a data budget', to: '/roles/founders' },
+  { emoji: '📈', name: 'Sales leaders', desc: 'Scale outbound, safely', to: '/roles/sales-leaders' },
+  { emoji: '💼', name: 'Agencies', desc: 'Deliver leads for every client', to: '/roles/agencies' },
+  { emoji: '⚙️', name: 'RevOps', desc: 'Clean, enriched data on tap', to: '/roles/revops' },
+  { emoji: '🔎', name: 'Recruiters', desc: 'Source verified candidate contacts', to: '/roles/recruiters' },
 ]
 
 const NAV = [
@@ -193,7 +193,7 @@ export default function Navbar() {
                 {menu === 'role' && (
                   <div className="grid grid-cols-[1.5fr_1fr]">
                     <div className="grid grid-cols-2 gap-x-6 p-7">
-                      {ROLES.map((r) => (<ItemRow key={r.name} {...r} to="/roles" onClick={() => setMenu(null)} />))}
+                      {ROLES.map((r) => (<ItemRow key={r.name} {...r} onClick={() => setMenu(null)} />))}
                     </div>
                     <div className="flex flex-col justify-between border-l border-white/10 bg-white/[0.02] p-6">
                       <div>
@@ -240,7 +240,7 @@ export default function Navbar() {
               ))}
               <Link to="/roles" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Role</Link>
               {ROLES.map((r) => (
-                <Link key={r.name} to="/roles" onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
+                <Link key={r.name} to={r.to} onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
                   <span className="text-base">{r.emoji}</span>{r.name}
                 </Link>
               ))}

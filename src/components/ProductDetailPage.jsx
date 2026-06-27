@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useParams, Navigate } from 'react-router-dom'
+import { useParams, useLocation, Navigate } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Check, Plus, Minus } from 'lucide-react'
 import Reveal from './Reveal'
@@ -7,7 +7,10 @@ import Button from './Button'
 import Logo from './Logo'
 import SectionHeading, { Eyebrow } from './SectionHeading'
 import { PRODUCT_PAGES } from '../lib/productPages'
+import { ROLE_PAGES } from '../lib/rolePages'
 import { TRIAL_URL, DEMO_URL } from '../lib/constants'
+
+const PAGES = { ...PRODUCT_PAGES, ...ROLE_PAGES }
 
 // Accent palette per product/role colour.
 const ACCENT = {
@@ -254,9 +257,10 @@ function Cta({ cta }) {
 
 export default function ProductDetailPage({ slug: slugProp }) {
   const params = useParams()
+  const location = useLocation()
   const slug = slugProp || params.slug
-  const data = PRODUCT_PAGES[slug]
-  if (!data) return <Navigate to="/products" replace />
+  const data = PAGES[slug]
+  if (!data) return <Navigate to={location.pathname.startsWith('/roles') ? '/roles' : '/products'} replace />
   const accent = ACCENT[data.color] || ACCENT.brand
 
   return (
