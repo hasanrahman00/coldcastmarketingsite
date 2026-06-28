@@ -70,7 +70,7 @@ const panelV = {
   exit: { opacity: 0, y: 8, transition: { duration: 0.12 } },
 }
 
-export default function Navbar() {
+export default function Navbar({ barOffset = false }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [menu, setMenu] = useState(null)
@@ -105,7 +105,7 @@ export default function Navbar() {
   return (
     <>
       <header onMouseLeave={() => { scheduleClose(); setHovered(null) }} className="fixed inset-x-0 top-0 z-[80]">
-        <div className="mx-auto max-w-6xl px-4 pt-3 sm:px-6">
+        <div className={`mx-auto max-w-6xl px-4 transition-[padding] duration-300 sm:px-6 ${barOffset ? 'pt-12' : 'pt-3'}`}>
           {/* Floating glass pill */}
           <div
             className={`flex h-14 items-center justify-between gap-2 rounded-full border px-3 transition-all duration-300 ${
