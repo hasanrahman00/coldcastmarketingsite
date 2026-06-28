@@ -46,6 +46,7 @@ const NAV = [
   { key: 'role', label: 'Role', to: '/roles', menu: 'role', caret: true },
   { key: 'pricing', label: 'Pricing', to: '/#pricing' },
   { key: 'tools', label: 'Free Tools', to: '/tools' },
+  { key: 'deal', label: 'Sales Nav Advanced', to: '/sales-nav-advanced', badge: '−75%' },
 ]
 
 function ItemRow({ emoji, name, desc, tag, to, onClick }) {
@@ -131,6 +132,7 @@ export default function Navbar() {
                     <Link to={item.to} className={linkCls} onClick={() => setMenu(null)} aria-expanded={item.menu ? menu === item.menu : undefined}>
                       {item.label}
                       {item.caret && <ChevronDown size={14} className={`transition-transform ${menu === item.menu ? 'rotate-180' : ''}`} />}
+                      {item.badge && <span className="rounded-full bg-brand/20 px-1.5 py-0.5 text-[10px] font-bold text-brand-light">{item.badge}</span>}
                     </Link>
                   )}
                 </li>
@@ -246,6 +248,10 @@ export default function Navbar() {
               ))}
               <Link to="/#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Pricing</Link>
               <Link to="/tools" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Free Tools</Link>
+              <Link to="/sales-nav-advanced" onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">
+                Sales Nav Advanced
+                <span className="rounded-full bg-brand/20 px-1.5 py-0.5 text-[10px] font-bold text-brand-light">−75%</span>
+              </Link>
               <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-5">
                 <Button as="a" href={TRIAL_URL} variant="primary" size="lg" onClick={() => setOpen(false)}>Free trial</Button>
                 <Button as="a" href={DEMO_URL} variant="outline-light" size="lg" onClick={() => setOpen(false)}>Book a demo</Button>
