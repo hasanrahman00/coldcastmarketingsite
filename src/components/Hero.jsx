@@ -58,13 +58,11 @@ export default function Hero() {
           {/* Eyebrow pill — spotlights the new AI SDR product */}
           <motion.a
             variants={child}
-            href="#how"
+            href="#safety"
             className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-3.5 py-1.5 text-sm text-white/85 backdrop-blur transition-colors hover:bg-white/[0.12]"
           >
-            <span className="rounded-full bg-brand/50 px-2 py-0.5 text-[11px] font-semibold text-white">
-              New
-            </span>
-            AI SDR runs your outreach
+            <ShieldCheck size={14} className="text-safe" />
+            Tested by <span className="font-semibold text-white">10,000+</span> sales professionals
             <ArrowRight size={14} className="text-white/55" />
           </motion.a>
 
@@ -73,19 +71,18 @@ export default function Hero() {
             variants={child}
             className="mt-7 text-balance font-freudian text-[2.5rem] font-bold uppercase leading-[0.98] tracking-[-0.01em] text-white sm:text-[3.4rem] lg:text-[4.25rem]"
           >
-            Find, enrich &amp; email{' '}
-            <span className="text-gradient">your next customers.</span>
+            The world’s <span className="text-gradient">safest</span> Sales Navigator scraper.
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
             variants={child}
-            className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg"
+            className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg"
           >
-            The account-safe platform that scrapes Sales Navigator, Apollo &amp; ZoomInfo, verifies
-            every email, and lets an <span className="font-semibold text-white">AI SDR</span> run your
-            outreach — all from your own browser, with{' '}
-            <span className="font-semibold text-white">zero account suspensions</span>.
+            The <span className="font-semibold text-white">Apify alternative</span> that replaces your
+            whole GTM stack — one subscription to scrape Sales Navigator, Apollo &amp; ZoomInfo at zero
+            ban risk and pull <span className="font-semibold text-white">fresh, triple-verified</span>{' '}
+            emails &amp; phone numbers for cold outbound.
           </motion.p>
 
           {/* CTAs */}
