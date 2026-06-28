@@ -34,9 +34,9 @@ export const ENRICHMENT_SOURCES = [
   { name: 'Cognism', domain: 'cognism.com' },
 ]
 
-// Social-proof customer count shown in the trust bar.
+// Social-proof customer count shown in the trust bar + hero eyebrow.
 // [PLACEHOLDER] keep this a real, substantiated figure before launch.
-export const CUSTOMER_COUNT = '2,500+'
+export const CUSTOMER_COUNT = '10,000+'
 
 // ─────────────────────────────────────────────────────────────
 // Social proof — [PLACEHOLDER] swap for real, substantiated values.

@@ -3,7 +3,7 @@ import { ArrowRight, ShieldCheck, CreditCard, Lock, Star } from 'lucide-react'
 import Button from './Button'
 import DashboardMock from './DashboardMock'
 import Rain from './Rain'
-import { TRIAL_URL, DEMO_URL } from '../lib/constants'
+import { TRIAL_URL, DEMO_URL, CUSTOMER_COUNT } from '../lib/constants'
 
 // Trust row under the CTAs (Zeliq-style badge strip).
 const TRUST = [
@@ -62,7 +62,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-3.5 py-1.5 text-sm text-white/85 backdrop-blur transition-colors hover:bg-white/[0.12]"
           >
             <ShieldCheck size={14} className="text-safe" />
-            Tested by <span className="font-semibold text-white">10,000+</span> sales professionals
+            Tested by <span className="font-semibold text-white">{CUSTOMER_COUNT}</span> sales professionals
             <ArrowRight size={14} className="text-white/55" />
           </motion.a>
 

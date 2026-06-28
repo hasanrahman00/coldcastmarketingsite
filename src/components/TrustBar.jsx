@@ -36,7 +36,7 @@ export default function TrustBar() {
                 ))}
               </span>
               <span className="text-sm text-ink">
-                Trusted by <strong className="font-semibold">{CUSTOMER_COUNT} sales teams</strong>
+                Trusted by <strong className="font-semibold">{CUSTOMER_COUNT} sales professionals</strong>
               </span>
             </div>
           </div>
