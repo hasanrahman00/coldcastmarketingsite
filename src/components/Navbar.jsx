@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X, ChevronDown, ArrowRight, Bot, ShieldCheck } from 'lucide-react'
 import Logo from './Logo'
@@ -100,9 +100,11 @@ export default function Navbar({ barOffset = false }) {
   const openMenu = (m) => { clearTimeout(closeTimer.current); setMenu(m) }
   const scheduleClose = () => { closeTimer.current = setTimeout(() => setMenu(null), 130) }
 
-  // Over the purple hero (top) the pill is glass + white text; once scrolled
-  // onto the light body it becomes a solid white pill with dark text.
-  const light = scrolled || menu || open
+  // Only the homepage has the dark purple hero — white nav text is for that.
+  // Everywhere else (light heros) the nav is always dark-text.
+  const { pathname } = useLocation()
+  const darkHero = pathname === '/'
+  const light = !darkHero || scrolled || menu || open
   const linkCls = `relative z-10 flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${light ? 'text-ink/75 hover:text-ink' : 'text-white/85 hover:text-white'}`
 
   return (

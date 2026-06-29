@@ -28,7 +28,7 @@ function HeroBg({ accent }) {
     <div
       aria-hidden
       className="absolute inset-0 -z-10"
-      style={{ backgroundImage: `radial-gradient(95% 75% at 50% -10%, ${accent.glow}, transparent 60%), radial-gradient(60% 50% at 85% 0%, rgba(34,211,238,0.09), transparent 55%), linear-gradient(180deg,#0a1020,#0a1020)` }}
+      style={{ backgroundImage: `radial-gradient(95% 75% at 50% -10%, ${accent.glow}, transparent 60%), radial-gradient(60% 50% at 85% 0%, rgba(34,211,238,0.10), transparent 55%), linear-gradient(180deg,#efeafd,#f6f7fc)` }}
     />
   )
 }
