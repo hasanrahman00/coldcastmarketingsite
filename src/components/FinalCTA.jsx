@@ -12,16 +12,16 @@ export default function FinalCTA() {
       >
         {/* radial accents */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-16 -top-16 h-72 w-72 rounded-full bg-black/15 blur-3xl" />
+          <div className="absolute -left-16 -top-16 h-72 w-72 rounded-full bg-white/15 blur-3xl" />
           <div className="absolute -bottom-24 right-[-6%] h-80 w-80 rounded-full bg-magenta/30 blur-3xl" />
           <div className="absolute left-1/3 top-1/2 h-56 w-56 rounded-full bg-accent/20 blur-3xl" />
         </div>
 
         <div className="relative mx-auto max-w-2xl">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
             Export your next list — the safe way.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-ink/85 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-white/85 sm:text-lg">
             Turn the searches you already run into clean, enriched spreadsheets — without putting your
             LinkedIn account at risk.
           </p>
