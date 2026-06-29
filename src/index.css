@@ -35,6 +35,20 @@
     @apply bg-bg font-sans text-ink antialiased;
   }
 
+  /* Continuous airy gradient down the whole page (scrolls with content),
+     so every section sits on one seamless cloud backdrop. */
+  #root {
+    background-image: linear-gradient(
+      180deg,
+      #e7eafd 0%,
+      #e1e4fb 9%,
+      #e7e3fb 24%,
+      #ede7fc 48%,
+      #f0edfc 72%,
+      #f5f4fc 100%
+    );
+  }
+
   /* Display font for big headings */
   h1,
   h2,

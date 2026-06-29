@@ -7,7 +7,7 @@ import { TRIAL_URL, DEMO_URL, CUSTOMER_COUNT } from '../lib/constants'
 // at the bottom, which flows straight into the light body below.
 const CLOUD_BG =
   'radial-gradient(ellipse 130% 52% at 50% 112%, rgba(255,255,255,1) 0%, rgba(214,224,255,0.85) 32%, rgba(140,170,255,0.25) 58%, transparent 78%),' +
-  'linear-gradient(176deg, #1c074c 0%, #3a10a0 28%, #5720ce 52%, #7b4fd4 72%, rgba(184,200,255,0.55) 90%, #f6f7fc 100%)'
+  'linear-gradient(176deg, #1c074c 0%, #3a10a0 28%, #5720ce 52%, #7b4fd4 72%, rgba(184,200,255,0.55) 90%, #e7eafd 100%)'
 
 // Floating glassmorphism squares — positions adapted from the reference (em units).
 const LEFT = [
