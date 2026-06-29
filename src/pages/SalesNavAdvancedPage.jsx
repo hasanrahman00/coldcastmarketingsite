@@ -56,7 +56,7 @@ function ActivationForm({ id = 'activate', autoFocus = false }) {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@company.com"
             aria-label="Your email for the activation link"
-            className="w-full rounded-xl border border-hairline bg-white/[0.05] py-3.5 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30"
+            className="w-full rounded-xl border border-hairline bg-black/[0.05] py-3.5 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30"
           />
         </div>
         <button
@@ -76,7 +76,7 @@ function ActivationForm({ id = 'activate', autoFocus = false }) {
 const INCLUDED = ['50 InMail credits / month', 'Advanced search filters', 'Saved searches & alerts', 'Lead & account lists', 'TeamLink network access', 'Smart Links tracking']
 function PlanCard() {
   return (
-    <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-hairline bg-white/[0.04] p-7 shadow-card backdrop-blur-md">
+    <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-hairline bg-black/[0.04] p-7 shadow-card backdrop-blur-md">
       <div aria-hidden className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-brand/25 blur-[70px]" />
       <div className="relative flex items-center justify-between">
         <span className="text-sm font-semibold text-ink">Sales Navigator Advanced</span>
@@ -161,20 +161,20 @@ export default function SalesNavAdvancedPage() {
               </span>
             </Reveal>
             <Reveal delay={0.08}>
-              <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.1rem]">
+              <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.1rem]">
                 LinkedIn Sales Navigator Advanced — <span className="text-gradient">$25/month</span>.
               </h1>
             </Reveal>
             <Reveal delay={0.14}>
-              <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg">
+              <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-ink/65 sm:text-lg">
                 The full Advanced plan — advanced search, 50 InMails, alerts, lists and TeamLink — for a flat
-                <span className="font-semibold text-white"> $25 a month</span>, not $99+. Activate with just your email.
+                <span className="font-semibold text-ink"> $25 a month</span>, not $99+. Activate with just your email.
               </p>
             </Reveal>
             <Reveal delay={0.2} className="mt-8">
               <ActivationForm autoFocus />
             </Reveal>
-            <Reveal delay={0.26} className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
+            <Reveal delay={0.26} className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink/60">
               {['Full Advanced features', 'Activates in minutes', 'Cancel anytime'].map((b) => (
                 <span key={b} className="inline-flex items-center gap-1.5"><Check size={15} className="text-brand-light" />{b}</span>
               ))}
@@ -209,7 +209,7 @@ export default function SalesNavAdvancedPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.45, delay: (i % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
-              className="group rounded-2xl border border-hairline bg-white/[0.03] p-5 transition-colors duration-200 hover:border-brand/30 hover:bg-white/[0.05]"
+              className="group rounded-2xl border border-hairline bg-black/[0.03] p-5 transition-colors duration-200 hover:border-brand/30 hover:bg-black/[0.05]"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand-light ring-1 ring-brand/30">
                 <Icon size={18} />
@@ -243,7 +243,7 @@ export default function SalesNavAdvancedPage() {
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
           {BENEFITS.map(({ icon: Icon, title, desc }, i) => (
             <Reveal key={title} delay={i * 0.07}>
-              <div className="h-full rounded-2xl border border-hairline bg-white/[0.03] p-6">
+              <div className="h-full rounded-2xl border border-hairline bg-black/[0.03] p-6">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand-light ring-1 ring-brand/30">
                   <Icon size={20} />
                 </span>
@@ -266,7 +266,7 @@ export default function SalesNavAdvancedPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.45, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative overflow-hidden rounded-2xl border border-hairline bg-white/[0.03] p-6"
+              className="relative overflow-hidden rounded-2xl border border-hairline bg-black/[0.03] p-6"
             >
               <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-brand to-brand-light" />
               <div className="flex items-center justify-between">

@@ -48,8 +48,8 @@
   }
 
   ::selection {
-    background-color: rgba(79, 124, 245, 0.32);
-    color: #eef1fc;
+    background-color: rgba(87, 32, 206, 0.18);
+    color: #1c1741;
   }
 }
 
@@ -92,16 +92,16 @@
     mask-composite: exclude;
   }
 
-  /* Floating section panel — translucent white card with layered 3D depth */
+  /* Floating section panel — frosted white card with soft sky shadow (light theme) */
   .floating-panel {
     position: relative;
     border-radius: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background-color: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(28, 23, 65, 0.07);
+    background-color: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(18px);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.06),
-      0 30px 80px -40px rgba(0, 0, 0, 0.7);
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 30px 80px -38px rgba(28, 40, 110, 0.28);
   }
 }
 

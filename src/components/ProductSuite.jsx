@@ -58,7 +58,7 @@ export default function ProductSuite({ showHeading = true }) {
           <Reveal as="div" className="sm:col-span-2 lg:col-span-3">
             <Link
               to="/coldcast-agent"
-              className="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border-2 border-brand/40 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/60 sm:flex-row sm:items-center"
+              className="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border-2 border-brand/40 bg-black/[0.04] p-7 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/60 sm:flex-row sm:items-center"
             >
               <Glow color="brand" className="-right-10 -top-10 h-48 w-48 opacity-60" />
               <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-gradient text-2xl shadow-brand-btn">
@@ -84,7 +84,7 @@ export default function ProductSuite({ showHeading = true }) {
           {/* The 6 data tools */}
           {TOOLS.map(({ emoji, color, name, desc, to }, i) => (
             <Reveal as="div" key={name} delay={(i % 3) * 0.06}>
-              <Link to={to} className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-gradient-to-br via-white/[0.05] to-white/[0.06] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 ${TINT[color].from} ${TINT[color].border} ${TINT[color].hover}`}>
+              <Link to={to} className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-gradient-to-br via-black/[0.05] to-black/[0.06] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 ${TINT[color].from} ${TINT[color].border} ${TINT[color].hover}`}>
                 <Glow color={color} className="-right-6 -top-6 h-36 w-36" />
                 <div className="relative flex items-center justify-between">
                   <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${TINT[color].tile}`}>

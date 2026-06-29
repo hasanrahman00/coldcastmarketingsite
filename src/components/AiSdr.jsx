@@ -49,7 +49,7 @@ function OutreachCard() {
   const o = OUTREACH[i]
 
   return (
-    <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl border border-hairline bg-white/[0.04] p-5 shadow-card backdrop-blur-md">
+    <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl border border-hairline bg-black/[0.04] p-5 shadow-card backdrop-blur-md">
       <div aria-hidden className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-brand/20 blur-[80px]" />
 
       {/* Header — the agent */}
@@ -88,7 +88,7 @@ function OutreachCard() {
             <div className="mt-3 text-sm font-medium text-ink">{o.subject}</div>
             <p className="mt-2 text-sm leading-relaxed text-ink/80">{o.body}</p>
             <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-hairline pt-4">
-              <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-medium text-muted">signal: {o.signal}</span>
+              <span className="rounded-full bg-black/10 px-2.5 py-1 text-[11px] font-medium text-muted">signal: {o.signal}</span>
               {o.status.map((s) => (
                 <span key={s} className={`rounded-full px-2.5 py-1 text-[11px] font-medium ${STAT_STYLE[s]}`}>{s}</span>
               ))}
@@ -101,7 +101,7 @@ function OutreachCard() {
       <div className="relative mt-4 flex items-center justify-between border-t border-hairline pt-4">
         <div className="flex items-center gap-1.5">
           {OUTREACH.map((_, idx) => (
-            <span key={idx} className={`h-1.5 rounded-full transition-all duration-300 ${idx === i ? 'w-4 bg-brand-light' : 'w-1.5 bg-white/20'}`} />
+            <span key={idx} className={`h-1.5 rounded-full transition-all duration-300 ${idx === i ? 'w-4 bg-brand-light' : 'w-1.5 bg-black/20'}`} />
           ))}
         </div>
         <span className="text-[11px] text-muted">Today · 142 sent · 38 replies · 9 booked</span>

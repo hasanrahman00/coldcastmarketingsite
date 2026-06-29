@@ -51,7 +51,7 @@ const NAV = [
 
 function ItemRow({ emoji, name, desc, tag, to, onClick }) {
   return (
-    <Link to={to} onClick={onClick} className="group/item flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-white/[0.05]">
+    <Link to={to} onClick={onClick} className="group/item flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-black/[0.05]">
       <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft text-[17px] leading-none">{emoji}</span>
       <span className="min-w-0">
         <span className="flex items-center gap-2">
@@ -100,7 +100,10 @@ export default function Navbar({ barOffset = false }) {
   const openMenu = (m) => { clearTimeout(closeTimer.current); setMenu(m) }
   const scheduleClose = () => { closeTimer.current = setTimeout(() => setMenu(null), 130) }
 
-  const linkCls = 'relative z-10 flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-white/80 transition-colors hover:text-white'
+  // Over the purple hero (top) the pill is glass + white text; once scrolled
+  // onto the light body it becomes a solid white pill with dark text.
+  const light = scrolled || menu || open
+  const linkCls = `relative z-10 flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${light ? 'text-ink/75 hover:text-ink' : 'text-white/85 hover:text-white'}`
 
   return (
     <>
@@ -109,14 +112,14 @@ export default function Navbar({ barOffset = false }) {
           {/* Floating glass pill */}
           <div
             className={`flex h-14 items-center justify-between gap-2 rounded-full border px-3 transition-all duration-300 ${
-              scrolled || menu
-                ? 'border-white/10 bg-[#0c1226]/85 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.7)] backdrop-blur-xl'
-                : 'border-white/10 bg-white/[0.05] backdrop-blur-xl'
+              light
+                ? 'border-black/[0.06] bg-white/90 shadow-[0_12px_40px_-14px_rgba(28,40,110,0.3)] backdrop-blur-xl'
+                : 'border-white/20 bg-white/[0.08] backdrop-blur-xl'
             }`}
           >
             <Link to="/" onClick={() => setMenu(null)} className="flex shrink-0 items-center gap-2.5 pl-1" aria-label="Coldcast — home">
               <Logo size={32} />
-              <span className="text-base font-bold tracking-tight text-white">Coldcast</span>
+              <span className={`text-base font-bold tracking-tight ${light ? 'text-ink' : 'text-white'}`}>Coldcast</span>
             </Link>
 
             {/* Center nav with sliding hover pill */}
@@ -124,7 +127,7 @@ export default function Navbar({ barOffset = false }) {
               {NAV.map((item) => (
                 <li key={item.key} className="relative" onMouseEnter={() => { setHovered(item.key); openMenu(item.menu || null) }}>
                   {hovered === item.key && (
-                    <motion.span layoutId="nav-hover" className="absolute inset-0 rounded-full bg-white/10" transition={{ type: 'spring', stiffness: 420, damping: 32 }} />
+                    <motion.span layoutId="nav-hover" className={`absolute inset-0 rounded-full ${light ? 'bg-black/[0.06]' : 'bg-white/15'}`} transition={{ type: 'spring', stiffness: 420, damping: 32 }} />
                   )}
                   {item.placeholder ? (
                     <a href={item.to} className={linkCls} onClick={() => setMenu(null)}>{item.label}</a>
@@ -140,14 +143,14 @@ export default function Navbar({ barOffset = false }) {
             </ul>
 
             <div className="hidden items-center gap-2 lg:flex">
-              <Button as="a" href={DEMO_URL} variant="outline-light" size="sm">Book a demo</Button>
+              <Button as="a" href={DEMO_URL} variant={light ? 'ghost' : 'outline-light'} size="sm">Book a demo</Button>
               <Button as="a" href={TRIAL_URL} variant="primary" size="sm" className="shadow-[0_0_24px_-6px_rgba(79,124,245,0.8)]">Free trial</Button>
             </div>
 
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white lg:hidden"
+              className={`inline-flex h-10 w-10 items-center justify-center rounded-full border lg:hidden ${light ? 'border-black/10 bg-black/[0.05] text-ink' : 'border-white/25 bg-white/10 text-white'}`}
               aria-label={open ? 'Close menu' : 'Open menu'}
               aria-expanded={open}
             >
@@ -168,7 +171,7 @@ export default function Navbar({ barOffset = false }) {
               onMouseLeave={scheduleClose}
               className="absolute inset-x-0 top-full mx-auto hidden w-[min(60rem,calc(100vw-2rem))] px-4 lg:block"
             >
-              <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0c1226]/95 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.85)] backdrop-blur-xl">
+              <div className="overflow-hidden rounded-2xl border border-black/[0.06] bg-white/95 shadow-[0_30px_80px_-30px_rgba(28,40,110,0.4)] backdrop-blur-xl">
                 {menu === 'products' && (
                   <div className="grid grid-cols-[1.5fr_1fr]">
                     <div className="grid grid-cols-2 gap-x-8 p-7">
@@ -181,13 +184,13 @@ export default function Navbar({ barOffset = false }) {
                         </div>
                       ))}
                     </div>
-                    <div className="flex flex-col justify-between border-l border-white/10 bg-white/[0.02] p-6">
+                    <div className="flex flex-col justify-between border-l border-black/10 bg-black/[0.02] p-6">
                       <div>
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/20 px-2.5 py-1 text-[11px] font-semibold text-brand-light"><Bot size={12} /> New</span>
                         <h4 className="mt-3 text-base font-semibold text-ink">Meet your AI SDR</h4>
                         <p className="mt-1.5 text-sm leading-relaxed text-muted">Let an autonomous rep write, send and follow up off your enriched lists.</p>
                       </div>
-                      <Link to="/#ai-sdr" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-white">See how it works <ArrowRight size={15} /></Link>
+                      <Link to="/#ai-sdr" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-ink">See how it works <ArrowRight size={15} /></Link>
                     </div>
                   </div>
                 )}
@@ -197,18 +200,18 @@ export default function Navbar({ barOffset = false }) {
                     <div className="grid grid-cols-2 gap-x-6 p-7">
                       {ROLES.map((r) => (<ItemRow key={r.name} {...r} onClick={() => setMenu(null)} />))}
                     </div>
-                    <div className="flex flex-col justify-between border-l border-white/10 bg-white/[0.02] p-6">
+                    <div className="flex flex-col justify-between border-l border-black/10 bg-black/[0.02] p-6">
                       <div>
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-safe/15 px-2.5 py-1 text-[11px] font-semibold text-safe"><ShieldCheck size={12} /> Account-safe</span>
                         <h4 className="mt-3 text-base font-semibold text-ink">Built for trust</h4>
                         <p className="mt-1.5 text-sm leading-relaxed text-muted">6+ months of daily use · 0 account suspensions · 97% verified emails.</p>
                       </div>
-                      <Link to="/#safety" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-white">Why it’s safe <ArrowRight size={15} /></Link>
+                      <Link to="/#safety" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-ink">Why it’s safe <ArrowRight size={15} /></Link>
                     </div>
                   </div>
                 )}
 
-                <div className="flex items-center justify-between border-t border-white/10 px-6 py-3.5">
+                <div className="flex items-center justify-between border-t border-black/10 px-6 py-3.5">
                   <span className="text-xs text-muted">One account-safe platform · scrape → enrich → reach</span>
                   <div className="flex items-center gap-2.5">
                     <Button as="a" href={DEMO_URL} variant="ghost" size="sm" onClick={() => setMenu(null)}>Book a demo</Button>
@@ -229,30 +232,30 @@ export default function Navbar({ barOffset = false }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[4.75rem] bottom-0 z-[70] overflow-y-auto border-t border-white/10 bg-bg/95 backdrop-blur-xl lg:hidden"
+            className="fixed inset-x-0 top-[4.75rem] bottom-0 z-[70] overflow-y-auto border-t border-black/10 bg-bg/95 backdrop-blur-xl lg:hidden"
           >
             <div className="container-px flex flex-col gap-1 py-5">
-              <Link to="/coldcast-agent" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Coldcast Agent</Link>
-              <Link to="/products" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Products</Link>
+              <Link to="/coldcast-agent" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-black/5">Coldcast Agent</Link>
+              <Link to="/products" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-black/5">Products</Link>
               {[AI_SDR, ...PRODUCT_COLUMNS.flatMap((c) => c.items)].map((it) => (
-                <Link key={it.name} to={it.to} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
+                <Link key={it.name} to={it.to} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-black/5">
                   <span className="flex items-center gap-2.5"><span className="text-base">{it.emoji}</span>{it.name}</span>
                   {it.tag && <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[it.tag]}`}>{it.tag}</span>}
                 </Link>
               ))}
-              <Link to="/roles" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Role</Link>
+              <Link to="/roles" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-black/5">Role</Link>
               {ROLES.map((r) => (
-                <Link key={r.name} to={r.to} onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-white/5">
+                <Link key={r.name} to={r.to} onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-ink/90 hover:bg-black/5">
                   <span className="text-base">{r.emoji}</span>{r.name}
                 </Link>
               ))}
-              <Link to="/#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Pricing</Link>
-              <Link to="/tools" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">Free Tools</Link>
-              <Link to="/sales-nav-advanced" onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/5">
+              <Link to="/#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-black/5">Pricing</Link>
+              <Link to="/tools" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-black/5">Free Tools</Link>
+              <Link to="/sales-nav-advanced" onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-black/5">
                 Sales Nav Advanced
                 <span className="rounded-full bg-brand/20 px-1.5 py-0.5 text-[10px] font-bold text-brand-light">−75%</span>
               </Link>
-              <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-5">
+              <div className="mt-4 flex flex-col gap-3 border-t border-black/10 pt-5">
                 <Button as="a" href={TRIAL_URL} variant="primary" size="lg" onClick={() => setOpen(false)}>Free trial</Button>
                 <Button as="a" href={DEMO_URL} variant="outline-light" size="lg" onClick={() => setOpen(false)}>Book a demo</Button>
               </div>

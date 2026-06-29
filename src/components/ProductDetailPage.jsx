@@ -48,7 +48,7 @@ function CtaRow({ center }) {
 function Badges({ badges, accent, center }) {
   if (!badges?.length) return null
   return (
-    <div className={`mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60 ${center ? 'justify-center' : ''}`}>
+    <div className={`mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink/60 ${center ? 'justify-center' : ''}`}>
       {badges.map((b) => (
         <span key={b} className="inline-flex items-center gap-1.5"><Check size={15} className={accent.text} />{b}</span>
       ))}
@@ -69,9 +69,9 @@ function Hero({ data, accent, Visual }) {
           <div>
             <Reveal><Eyebrow><span className={`h-1.5 w-1.5 rounded-full ${accent.dot}`} />{data.hero.eyebrow}</Eyebrow></Reveal>
             <Reveal delay={0.08}>
-              <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.1rem]">{data.hero.title}</h1>
+              <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.1rem]">{data.hero.title}</h1>
             </Reveal>
-            <Reveal delay={0.14}><p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg">{data.hero.subtitle}</p></Reveal>
+            <Reveal delay={0.14}><p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-ink/65 sm:text-lg">{data.hero.subtitle}</p></Reveal>
             <Reveal delay={0.2}><CtaRow /></Reveal>
             <Reveal delay={0.26}><Badges badges={data.hero.badges} accent={accent} /></Reveal>
           </div>
@@ -97,8 +97,8 @@ function Hero({ data, accent, Visual }) {
           )}
         </Reveal>
         <Reveal delay={0.05} className="mt-6 flex justify-center"><Eyebrow><span className={`h-1.5 w-1.5 rounded-full ${accent.dot}`} />{data.hero.eyebrow}</Eyebrow></Reveal>
-        <Reveal delay={0.1}><h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">{data.hero.title}</h1></Reveal>
-        <Reveal delay={0.15}><p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg">{data.hero.subtitle}</p></Reveal>
+        <Reveal delay={0.1}><h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">{data.hero.title}</h1></Reveal>
+        <Reveal delay={0.15}><p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-relaxed text-ink/65 sm:text-lg">{data.hero.subtitle}</p></Reveal>
         <Reveal delay={0.2} className="flex justify-center"><CtaRow center /></Reveal>
         <Reveal delay={0.25} className="flex justify-center"><Badges badges={data.hero.badges} accent={accent} center /></Reveal>
       </div>
@@ -110,7 +110,7 @@ function Hero({ data, accent, Visual }) {
 function StepsTimeline({ how, accent }) {
   return (
     <ol className="relative mx-auto mt-14 max-w-2xl">
-      <span aria-hidden className={`absolute bottom-6 left-[27px] top-6 w-px bg-gradient-to-b ${accent.line} via-white/15 to-transparent`} />
+      <span aria-hidden className={`absolute bottom-6 left-[27px] top-6 w-px bg-gradient-to-b ${accent.line} via-black/15 to-transparent`} />
       {how.steps.map((s, i) => (
         <motion.li key={s.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.45, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }} className="relative flex gap-5 pb-8 last:pb-0">
@@ -131,7 +131,7 @@ function StepsRail({ how, accent }) {
       {how.steps.map((s, i) => (
         <motion.div key={s.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.45, delay: (i % 3) * 0.07, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-2xl border border-hairline bg-white/[0.03] p-6">
+          className="relative overflow-hidden rounded-2xl border border-hairline bg-black/[0.03] p-6">
           <span aria-hidden className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${accent.grad}`} />
           <div className="flex items-center justify-between">
             <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${accent.tile}`}>{s.emoji}</span>
@@ -157,7 +157,7 @@ function Steps({ how, accent, variant }) {
 // ── Features ─────────────────────────────────────────────────────────────────
 function FeatureCard({ f, accent, className = '' }) {
   return (
-    <div className={`group rounded-2xl border border-hairline bg-white/[0.03] p-6 transition-colors duration-200 hover:border-white/15 hover:bg-white/[0.05] ${className}`}>
+    <div className={`group rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-colors duration-200 hover:border-black/15 hover:bg-black/[0.05] ${className}`}>
       <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${accent.tile}`}>{f.emoji}</span>
       <h3 className="mt-5 text-base font-semibold text-ink">{f.title}</h3>
       <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.desc}</p>
@@ -174,7 +174,7 @@ function Features({ features, accent, variant }) {
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((f, i) => (
             <Reveal as="div" key={f.title} delay={(i % 3) * 0.05} className={i === 0 ? 'sm:col-span-2 lg:row-span-2' : ''}>
-              <FeatureCard f={f} accent={accent} className={`h-full ${i === 0 ? 'bg-white/[0.05]' : ''}`} />
+              <FeatureCard f={f} accent={accent} className={`h-full ${i === 0 ? 'bg-black/[0.05]' : ''}`} />
             </Reveal>
           ))}
         </div>
@@ -221,7 +221,7 @@ function Benefits({ benefits, accent }) {
       <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
         {benefits.items.map((b, i) => (
           <Reveal key={b.title} delay={i * 0.06}>
-            <div className="h-full rounded-2xl border border-hairline bg-white/[0.03] p-6">
+            <div className="h-full rounded-2xl border border-hairline bg-black/[0.03] p-6">
               <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-xl leading-none ring-1 ${accent.tile}`}>{b.emoji}</span>
               <h3 className="mt-4 text-base font-semibold text-ink">{b.title}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-muted">{b.desc}</p>
@@ -238,7 +238,7 @@ function Comparison({ comparison, accent }) {
     <section className="container-px py-20 sm:py-24">
       <SectionHeading eyebrow="The difference" title={comparison.heading} />
       <Reveal className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-2xl border border-hairline">
-        <div className="grid grid-cols-[1.4fr_1fr_1fr] bg-white/[0.03] text-xs font-semibold uppercase tracking-wider text-muted">
+        <div className="grid grid-cols-[1.4fr_1fr_1fr] bg-black/[0.03] text-xs font-semibold uppercase tracking-wider text-muted">
           <div className="p-4" />
           <div className="p-4 text-center">Other tools</div>
           <div className={`p-4 text-center ${accent.text}`}>Coldcast</div>

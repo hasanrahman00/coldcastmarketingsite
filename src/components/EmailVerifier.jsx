@@ -140,7 +140,7 @@ export default function EmailVerifier() {
               onChange={onChange}
               placeholder="name@company.com"
               aria-label="Email address to verify"
-              className="w-full rounded-xl border border-hairline bg-white/[0.04] py-3 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30"
+              className="w-full rounded-xl border border-hairline bg-black/[0.04] py-3 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30"
             />
           </div>
           <Button as="button" type="submit" variant="primary" size="md" className="shrink-0">
@@ -156,7 +156,7 @@ export default function EmailVerifier() {
               key={ex}
               type="button"
               onClick={() => run(ex)}
-              className="rounded-full border border-hairline bg-white/[0.03] px-2.5 py-1 text-xs text-muted transition-colors hover:border-white/20 hover:text-ink"
+              className="rounded-full border border-hairline bg-black/[0.03] px-2.5 py-1 text-xs text-muted transition-colors hover:border-black/20 hover:text-ink"
             >
               {ex}
             </button>
@@ -183,7 +183,7 @@ export default function EmailVerifier() {
                   <span>Confidence</span>
                   <span className="tabular-nums">{result.score}/100</span>
                 </div>
-                <div className="h-2 w-full overflow-hidden rounded-full bg-white/5">
+                <div className="h-2 w-full overflow-hidden rounded-full bg-black/5">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${result.score}%` }}
@@ -198,7 +198,7 @@ export default function EmailVerifier() {
                   const Icon = STATE_ICON[c.state]
                   return (
                     <li key={c.key} className="flex items-center gap-2.5 text-sm">
-                      <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/5 ${STATE_CLS[c.state]}`}>
+                      <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black/5 ${STATE_CLS[c.state]}`}>
                         <Icon size={12} strokeWidth={3} />
                       </span>
                       <span className="text-ink/85">{c.label}</span>

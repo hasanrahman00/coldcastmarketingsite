@@ -97,7 +97,7 @@ export default function IntentSignals() {
         {/* How to use it */}
         <Reveal delay={0.15} className="mx-auto mt-10 max-w-4xl">
           <div className="flex flex-col items-start gap-4 rounded-2xl border border-hairline bg-brand-gradient-soft p-6 sm:flex-row sm:items-center sm:p-7">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] text-accent">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-black/10 bg-black/[0.05] text-accent">
               <Target size={22} />
             </span>
             <p className="text-sm leading-relaxed text-ink/90 sm:text-[0.95rem]">

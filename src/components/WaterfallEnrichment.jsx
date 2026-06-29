@@ -105,7 +105,7 @@ export default function WaterfallEnrichment() {
                         ? 'border-safe/30 bg-safe/[0.06]'
                         : state === 'checking'
                           ? 'border-accent/30 bg-accent/[0.05]'
-                          : 'border-hairline bg-white/[0.03]'
+                          : 'border-hairline bg-black/[0.03]'
                     } ${dim ? 'opacity-50' : 'opacity-100'}`}
                   >
                     <BrandLogo domain={p.domain} name={p.name} size={28} />
@@ -125,7 +125,7 @@ export default function WaterfallEnrichment() {
                     ? 'border-safe/30 bg-safe/[0.06]'
                     : validate === 'checking'
                       ? 'border-accent/30 bg-accent/[0.05]'
-                      : 'border-hairline bg-white/[0.03] opacity-50'
+                      : 'border-hairline bg-black/[0.03] opacity-50'
                 }`}
               >
                 <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-gradient-soft text-accent">

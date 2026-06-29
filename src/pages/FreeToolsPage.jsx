@@ -33,7 +33,7 @@ export default function FreeToolsPage() {
             <a
               key={t.title}
               href={t.to}
-              className="group flex items-start gap-4 rounded-2xl border border-hairline bg-white/[0.025] p-5 transition-colors hover:border-white/15 hover:bg-white/[0.05]"
+              className="group flex items-start gap-4 rounded-2xl border border-hairline bg-black/[0.025] p-5 transition-colors hover:border-black/15 hover:bg-black/[0.05]"
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-[20px] leading-none">
                 {t.emoji}

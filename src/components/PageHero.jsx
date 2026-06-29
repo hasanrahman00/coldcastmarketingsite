@@ -20,15 +20,15 @@ export default function PageHero({ eyebrow, title, subtitle, children }) {
         className="container-px relative text-center"
       >
         {eyebrow && (
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/80 backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-black/[0.06] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-ink/80 backdrop-blur">
             {eyebrow}
           </span>
         )}
-        <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
+        <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]">
           {title}
         </h1>
         {subtitle && (
-          <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-ink/65 sm:text-lg">
             {subtitle}
           </p>
         )}

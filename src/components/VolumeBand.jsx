@@ -87,7 +87,7 @@ export default function VolumeBand() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.45, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex h-full gap-3 rounded-xl border border-hairline bg-white/[0.025] p-3.5 transition-colors duration-300 hover:border-white/15 hover:bg-white/[0.05]"
+                  className="flex h-full gap-3 rounded-xl border border-hairline bg-black/[0.025] p-3.5 transition-colors duration-300 hover:border-black/15 hover:bg-black/[0.05]"
                 >
                   <span className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-[19px] leading-none ring-1 ${TINT[tint]}`}>
                     {emoji}
@@ -114,7 +114,7 @@ export default function VolumeBand() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.4, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-white/[0.03]"
+                  className="flex items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-black/[0.03]"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-safe/20 text-safe ring-1 ring-safe/30">
                     <Check size={13} strokeWidth={3} />

@@ -111,7 +111,7 @@ function Node({ domain, name, emoji, size = 38 }) {
 function Connector({ reduce, index = 0 }) {
   return (
     <div className="relative flex h-14 w-px items-stretch justify-center">
-      <div className="relative h-full w-px overflow-hidden bg-gradient-to-b from-accent/40 via-white/15 to-accent/40">
+      <div className="relative h-full w-px overflow-hidden bg-gradient-to-b from-accent/40 via-black/15 to-accent/40">
         {!reduce &&
           [0, 1].map((p) => (
             <motion.span
@@ -237,7 +237,7 @@ function MiniHub({ nodes: items, reduce, center }) {
             animate={reduce ? {} : { scale: [1, 1.25, 1], opacity: [0.5, 0.85, 0.5] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
           />
-          {CenterIcon ? <CenterIcon size={24} className="text-white" /> : <SwirlMark size={30} />}
+          {CenterIcon ? <CenterIcon size={24} className="text-ink" /> : <SwirlMark size={30} />}
         </div>
         <span className="mt-1.5 text-[11px] font-semibold text-ink">{center ? center.label : 'Coldcast'}</span>
       </div>
@@ -265,7 +265,7 @@ function StageCard({ stage, active, reduce }) {
   const Icon = stage.icon
   return (
     <div
-      className={`relative w-full max-w-md rounded-2xl border border-hairline bg-white/[0.04] p-5 backdrop-blur-sm transition-all duration-500 ${
+      className={`relative w-full max-w-md rounded-2xl border border-hairline bg-black/[0.04] p-5 backdrop-blur-sm transition-all duration-500 ${
         active ? `ring-1 ${t.ring} ${t.glow}` : ''
       }`}
     >

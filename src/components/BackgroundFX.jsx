@@ -40,7 +40,7 @@ export default function BackgroundFX() {
         className="absolute inset-0"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
+            'linear-gradient(rgba(28,23,65,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(28,23,65,0.045) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
           maskImage: 'radial-gradient(ellipse 92% 78% at 50% 14%, #000 22%, transparent 86%)',
           WebkitMaskImage: 'radial-gradient(ellipse 92% 78% at 50% 14%, #000 22%, transparent 86%)',

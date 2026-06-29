@@ -21,6 +21,10 @@ function streaks(count) {
 
 export default function Rain({ count = 60, className = '' }) {
   const drops = useMemo(() => streaks(count), [count])
+  // Light theme: the rain streaks were a dark-hero effect — neutralised.
+  // (Floating glass squares in the hero replace this ambience.)
+  return null
+  // eslint-disable-next-line no-unreachable
   return (
     <div
       aria-hidden

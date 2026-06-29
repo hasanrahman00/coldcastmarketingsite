@@ -23,7 +23,7 @@ function SignalPills({ signals = [] }) {
           className={`inline-flex w-fit items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-medium ${
             s.tier === 'strong'
               ? 'bg-amber/15 text-amber'
-              : 'bg-white/5 text-muted'
+              : 'bg-black/5 text-muted'
           }`}
         >
           <span
@@ -49,7 +49,7 @@ export default function OutputPreview() {
         <Reveal delay={0.1} className="mt-14">
           <div className="overflow-hidden rounded-2xl border border-hairline bg-panel/70 shadow-card backdrop-blur-md">
             {/* sample-data banner */}
-            <div className="flex items-center justify-between gap-3 border-b border-hairline bg-white/[0.04] px-4 py-2.5">
+            <div className="flex items-center justify-between gap-3 border-b border-hairline bg-black/[0.04] px-4 py-2.5">
               <span className="inline-flex items-center gap-2 text-[11px] font-medium text-muted">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                 Example preview · sample data
@@ -63,7 +63,7 @@ export default function OutputPreview() {
             <div className="overflow-x-auto">
               <table className="w-full min-w-[1040px] border-collapse text-left text-sm">
                 <thead>
-                  <tr className="border-b border-hairline bg-white/[0.03] text-xs uppercase tracking-wide text-muted">
+                  <tr className="border-b border-hairline bg-black/[0.03] text-xs uppercase tracking-wide text-muted">
                     {COLUMNS.map((col) => (
                       <th key={col} className="whitespace-nowrap px-4 py-3.5 font-semibold">
                         {col}
@@ -75,8 +75,8 @@ export default function OutputPreview() {
                   {SAMPLE_LEADS.map((lead, i) => (
                     <tr
                       key={lead.email}
-                      className={`border-b border-hairline/60 align-top transition-colors last:border-0 hover:bg-white/[0.04] ${
-                        i % 2 ? 'bg-white/[0.02]' : ''
+                      className={`border-b border-hairline/60 align-top transition-colors last:border-0 hover:bg-black/[0.04] ${
+                        i % 2 ? 'bg-black/[0.02]' : ''
                       }`}
                     >
                       <td className="whitespace-nowrap px-4 py-4 font-medium text-ink">{lead.name}</td>

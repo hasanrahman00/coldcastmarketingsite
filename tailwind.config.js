@@ -4,14 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Surfaces — dark theme (matches the hero)
-        bg: '#0a1020',
-        bg2: '#0d1430',
-        panel: '#121a33',
-        panel2: '#0e1630',
+        // Surfaces — light theme (sky/cloud body matching the hero's lower edge)
+        bg: '#f6f7fc',
+        bg2: '#eef1fb',
+        panel: '#ffffff',
+        panel2: '#f3f5fd',
         // Text
-        ink: '#eef1fc',
-        muted: '#97a1bd',
+        ink: '#1c1741',
+        muted: '#5a6988',
         // Brand blue — EXPORT / SCALE
         brand: {
           light: '#6ea0ff',
@@ -26,7 +26,7 @@ export default {
         safe: '#34d399', // emerald-400 — safety
         danger: '#fb7185', // rose-400 — contrast / "others"
         // Hairline border
-        hairline: 'rgba(255,255,255,0.10)',
+        hairline: 'rgba(28,23,65,0.10)',
       },
       fontFamily: {
         freudian: ['Freudian', '"Space Grotesk"', 'sans-serif'],

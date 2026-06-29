@@ -47,7 +47,7 @@ export default function Layout() {
       {/* Rounded "framed website" bezel */}
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 z-[70] rounded-[1.35rem] border-[7px] border-[#0a1020] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.08)] sm:rounded-[2rem] sm:border-[10px]"
+        className="pointer-events-none fixed inset-0 z-[70] rounded-[1.35rem] border-[7px] border-[#f6f7fc] shadow-[inset_0_0_0_1.5px_rgba(28,23,65,0.06)] sm:rounded-[2rem] sm:border-[10px]"
       />
 
       {showBar && <AnnouncementBar onClose={dismissBar} />}
