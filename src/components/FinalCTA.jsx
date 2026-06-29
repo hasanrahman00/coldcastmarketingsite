@@ -1,36 +1,36 @@
 import { ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
-import Button from './Button'
 import { TRIAL_URL } from '../lib/constants'
+
+// Bookends the hero: the light body fades through clouds back into deep purple.
+const CTA_BG =
+  'radial-gradient(ellipse 130% 62% at 50% -6%, rgba(255,255,255,0.95) 0%, rgba(205,217,255,0.6) 26%, transparent 56%),' +
+  'linear-gradient(180deg, #f5f4fc 0%, #bcc6ff 15%, #7b4fd4 42%, #5720ce 68%, #3a10a0 100%)'
 
 export default function FinalCTA() {
   return (
-    <section className="relative px-6 py-16 sm:px-8 sm:py-24">
-      <Reveal
-        className="relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-black/15 px-6 py-16 text-center shadow-glow-violet sm:px-12 sm:py-24"
-        style={{ backgroundImage: 'linear-gradient(135deg, #6d3df0 0%, #4f7cf5 55%, #d946ef 130%)' }}
-      >
-        {/* radial accents */}
-        <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-16 -top-16 h-72 w-72 rounded-full bg-white/15 blur-3xl" />
-          <div className="absolute -bottom-24 right-[-6%] h-80 w-80 rounded-full bg-magenta/30 blur-3xl" />
-          <div className="absolute left-1/3 top-1/2 h-56 w-56 rounded-full bg-accent/20 blur-3xl" />
-        </div>
+    <section className="relative overflow-hidden pb-24 pt-28 sm:pb-32 sm:pt-36" style={{ backgroundImage: CTA_BG }}>
+      {/* soft cloud wisps along the top transition */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-72">
+        <div className="absolute left-[6%] top-4 h-44 w-[42%] rounded-[50%] bg-white/55 blur-[70px]" />
+        <div className="absolute right-[4%] top-0 h-48 w-[46%] rounded-[50%] bg-white/45 blur-[80px]" />
+      </div>
 
-        <div className="relative mx-auto max-w-2xl">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-            Export your next list — the safe way.
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-white/85 sm:text-lg">
-            Turn the searches you already run into clean, enriched spreadsheets — without putting your
-            LinkedIn account at risk.
-          </p>
-          <div className="mt-9 flex justify-center">
-            <Button as="a" href={TRIAL_URL} variant="light" size="lg">
-              Start free trial
-              <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
-            </Button>
-          </div>
+      <Reveal className="container-px relative text-center">
+        <h2 className="mx-auto max-w-3xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
+          Let&rsquo;s start with your next list.
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
+          Export, enrich and verify your next thousand leads — account-safe, from your own browser.
+        </p>
+        <div className="mt-10 flex justify-center">
+          <a
+            href={TRIAL_URL}
+            className="group inline-flex h-16 items-center justify-center gap-2 rounded-full bg-white px-12 text-sm font-semibold uppercase tracking-[0.1em] text-[#4520b0] shadow-[0_18px_50px_-12px_rgba(20,8,60,0.6)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/95"
+          >
+            Start free trial
+            <ArrowRight size={17} className="transition-transform group-hover:translate-x-0.5" />
+          </a>
         </div>
       </Reveal>
     </section>

@@ -1,37 +1,15 @@
 import { Link } from 'react-router-dom'
-import { Twitter, Linkedin, Github } from 'lucide-react'
-import Wordmark from './Wordmark'
-import { TRIAL_URL } from '../lib/constants'
+import { Twitter, Linkedin, Github, ArrowRight } from 'lucide-react'
+import Logo from './Logo'
 
-const COLUMNS = [
-  {
-    title: 'Product',
-    links: [
-      { label: 'Products', to: '/products' },
-      { label: 'By role', to: '/roles' },
-      { label: 'Pricing', to: '/#pricing' },
-      { label: 'How it works', to: '/#how' },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      // [PLACEHOLDER] point these at real pages
-      { label: 'About', to: '#', external: true },
-      { label: 'Contact', to: '#', external: true },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      // Static directory pages (not router routes) → full navigation.
-      { label: 'Privacy', to: '/privacy/', external: true },
-      { label: 'Terms', to: '/terms/', external: true },
-    ],
-  },
+// Tool quick-links shown as pills in the footer.
+const TOOLS = [
+  { emoji: '🎯', label: 'Sales Nav Scraper', to: '/products/sales-navigator-scraper' },
+  { emoji: '💧', label: 'Waterfall Enricher', to: '/products/waterfall-enricher' },
+  { emoji: '✅', label: 'Email Verify', to: '/products/email-verify' },
+  { emoji: '🤖', label: 'Coldcast Agent', to: '/coldcast-agent' },
 ]
 
-// [PLACEHOLDER] social links
 const SOCIALS = [
   { label: 'Coldcast on X', icon: Twitter, href: '#' },
   { label: 'Coldcast on LinkedIn', icon: Linkedin, href: '#' },
@@ -40,62 +18,72 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-hairline bg-bg">
-      <div className="container-px py-14">
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
-          {/* Brand */}
-          <div className="col-span-2 lg:col-span-2">
-            <Link to="/" className="inline-flex" aria-label="Coldcast — home">
-              <Wordmark size={40} />
-            </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              Export and enrich LinkedIn Sales Navigator leads — clean spreadsheets, verified data,
-              and an account that stays safe.
-            </p>
-            <div className="mt-5 flex items-center gap-3">
-              {SOCIALS.map(({ label, icon: Icon, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-hairline bg-black/5 text-muted transition-colors hover:bg-black/10 hover:text-ink"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
+    <footer
+      className="relative overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #3a10a0 0%, #2c0c74 100%)' }}
+    >
+      <div className="container-px py-12 sm:py-16">
+        <div className="rounded-[2.25rem] border border-white/12 bg-white/[0.06] p-8 backdrop-blur-sm sm:p-12">
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1.2fr]">
+            {/* Brand */}
+            <div>
+              <Link to="/" className="inline-flex items-center gap-3" aria-label="Coldcast — home">
+                <Logo size={44} />
+                <span className="font-display text-2xl font-bold tracking-tight text-white">Coldcast</span>
+              </Link>
+              <p className="mt-6 max-w-xs text-xl font-semibold leading-snug text-white">
+                The world&rsquo;s safest Sales Navigator scraper.
+              </p>
+              <p className="mt-8 text-sm text-white/55">© 2026 Coldcast. All rights reserved.</p>
             </div>
-          </div>
 
-          {/* Link columns */}
-          {COLUMNS.map((col) => (
-            <div key={col.title}>
-              <h4 className="text-sm font-semibold text-ink">{col.title}</h4>
-              <ul className="mt-4 flex flex-col gap-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    {link.external ? (
-                      <a href={link.to} className="text-sm text-muted transition-colors hover:text-ink">
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link to={link.to} className="text-sm text-muted transition-colors hover:text-ink">
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
+            {/* Tool pills */}
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.15em] text-white/55">Discover our tools</div>
+              <div className="mt-5 flex flex-col gap-3">
+                {TOOLS.map((t) => (
+                  <Link
+                    key={t.label}
+                    to={t.to}
+                    className="group flex items-center justify-between gap-3 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/[0.14]"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="text-base leading-none">{t.emoji}</span>
+                      {t.label}
+                    </span>
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15 transition-transform group-hover:translate-x-0.5">
+                      <ArrowRight size={13} />
+                    </span>
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
-          ))}
-        </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-7 sm:flex-row">
-          <p className="text-sm text-muted">© 2026 Coldcast · coldcast.io</p>
-          <div className="flex items-center gap-5 text-sm">
-            <a href={TRIAL_URL} className="font-medium text-brand transition-colors hover:text-brand-dark">
-              Free trial
-            </a>
+            {/* Contact + socials */}
+            <div className="lg:text-right">
+              <a
+                href="mailto:hello@coldcast.io"
+                className="text-2xl font-bold tracking-tight text-white transition-colors hover:text-white/80 sm:text-3xl"
+              >
+                hello@coldcast.io
+              </a>
+              <div className="mt-6 flex items-center gap-3 lg:justify-end">
+                {SOCIALS.map(({ label, icon: Icon, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white/85 transition-colors hover:bg-white/[0.14] hover:text-white"
+                  >
+                    <Icon size={17} />
+                  </a>
+                ))}
+              </div>
+              <div className="mt-8 flex flex-wrap gap-5 text-sm text-white/60 lg:justify-end">
+                <a href="/privacy/" className="transition-colors hover:text-white">Privacy Policy</a>
+                <a href="/terms/" className="transition-colors hover:text-white">Terms</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
