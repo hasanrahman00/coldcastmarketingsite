@@ -26,12 +26,16 @@ function Squares() {
     arr.map(([bottom, off], i) => (
       <div
         key={`${side}-${i}`}
-        className="absolute h-[5.25em] w-[5.25em] rounded-[1em] border border-white/10 bg-white/[0.10] backdrop-blur-[4px]"
-        style={{ bottom: `${bottom}em`, [side]: `${off}em` }}
+        className="absolute h-[5.25em] w-[5.25em] rounded-[1em] border border-white/15 bg-white/[0.13] backdrop-blur-[4px] motion-reduce:!animate-none"
+        style={{
+          bottom: `${bottom}em`,
+          [side]: `${off}em`,
+          animation: `square-blink ${(2.6 + ((i * 7) % 9) * 0.35).toFixed(2)}s ease-in-out ${(((i * 5 + (side === 'right' ? 3 : 0)) % 11) * 0.32).toFixed(2)}s infinite`,
+        }}
       />
     ))
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 top-0 hidden max-h-[78vh] overflow-hidden lg:block">
+    <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 top-0 hidden max-h-[82vh] overflow-hidden lg:block">
       {make(LEFT, 'left')}
       {make(RIGHT, 'right')}
     </div>

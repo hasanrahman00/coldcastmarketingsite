@@ -2,18 +2,19 @@ import { ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
 import { TRIAL_URL } from '../lib/constants'
 
-// Bookends the hero: the light body fades through clouds back into deep purple.
+// Bookends the hero: starts fully transparent (so the page gradient shows and
+// there's NO seam), then fades through clouds into deep purple that meets the
+// footer's top colour exactly (#3a10a0) — borderless top and bottom.
 const CTA_BG =
-  'radial-gradient(ellipse 130% 62% at 50% -6%, rgba(255,255,255,0.95) 0%, rgba(205,217,255,0.6) 26%, transparent 56%),' +
-  'linear-gradient(180deg, #f5f4fc 0%, #bcc6ff 15%, #7b4fd4 42%, #5720ce 68%, #3a10a0 100%)'
+  'linear-gradient(180deg, transparent 0%, transparent 9%, rgba(95,42,190,0.5) 23%, #5f2ac6 41%, #4d1cb4 70%, #3a10a0 100%)'
 
 export default function FinalCTA() {
   return (
-    <section className="relative overflow-hidden pb-24 pt-28 sm:pb-32 sm:pt-36" style={{ backgroundImage: CTA_BG }}>
+    <section className="relative overflow-hidden pb-24 pt-48 sm:pb-32 sm:pt-60" style={{ backgroundImage: CTA_BG }}>
       {/* soft cloud wisps along the top transition */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-72">
-        <div className="absolute left-[6%] top-4 h-44 w-[42%] rounded-[50%] bg-white/55 blur-[70px]" />
-        <div className="absolute right-[4%] top-0 h-48 w-[46%] rounded-[50%] bg-white/45 blur-[80px]" />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-80">
+        <div className="absolute left-[6%] top-10 h-44 w-[42%] rounded-[50%] bg-white/45 blur-[80px]" />
+        <div className="absolute right-[4%] top-6 h-48 w-[46%] rounded-[50%] bg-white/40 blur-[90px]" />
       </div>
 
       <Reveal className="container-px relative text-center">
