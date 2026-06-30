@@ -20,11 +20,11 @@ export default function PageHero({ eyebrow, title, subtitle, children }) {
         className="container-px relative text-center"
       >
         {eyebrow && (
-          <span className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-black/[0.06] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-ink/80 backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-black/[0.06] bg-white/70 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-ink/80 shadow-sm ring-1 ring-black/5 backdrop-blur">
             {eyebrow}
           </span>
         )}
-        <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]">
+        <h1 className="mx-auto mt-6 max-w-3xl text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]">
           {title}
         </h1>
         {subtitle && (

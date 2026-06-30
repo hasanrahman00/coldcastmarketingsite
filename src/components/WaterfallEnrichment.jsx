@@ -146,7 +146,7 @@ export default function WaterfallEnrichment() {
                   initial={reduce ? false : { opacity: 0, y: 8 }}
                   animate={reduce ? {} : { opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="flex items-center gap-3 rounded-xl border border-safe/30 bg-safe/10 px-4 py-3"
+                  className="flex items-center gap-3 rounded-xl border border-safe/40 bg-safe/10 px-4 py-3 shadow-[0_8px_24px_-10px_rgba(5,150,105,0.35)]"
                 >
                   <BadgeCheck size={18} className="shrink-0 text-[#0f9d72]" />
                   <span className="truncate font-medium text-ink">{LEAD.email}</span>

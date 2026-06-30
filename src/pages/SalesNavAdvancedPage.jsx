@@ -209,7 +209,7 @@ export default function SalesNavAdvancedPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.45, delay: (i % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
-              className="group rounded-2xl border border-hairline bg-black/[0.03] p-5 transition-colors duration-200 hover:border-brand/30 hover:bg-black/[0.05]"
+              className="group rounded-2xl border border-hairline bg-black/[0.03] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/30 hover:bg-black/[0.05] hover:shadow-card"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand ring-1 ring-brand/30">
                 <Icon size={18} />
@@ -243,7 +243,7 @@ export default function SalesNavAdvancedPage() {
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
           {BENEFITS.map(({ icon: Icon, title, desc }, i) => (
             <Reveal key={title} delay={i * 0.07}>
-              <div className="h-full rounded-2xl border border-hairline bg-black/[0.03] p-6">
+              <div className="h-full rounded-2xl border border-hairline bg-black/[0.03] p-6 shadow-card">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand ring-1 ring-brand/30">
                   <Icon size={20} />
                 </span>

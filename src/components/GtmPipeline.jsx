@@ -265,8 +265,8 @@ function StageCard({ stage, active, reduce }) {
   const Icon = stage.icon
   return (
     <div
-      className={`relative w-full max-w-md rounded-2xl border border-hairline bg-black/[0.04] p-5 backdrop-blur-sm transition-all duration-500 ${
-        active ? `ring-1 ${t.ring} ${t.glow}` : ''
+      className={`relative w-full max-w-md rounded-2xl border border-hairline bg-panel/80 p-5 shadow-card backdrop-blur-sm transition-all duration-500 ${
+        active ? `ring-1 ${t.ring}` : ''
       }`}
     >
       <div className="flex items-center justify-between">
@@ -274,7 +274,7 @@ function StageCard({ stage, active, reduce }) {
           <span className={`flex h-8 w-8 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft ${t.icon}`}>
             <Icon size={16} />
           </span>
-          <span className="text-sm font-semibold text-ink">{stage.title}</span>
+          <span className="font-display text-sm font-semibold text-ink">{stage.title}</span>
         </span>
         <span className="text-xs font-semibold tabular-nums text-muted/50">{stage.step}</span>
       </div>

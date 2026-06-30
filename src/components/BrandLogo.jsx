@@ -12,7 +12,7 @@ export default function BrandLogo({ domain, name, size = 36 }) {
       : `https://www.google.com/s2/favicons?domain=${domain}&sz=128`
   return (
     <span
-      className="flex shrink-0 items-center justify-center overflow-hidden rounded-lg border border-hairline bg-white"
+      className="flex shrink-0 items-center justify-center overflow-hidden rounded-lg border border-black/[0.08] bg-white shadow-[0_2px_8px_-3px_rgba(28,40,110,0.18)]"
       style={{ width: size, height: size }}
       title={name}
     >

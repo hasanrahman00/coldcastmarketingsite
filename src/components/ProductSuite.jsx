@@ -32,7 +32,7 @@ function Glow({ color, className = '' }) {
   return (
     <span
       aria-hidden
-      className={`pointer-events-none absolute rounded-full opacity-70 blur-2xl transition-opacity duration-300 group-hover:opacity-100 ${className}`}
+      className={`pointer-events-none absolute rounded-full opacity-40 blur-2xl transition-opacity duration-300 group-hover:opacity-70 ${className}`}
       style={{ background: TINT[color].glow }}
     />
   )
@@ -84,7 +84,7 @@ export default function ProductSuite({ showHeading = true }) {
           {/* The 6 data tools */}
           {TOOLS.map(({ emoji, color, name, desc, to }, i) => (
             <Reveal as="div" key={name} delay={(i % 3) * 0.06}>
-              <Link to={to} className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-gradient-to-br via-black/[0.05] to-black/[0.06] p-6 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 ${TINT[color].from} ${TINT[color].border} ${TINT[color].hover}`}>
+              <Link to={to} className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-gradient-to-br via-black/[0.05] to-black/[0.06] p-6 shadow-card backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-float ${TINT[color].from} ${TINT[color].border} ${TINT[color].hover}`}>
                 <Glow color={color} className="-right-6 -top-6 h-36 w-36" />
                 <div className="relative flex items-center justify-between">
                   <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${TINT[color].tile}`}>

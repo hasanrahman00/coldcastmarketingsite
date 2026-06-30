@@ -156,7 +156,7 @@ export default function EmailVerifier() {
               key={ex}
               type="button"
               onClick={() => run(ex)}
-              className="rounded-full border border-hairline bg-black/[0.03] px-2.5 py-1 text-xs text-muted transition-colors hover:border-black/20 hover:text-ink"
+              className="rounded-full border border-hairline bg-black/[0.03] px-2.5 py-1 text-xs text-muted transition-colors hover:border-brand/40 hover:bg-brand/5 hover:text-brand"
             >
               {ex}
             </button>

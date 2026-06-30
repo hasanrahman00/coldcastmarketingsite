@@ -131,7 +131,7 @@ function StepsRail({ how, accent }) {
       {how.steps.map((s, i) => (
         <motion.div key={s.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.45, delay: (i % 3) * 0.07, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-2xl border border-hairline bg-black/[0.03] p-6">
+          className="group relative overflow-hidden rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(28,23,65,0.18)]">
           <span aria-hidden className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${accent.grad}`} />
           <div className="flex items-center justify-between">
             <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${accent.tile}`}>{s.emoji}</span>
@@ -157,7 +157,7 @@ function Steps({ how, accent, variant }) {
 // ── Features ─────────────────────────────────────────────────────────────────
 function FeatureCard({ f, accent, className = '' }) {
   return (
-    <div className={`group rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-colors duration-200 hover:border-black/15 hover:bg-black/[0.05] ${className}`}>
+    <div className={`group rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(28,23,65,0.18)] ${className}`}>
       <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${accent.tile}`}>{f.emoji}</span>
       <h3 className="mt-5 text-base font-semibold text-ink">{f.title}</h3>
       <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.desc}</p>
@@ -221,7 +221,7 @@ function Benefits({ benefits, accent }) {
       <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
         {benefits.items.map((b, i) => (
           <Reveal key={b.title} delay={i * 0.06}>
-            <div className="h-full rounded-2xl border border-hairline bg-black/[0.03] p-6">
+            <div className="group h-full rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(28,23,65,0.18)]">
               <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-xl leading-none ring-1 ${accent.tile}`}>{b.emoji}</span>
               <h3 className="mt-4 text-base font-semibold text-ink">{b.title}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-muted">{b.desc}</p>

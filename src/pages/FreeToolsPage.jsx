@@ -23,7 +23,7 @@ export default function FreeToolsPage() {
       <EmailVerifier />
 
       <section className="container-px pb-8 sm:pb-12">
-        <h2 className="text-center text-2xl font-bold tracking-tight text-ink sm:text-3xl">More tools in Coldcast</h2>
+        <h2 className="text-center font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">More tools in Coldcast</h2>
         <p className="mx-auto mt-2 max-w-lg text-center text-sm leading-relaxed text-muted">
           Bulk, automated versions of every free tool — plus finding, enriching and sending — live inside the app.
         </p>

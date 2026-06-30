@@ -45,7 +45,7 @@ export default function Footer() {
                   <Link
                     key={t.label}
                     to={t.to}
-                    className="group flex items-center justify-between gap-3 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/[0.14]"
+                    className="group flex items-center justify-between gap-3 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.14]"
                   >
                     <span className="flex items-center gap-2.5">
                       <span className="text-base leading-none">{t.emoji}</span>
@@ -63,7 +63,7 @@ export default function Footer() {
             <div className="lg:text-right">
               <a
                 href="mailto:hello@coldcast.io"
-                className="text-2xl font-bold tracking-tight text-white transition-colors hover:text-white/80 sm:text-3xl"
+                className="inline-block text-2xl font-bold tracking-tight text-white underline decoration-white/25 decoration-2 underline-offset-4 transition-colors hover:text-white/85 hover:decoration-white/60 sm:text-3xl"
               >
                 hello@coldcast.io
               </a>
@@ -73,7 +73,7 @@ export default function Footer() {
                     key={label}
                     href={href}
                     aria-label={label}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white/85 transition-colors hover:bg-white/[0.14] hover:text-white"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white/85 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.14] hover:text-white"
                   >
                     <Icon size={17} />
                   </a>

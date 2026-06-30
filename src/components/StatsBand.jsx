@@ -38,8 +38,8 @@ export default function StatsBand() {
         <div className="floating-panel grid grid-cols-2 gap-x-6 gap-y-10 px-6 py-10 sm:px-10 lg:grid-cols-4">
           {STATS.map(({ icon: Icon, value, label, tag }, i) => (
             <Reveal key={label} delay={(i % 4) * 0.08} className="flex flex-col items-center text-center">
-              <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-[#0e90ad]">
-                <Icon size={18} />
+              <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-hairline bg-brand-gradient-soft text-[#0e90ad] shadow-card">
+                <Icon size={20} />
               </span>
               <div className="bg-gradient-to-br from-brand to-violet bg-clip-text font-display text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
                 {value}

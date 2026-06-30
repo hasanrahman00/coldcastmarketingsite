@@ -63,7 +63,7 @@ export default function VolumeBand() {
               />
               <span className="text-ink/25 line-through decoration-2">6</span>
               <ArrowRight size={40} strokeWidth={2.5} className="text-[#7c3aed]" />
-              <span className="bg-gradient-to-br from-brand via-violet to-brand-light bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(168,85,247,0.45)]">
+              <span className="bg-gradient-to-br from-brand via-violet to-brand-light bg-clip-text text-transparent">
                 1
               </span>
             </div>

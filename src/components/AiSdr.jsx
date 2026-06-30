@@ -49,7 +49,7 @@ function OutreachCard() {
   const o = OUTREACH[i]
 
   return (
-    <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl border border-hairline bg-black/[0.04] p-5 shadow-card backdrop-blur-md">
+    <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl border border-hairline bg-black/[0.04] p-5 shadow-card backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-float">
       <div aria-hidden className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-brand/20 blur-[80px]" />
 
       {/* Header — the agent */}
@@ -145,7 +145,7 @@ export default function AiSdr() {
               <span aria-hidden className="absolute bottom-4 left-[19px] top-4 w-px bg-gradient-to-b from-brand via-violet to-safe opacity-40" />
               {STEPS.map((s, i) => (
                 <Reveal as="li" key={s.title} delay={0.14 + i * 0.07} className="relative flex gap-4">
-                  <span className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-hairline text-[18px] leading-none ${s.tile}`}>
+                  <span className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-hairline text-[18px] leading-none shadow-card ${s.tile}`}>
                     {s.emoji}
                   </span>
                   <div className="pt-1">

@@ -146,7 +146,7 @@ export default function Navbar({ barOffset = false }) {
 
             <div className="hidden items-center gap-2 lg:flex">
               <Button as="a" href={DEMO_URL} variant={light ? 'ghost' : 'outline-light'} size="sm">Book a demo</Button>
-              <Button as="a" href={TRIAL_URL} variant="primary" size="sm" className="shadow-[0_0_24px_-6px_rgba(79,124,245,0.8)]">Free trial</Button>
+              <Button as="a" href={TRIAL_URL} variant="primary" size="sm" className="shadow-[0_10px_24px_-10px_rgba(79,124,245,0.7)]">Free trial</Button>
             </div>
 
             <button
