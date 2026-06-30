@@ -56,7 +56,7 @@ export default function DashboardMock() {
         <span className="h-3 w-3 rounded-full bg-[#28c840]" />
         <div className="ml-2 flex flex-1 justify-center">
           <div className="inline-flex items-center gap-1.5 rounded-md bg-black/5 px-3 py-1 text-[11px] text-muted">
-            <Lock size={11} className="text-accent" />
+            <Lock size={11} className="text-[#0e90ad]" />
             app.coldcast.io
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function DashboardMock() {
                   active ? 'bg-brand-light/15 text-ink' : 'text-muted'
                 }`}
               >
-                <Icon size={15} className={active ? 'text-accent' : ''} />
+                <Icon size={15} className={active ? 'text-[#0e90ad]' : ''} />
                 {label}
               </span>
             ))}
@@ -102,7 +102,7 @@ export default function DashboardMock() {
             </div>
             <div className="flex items-center gap-2">
               <span className="hidden items-center gap-1.5 rounded-lg border border-hairline bg-black/5 px-2.5 py-1.5 text-[11px] text-muted sm:inline-flex">
-                <TrendingUp size={12} className="text-safe" />
+                <TrendingUp size={12} className="text-[#0f9d72]" />
                 <Counter to={18932} className="font-semibold text-ink" /> exported today
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-lg bg-brand-gradient px-2.5 py-1.5 text-[11px] font-semibold text-white">
@@ -162,14 +162,14 @@ export default function DashboardMock() {
                             initial={{ opacity: 0, x: -4 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.35 }}
-                            className="inline-flex items-center gap-1 text-accent"
+                            className="inline-flex items-center gap-1 text-[#0e90ad]"
                           >
                             <BadgeCheck size={12} className="shrink-0" />
                             {lead.email}
                           </motion.span>
                         ) : state === 'enriching' ? (
                           <span className="inline-flex items-center gap-1.5 text-muted/70">
-                            <Loader2 size={11} className="animate-spin text-accent" />
+                            <Loader2 size={11} className="animate-spin text-[#0e90ad]" />
                             finding…
                           </span>
                         ) : (
@@ -183,7 +183,7 @@ export default function DashboardMock() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.35 }}
-                            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-amber/15 px-2 py-0.5 text-[10px] font-medium text-amber"
+                            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-amber/15 px-2 py-0.5 text-[10px] font-medium text-[#c2740c]"
                           >
                             <span className="h-1.5 w-1.5 rounded-full bg-amber" />
                             {lead.signals?.[0]?.label ?? 'Verified'}

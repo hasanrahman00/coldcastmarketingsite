@@ -70,10 +70,10 @@ export default function SpeedAccuracy() {
 
                     <div className={coldCell}>
                       {row.bool ? (
-                        <Check size={16} className="mx-auto text-safe" />
+                        <Check size={16} className="mx-auto text-[#0f9d72]" />
                       ) : (
-                        <span className={`font-semibold ${row.win ? 'text-safe' : 'text-ink'}`}>
-                          {row.win && <Zap size={12} className="mr-1 inline-block -translate-y-px fill-safe text-safe" />}
+                        <span className={`font-semibold ${row.win ? 'text-[#0f9d72]' : 'text-ink'}`}>
+                          {row.win && <Zap size={12} className="mr-1 inline-block -translate-y-px fill-safe text-[#0f9d72]" />}
                           {row.cold}
                         </span>
                       )}
@@ -90,12 +90,12 @@ export default function SpeedAccuracy() {
                   </Button>
                   <div className="mt-3 flex items-center justify-center gap-3 text-[11px] font-medium text-muted">
                     <span className="inline-flex items-center gap-1">
-                      <ShieldCheck size={12} className="text-safe" />
+                      <ShieldCheck size={12} className="text-[#0f9d72]" />
                       Account-safe
                     </span>
                     <span className="h-3 w-px bg-hairline" />
                     <span className="inline-flex items-center gap-1">
-                      <Check size={12} className="text-safe" />
+                      <Check size={12} className="text-[#0f9d72]" />
                       No card required
                     </span>
                   </div>

@@ -31,7 +31,7 @@ function Row({ emoji, text, good, i }) {
       >
         {emoji}
         <span
-          className={`absolute -bottom-1 -right-1 flex h-[18px] w-[18px] items-center justify-center rounded-full text-ink ring-2 ring-bg2 ${
+          className={`absolute -bottom-1 -right-1 flex h-[18px] w-[18px] items-center justify-center rounded-full text-white ring-2 ring-bg2 ${
             good ? 'bg-safe' : 'bg-danger'
           }`}
         >
@@ -54,7 +54,7 @@ export default function Safety() {
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <Eyebrow>
-              <ShieldCheck size={13} className="text-safe" />
+              <ShieldCheck size={13} className="text-[#0f9d72]" />
               Safe by architecture, not by promise
             </Eyebrow>
           </Reveal>
@@ -103,11 +103,11 @@ export default function Safety() {
 
             {/* Coldcast */}
             <Reveal delay={0.1}>
-              <div className="relative h-full overflow-hidden rounded-3xl border border-safe/30 bg-gradient-to-br from-safe/[0.09] via-black/[0.02] to-transparent p-7 shadow-glow-safe backdrop-blur-sm ring-1 ring-safe/10 sm:p-8">
+              <div className="relative h-full overflow-hidden rounded-3xl border border-safe/30 bg-gradient-to-br from-safe/[0.09] via-black/[0.02] to-transparent p-7 shadow-card backdrop-blur-sm ring-1 ring-safe/10 sm:p-8">
                 <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-safe/20 blur-[90px]" />
                 <div className="relative flex items-center justify-between gap-2">
                   <span className="text-sm font-semibold uppercase tracking-wider text-ink">Coldcast</span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-safe/30 bg-safe/10 px-3 py-1 text-xs font-medium text-safe">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-safe/30 bg-safe/10 px-3 py-1 text-xs font-medium text-[#0f9d72]">
                     <span className="relative flex h-2 w-2">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-safe opacity-60" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-safe" />
@@ -127,11 +127,11 @@ export default function Safety() {
 
         {/* Track-record badge */}
         <Reveal delay={0.15} className="mt-10 flex justify-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-black/15 bg-brand-gradient-soft px-5 py-3 text-center text-sm font-semibold text-ink shadow-glow">
-            <ShieldCheck size={18} className="text-safe" />
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-black/15 bg-brand-gradient-soft px-5 py-3 text-center text-sm font-semibold text-ink shadow-card">
+            <ShieldCheck size={18} className="text-[#0f9d72]" />
             6+ months of daily internal use
             <span className="hidden h-4 w-px bg-black/20 sm:block" />
-            <span className="text-safe">0 account bans</span>
+            <span className="text-[#0f9d72]">0 account bans</span>
             <span className="text-xs font-normal text-muted">(our track record — not a guarantee)</span>
           </div>
         </Reveal>

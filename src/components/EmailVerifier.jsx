@@ -87,13 +87,13 @@ function verify(raw) {
 }
 
 const VERDICT = {
-  good: { label: 'Looks deliverable', cls: 'text-safe', bar: 'bg-safe', ring: 'bg-safe/10 ring-safe/30' },
-  fair: { label: 'Likely OK', cls: 'text-amber', bar: 'bg-amber', ring: 'bg-amber/10 ring-amber/30' },
+  good: { label: 'Looks deliverable', cls: 'text-[#0f9d72]', bar: 'bg-safe', ring: 'bg-safe/10 ring-safe/30' },
+  fair: { label: 'Likely OK', cls: 'text-[#c2740c]', bar: 'bg-amber', ring: 'bg-amber/10 ring-amber/30' },
   risky: { label: 'Risky', cls: 'text-danger', bar: 'bg-danger', ring: 'bg-danger/10 ring-danger/30' },
   invalid: { label: 'Invalid', cls: 'text-danger', bar: 'bg-danger', ring: 'bg-danger/10 ring-danger/30' },
 }
 const STATE_ICON = { pass: Check, warn: AlertTriangle, fail: X }
-const STATE_CLS = { pass: 'text-safe', warn: 'text-amber', fail: 'text-danger' }
+const STATE_CLS = { pass: 'text-[#0f9d72]', warn: 'text-[#c2740c]', fail: 'text-danger' }
 
 const EXAMPLES = ['tiffanie@illumenature.com', 'sarah.j@gmail.com', 'info@acme.com', 'hello@gmial.com', 'test@mailinator.com']
 
@@ -128,7 +128,7 @@ export default function EmailVerifier() {
             <h2 className="text-lg font-bold text-ink">Email verifier</h2>
             <p className="text-sm text-muted">Check any address — instantly, in your browser.</p>
           </div>
-          <span className="ml-auto rounded-full border border-safe/30 bg-safe/10 px-2.5 py-1 text-[11px] font-semibold text-safe">Free</span>
+          <span className="ml-auto rounded-full border border-safe/30 bg-safe/10 px-2.5 py-1 text-[11px] font-semibold text-[#0f9d72]">Free</span>
         </div>
 
         <form onSubmit={onSubmit} className="mt-6 flex flex-col gap-2.5 sm:flex-row">

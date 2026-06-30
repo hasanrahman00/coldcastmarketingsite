@@ -7,7 +7,7 @@ import Button from './Button'
 import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 
 const TAG = {
-  New: 'bg-brand/25 text-brand-light',
+  New: 'bg-brand/25 text-brand',
 }
 
 const AI_SDR = { emoji: '🤖', name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', to: '/coldcast-agent' }
@@ -137,7 +137,7 @@ export default function Navbar({ barOffset = false }) {
                     <Link to={item.to} className={linkCls} onClick={() => setMenu(null)} aria-expanded={item.menu ? menu === item.menu : undefined}>
                       {item.label}
                       {item.caret && <ChevronDown size={14} className={`transition-transform ${menu === item.menu ? 'rotate-180' : ''}`} />}
-                      {item.badge && <span className="rounded-full bg-brand/20 px-1.5 py-0.5 text-[10px] font-bold text-brand-light">{item.badge}</span>}
+                      {item.badge && <span className="rounded-full bg-brand/20 px-1.5 py-0.5 text-[10px] font-bold text-brand">{item.badge}</span>}
                     </Link>
                   )}
                 </li>
@@ -188,11 +188,11 @@ export default function Navbar({ barOffset = false }) {
                     </div>
                     <div className="flex flex-col justify-between border-l border-black/10 bg-black/[0.02] p-6">
                       <div>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/20 px-2.5 py-1 text-[11px] font-semibold text-brand-light"><Bot size={12} /> New</span>
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/20 px-2.5 py-1 text-[11px] font-semibold text-brand"><Bot size={12} /> New</span>
                         <h4 className="mt-3 text-base font-semibold text-ink">Meet your AI SDR</h4>
                         <p className="mt-1.5 text-sm leading-relaxed text-muted">Let an autonomous rep write, send and follow up off your enriched lists.</p>
                       </div>
-                      <Link to="/#ai-sdr" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-ink">See how it works <ArrowRight size={15} /></Link>
+                      <Link to="/#ai-sdr" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand hover:text-ink">See how it works <ArrowRight size={15} /></Link>
                     </div>
                   </div>
                 )}
@@ -204,11 +204,11 @@ export default function Navbar({ barOffset = false }) {
                     </div>
                     <div className="flex flex-col justify-between border-l border-black/10 bg-black/[0.02] p-6">
                       <div>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-safe/15 px-2.5 py-1 text-[11px] font-semibold text-safe"><ShieldCheck size={12} /> Account-safe</span>
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-safe/15 px-2.5 py-1 text-[11px] font-semibold text-[#0f9d72]"><ShieldCheck size={12} /> Account-safe</span>
                         <h4 className="mt-3 text-base font-semibold text-ink">Built for trust</h4>
                         <p className="mt-1.5 text-sm leading-relaxed text-muted">6+ months of daily use · 0 account suspensions · 97% verified emails.</p>
                       </div>
-                      <Link to="/#safety" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-ink">Why it’s safe <ArrowRight size={15} /></Link>
+                      <Link to="/#safety" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand hover:text-ink">Why it’s safe <ArrowRight size={15} /></Link>
                     </div>
                   </div>
                 )}
@@ -255,7 +255,7 @@ export default function Navbar({ barOffset = false }) {
               <Link to="/tools" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-black/5">Free Tools</Link>
               <Link to="/sales-nav-advanced" onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-black/5">
                 Sales Nav Advanced
-                <span className="rounded-full bg-brand/20 px-1.5 py-0.5 text-[10px] font-bold text-brand-light">−75%</span>
+                <span className="rounded-full bg-brand/20 px-1.5 py-0.5 text-[10px] font-bold text-brand">−75%</span>
               </Link>
               <div className="mt-4 flex flex-col gap-3 border-t border-black/10 pt-5">
                 <Button as="a" href={TRIAL_URL} variant="primary" size="lg" onClick={() => setOpen(false)}>Free trial</Button>

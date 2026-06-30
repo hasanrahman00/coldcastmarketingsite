@@ -85,7 +85,7 @@ export default function Comparison() {
                       } ${i === ROWS.length - 1 ? 'rounded-b-2xl' : ''}`}
                     >
                       <span className="flex items-start gap-2.5 text-ink/90">
-                        <Check size={16} className="mt-0.5 shrink-0 text-safe" />
+                        <Check size={16} className="mt-0.5 shrink-0 text-[#0f9d72]" />
                         {row.coldcast}
                       </span>
                     </td>

@@ -120,11 +120,11 @@ export default function Pricing() {
                     {plan.features.map((feature) => (
                       <li key={feature.label} className="flex items-start gap-3 text-sm">
                         <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15">
-                          <Check size={13} className="text-accent" />
+                          <Check size={13} className="text-[#0e90ad]" />
                         </span>
                         <span className="flex-1 text-ink/90">{feature.label}</span>
                         {feature.tag && (
-                          <span className="shrink-0 rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent">
+                          <span className="shrink-0 rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-[#0e90ad]">
                             {feature.tag}
                           </span>
                         )}

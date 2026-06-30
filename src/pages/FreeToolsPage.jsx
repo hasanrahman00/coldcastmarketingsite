@@ -41,7 +41,7 @@ export default function FreeToolsPage() {
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="text-sm font-semibold text-ink">{t.title}</h3>
-                  <span className="rounded-full bg-brand/15 px-2 py-0.5 text-[10px] font-semibold text-brand-light">{t.tag}</span>
+                  <span className="rounded-full bg-brand/15 px-2 py-0.5 text-[10px] font-semibold text-brand">{t.tag}</span>
                 </div>
                 <p className="mt-1 text-[13px] leading-relaxed text-muted">{t.desc}</p>
               </div>

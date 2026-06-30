@@ -39,7 +39,7 @@ function SignalGroup({ label, accentIcon: AccentIcon, signals }) {
   return (
     <div className="floating-panel relative h-full overflow-hidden p-6 sm:p-8">
       <div className="flex items-center gap-3">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-accent">
+        <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-[#0e90ad]">
           <AccentIcon size={20} />
         </span>
         <div>
@@ -51,7 +51,7 @@ function SignalGroup({ label, accentIcon: AccentIcon, signals }) {
       <ul className="mt-6 flex flex-col gap-5">
         {signals.map(({ icon: Icon, title, desc }) => (
           <li key={title} className="flex gap-3.5">
-            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft text-accent">
+            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft text-[#0e90ad]">
               <Icon size={17} />
             </span>
             <div>
@@ -77,7 +77,7 @@ export default function IntentSignals() {
         <SectionHeading
           eyebrow={
             <>
-              <Radar size={13} className="text-accent" />
+              <Radar size={13} className="text-[#0e90ad]" />
               Intent signals, not just contacts
             </>
           }
@@ -97,7 +97,7 @@ export default function IntentSignals() {
         {/* How to use it */}
         <Reveal delay={0.15} className="mx-auto mt-10 max-w-4xl">
           <div className="flex flex-col items-start gap-4 rounded-2xl border border-hairline bg-brand-gradient-soft p-6 sm:flex-row sm:items-center sm:p-7">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-black/10 bg-black/[0.05] text-accent">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-black/10 bg-black/[0.05] text-[#0e90ad]">
               <Target size={22} />
             </span>
             <p className="text-sm leading-relaxed text-ink/90 sm:text-[0.95rem]">

@@ -35,8 +35,8 @@ const OUTREACH = [
 ]
 
 const STAT_STYLE = {
-  sent: 'bg-brand/20 text-brand-light',
-  replied: 'bg-safe/15 text-safe',
+  sent: 'bg-brand/20 text-brand',
+  replied: 'bg-safe/15 text-[#0f9d72]',
 }
 
 function OutreachCard() {
@@ -59,7 +59,7 @@ function OutreachCard() {
           <div className="text-sm font-semibold text-ink">AI SDR</div>
           <div className="text-xs text-muted">drafting · just now</div>
         </div>
-        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-safe/15 px-2.5 py-1 text-[11px] font-medium text-safe">
+        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-safe/15 px-2.5 py-1 text-[11px] font-medium text-[#0f9d72]">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-safe opacity-70" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-safe" />

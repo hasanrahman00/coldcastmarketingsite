@@ -13,7 +13,7 @@ export default function Avatar({ src, name = '', size = 24, className = '' }) {
     .toUpperCase()
   return (
     <span
-      className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-brand-light/15 font-semibold text-accent ${className}`}
+      className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-brand-light/15 font-semibold text-[#0e90ad] ${className}`}
       style={{ width: size, height: size, fontSize: Math.max(9, size * 0.38) }}
     >
       {!err && src ? (

@@ -28,7 +28,7 @@ function ActivationForm({ id = 'activate', autoFocus = false }) {
         animate={{ opacity: 1, y: 0 }}
         className="flex items-start gap-3 rounded-2xl border border-safe/30 bg-safe/10 p-5 text-left"
       >
-        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-safe/20 text-safe">
+        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-safe/20 text-[#0f9d72]">
           <Check size={18} strokeWidth={3} />
         </span>
         <div>
@@ -80,7 +80,7 @@ function PlanCard() {
       <div aria-hidden className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-brand/25 blur-[70px]" />
       <div className="relative flex items-center justify-between">
         <span className="text-sm font-semibold text-ink">Sales Navigator Advanced</span>
-        <span className="inline-flex items-center gap-1 rounded-full bg-brand/20 px-2.5 py-1 text-[11px] font-bold text-brand-light">−75%</span>
+        <span className="inline-flex items-center gap-1 rounded-full bg-brand/20 px-2.5 py-1 text-[11px] font-bold text-brand">−75%</span>
       </div>
       <div className="relative mt-5 flex items-end gap-2">
         <span className="font-display text-5xl font-bold tracking-tight text-ink">$25</span>
@@ -97,7 +97,7 @@ function PlanCard() {
             transition={{ duration: 0.35, delay: i * 0.07 }}
             className="flex items-center gap-2.5 text-sm text-ink/85"
           >
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand/15 text-brand-light">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand/15 text-brand">
               <Check size={11} strokeWidth={3} />
             </span>
             {f}
@@ -156,7 +156,7 @@ export default function SalesNavAdvancedPage() {
         <div className="container-px relative grid items-center gap-12 lg:grid-cols-2">
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-light">
+              <span className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-brand">
                 <BadgePercent size={13} /> 75% off · limited deal
               </span>
             </Reveal>
@@ -176,7 +176,7 @@ export default function SalesNavAdvancedPage() {
             </Reveal>
             <Reveal delay={0.26} className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink/60">
               {['Full Advanced features', 'Activates in minutes', 'Cancel anytime'].map((b) => (
-                <span key={b} className="inline-flex items-center gap-1.5"><Check size={15} className="text-brand-light" />{b}</span>
+                <span key={b} className="inline-flex items-center gap-1.5"><Check size={15} className="text-brand" />{b}</span>
               ))}
             </Reveal>
           </div>
@@ -211,7 +211,7 @@ export default function SalesNavAdvancedPage() {
               transition={{ duration: 0.45, delay: (i % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
               className="group rounded-2xl border border-hairline bg-black/[0.03] p-5 transition-colors duration-200 hover:border-brand/30 hover:bg-black/[0.05]"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand-light ring-1 ring-brand/30">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand ring-1 ring-brand/30">
                 <Icon size={18} />
               </span>
               <h3 className="mt-4 text-sm font-semibold text-ink">{title}</h3>
@@ -228,12 +228,12 @@ export default function SalesNavAdvancedPage() {
             <div className="text-sm font-medium uppercase tracking-wider text-muted">LinkedIn list price</div>
             <div className="mt-1 font-display text-3xl font-bold text-muted line-through">$99<span className="text-lg">/mo</span></div>
           </div>
-          <ArrowRight className="hidden text-brand-light sm:block" size={24} />
+          <ArrowRight className="hidden text-brand sm:block" size={24} />
           <div>
-            <div className="text-sm font-medium uppercase tracking-wider text-brand-light">Your price with Coldcast</div>
+            <div className="text-sm font-medium uppercase tracking-wider text-brand">Your price with Coldcast</div>
             <div className="mt-1 bg-gradient-to-br from-brand via-brand-light to-accent bg-clip-text font-display text-4xl font-bold text-transparent">$25<span className="text-xl text-muted">/mo</span></div>
           </div>
-          <div className="rounded-full bg-brand/15 px-4 py-2 text-sm font-bold text-brand-light">You save 75%</div>
+          <div className="rounded-full bg-brand/15 px-4 py-2 text-sm font-bold text-brand">You save 75%</div>
         </Reveal>
       </section>
 
@@ -244,7 +244,7 @@ export default function SalesNavAdvancedPage() {
           {BENEFITS.map(({ icon: Icon, title, desc }, i) => (
             <Reveal key={title} delay={i * 0.07}>
               <div className="h-full rounded-2xl border border-hairline bg-black/[0.03] p-6">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand-light ring-1 ring-brand/30">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand ring-1 ring-brand/30">
                   <Icon size={20} />
                 </span>
                 <h3 className="mt-4 text-base font-semibold text-ink">{title}</h3>
@@ -270,10 +270,10 @@ export default function SalesNavAdvancedPage() {
             >
               <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-brand to-brand-light" />
               <div className="flex items-center justify-between">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/15 text-brand-light ring-1 ring-brand/30">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/15 text-brand ring-1 ring-brand/30">
                   <Icon size={20} />
                 </span>
-                <span className="font-display text-2xl font-bold text-brand-light opacity-40">{String(i + 1).padStart(2, '0')}</span>
+                <span className="font-display text-2xl font-bold text-brand opacity-40">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <h3 className="mt-5 text-base font-semibold text-ink">{title}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-muted">{desc}</p>

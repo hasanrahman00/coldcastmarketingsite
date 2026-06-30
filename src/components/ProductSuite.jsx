@@ -25,7 +25,7 @@ const TOOLS = [
 ]
 
 const TAG = {
-  New: 'bg-brand/25 text-brand-light',
+  New: 'bg-brand/25 text-brand',
 }
 
 function Glow({ color, className = '' }) {
@@ -74,7 +74,7 @@ export default function ProductSuite({ showHeading = true }) {
                   on autopilot, 24/7.
                 </p>
               </div>
-              <span className="relative inline-flex items-center gap-1.5 self-start text-sm font-medium text-brand-light sm:self-center">
+              <span className="relative inline-flex items-center gap-1.5 self-start text-sm font-medium text-brand sm:self-center">
                 Meet your AI SDR
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
               </span>

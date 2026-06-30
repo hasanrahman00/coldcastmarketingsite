@@ -26,10 +26,10 @@ const LEAD = {
 function StatusPill({ state }) {
   const map = {
     idle: { cls: 'text-muted/40', icon: <span className="h-1.5 w-1.5 rounded-full bg-muted/30" />, label: 'Queued' },
-    checking: { cls: 'text-accent', icon: <Loader2 size={13} className="animate-spin" />, label: 'Checking…' },
+    checking: { cls: 'text-[#0e90ad]', icon: <Loader2 size={13} className="animate-spin" />, label: 'Checking…' },
     miss: { cls: 'text-muted', icon: <X size={13} className="text-danger" />, label: 'No match' },
-    hit: { cls: 'text-safe', icon: <Check size={13} />, label: 'Match found' },
-    verified: { cls: 'text-safe', icon: <Check size={13} />, label: 'Verified' },
+    hit: { cls: 'text-[#0f9d72]', icon: <Check size={13} />, label: 'Match found' },
+    verified: { cls: 'text-[#0f9d72]', icon: <Check size={13} />, label: 'Verified' },
     skip: { cls: 'text-muted/50', icon: <Minus size={13} />, label: 'Skipped' },
   }
   const s = map[state] || map.idle
@@ -66,7 +66,7 @@ export default function WaterfallEnrichment() {
         <SectionHeading
           eyebrow={
             <>
-              <BadgeCheck size={13} className="text-accent" />
+              <BadgeCheck size={13} className="text-[#0e90ad]" />
               Waterfall enrichment
             </>
           }
@@ -128,7 +128,7 @@ export default function WaterfallEnrichment() {
                       : 'border-hairline bg-black/[0.03] opacity-50'
                 }`}
               >
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-gradient-soft text-accent">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-gradient-soft text-[#0e90ad]">
                   <ShieldCheck size={16} />
                 </span>
                 <span className="text-sm font-medium text-ink">Email validation</span>
@@ -148,9 +148,9 @@ export default function WaterfallEnrichment() {
                   transition={{ duration: 0.4 }}
                   className="flex items-center gap-3 rounded-xl border border-safe/30 bg-safe/10 px-4 py-3"
                 >
-                  <BadgeCheck size={18} className="shrink-0 text-safe" />
+                  <BadgeCheck size={18} className="shrink-0 text-[#0f9d72]" />
                   <span className="truncate font-medium text-ink">{LEAD.email}</span>
-                  <span className="ml-auto whitespace-nowrap text-xs font-semibold text-safe">
+                  <span className="ml-auto whitespace-nowrap text-xs font-semibold text-[#0f9d72]">
                     verified · deliverable
                   </span>
                 </motion.div>

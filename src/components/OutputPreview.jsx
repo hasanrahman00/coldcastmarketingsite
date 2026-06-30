@@ -22,7 +22,7 @@ function SignalPills({ signals = [] }) {
           key={s.label}
           className={`inline-flex w-fit items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-medium ${
             s.tier === 'strong'
-              ? 'bg-amber/15 text-amber'
+              ? 'bg-amber/15 text-[#c2740c]'
               : 'bg-black/5 text-muted'
           }`}
         >
@@ -55,7 +55,7 @@ export default function OutputPreview() {
                 Example preview · sample data
               </span>
               <span className="hidden text-[11px] text-muted sm:inline">
-                <span className="text-amber">●</span> Strong signal &nbsp;·&nbsp;
+                <span className="text-[#c2740c]">●</span> Strong signal &nbsp;·&nbsp;
                 <span className="text-muted/60">●</span> Supporting
               </span>
             </div>
@@ -86,7 +86,7 @@ export default function OutputPreview() {
                         <SignalPills signals={lead.signals} />
                       </td>
                       <td className="whitespace-nowrap px-4 py-4">
-                        <span className="inline-flex items-center gap-1.5 text-accent">
+                        <span className="inline-flex items-center gap-1.5 text-[#0e90ad]">
                           <BadgeCheck size={14} className="shrink-0" />
                           {lead.email}
                         </span>
@@ -95,7 +95,7 @@ export default function OutputPreview() {
                       <td className="whitespace-nowrap px-4 py-4 text-muted">{lead.location}</td>
                       <td className="whitespace-nowrap px-4 py-4">
                         <span className="inline-flex items-center gap-1.5 text-muted">
-                          <Linkedin size={13} className="text-accent/80" />
+                          <Linkedin size={13} className="text-[#0e90ad]/80" />
                           {lead.linkedin}
                         </span>
                       </td>
@@ -108,10 +108,10 @@ export default function OutputPreview() {
         </Reveal>
 
         <Reveal delay={0.15} className="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-muted">
-          <FileSpreadsheet size={15} className="text-accent" />
+          <FileSpreadsheet size={15} className="text-[#0e90ad]" />
           Export every list to CSV or XLSX
           <span className="text-muted/40">·</span>
-          <Globe size={14} className="text-accent/80" />
+          <Globe size={14} className="text-[#0e90ad]/80" />
           website &amp; company data on every row
         </Reveal>
       </div>

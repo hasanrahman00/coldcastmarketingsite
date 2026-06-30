@@ -24,7 +24,7 @@ function AgentFlow({ accent }) {
       <div className="relative mb-4 flex items-center gap-2.5 border-b border-hairline pb-4">
         <Logo size={30} />
         <div className="text-sm font-semibold text-ink">Coldcast Agent</div>
-        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-safe/15 px-2.5 py-1 text-[11px] font-medium text-safe">
+        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-safe/15 px-2.5 py-1 text-[11px] font-medium text-[#0f9d72]">
           <span className="h-1.5 w-1.5 rounded-full bg-safe" /> running
         </span>
       </div>
@@ -61,7 +61,7 @@ function ScrapeMeter({ accent }) {
           <div className="text-xs uppercase tracking-wider text-muted">Scraping · live</div>
           <div className={`mt-1 bg-gradient-to-br ${accent.grad} bg-clip-text font-display text-4xl font-bold text-transparent`}>10,000<span className="text-lg text-muted">/hr</span></div>
         </div>
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-safe/30 bg-safe/10 px-2.5 py-1 text-[11px] font-semibold text-safe">
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-safe/30 bg-safe/10 px-2.5 py-1 text-[11px] font-semibold text-[#0f9d72]">
           <ShieldCheck size={13} /> 0 ban risk
         </span>
       </div>
@@ -74,7 +74,7 @@ function ScrapeMeter({ accent }) {
             initial={{ opacity: 0, x: -10 }} animate={{ opacity: [0, 1, 1, 0.4], x: 0 }} transition={{ duration: 2.4, delay: i * 0.5, repeat: Infinity }}>
             <span className={`h-6 w-6 rounded-full ${accent.tile}`} />
             <div className="h-2 w-24 rounded-full bg-black/15" />
-            <span className="ml-auto inline-flex items-center gap-1 text-[11px] text-safe"><Check size={11} /> verified</span>
+            <span className="ml-auto inline-flex items-center gap-1 text-[11px] text-[#0f9d72]"><Check size={11} /> verified</span>
           </motion.div>
         ))}
       </div>
@@ -99,7 +99,7 @@ function ApolloList({ accent }) {
               <div className="text-xs font-medium text-ink">{p}</div>
               <div className="text-[11px] text-muted">verified email · direct dial</div>
             </div>
-            <motion.span className="inline-flex items-center gap-1 rounded-full bg-safe/15 px-2 py-0.5 text-[10px] font-semibold text-safe"
+            <motion.span className="inline-flex items-center gap-1 rounded-full bg-safe/15 px-2 py-0.5 text-[10px] font-semibold text-[#0f9d72]"
               initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: [0, 1, 1], scale: [0.6, 1, 1] }} transition={{ duration: 0.5, delay: 0.4 + i * 0.5, repeat: Infinity, repeatDelay: 2 }}>
               <Check size={10} /> fresh
             </motion.span>
@@ -122,7 +122,7 @@ function CompanyCard({ accent }) {
           <div className="text-sm font-semibold text-ink">Northwind Labs</div>
           <div className="text-[11px] text-muted">northwindlabs.com</div>
         </div>
-        <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-safe/15 px-2 py-0.5 text-[10px] font-semibold text-safe"><Check size={10} /> fresh</span>
+        <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-safe/15 px-2 py-0.5 text-[10px] font-semibold text-[#0f9d72]"><Check size={10} /> fresh</span>
       </div>
       <div className="relative mt-4 flex flex-wrap gap-2">
         {['SaaS · B2B', '120 staff', 'Austin, TX', 'Series B'].map((c) => (
@@ -179,7 +179,7 @@ function VerifyCard({ accent }) {
       <Glow accent={accent} />
       <div className="relative flex items-center justify-between">
         <span className="font-mono text-sm text-ink">tiffanie@illumenature.com</span>
-        <span className="rounded-full bg-safe/10 px-2.5 py-1 text-xs font-semibold text-safe ring-1 ring-safe/30">Deliverable</span>
+        <span className="rounded-full bg-safe/10 px-2.5 py-1 text-xs font-semibold text-[#0f9d72] ring-1 ring-safe/30">Deliverable</span>
       </div>
       <div className="relative mt-4">
         <div className="mb-1.5 flex justify-between text-xs text-muted"><span>Confidence</span><span>100/100</span></div>
@@ -191,7 +191,7 @@ function VerifyCard({ accent }) {
         {['Valid syntax', 'Not disposable', 'Not a catch-all', 'Business domain'].map((c, i) => (
           <motion.li key={c} className="flex items-center gap-2.5 text-sm text-ink/85"
             initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.35, delay: 0.15 + i * 0.1 }}>
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-safe/15 text-safe"><Check size={11} strokeWidth={3} /></span>
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-safe/15 text-[#0f9d72]"><Check size={11} strokeWidth={3} /></span>
             {c}
           </motion.li>
         ))}
@@ -220,7 +220,7 @@ function DomainCard({ accent }) {
       <div className="relative mt-3 flex items-center gap-2.5 rounded-xl border border-hairline bg-black/[0.03] px-3 py-2.5">
         <span className={`flex h-7 w-7 items-center justify-center rounded-full ${accent.tile} text-[11px] font-semibold ${accent.text}`}>JL</span>
         <div className="text-xs text-ink/80">Jonas L. · Head of Ops</div>
-        <span className="ml-auto inline-flex items-center gap-1 text-[11px] text-safe"><Check size={10} /> verified</span>
+        <span className="ml-auto inline-flex items-center gap-1 text-[11px] text-[#0f9d72]"><Check size={10} /> verified</span>
       </div>
     </Card>
   )
@@ -265,7 +265,7 @@ function PeopleCards({ accent, label = 'verified', title = 'Sourced & verified' 
               <div className="text-xs font-medium text-ink">{name}</div>
               <div className="text-[11px] text-muted">email · phone</div>
             </div>
-            <span className="inline-flex items-center gap-1 rounded-full bg-safe/15 px-2 py-0.5 text-[10px] font-semibold text-safe"><Check size={10} /> {label}</span>
+            <span className="inline-flex items-center gap-1 rounded-full bg-safe/15 px-2 py-0.5 text-[10px] font-semibold text-[#0f9d72]"><Check size={10} /> {label}</span>
           </motion.div>
         ))}
       </div>
@@ -307,7 +307,7 @@ function CleanData({ accent }) {
           <motion.div key={t} className="flex items-center justify-between rounded-lg border border-hairline bg-black/[0.03] px-3 py-2 text-xs text-ink/85"
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.12 }}>
             {t}
-            <span className="inline-flex items-center gap-1 text-safe"><Check size={12} /> done</span>
+            <span className="inline-flex items-center gap-1 text-[#0f9d72]"><Check size={12} /> done</span>
           </motion.div>
         ))}
       </div>

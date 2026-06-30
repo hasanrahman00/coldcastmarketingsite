@@ -60,7 +60,7 @@ export default function Features() {
                 {INTENT_PILLS.map((p) => (
                   <span
                     key={p}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-amber/10 px-2.5 py-1 text-[11px] font-medium text-amber"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-amber/10 px-2.5 py-1 text-[11px] font-medium text-[#c2740c]"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-amber" />
                     {p}
@@ -87,14 +87,14 @@ export default function Features() {
                     className="flex items-center justify-between rounded-lg border border-hairline bg-black/[0.03] px-3 py-2 text-xs"
                   >
                     <span className="text-muted">{s}</span>
-                    <span className="inline-flex items-center gap-1 text-violet">
+                    <span className="inline-flex items-center gap-1 text-[#7c3aed]">
                       <Check size={13} /> matched
                     </span>
                   </div>
                 ))}
                 <div className="mt-1 flex items-center justify-between rounded-lg border border-accent/20 bg-accent/[0.06] px-3 py-2 text-xs">
                   <span className="font-medium text-ink">Verified email</span>
-                  <MailCheck size={14} className="text-accent" />
+                  <MailCheck size={14} className="text-[#0e90ad]" />
                 </div>
               </div>
             </SpotlightCard>

@@ -69,9 +69,9 @@ const STAGES = [
 ]
 
 const TINT = {
-  cyan: { icon: 'text-accent', ring: 'ring-accent/40', glow: 'shadow-glow' },
-  violet: { icon: 'text-violet', ring: 'ring-violet/40', glow: 'shadow-glow-violet' },
-  safe: { icon: 'text-safe', ring: 'ring-safe/40', glow: 'shadow-glow-safe' },
+  cyan: { icon: 'text-[#0e90ad]', ring: 'ring-accent/50', glow: 'shadow-card' },
+  violet: { icon: 'text-[#7c3aed]', ring: 'ring-violet/50', glow: 'shadow-card' },
+  safe: { icon: 'text-[#0f9d72]', ring: 'ring-safe/50', glow: 'shadow-card' },
 }
 
 const ARMS = [0, 60, 120, 180, 240, 300]
@@ -322,7 +322,7 @@ export default function GtmPipeline() {
       <div className="mx-auto max-w-3xl">
         <Reveal className="mb-10 flex flex-col items-center text-center">
           <Eyebrow>
-            <Sparkles size={13} className="text-accent" />
+            <Sparkles size={13} className="text-[#0e90ad]" />
             One automated GTM pipeline
           </Eyebrow>
           <h2 className="mt-4 text-balance text-2xl font-bold tracking-tight text-ink sm:text-3xl">
