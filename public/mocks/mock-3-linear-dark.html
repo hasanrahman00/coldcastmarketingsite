@@ -1,0 +1,738 @@
+<title>Coldcast — The world's safest Sales Navigator scraper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0b10;
+    --bg2:#12142a;
+    --surface:rgba(255,255,255,.03);
+    --surface-2:rgba(255,255,255,.05);
+    --border:rgba(255,255,255,.08);
+    --border-strong:rgba(255,255,255,.14);
+    --text:#f4f5f8;
+    --text-2:#9599ad;
+    --text-3:#62667c;
+    --indigo:#6e79f7;
+    --indigo-soft:rgba(110,121,247,.14);
+    --violet:#9a6ef7;
+    --green:#4ade80;
+    --radius:12px;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);
+    background:linear-gradient(180deg,var(--bg) 0%,var(--bg) 55%,var(--bg2) 100%);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    font-size:15px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:rgba(110,121,247,.35)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:100;
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    background:rgba(10,11,16,.72);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:1120px;margin:0 auto;padding:0 32px;
+    height:56px;display:flex;align-items:center;gap:32px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;letter-spacing:-.01em}
+  .logo-tile{
+    width:26px;height:26px;border-radius:7px;
+    background:linear-gradient(135deg,#6e79f7,#9a6ef7);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 4px 14px rgba(110,121,247,.35);
+    flex-shrink:0;
+  }
+  .nav-links{display:flex;gap:4px;font-size:13.5px;color:var(--text-2)}
+  .nav-links a{padding:6px 12px;border-radius:8px;transition:color .15s,background .15s}
+  .nav-links a:hover{color:var(--text);background:var(--surface-2)}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--font);font-weight:500;font-size:13.5px;
+    border-radius:9px;cursor:pointer;border:1px solid transparent;
+    transition:background .15s,border-color .15s,color .15s,transform .15s,box-shadow .15s;
+    white-space:nowrap;
+  }
+  .btn-sm{height:32px;padding:0 14px}
+  .btn-md{height:40px;padding:0 20px;font-size:14px}
+  .btn-primary{
+    background:#fff;color:#0a0b10;font-weight:600;
+    box-shadow:0 1px 2px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.1) inset;
+  }
+  .btn-primary:hover{background:#e9eaf2;transform:translateY(-1px);box-shadow:0 4px 16px rgba(255,255,255,.12)}
+  .btn-ghost{background:transparent;color:var(--text-2);border-color:var(--border)}
+  .btn-ghost:hover{color:var(--text);border-color:var(--border-strong);background:var(--surface)}
+  .btn-text{background:transparent;color:var(--text-2)}
+  .btn-text:hover{color:var(--text)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:104px 0 72px;text-align:center}
+  .hero-glow{
+    position:absolute;left:50%;top:-320px;transform:translateX(-50%);
+    width:1200px;height:900px;pointer-events:none;
+    background:radial-gradient(ellipse 50% 42% at 50% 42%,rgba(110,121,247,.22) 0%,rgba(122,94,247,.10) 40%,transparent 70%);
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:500;letter-spacing:.02em;color:var(--text-2);
+    border:1px solid var(--border);border-radius:999px;
+    padding:5px 14px 5px 8px;margin-bottom:28px;
+    background:var(--surface);position:relative;
+    animation:fadeUp .7s cubic-bezier(.16,1,.3,1) both;
+  }
+  .eyebrow .dot{
+    width:6px;height:6px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 8px rgba(74,222,128,.7);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  h1{
+    font-size:60px;line-height:1.06;font-weight:600;letter-spacing:-.03em;
+    max-width:760px;margin:0 auto 22px;position:relative;
+    animation:fadeUp .7s .05s cubic-bezier(.16,1,.3,1) both;
+  }
+  h1 .dim{color:var(--text-3)}
+  .subhead{
+    font-size:16.5px;color:var(--text-2);max-width:620px;margin:0 auto 34px;
+    line-height:1.65;position:relative;
+    animation:fadeUp .7s .1s cubic-bezier(.16,1,.3,1) both;
+  }
+  .hero-ctas{display:flex;gap:12px;justify-content:center;position:relative;animation:fadeUp .7s .15s cubic-bezier(.16,1,.3,1) both}
+  .hero-meta{
+    margin-top:18px;font-size:12.5px;color:var(--text-3);position:relative;
+    animation:fadeUp .7s .2s cubic-bezier(.16,1,.3,1) both;
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ---------- product shot ---------- */
+  .shot-outer{position:relative;padding:36px 0 0;animation:fadeUp .9s .25s cubic-bezier(.16,1,.3,1) both}
+  .shot{
+    position:relative;max-width:1060px;margin:0 auto;
+    border-radius:16px;
+    border:1px solid var(--border);
+    background:rgba(18,20,34,.55);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    box-shadow:0 40px 100px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.02);
+    overflow:hidden;
+  }
+  .shot::before{
+    content:"";position:absolute;top:0;left:8%;right:8%;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+    z-index:2;
+  }
+  .shot-titlebar{
+    height:42px;display:flex;align-items:center;gap:8px;padding:0 16px;
+    border-bottom:1px solid var(--border);background:rgba(255,255,255,.02);
+  }
+  .tl-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.12)}
+  .shot-url{
+    margin:0 auto;font-family:var(--mono);font-size:11px;color:var(--text-3);
+    background:var(--surface);border:1px solid var(--border);border-radius:6px;
+    padding:3px 40px;
+  }
+  .shot-body{display:flex;min-height:420px;text-align:left}
+  .rail{
+    width:200px;flex-shrink:0;border-right:1px solid var(--border);
+    padding:16px 10px;background:rgba(255,255,255,.015);
+  }
+  .rail-brand{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;padding:4px 10px 14px}
+  .rail-brand .logo-tile{width:20px;height:20px;border-radius:6px}
+  .rail-item{
+    display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:7px;
+    font-size:12.5px;color:var(--text-2);margin-bottom:1px;cursor:default;
+    transition:background .15s,color .15s;
+  }
+  .rail-item:hover{background:var(--surface-2);color:var(--text)}
+  .rail-item.active{background:var(--indigo-soft);color:#c6cbff}
+  .rail-item svg{width:14px;height:14px;stroke:currentColor;flex-shrink:0;opacity:.8}
+  .rail-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);padding:14px 10px 6px;font-weight:600}
+  .main{flex:1;padding:20px 22px;min-width:0}
+  .main-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .main-title{font-size:14px;font-weight:600;letter-spacing:-.01em}
+  .chip{
+    font-family:var(--mono);font-size:10.5px;color:var(--text-2);
+    border:1px solid var(--border);border-bottom-width:2px;border-radius:5px;
+    padding:2px 7px;background:var(--surface);
+  }
+  .main-head .btn{margin-left:auto}
+  .progress-card{
+    display:flex;align-items:center;gap:14px;
+    border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:16px;
+    background:var(--surface);
+  }
+  .progress-track{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.07);overflow:hidden}
+  .progress-fill{
+    height:100%;width:68%;border-radius:2px;
+    background:linear-gradient(90deg,var(--indigo),var(--violet));
+    position:relative;overflow:hidden;
+  }
+  .progress-fill::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+    animation:shimmer 2.2s linear infinite;
+  }
+  @keyframes shimmer{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+  .progress-label{font-size:11.5px;color:var(--text-2);white-space:nowrap}
+  .progress-label b{color:var(--text);font-weight:600}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  thead th{
+    text-align:left;font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--text-3);font-weight:600;padding:8px 12px;
+    border-bottom:1px solid var(--border);
+  }
+  tbody td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text-2);white-space:nowrap}
+  tbody tr{transition:background .15s}
+  tbody tr:hover{background:var(--surface)}
+  tbody tr.hl td{color:var(--text)}
+  td .name{color:var(--text);font-weight:500}
+  td .mono{font-family:var(--mono);font-size:11px}
+  .pill{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:10.5px;font-weight:500;border-radius:999px;padding:2.5px 9px;
+  }
+  .pill svg{width:9px;height:9px}
+  .pill-verified{background:rgba(74,222,128,.1);color:#6ee7a0;border:1px solid rgba(74,222,128,.22)}
+  .pill-indigo{background:var(--indigo-soft);color:#aab2ff;border:1px solid rgba(110,121,247,.28)}
+  .pill-dim{background:var(--surface-2);color:var(--text-3);border:1px solid var(--border)}
+
+  /* ---------- trust strip ---------- */
+  .trust{padding:64px 0 8px;text-align:center}
+  .trust-label{font-size:12px;color:var(--text-3);letter-spacing:.06em;margin-bottom:26px}
+  .trust-logos{display:flex;justify-content:center;align-items:center;gap:56px;flex-wrap:wrap}
+  .trust-logos span{
+    font-weight:600;font-size:15px;letter-spacing:-.01em;color:var(--text-3);
+    opacity:.75;transition:opacity .2s,color .2s;cursor:default;
+  }
+  .trust-logos span:hover{opacity:1;color:var(--text-2)}
+  .trust-logos .serif{font-family:Georgia,serif;font-style:italic}
+  .trust-logos .monoish{font-family:var(--mono);font-size:13.5px;letter-spacing:.04em}
+
+  /* ---------- stats ---------- */
+  .stats{padding:72px 0 0}
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--border);border-radius:14px;overflow:hidden;
+    background:var(--surface);
+  }
+  .stat{padding:28px 24px;border-right:1px solid var(--border);transition:background .2s}
+  .stat:last-child{border-right:none}
+  .stat:hover{background:var(--surface-2)}
+  .stat-num{font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1.1}
+  .stat-num em{font-style:normal;background:linear-gradient(90deg,#aab2ff,#c9a8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat-cap{font-size:12.5px;color:var(--text-3);margin-top:6px}
+
+  /* ---------- sections ---------- */
+  section{position:relative}
+  .section-pad{padding:120px 0 0}
+  .sec-label{
+    font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--indigo);margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  .sec-label::before{content:"";width:20px;height:1px;background:var(--indigo);opacity:.6}
+  h2{font-size:36px;font-weight:600;letter-spacing:-.025em;line-height:1.15;max-width:560px}
+  .sec-sub{color:var(--text-2);max-width:540px;margin-top:14px;font-size:15px}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-strong),transparent);margin:120px auto 0;max-width:1120px}
+
+  /* ---------- products grid ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+  .card{
+    border:1px solid var(--border);border-radius:var(--radius);
+    background:var(--surface);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    padding:24px;position:relative;overflow:hidden;
+    transition:border-color .2s,background .2s,transform .2s;
+  }
+  .card:hover{border-color:var(--border-strong);background:var(--surface-2);transform:translateY(-2px)}
+  .card::before{
+    content:"";position:absolute;top:0;left:16px;right:16px;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+    opacity:0;transition:opacity .2s;
+  }
+  .card:hover::before{opacity:1}
+  .card-icon{
+    width:34px;height:34px;border-radius:9px;
+    background:var(--indigo-soft);border:1px solid rgba(110,121,247,.22);
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+  }
+  .card-icon svg{width:16px;height:16px;stroke:#aab2ff}
+  .card h3{font-size:15px;font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+  .card p{font-size:13px;color:var(--text-2);margin-top:7px;line-height:1.55}
+  .tag-new{
+    font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:#c9a8ff;background:rgba(154,110,247,.14);border:1px solid rgba(154,110,247,.3);
+    border-radius:999px;padding:2px 8px;
+  }
+  .card-wide{grid-column:span 3;display:flex;align-items:center;gap:32px;padding:28px 32px}
+  .card-wide .card-icon{margin-bottom:0;flex-shrink:0}
+  .card-wide .cw-text h3{margin:0}
+  .card-wide .cw-chips{margin-left:auto;display:flex;gap:8px;flex-shrink:0}
+
+  /* ---------- safety ---------- */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+  .comp-col{
+    border:1px solid var(--border);border-radius:var(--radius);padding:28px;
+    background:var(--surface);position:relative;overflow:hidden;
+  }
+  .comp-col.good{border-color:rgba(110,121,247,.35);background:linear-gradient(180deg,rgba(110,121,247,.07),var(--surface))}
+  .comp-col.good::before{
+    content:"";position:absolute;top:0;left:20px;right:20px;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(150,160,255,.6),transparent);
+  }
+  .comp-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .comp-head h3{font-size:15px;font-weight:600;letter-spacing:-.01em}
+  .comp-sub{font-size:12.5px;color:var(--text-3);margin-bottom:20px}
+  .comp-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .comp-list li{display:flex;gap:11px;font-size:13.5px;color:var(--text-2);align-items:flex-start;line-height:1.5}
+  .comp-list li svg{width:15px;height:15px;flex-shrink:0;margin-top:2px}
+  .x-icon{stroke:#f27878}
+  .check-icon{stroke:#6ee7a0}
+  .comp-verdict{
+    margin-top:22px;padding-top:18px;border-top:1px solid var(--border);
+    font-size:13px;display:flex;align-items:center;gap:10px;
+  }
+  .verdict-bad{color:#f29a9a}
+  .verdict-good{color:#8be8b5}
+
+  /* ---------- pricing ---------- */
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;align-items:stretch}
+  .price-card{
+    border:1px solid var(--border);border-radius:14px;padding:28px;
+    background:var(--surface);display:flex;flex-direction:column;
+    transition:border-color .2s,transform .2s;position:relative;overflow:hidden;
+  }
+  .price-card:hover{border-color:var(--border-strong);transform:translateY(-2px)}
+  .price-card.featured{
+    border-color:rgba(110,121,247,.5);
+    background:linear-gradient(180deg,rgba(110,121,247,.09),var(--surface));
+    box-shadow:0 0 60px -18px rgba(110,121,247,.4);
+  }
+  .price-card.featured::before{
+    content:"";position:absolute;top:0;left:20px;right:20px;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(160,170,255,.8),transparent);
+  }
+  .plan-name{font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:8px}
+  .plan-badge{
+    font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:#aab2ff;background:var(--indigo-soft);border:1px solid rgba(110,121,247,.3);
+    border-radius:999px;padding:2px 8px;
+  }
+  .plan-price{margin:16px 0 4px;font-size:38px;font-weight:600;letter-spacing:-.03em;line-height:1}
+  .plan-price small{font-size:13.5px;font-weight:400;color:var(--text-3);letter-spacing:0}
+  .plan-desc{font-size:12.5px;color:var(--text-3);margin-bottom:22px}
+  .plan-list{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text-2);margin-bottom:26px}
+  .plan-list li{display:flex;gap:9px;align-items:flex-start}
+  .plan-list li svg{width:13px;height:13px;stroke:#8f97ff;flex-shrink:0;margin-top:3px}
+  .price-card .btn{margin-top:auto;width:100%}
+
+  /* ---------- final CTA ---------- */
+  .final{padding:140px 0 120px;text-align:center;position:relative;overflow:hidden}
+  .final-glow{
+    position:absolute;left:50%;bottom:-380px;transform:translateX(-50%);
+    width:1000px;height:700px;pointer-events:none;
+    background:radial-gradient(ellipse 50% 45% at 50% 50%,rgba(110,121,247,.18),transparent 70%);
+  }
+  .final h2{max-width:640px;margin:0 auto;font-size:42px}
+  .final .sec-sub{margin:16px auto 34px;text-align:center}
+  .kbd-hint{
+    margin-top:20px;font-size:12px;color:var(--text-3);
+    display:flex;align-items:center;justify-content:center;gap:7px;
+  }
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--border);padding:44px 0 52px;background:rgba(0,0,0,.2)}
+  .foot-inner{display:flex;align-items:flex-start;gap:32px;flex-wrap:wrap}
+  .foot-brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px}
+  .foot-brand .logo-tile{width:22px;height:22px;border-radius:6px}
+  .foot-links{margin-left:auto;display:flex;gap:26px;font-size:13px;color:var(--text-3)}
+  .foot-links a{transition:color .15s}
+  .foot-links a:hover{color:var(--text)}
+  .foot-bottom{margin-top:28px;font-size:12px;color:var(--text-3);display:flex;gap:16px;align-items:center}
+
+  @media (max-width:960px){
+    h1{font-size:42px}
+    .cards,.pricing-grid,.stats-grid{grid-template-columns:1fr}
+    .card-wide{grid-column:span 1;flex-direction:column;align-items:flex-start}
+    .compare{grid-template-columns:1fr}
+    .stat{border-right:none;border-bottom:1px solid var(--border)}
+    .shot-body{flex-direction:column}
+    .rail{width:100%;border-right:none;border-bottom:1px solid var(--border)}
+  }
+</style>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#">
+      <span class="logo-tile">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <g stroke="#fff" stroke-width="2.1" stroke-linecap="round">
+            <path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(0 12 12)"/>
+            <path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(60 12 12)"/>
+            <path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(120 12 12)"/>
+            <path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(180 12 12)"/>
+            <path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(240 12 12)"/>
+            <path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(300 12 12)"/>
+          </g>
+        </svg>
+      </span>
+      Coldcast
+    </a>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#safety">Safety</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#">Docs</a>
+      <a href="#">Changelog</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-text btn-sm" href="#">Sign in</a>
+      <a class="btn btn-primary btn-sm" href="#">Start free trial</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+<meta name="robots" content="noindex, nofollow" />
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Tested by 10,000+ sales professionals</span>
+    <h1>The world's safest<br><span class="dim">Sales Navigator scraper.</span></h1>
+    <p class="subhead">One subscription replaces your GTM stack — scrape Sales Navigator, Apollo &amp; ZoomInfo at zero ban risk, pull triple-verified emails &amp; phone numbers, and let the AI SDR run your outreach.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary btn-md" href="#pricing">Start free trial</a>
+      <a class="btn btn-ghost btn-md" href="#">Book a demo
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <p class="hero-meta">Free 1-day trial · No credit card · Your own browser, your session</p>
+  </div>
+
+  <!-- product screenshot card -->
+  <div class="shot-outer">
+    <div class="wrap">
+      <div class="shot">
+        <div class="shot-titlebar">
+          <span class="tl-dot"></span><span class="tl-dot"></span><span class="tl-dot"></span>
+          <span class="shot-url">app.coldcast.io/exports</span>
+        </div>
+        <div class="shot-body">
+          <aside class="rail">
+            <div class="rail-brand">
+              <span class="logo-tile">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 12 C 12 8, 14 5.5, 12 3"/><path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(60 12 12)"/><path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(120 12 12)"/><path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(180 12 12)"/><path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(240 12 12)"/><path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(300 12 12)"/></g></svg>
+              </span>
+              Coldcast
+            </div>
+            <div class="rail-label">Scrapers</div>
+            <div class="rail-item active">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              Sales Navigator
+            </div>
+            <div class="rail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l3 7 7 .8-5.2 4.8 1.5 7L12 18l-6.3 3.6 1.5-7L2 9.8 9 9z"/></svg>
+              Apollo
+            </div>
+            <div class="rail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12h8M12 8v8"/></svg>
+              ZoomInfo
+            </div>
+            <div class="rail-label">Enrichment</div>
+            <div class="rail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M6 12h12M9 18h6"/></svg>
+              Waterfall
+            </div>
+            <div class="rail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Email Verify
+            </div>
+            <div class="rail-label">Outreach</div>
+            <div class="rail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+              AI SDR
+            </div>
+          </aside>
+          <div class="main">
+            <div class="main-head">
+              <span class="main-title">CRO — SaaS, 51–200 · US</span>
+              <span class="pill pill-indigo">Scraping</span>
+              <span class="chip">⌘E export</span>
+              <a class="btn btn-ghost btn-sm" href="#">Export CSV</a>
+            </div>
+            <div class="progress-card">
+              <span class="progress-label"><b>1,362</b> / 2,000 leads</span>
+              <div class="progress-track"><div class="progress-fill"></div></div>
+              <span class="progress-label">human pace · <b>0 flags</b></span>
+            </div>
+            <table>
+              <thead>
+                <tr><th>Name</th><th>Title</th><th>Company</th><th>Email</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr class="hl">
+                  <td><span class="name">Tiffanie K.</span></td><td>CRO</td><td>illumenature</td>
+                  <td><span class="mono">tiffanie.k@illumenature.com</span></td>
+                  <td><span class="pill pill-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>VERIFIED</span></td>
+                </tr>
+                <tr>
+                  <td><span class="name">Marcus D.</span></td><td>VP Revenue</td><td>Quotient Labs</td>
+                  <td><span class="mono">m.delgado@quotientlabs.io</span></td>
+                  <td><span class="pill pill-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>VERIFIED</span></td>
+                </tr>
+                <tr>
+                  <td><span class="name">Priya N.</span></td><td>Chief Revenue Officer</td><td>Fernwave</td>
+                  <td><span class="mono">priya@fernwave.com</span></td>
+                  <td><span class="pill pill-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>VERIFIED</span></td>
+                </tr>
+                <tr>
+                  <td><span class="name">Jonah R.</span></td><td>CRO</td><td>Atlas Metrics</td>
+                  <td><span class="mono">jonah.r@atlasmetrics.co</span></td>
+                  <td><span class="pill pill-indigo">Enriching</span></td>
+                </tr>
+                <tr>
+                  <td><span class="name">Elena S.</span></td><td>VP Sales</td><td>Northbeam AI</td>
+                  <td><span class="mono">—</span></td>
+                  <td><span class="pill pill-dim">Queued</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TRUST ============ -->
+<section class="trust">
+  <div class="wrap">
+    <p class="trust-label">POWERING OUTBOUND AT TEAMS OF EVERY SIZE</p>
+    <div class="trust-logos">
+      <span>Quotient Labs</span>
+      <span class="serif">Fernwave</span>
+      <span class="monoish">ATLAS//METRICS</span>
+      <span>Northbeam</span>
+      <span class="serif">illumenature</span>
+      <span class="monoish">outfield.io</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num"><em>20,000</em></div><div class="stat-cap">leads per day</div></div>
+      <div class="stat"><div class="stat-num"><em>10,000</em></div><div class="stat-cap">leads per hour</div></div>
+      <div class="stat"><div class="stat-num"><em>0</em></div><div class="stat-cap">account bans, ever</div></div>
+      <div class="stat"><div class="stat-num"><em>99%</em></div><div class="stat-cap">valid emails delivered</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="section-pad" id="products">
+  <div class="wrap">
+    <p class="sec-label">The suite</p>
+    <h2>Seven tools. One subscription. Zero duct tape.</h2>
+    <p class="sec-sub">Everything between "who should we sell to" and "reply received" — built to work as one pipeline instead of seven browser tabs.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Sales Nav Scraper</h3>
+        <p>Export any Sales Navigator search or list from your own browser — full profiles, human pace, no cloud bots touching your account.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l3 7 7 .8-5.2 4.8 1.5 7L12 18l-6.3 3.6 1.5-7L2 9.8 9 9z"/></svg></div>
+        <h3>Apollo Scraper</h3>
+        <p>Pull entire Apollo searches with company data enriched inline — thousands of rows without burning export credits.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12h8M12 8v8"/></svg></div>
+        <h3>ZoomInfo Scraper</h3>
+        <p>Turn ZoomInfo's walled garden into clean CSVs. Same account-safe engine, same one-click export.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M6 12h12M9 18h6"/></svg></div>
+        <h3>Waterfall Enricher</h3>
+        <p>Cascade every lead through multiple data providers until a verified email and phone number comes back. You pay only for hits.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>Email Verify</h3>
+        <p>Triple verification — syntax, domain, live SMTP — before anything hits your outbox. 99% valid or it doesn't ship.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></div>
+        <h3>Domain Enrichment</h3>
+        <p>Name to domain to firmographics in one hop — industry, headcount, tech stack, socials — ready for segmentation.</p>
+      </div>
+      <div class="card card-wide">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div>
+        <div class="cw-text">
+          <h3>AI SDR <span class="tag-new">New</span></h3>
+          <p>Feed it the list you just scraped. It writes, personalizes, sequences and follows up — and only pings you when a human should take over.</p>
+        </div>
+        <div class="cw-chips">
+          <span class="chip">writes</span>
+          <span class="chip">sequences</span>
+          <span class="chip">follows up</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ SAFETY ============ -->
+<section class="section-pad" id="safety">
+  <div class="wrap">
+    <p class="sec-label">Account safety</p>
+    <h2>Why every other scraper eventually gets you banned.</h2>
+    <p class="sec-sub">LinkedIn doesn't ban people for exporting data. It bans accounts that behave like robots in datacenters. We fixed the actual problem.</p>
+
+    <div class="compare">
+      <div class="comp-col">
+        <div class="comp-head">
+          <h3>Cloud scrapers</h3>
+        </div>
+        <p class="comp-sub">Everyone else</p>
+        <ul class="comp-list">
+          <li><svg class="x-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Your password stored on someone else's server</li>
+          <li><svg class="x-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Datacenter IPs LinkedIn already fingerprints</li>
+          <li><svg class="x-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Bot-speed requests that trip rate limits</li>
+          <li><svg class="x-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Parallel sessions your account never opened</li>
+        </ul>
+        <div class="comp-verdict verdict-bad">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 9v4M12 17h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+          Result: restricted or banned accounts
+        </div>
+      </div>
+      <div class="comp-col good">
+        <div class="comp-head">
+          <h3>Coldcast</h3>
+        </div>
+        <p class="comp-sub">Runs where you already are</p>
+        <ul class="comp-list">
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Your own browser — no passwords ever leave it</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Your real session, your residential IP</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Human-pace requests indistinguishable from browsing</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>One session, one identity — exactly what LinkedIn expects</li>
+        </ul>
+        <div class="comp-verdict verdict-good">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          Result: 0 bans across 10,000+ users
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ PRICING ============ -->
+<section class="section-pad" id="pricing">
+  <div class="wrap">
+    <p class="sec-label">Pricing</p>
+    <h2>Start free. Scale when it works.</h2>
+    <p class="sec-sub">Unlimited scraping on every paid plan. Enrichment is usage-based, so you only pay for verified data.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">$0</div>
+        <div class="plan-desc">1-day trial, no card required</div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>1,000 leads</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>50 enrichment credits</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>All 3 scrapers included</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>CSV &amp; XLSX export</li>
+        </ul>
+        <a class="btn btn-ghost btn-md" href="#">Start free trial</a>
+      </div>
+      <div class="price-card featured">
+        <div class="plan-name">Elite <span class="plan-badge">Most popular</span></div>
+        <div class="plan-price">$49<small>/mo</small></div>
+        <div class="plan-desc">For teams running real outbound</div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Unlimited scraping — all sources</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Usage-based enrichment credits</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Waterfall enricher + Email Verify</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>AI SDR access</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Priority support</li>
+        </ul>
+        <a class="btn btn-primary btn-md" href="#">Start free trial</a>
+      </div>
+      <div class="price-card">
+        <div class="plan-name">Custom</div>
+        <div class="plan-price">Let's talk</div>
+        <div class="plan-desc">Agencies &amp; high-volume teams</div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Volume enrichment pricing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Multi-seat &amp; workspace management</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>API access</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Dedicated onboarding</li>
+        </ul>
+        <a class="btn btn-ghost btn-md" href="#">Book a demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="final-glow"></div>
+  <div class="wrap">
+    <p class="sec-label" style="justify-content:center">Get started</p>
+    <h2>Find, enrich &amp; email your next customers.</h2>
+    <p class="sec-sub">Your first 1,000 leads are on us. Set up takes two minutes — it's your browser, after all.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary btn-md" href="#">Start free trial</a>
+      <a class="btn btn-ghost btn-md" href="#">Book a demo</a>
+    </div>
+    <p class="kbd-hint">Press <span class="chip">⌘</span><span class="chip">K</span> anywhere in the app</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <span class="logo-tile">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><g stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M12 12 C 12 8, 14 5.5, 12 3"/><path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(60 12 12)"/><path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(120 12 12)"/><path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(180 12 12)"/><path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(240 12 12)"/><path d="M12 12 C 12 8, 14 5.5, 12 3" transform="rotate(300 12 12)"/></g></svg>
+        </span>
+        Coldcast
+      </div>
+      <div class="foot-links">
+        <a href="mailto:hello@coldcast.io">hello@coldcast.io</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Coldcast</span>
+      <span>·</span>
+      <span>coldcast.io</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

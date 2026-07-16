@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Coldcast — Homepage Mocks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0b0c0e;
+    color: #e8eaed;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 64px 24px 96px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #35e0b8;
+    margin-bottom: 14px;
+  }
+  h1 { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .sub { color: #9aa3ad; font-size: 16px; line-height: 1.6; max-width: 620px; margin-bottom: 48px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+  a.card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #131518;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 16px;
+    padding: 26px;
+    transition: border-color .18s ease, transform .18s ease, background .18s ease;
+  }
+  a.card:hover { border-color: #35e0b8; transform: translateY(-3px); background: #16191d; }
+  .swatches { display: flex; gap: 6px; margin-bottom: 18px; }
+  .sw { width: 26px; height: 26px; border-radius: 7px; border: 1px solid rgba(255,255,255,0.14); }
+  .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #6b7480;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  h2 { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
+  p.desc { font-size: 13.5px; line-height: 1.6; color: #9aa3ad; }
+  .tag {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #35e0b8;
+    background: rgba(53,224,184,0.09);
+    border: 1px solid rgba(53,224,184,0.24);
+    border-radius: 999px;
+    padding: 5px 11px;
+  }
+  .note {
+    margin-top: 52px;
+    padding: 20px 22px;
+    border-left: 2px solid #35e0b8;
+    background: rgba(53,224,184,0.04);
+    border-radius: 0 10px 10px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #b6bec7;
+  }
+  .note strong { color: #e8eaed; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Coldcast · Design Round 1</div>
+  <h1>Five homepage directions</h1>
+  <p class="sub">Same copy, same sections, five completely different art directions. Open each one full-screen, then tell me which to build — or mix and match (&ldquo;hero from 1, pricing from 3&rdquo;).</p>
+
+  <div class="grid">
+    <a class="card" href="./mock-1-graphite-mint.html">
+      <div class="swatches">
+        <span class="sw" style="background:#0f1214"></span>
+        <span class="sw" style="background:#35e0b8"></span>
+        <span class="sw" style="background:#1a1f24"></span>
+      </div>
+      <div class="num">MOCK 01</div>
+      <h2>Graphite &amp; Mint</h2>
+      <p class="desc">Dark graphite with a mint accent. App-frame card, live dashboard on the right. Closest to the Grok reference you liked.</p>
+      <span class="tag">Your reference</span>
+    </a>
+
+    <a class="card" href="./mock-2-clay-light.html">
+      <div class="swatches">
+        <span class="sw" style="background:#faf8f4"></span>
+        <span class="sw" style="background:#2b4de0"></span>
+        <span class="sw" style="background:#1a1a18"></span>
+      </div>
+      <div class="num">MOCK 02</div>
+      <h2>Clay Light</h2>
+      <p class="desc">Warm cream canvas, cobalt accent, Clay-style. Hero is a live enrichment table filling in row by row.</p>
+      <span class="tag">Clay-inspired</span>
+    </a>
+
+    <a class="card" href="./mock-3-linear-dark.html">
+      <div class="swatches">
+        <span class="sw" style="background:#0a0b10"></span>
+        <span class="sw" style="background:#6c72ff"></span>
+        <span class="sw" style="background:#151726"></span>
+      </div>
+      <div class="num">MOCK 03</div>
+      <h2>Linear Precision</h2>
+      <p class="desc">Near-black, indigo glow, glass panels and razor-thin hairlines. Restrained, engineered, developer-grade.</p>
+      <span class="tag">Linear-inspired</span>
+    </a>
+
+    <a class="card" href="./mock-4-type-editorial.html">
+      <div class="swatches">
+        <span class="sw" style="background:#0a0a0a"></span>
+        <span class="sw" style="background:#ccff00"></span>
+        <span class="sw" style="background:#f2f2f0"></span>
+      </div>
+      <div class="num">MOCK 04</div>
+      <h2>Acid Editorial</h2>
+      <p class="desc">Massive Anton display type, acid-lime accent, mono annotations and a marquee. Loud, opinionated, unmistakably human.</p>
+      <span class="tag">Most distinctive</span>
+    </a>
+
+    <a class="card" href="./mock-5-aurora-fintech.html">
+      <div class="swatches">
+        <span class="sw" style="background:#0a1130"></span>
+        <span class="sw" style="background:#7aa2ff"></span>
+        <span class="sw" style="background:#c9a6ff"></span>
+      </div>
+      <div class="num">MOCK 05</div>
+      <h2>Aurora Fintech</h2>
+      <p class="desc">Deep navy with a slow animated aurora, tilted glass card, Fraunces italic stats. Premium, expensive, Stripe-adjacent.</p>
+      <span class="tag">Most premium</span>
+    </a>
+  </div>
+
+  <div class="note">
+    <strong>How to judge these:</strong> ignore the copy (it&rsquo;s the same everywhere) and the fact that some sections are stubbed. Look at the hero, the color combination, the typography, and whether it feels built by a human team. Pick a winner, or call out the parts you want combined.
+  </div>
+</div>
+</body>
+</html>
