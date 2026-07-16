@@ -14,13 +14,15 @@ import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 
 const PAGES = { ...PRODUCT_PAGES, ...ROLE_PAGES }
 
+// One accent, ruthless restraint — every product page runs on cobalt ink.
+const COBALT = { tile: 'bg-brand/10 ring-brand/25', text: 'text-brand', dot: 'bg-brand', line: 'from-brand', grad: 'from-brand to-brand-dark', glow: 'rgba(37,69,217,0.08)' }
 const ACCENT = {
-  brand: { tile: 'bg-brand/15 ring-brand/30', text: 'text-brand', dot: 'bg-brand', line: 'from-brand', grad: 'from-brand to-brand-light', glow: 'rgba(79,124,245,0.18)' },
-  violet: { tile: 'bg-violet/15 ring-violet/30', text: 'text-[#7c3aed]', dot: 'bg-violet', line: 'from-violet', grad: 'from-violet to-magenta', glow: 'rgba(167,139,250,0.18)' },
-  cyan: { tile: 'bg-accent/15 ring-accent/30', text: 'text-[#0e90ad]', dot: 'bg-accent', line: 'from-accent', grad: 'from-accent to-brand-light', glow: 'rgba(34,211,238,0.16)' },
-  safe: { tile: 'bg-safe/15 ring-safe/30', text: 'text-[#0f9d72]', dot: 'bg-safe', line: 'from-safe', grad: 'from-safe to-accent', glow: 'rgba(52,211,153,0.16)' },
-  amber: { tile: 'bg-amber/15 ring-amber/30', text: 'text-[#c2740c]', dot: 'bg-amber', line: 'from-amber', grad: 'from-amber to-magenta', glow: 'rgba(251,191,36,0.16)' },
-  magenta: { tile: 'bg-magenta/15 ring-magenta/30', text: 'text-[#c026d3]', dot: 'bg-magenta', line: 'from-magenta', grad: 'from-magenta to-violet', glow: 'rgba(232,121,249,0.16)' },
+  brand: COBALT,
+  violet: COBALT,
+  cyan: COBALT,
+  safe: COBALT,
+  amber: COBALT,
+  magenta: COBALT,
 }
 
 function HeroBg({ accent }) {
@@ -28,7 +30,7 @@ function HeroBg({ accent }) {
     <div
       aria-hidden
       className="absolute inset-0 -z-10"
-      style={{ backgroundImage: `radial-gradient(95% 75% at 50% -10%, ${accent.glow}, transparent 60%), radial-gradient(60% 50% at 85% 0%, rgba(34,211,238,0.10), transparent 55%), linear-gradient(180deg,#efeafd,#f6f7fc)` }}
+      style={{ backgroundImage: `radial-gradient(95% 75% at 50% -10%, ${accent.glow}, transparent 60%), linear-gradient(180deg,#F3F0E7,#F7F4ED)` }}
     />
   )
 }

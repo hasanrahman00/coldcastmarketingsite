@@ -1,39 +1,42 @@
 import { ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
-import { TRIAL_URL } from '../lib/constants'
+import Button from './Button'
+import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 
-// Bookends the hero: starts fully transparent (so the page gradient shows and
-// there's NO seam), then fades through clouds into deep purple that meets the
-// footer's top colour exactly (#3a10a0) — borderless top and bottom.
-const CTA_BG =
-  'linear-gradient(180deg, transparent 0%, transparent 9%, rgba(95,42,190,0.5) 23%, #5f2ac6 41%, #4d1cb4 70%, #3a10a0 100%)'
-
+// Ink closing block — bookends the paper page, flows straight into the footer.
 export default function FinalCTA() {
   return (
-    <section className="relative overflow-hidden pb-24 pt-48 sm:pb-32 sm:pt-60" style={{ backgroundImage: CTA_BG }}>
-      {/* soft cloud wisps along the top transition */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-80">
-        <div className="absolute left-[6%] top-10 h-44 w-[42%] rounded-[50%] bg-white/45 blur-[80px]" />
-        <div className="absolute right-[4%] top-6 h-48 w-[46%] rounded-[50%] bg-white/40 blur-[90px]" />
-      </div>
-
-      <Reveal className="container-px relative text-center">
-        <h2 className="mx-auto max-w-3xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
-          Let&rsquo;s start with your next list.
-        </h2>
-        <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
-          Export, enrich and verify your next thousand leads — account-safe, from your own browser.
-        </p>
-        <div className="mt-10 flex justify-center">
-          <a
-            href={TRIAL_URL}
-            className="group inline-flex h-16 items-center justify-center gap-2 rounded-full bg-white px-12 text-sm font-semibold uppercase tracking-[0.1em] text-[#4520b0] shadow-[0_18px_50px_-12px_rgba(20,8,60,0.6)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/95"
-          >
+    <section className="bg-ink pb-28 pt-24 sm:pb-36 sm:pt-32">
+      <div className="container-px">
+        <Reveal>
+          <p className="kicker !text-bg/50">04 — Start tonight</p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h2 className="mt-6 max-w-4xl font-display text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.02em] text-bg sm:text-[3.6rem] lg:text-[4.2rem]">
+            Your next thousand customers are <em className="accent-em !text-[#8FA3F5]">already on LinkedIn.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.16}>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-bg/60 sm:text-lg">
+            Run the search you already know. Coldcast exports, enriches and verifies it into a
+            send-ready ledger — while your account stays safe.
+          </p>
+        </Reveal>
+        <Reveal delay={0.24} className="mt-10 flex flex-wrap items-center gap-6">
+          <Button as="a" href={TRIAL_URL} variant="light" size="lg">
             Start free trial
-            <ArrowRight size={17} className="transition-transform group-hover:translate-x-0.5" />
+            <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" />
+          </Button>
+          <a href={DEMO_URL} className="link-draw text-[15px] font-medium text-bg/85 hover:text-bg">
+            Book a demo
           </a>
-        </div>
-      </Reveal>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <p className="mt-8 font-mono text-[10.5px] uppercase tracking-[0.18em] text-bg/40">
+            No card required · 1-day trial · Cancel anytime
+          </p>
+        </Reveal>
+      </div>
     </section>
   )
 }

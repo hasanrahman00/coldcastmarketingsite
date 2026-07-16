@@ -1,23 +1,8 @@
-/* Inter (body) + Space Grotesk (display) — self-hosted via @fontsource */
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/500.css';
-@import '@fontsource/inter/600.css';
-@import '@fontsource/inter/700.css';
-@import '@fontsource/space-grotesk/500.css';
-@import '@fontsource/space-grotesk/600.css';
-@import '@fontsource/space-grotesk/700.css';
-
-/* Freudian — display face for the hero title (brewdistrict-style).
-   NOTE: /fonts/Freudian.ttf is the PERSONAL-USE demo, kept out of git.
-   Buy the commercial license (garisman.com / MyFonts) and drop the licensed
-   file here for production; until then headings fall back to Space Grotesk. */
-@font-face {
-  font-family: 'Freudian';
-  src: url('/fonts/Freudian.ttf') format('truetype');
-  font-weight: 400 800;
-  font-style: normal;
-  font-display: swap;
-}
+/* "The Ledger" type system — Fraunces (display serif) + Instrument Sans (body)
+   + JetBrains Mono (data/labels). Self-hosted variable fonts via @fontsource. */
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/instrument-sans';
+@import '@fontsource-variable/jetbrains-mono';
 
 @tailwind base;
 @tailwind components;
@@ -27,43 +12,32 @@
   html {
     scroll-behavior: smooth;
     /* Offset anchor jumps so they clear the fixed nav */
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 6rem;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-bg font-sans text-ink antialiased;
+    font-feature-settings: 'ss01' on;
   }
 
-  /* Continuous airy gradient down the whole page (scrolls with content),
-     so every section sits on one seamless cloud backdrop. */
-  #root {
-    background-image: linear-gradient(
-      180deg,
-      #e7eafd 0%,
-      #e1e4fb 9%,
-      #e7e3fb 24%,
-      #ede7fc 48%,
-      #f0edfc 72%,
-      #f5f4fc 100%
-    );
-  }
-
-  /* Display font for big headings */
+  /* Editorial serif for big headings */
   h1,
   h2,
   .font-display {
-    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    font-family: 'Fraunces Variable', Georgia, serif;
+    font-variation-settings: 'opsz' 72, 'SOFT' 0, 'WONK' 0;
+    letter-spacing: -0.01em;
   }
 
   /* Consistent, visible focus rings everywhere */
   :focus-visible {
-    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bg;
+    @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-bg;
   }
 
   ::selection {
-    background-color: rgba(87, 32, 206, 0.18);
-    color: #1c1741;
+    background-color: rgba(37, 69, 217, 0.16);
+    color: #171410;
   }
 }
 
@@ -72,9 +46,40 @@
     @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
   }
 
-  /* Animated gradient text — slow shine sweep */
+  /* Mono kicker label — replaces the old eyebrow pills */
+  .kicker {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-muted;
+  }
+
+  /* Underline that draws in on hover (editorial link) */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding-bottom: 2px;
+  }
+  .link-draw:hover {
+    background-size: 100% 1.5px;
+  }
+
+  /* Cobalt italic emphasis inside serif headlines */
+  .accent-em {
+    font-style: italic;
+    color: #2545d9;
+    font-variation-settings: 'opsz' 72, 'SOFT' 40, 'WONK' 1;
+  }
+
+  /* The VERIFIED ink stamp */
+  .stamp {
+    @apply inline-flex items-center gap-1 rounded-[4px] border-[1.5px] border-safe px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-safe;
+    transform: rotate(-2deg);
+  }
+
+  /* Animated gradient text — kept for legacy components, now a cobalt sweep */
   .text-gradient {
-    background-image: linear-gradient(90deg, #4f7cf5, #a855f7, #22d3ee, #4f7cf5);
+    background-image: linear-gradient(90deg, #2545d9, #1b33a8, #2545d9);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -82,20 +87,18 @@
     animation: text-shine 6s linear infinite;
   }
 
-  /* Gradient lit-edge wrapper for glass cards */
+  /* Gradient lit-edge wrapper (legacy) */
   .lit-edge {
     border-radius: 1.25rem;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
+    background-image: linear-gradient(to bottom, rgba(23, 20, 16, 0.08), rgba(23, 20, 16, 0));
     padding: 1px;
   }
 
-  /* Gradient ring border — masked so the gradient shows only as a 1px frame.
-     Declared as a real CSS rule so the `mask` shorthand can't reset
-     mask-composite (Tailwind arbitrary values render it as add/add). */
+  /* Gradient ring border (legacy pricing card) — now a cobalt ring */
   .gradient-ring {
-    border-radius: 1.5rem; /* matches rounded-3xl */
+    border-radius: 1.5rem;
     padding: 1px;
-    background-image: linear-gradient(135deg, #4f7cf5, #a855f7, #d946ef);
+    background-image: linear-gradient(135deg, #2545d9, #1b33a8);
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
@@ -106,16 +109,15 @@
     mask-composite: exclude;
   }
 
-  /* Floating section panel — frosted white card with soft sky shadow (light theme) */
+  /* Floating section panel — warm white card on paper */
   .floating-panel {
     position: relative;
-    border-radius: 2rem;
-    border: 1px solid rgba(28, 23, 65, 0.07);
-    background-color: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(18px);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(23, 20, 16, 0.1);
+    background-color: rgba(255, 253, 248, 0.85);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 30px 80px -38px rgba(28, 40, 110, 0.28);
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      0 24px 48px -28px rgba(23, 20, 16, 0.25);
   }
 }
 
@@ -125,28 +127,16 @@
   }
 }
 
-/* Hero glass squares — gentle blink */
+/* Legacy keyframes kept so unrebuilt components don't break */
+@keyframes rain-fall {
+  0% { transform: translateY(-120%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(900%); opacity: 0; }
+}
 @keyframes square-blink {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
-}
-
-/* Falling rain streaks (hero) */
-@keyframes rain-fall {
-  0% {
-    transform: translateY(-120%);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(900%);
-    opacity: 0;
-  }
 }
 
 /* Respect reduced-motion preferences */

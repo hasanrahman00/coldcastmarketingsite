@@ -1,131 +1,175 @@
+import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight, ShieldCheck } from 'lucide-react'
-import BrandLogo from './BrandLogo'
+import { ArrowRight } from 'lucide-react'
+import Button from './Button'
 import { TRIAL_URL, DEMO_URL, CUSTOMER_COUNT } from '../lib/constants'
 
-// Cloud-Büro-style cloud gradient: deep purple sky fading to soft white cloud
-// at the bottom, which flows straight into the light body below.
-const CLOUD_BG =
-  'radial-gradient(ellipse 130% 52% at 50% 112%, rgba(255,255,255,1) 0%, rgba(214,224,255,0.85) 32%, rgba(140,170,255,0.25) 58%, transparent 78%),' +
-  'linear-gradient(176deg, #1c074c 0%, #3a10a0 28%, #5720ce 52%, #7b4fd4 70%, rgba(190,202,255,0.45) 86%, transparent 100%)'
-
-// Floating glassmorphism squares — positions adapted from the reference (em units).
-const LEFT = [
-  [10, 0.75], [19, 0.75], [28.1, 0.75], [1, 5.25], [5.6, 5.25], [22.2, 5.25],
-  [1, 9.75], [14.6, 9.75], [27.4, 10.5], [32.5, 9.75], [1, 18.75], [14.6, 18.75],
-  [10, 26.25], [1, 32.25], [6.25, 32.25], [1, 36.75], [1, 41.25],
+// ── The live ledger — rows enrich themselves and get stamped VERIFIED ────────
+const LEADS = [
+  { name: 'Tiffanie K.', title: 'Chief Revenue Officer', company: 'illumenature', email: 'tiffanie.k@illumenature.com' },
+  { name: 'Tyler B.', title: 'Founder & CEO', company: 'Scalawags', email: 'tyler.b@scalawagswhitefish.com' },
+  { name: 'Camille H.', title: 'Ops Manager', company: 'Trove', email: 'camille@trove.so' },
+  { name: 'Jordan M.', title: 'VP Sales', company: 'Northwind Labs', email: 'jordan.m@northwindlabs.com' },
+  { name: 'Priya S.', title: 'Head of Growth', company: 'Meridian', email: 'priya@meridian.io' },
 ]
-const RIGHT = [
-  [1, 27.75], [6.25, 27.75], [1, 23.25], [6.25, 23.25], [1, 18.75], [14.6, 18.75],
-  [1, 14.25], [5.6, 14.25], [23.5, 14.25], [10, 9.75], [19.1, 9.75], [32.5, 10.75],
-  [1, 5.25], [14.6, 5.25], [1, 0.75], [10, 0.75], [23.6, 0.75], [19.1, 26.5],
-]
+const LOOP = LEADS.length + 3 // idle beats before the ledger resets
 
-function Squares() {
-  const make = (arr, side) =>
-    arr.map(([bottom, off], i) => (
-      <div
-        key={`${side}-${i}`}
-        className="absolute h-[5.25em] w-[5.25em] rounded-[1em] border border-white/15 bg-white/[0.13] backdrop-blur-[4px] motion-reduce:!animate-none"
-        style={{
-          bottom: `${bottom}em`,
-          [side]: `${off}em`,
-          animation: `square-blink ${(2.6 + ((i * 7) % 9) * 0.35).toFixed(2)}s ease-in-out ${(((i * 5 + (side === 'right' ? 3 : 0)) % 11) * 0.32).toFixed(2)}s infinite`,
-        }}
-      />
-    ))
+function Ledger() {
+  const reduce = useReducedMotion()
+  const [step, setStep] = useState(reduce ? LEADS.length : 0)
+  const [exported, setExported] = useState(18932)
+
+  useEffect(() => {
+    if (reduce) return undefined
+    const id = setInterval(() => {
+      setStep((s) => (s + 1) % LOOP)
+      setExported((n) => n + Math.floor(Math.random() * 3) + 1)
+    }, 1100)
+    return () => clearInterval(id)
+  }, [reduce])
+
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 top-0 hidden max-h-[82vh] overflow-hidden lg:block">
-      {make(LEFT, 'left')}
-      {make(RIGHT, 'right')}
+    <div className="overflow-hidden rounded-xl border border-ink/15 bg-panel shadow-card">
+      {/* File bar */}
+      <div className="flex items-center justify-between border-b border-hairline bg-panel2 px-4 py-2.5">
+        <span className="font-mono text-[11px] font-medium tracking-wide text-muted">coldcast_export.csv</span>
+        <span className="flex items-center gap-4">
+          <span className="hidden font-mono text-[11px] tabular-nums text-muted sm:inline">
+            {exported.toLocaleString('en-US')} rows today
+          </span>
+          <span className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-safe">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-safe opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-safe" />
+            </span>
+            Live
+          </span>
+        </span>
+      </div>
+
+      {/* Header row */}
+      <div className="grid grid-cols-[1.1fr_1fr_1.4fr_auto] gap-3 border-b border-hairline px-4 py-2 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-muted sm:grid-cols-[1fr_1fr_1fr_1.5fr_auto]">
+        <span>Name</span>
+        <span className="hidden sm:block">Title</span>
+        <span>Company</span>
+        <span>Work email</span>
+        <span className="text-right">Status</span>
+      </div>
+
+      {/* Rows */}
+      <div className="divide-y divide-hairline">
+        {LEADS.map((l, i) => {
+          const found = step > i
+          return (
+            <div
+              key={l.name}
+              className={`grid grid-cols-[1.1fr_1fr_1.4fr_auto] items-center gap-3 px-4 py-2.5 text-[13px] transition-colors duration-500 sm:grid-cols-[1fr_1fr_1fr_1.5fr_auto] ${
+                found ? 'bg-transparent' : 'bg-panel2/50'
+              }`}
+            >
+              <span className="truncate font-medium text-ink">{l.name}</span>
+              <span className="hidden truncate text-muted sm:block">{l.title}</span>
+              <span className="truncate text-muted">{l.company}</span>
+              <span className="truncate font-mono text-[12px]">
+                {found ? (
+                  <motion.span
+                    initial={reduce ? false : { opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-ink"
+                  >
+                    {l.email}
+                  </motion.span>
+                ) : (
+                  <span className="text-muted/70">
+                    finding<span className="animate-caret">_</span>
+                  </span>
+                )}
+              </span>
+              <span className="flex justify-end">
+                {found ? (
+                  <motion.span
+                    initial={reduce ? false : { scale: 1.6, opacity: 0, rotate: 6 }}
+                    animate={{ scale: 1, opacity: 1, rotate: -2 }}
+                    transition={{ type: 'spring', stiffness: 320, damping: 18 }}
+                    className="stamp"
+                  >
+                    Verified
+                  </motion.span>
+                ) : (
+                  <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted/60">enriching…</span>
+                )}
+              </span>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Footer strip */}
+      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-hairline bg-panel2 px-4 py-2.5 font-mono text-[10.5px] uppercase tracking-[0.14em] text-muted">
+        <span>20,000 rows / day / account</span>
+        <span className="hidden md:inline">Waterfall-enriched · catch-all cleaned</span>
+        <span className="text-safe">0 bans on record</span>
+      </div>
     </div>
   )
 }
 
-const INTEGRATIONS = [
-  { name: 'Apollo', domain: 'apollo.io' },
-  { name: 'Instantly', domain: 'instantly.ai' },
-  { name: 'Smartlead', domain: 'smartlead.ai' },
-  { name: 'HubSpot', domain: 'hubspot.com' },
-  { name: 'Salesforce', domain: 'salesforce.com' },
-]
-
-const fade = {
-  hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } },
+// ── Hero ─────────────────────────────────────────────────────────────────────
+const rise = {
+  hidden: { opacity: 0, y: 26 },
+  show: (i) => ({ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.08 * i, ease: [0.16, 1, 0.3, 1] } }),
 }
-const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.08 } } }
 
 export default function Hero() {
   const reduce = useReducedMotion()
   return (
-    <section
-      id="top"
-      className="relative flex min-h-[94vh] flex-col items-center justify-center overflow-hidden pb-28 pt-40 sm:pt-44"
-      style={{ backgroundImage: CLOUD_BG }}
-    >
-      <Squares />
+    <section id="top" className="relative overflow-hidden pb-16 pt-36 sm:pt-44">
+      <div className="container-px">
+        {/* Kicker */}
+        <motion.p variants={rise} custom={0} initial={reduce ? false : 'hidden'} animate="show" className="kicker">
+          Account-safe GTM suite&ensp;·&ensp;Tested by {CUSTOMER_COUNT} sales professionals
+        </motion.p>
 
-      <motion.div
-        variants={stagger}
-        initial={reduce ? false : 'hidden'}
-        animate="show"
-        className="container-px relative z-10"
-      >
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-7 text-center">
-          {/* social-proof eyebrow */}
-          <motion.a
-            variants={fade}
-            href="#safety"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.10] px-3.5 py-1.5 text-sm text-white/85 backdrop-blur transition-colors hover:bg-white/[0.16]"
+        {/* Headline — editorial serif, left-aligned */}
+        <motion.h1
+          variants={rise}
+          custom={1}
+          initial={reduce ? false : 'hidden'}
+          animate="show"
+          className="mt-6 max-w-4xl font-display text-[2.9rem] font-semibold leading-[1.02] tracking-[-0.02em] text-ink sm:text-[4rem] lg:text-[4.9rem]"
+        >
+          The <em className="accent-em">safest</em> LinkedIn Sales&nbsp;Navigator scraper.
+        </motion.h1>
+
+        {/* Sub + CTAs */}
+        <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <motion.p
+            variants={rise}
+            custom={2}
+            initial={reduce ? false : 'hidden'}
+            animate="show"
+            className="max-w-xl text-pretty text-base leading-relaxed text-muted sm:text-lg"
           >
-            <ShieldCheck size={14} className="text-[#9fe3c3]" />
-            Tested by <span className="font-semibold text-white">{CUSTOMER_COUNT}</span> sales professionals
-            <ArrowRight size={14} className="text-white/55" />
-          </motion.a>
-
-          <motion.h1
-            variants={fade}
-            className="text-balance font-display text-[2.75rem] font-bold leading-[1.04] tracking-[-0.02em] text-white sm:text-[3.6rem] lg:text-[4.6rem]"
-          >
-            The world&rsquo;s safest<br />Sales Navigator scraper.
-          </motion.h1>
-
-          <motion.p variants={fade} className="max-w-2xl text-pretty text-base leading-relaxed text-[#e3ddf6] sm:text-lg">
-            The <span className="font-semibold text-white">Apify alternative</span> that replaces your whole GTM
-            stack — one subscription to scrape Sales Navigator, Apollo &amp; ZoomInfo at zero ban risk and pull{' '}
-            <span className="font-semibold text-white">fresh, triple-verified</span> emails &amp; phone numbers.
+            Export up to 20,000 triple-verified leads a day — from your own browser, at human pace,
+            with zero account bans. One subscription replaces your entire GTM stack.
           </motion.p>
 
-          <motion.div variants={fade} className="mt-1 flex flex-col items-center gap-3 sm:flex-row">
-            <a
-              href={TRIAL_URL}
-              className="group inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white px-8 text-sm font-semibold uppercase tracking-[0.08em] text-[#3a10a0] shadow-[0_14px_40px_-10px_rgba(20,8,60,0.5)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_-10px_rgba(20,8,60,0.6)]"
-            >
+          <motion.div variants={rise} custom={3} initial={reduce ? false : 'hidden'} animate="show" className="flex shrink-0 items-center gap-6">
+            <Button as="a" href={TRIAL_URL} variant="primary" size="lg">
               Start free trial
-              <ArrowRight size={17} className="transition-transform group-hover:translate-x-0.5" />
-            </a>
-            <a
-              href={DEMO_URL}
-              className="inline-flex h-14 items-center justify-center rounded-full border border-white/35 bg-white/[0.10] px-8 text-sm font-semibold uppercase tracking-[0.08em] text-white backdrop-blur transition-all duration-200 hover:border-white/60 hover:bg-white/[0.18]"
-            >
+              <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" />
+            </Button>
+            <a href={DEMO_URL} className="link-draw text-[15px] font-medium text-ink">
               Book a demo
             </a>
           </motion.div>
-
-          {/* integrations strip — sits on the light cloud base */}
-          <motion.div variants={fade} className="mt-10 flex flex-col items-center gap-4 border-t border-white/15 pt-8">
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {INTEGRATIONS.map((b) => (
-                <BrandLogo key={b.name} domain={b.domain} name={b.name} size={36} />
-              ))}
-            </div>
-            <p className="text-sm font-medium text-[#4b4a73]">
-              Plugs into the outbound &amp; CRM tools you already use
-            </p>
-          </motion.div>
         </div>
-      </motion.div>
+
+        {/* The live ledger */}
+        <motion.div variants={rise} custom={4} initial={reduce ? false : 'hidden'} animate="show" className="mt-14">
+          <Ledger />
+        </motion.div>
+      </div>
     </section>
   )
 }
