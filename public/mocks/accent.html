@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Coldcast — Accent Test: Mint vs Acid Lime</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#08090b; color:#e8eaed; font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; padding:64px 24px 96px; }
+  .wrap { max-width:1000px; margin:0 auto; }
+  .eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#ccff00; margin-bottom:14px; }
+  h1 { font-size:38px; font-weight:700; letter-spacing:-.02em; margin-bottom:12px; }
+  .sub { color:#9aa3ad; font-size:16px; line-height:1.6; max-width:660px; margin-bottom:44px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:18px; }
+  a.card { display:block; text-decoration:none; color:inherit; background:#131518; border:1px solid rgba(255,255,255,.09); border-radius:16px; padding:24px; transition:border-color .18s, transform .18s, background .18s; }
+  a.card:hover { transform:translateY(-3px); background:#16191d; }
+  a.card.mint:hover { border-color:#35e0b8; }
+  a.card.lime:hover, a.card.duo:hover { border-color:#ccff00; }
+  .swatches { display:flex; gap:6px; margin-bottom:16px; }
+  .sw { width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,.14); }
+  .num { font-family:'JetBrains Mono',monospace; font-size:11px; color:#6b7480; letter-spacing:.1em; margin-bottom:6px; }
+  h2 { font-size:18px; font-weight:600; margin-bottom:8px; }
+  p.desc { font-size:13.5px; line-height:1.6; color:#9aa3ad; }
+  .btn-demo { display:inline-block; margin-top:16px; border-radius:9px; padding:9px 16px; font-size:13px; font-weight:600; }
+  .verdict { margin-top:52px; padding:22px 24px; border-left:2px solid #ccff00; background:rgba(204,255,0,.04); border-radius:0 10px 10px 0; font-size:14.5px; line-height:1.75; color:#b6bec7; }
+  .verdict strong { color:#e8eaed; font-weight:600; }
+  .verdict h3 { font-size:13px; text-transform:uppercase; letter-spacing:.1em; color:#ccff00; margin-bottom:10px; font-family:'JetBrains Mono',monospace; font-weight:500; }
+  .note { margin-top:18px; font-size:13px; color:#6b7480; line-height:1.7; }
+  code { font-family:'JetBrains Mono',monospace; font-size:.9em; background:rgba(255,255,255,.06); padding:2px 6px; border-radius:4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Coldcast · Accent Test</div>
+  <h1>Mint vs Acid Lime</h1>
+  <p class="sub">Same design, same copy, same layout — only the accent token changes. Open all three in tabs and flip between them. That comparison answers the question faster than any argument I can make.</p>
+
+  <div class="grid">
+    <a class="card mint" href="./mock-1-graphite-mint.html">
+      <div class="swatches">
+        <span class="sw" style="background:#0f1214"></span>
+        <span class="sw" style="background:#35e0b8"></span>
+        <span class="sw" style="background:#4ce8c3"></span>
+      </div>
+      <div class="num">CONTROL — SHIPPED</div>
+      <h2>Mint</h2>
+      <p class="desc">What's live now. Mint reads &ldquo;verified / safe&rdquo; and sits quietly under the content.</p>
+      <span class="btn-demo" style="background:linear-gradient(180deg,#4ce8c3,#35e0b8);color:#062119">Start free trial</span>
+    </a>
+
+    <a class="card lime" href="./accent-a-lime.html">
+      <div class="swatches">
+        <span class="sw" style="background:#0f1214"></span>
+        <span class="sw" style="background:#ccff00"></span>
+        <span class="sw" style="background:#d9ff4d"></span>
+      </div>
+      <div class="num">OPTION A — FULL SWAP</div>
+      <h2>Acid Lime</h2>
+      <p class="desc">Lime replaces mint everywhere. Keeps the one-loud-accent discipline. Louder, more memorable, more aggressive.</p>
+      <span class="btn-demo" style="background:linear-gradient(180deg,#d9ff4d,#ccff00);color:#131a00">Start free trial</span>
+    </a>
+
+    <a class="card duo" href="./accent-b-duo.html">
+      <div class="swatches">
+        <span class="sw" style="background:#0f1214"></span>
+        <span class="sw" style="background:#ccff00"></span>
+        <span class="sw" style="background:#35e0b8"></span>
+      </div>
+      <div class="num">OPTION B — HYBRID</div>
+      <h2>Lime action + Mint status</h2>
+      <p class="desc">Lime owns buttons and the pill; mint stays on verified / 0-bans / the dashboard. Both greens on screen at once.</p>
+      <span class="btn-demo" style="background:linear-gradient(180deg,#d9ff4d,#ccff00);color:#131a00">Start free trial</span>
+    </a>
+  </div>
+
+  <div class="verdict">
+    <h3>What I'd look for</h3>
+    <strong>Option B is the one to judge hardest.</strong> Scroll it to the dashboard, where a lime button and a mint chart sit in one viewport. Two greens ~94&deg; apart tend to read as an accident rather than a decision — that's the specific thing to check with your eyes, because if it looks deliberate to you, my objection is wrong.
+    <div class="note">
+      The trade-off in one line: mint quietly says <em>verified</em>; lime says <em>electric</em> — and, on a product selling <em>&ldquo;0&nbsp;bans, safest&rdquo;</em>, possibly <em>caution</em>. Lime is also genuinely hotter (about 15.8:1 on graphite vs mint's 11:1), so it's superb on small accents and type but can fatigue as a large fill. Note the button ink has to change too: <code>#062119</code> is a dark <em>green</em> and goes muddy on lime, so these use <code>#131a00</code>.
+    </div>
+  </div>
+</div>
+</body>
+</html>

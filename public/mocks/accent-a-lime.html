@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=1440">
+<title>Coldcast — Option A: Full Acid Lime</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & TOKENS ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg-deep:#08090b;
+  --bg-page:#0f1214;
+  --bg-panel:#16191c;
+  --bg-panel-2:#1b1f23;
+  --bg-inset:#121517;
+  --line:rgba(255,255,255,.07);
+  --line-strong:rgba(255,255,255,.12);
+  --mint:#ccff00;
+  --mint-2:#d9ff4d;
+  --mint-dim:rgba(204,255,0,.14);
+  --mint-glow:rgba(204,255,0,.35);
+  --ink:#f4f7f6;
+  --ink-2:#a7b0ad;
+  --ink-3:#6b7472;
+  --red:#f26d6d;
+  --amber:#e8c258;
+  --font-head:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --r-lg:24px;
+  --r-md:16px;
+  --r-sm:10px;
+  --s-1:8px;--s-2:16px;--s-3:24px;--s-4:32px;--s-5:48px;--s-6:64px;--s-7:96px;--s-8:128px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg-deep);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+::selection{background:var(--mint);color:#141a00}
+
+/* ============ BACKDROP ORBS ============ */
+.backdrop{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.5}
+.orb-a{width:720px;height:720px;left:-180px;top:-260px;background:radial-gradient(circle,#5c6b0f 0%,transparent 65%);animation:drift 22s ease-in-out infinite alternate}
+.orb-b{width:640px;height:640px;right:-160px;top:120px;background:radial-gradient(circle,#4d5f0a 0%,transparent 65%);animation:drift 26s ease-in-out infinite alternate-reverse}
+.orb-c{width:560px;height:560px;left:32%;bottom:-320px;background:radial-gradient(circle,#525c0d 0%,transparent 65%);animation:drift 30s ease-in-out infinite alternate}
+@keyframes drift{
+  from{transform:translate3d(0,0,0) scale(1)}
+  to{transform:translate3d(60px,40px,0) scale(1.08)}
+}
+
+/* ============ APP FRAME ============ */
+.frame{
+  position:relative;z-index:1;
+  max-width:1392px;
+  margin:24px auto 48px;
+  background:var(--bg-page);
+  border:1px solid var(--line-strong);
+  border-radius:var(--r-lg);
+  box-shadow:0 40px 120px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.4);
+}
+.wrap{max-width:1200px;margin:0 auto;padding:0 48px}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 40px;
+  background:rgba(15,18,20,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  border-radius:var(--r-lg) var(--r-lg) 0 0;
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand-name{font-family:var(--font-head);font-weight:700;font-size:19px;letter-spacing:-.02em}
+.logo-tile{
+  width:34px;height:34px;border-radius:9px;flex:none;
+  background:linear-gradient(135deg,var(--mint-2),#a3cc00);
+  display:grid;place-items:center;
+  box-shadow:0 4px 18px var(--mint-glow);
+}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+  color:var(--ink-2);text-decoration:none;font-size:14.5px;font-weight:500;
+  transition:color .18s ease;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.link-quiet{color:var(--ink-2);text-decoration:none;font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:var(--r-sm);transition:color .18s ease,background .18s ease}
+.link-quiet:hover{color:var(--ink);background:rgba(255,255,255,.05)}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--font-body);font-weight:600;text-decoration:none;
+  border-radius:12px;cursor:pointer;border:1px solid transparent;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease;
+}
+.btn-mint{
+  background:linear-gradient(180deg,var(--mint-2),var(--mint));
+  color:#131a00;
+  box-shadow:0 6px 26px var(--mint-glow),inset 0 1px 0 rgba(255,255,255,.35);
+}
+.btn-mint:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(204,255,0,.5),inset 0 1px 0 rgba(255,255,255,.35)}
+.btn-ghost{
+  background:transparent;color:var(--ink);
+  border-color:var(--line-strong);
+}
+.btn-ghost:hover{border-color:rgba(217,255,77,.5);background:rgba(204,255,0,.06);transform:translateY(-2px)}
+.btn-sm{padding:9px 18px;font-size:14px}
+.btn-lg{padding:15px 28px;font-size:15.5px}
+
+/* ============ HERO ============ */
+.hero{padding:88px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.pill{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:7px 15px;border-radius:100px;
+  background:var(--mint-dim);border:1px solid rgba(204,255,0,.28);
+  color:var(--mint-2);font-size:13px;font-weight:600;letter-spacing:.01em;
+  margin-bottom:28px;
+}
+.pill-dot{width:7px;height:7px;border-radius:50%;background:var(--mint);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(204,255,0,.5)}55%{box-shadow:0 0 0 7px rgba(204,255,0,0)}}
+h1{
+  font-family:var(--font-head);font-weight:700;
+  font-size:60px;line-height:1.04;letter-spacing:-.035em;
+  margin-bottom:24px;
+}
+.h1-mint{
+  background:linear-gradient(100deg,var(--mint-2),#eaff9a);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{font-size:17.5px;line-height:1.65;color:var(--ink-2);max-width:520px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;margin-bottom:32px}
+.hero-proof{display:flex;align-items:center;gap:14px;color:var(--ink-3);font-size:13.5px;font-weight:500}
+.avatars{display:flex}
+.avatars span{
+  width:28px;height:28px;border-radius:50%;border:2px solid var(--bg-page);
+  margin-right:-9px;display:grid;place-items:center;
+  font-size:10px;font-weight:700;color:#131a00;
+}
+.avatars span:nth-child(1){background:#e2ff85}
+.avatars span:nth-child(2){background:#c2f000}
+.avatars span:nth-child(3){background:#a3cc00}
+.avatars span:nth-child(4){background:#7d9c00;color:#f2ffcc}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,auto);gap:40px;
+  margin-top:44px;padding-top:32px;border-top:1px solid var(--line);
+  width:fit-content;
+}
+.stat-num{font-family:var(--font-head);font-size:26px;font-weight:700;letter-spacing:-.02em}
+.stat-num em{font-style:normal;color:var(--mint-2)}
+.stat-label{font-size:12.5px;color:var(--ink-3);margin-top:2px;font-weight:500}
+
+/* ============ DASHBOARD MOCK ============ */
+.dash-wrap{position:relative}
+.dash{
+  background:var(--bg-panel);
+  border:1px solid var(--line-strong);
+  border-radius:var(--r-md);
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+  animation:rise .9s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.dash-bar{
+  height:42px;display:flex;align-items:center;gap:8px;padding:0 16px;
+  background:linear-gradient(90deg,var(--mint),var(--mint-2));
+}
+.tl{width:10px;height:10px;border-radius:50%;background:rgba(19,26,0,.55)}
+.tl:nth-child(2){background:rgba(19,26,0,.38)}
+.tl:nth-child(3){background:rgba(19,26,0,.22)}
+.dash-url{
+  margin-left:14px;flex:1;max-width:230px;height:22px;border-radius:6px;
+  background:rgba(19,26,0,.28);
+  display:flex;align-items:center;padding:0 10px;
+  font-size:10.5px;font-weight:600;color:#1f2b00;letter-spacing:.02em;
+}
+.dash-body{display:grid;grid-template-columns:148px 1fr;min-height:392px}
+.dash-side{background:var(--bg-inset);border-right:1px solid var(--line);padding:16px 14px;display:flex;flex-direction:column;gap:13px}
+.sk{height:9px;border-radius:5px;background:rgba(255,255,255,.08)}
+.sk.active{background:var(--mint-dim);position:relative}
+.sk.active::before{content:"";position:absolute;left:-8px;top:2px;width:5px;height:5px;border-radius:50%;background:var(--mint)}
+.sk.w1{width:82%}.sk.w2{width:64%}.sk.w3{width:74%}.sk.w4{width:52%}.sk.w5{width:68%}.sk.w6{width:44%}
+.dash-side .gap{flex:1}
+.dash-main{padding:16px;display:flex;flex-direction:column;gap:14px}
+.mini-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mini{
+  background:var(--bg-panel-2);border:1px solid var(--line);border-radius:10px;
+  padding:11px 12px;
+}
+.mini b{display:block;font-family:var(--font-head);font-size:16px;letter-spacing:-.02em}
+.mini b i{font-style:normal;color:var(--mint-2)}
+.mini s{text-decoration:none;font-size:10px;color:var(--ink-3);font-weight:500}
+.chart-card{
+  background:var(--bg-panel-2);border:1px solid var(--line);border-radius:10px;
+  padding:13px 14px 8px;
+}
+.chart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.chart-head s{text-decoration:none;font-size:11px;color:var(--ink-3);font-weight:600}
+.chart-badge{
+  font-size:10px;font-weight:700;color:var(--mint-2);
+  background:var(--mint-dim);border-radius:5px;padding:3px 7px;
+}
+.chart-svg{display:block;width:100%;height:auto}
+.chart-line{
+  fill:none;stroke:var(--mint-2);stroke-width:2.5;stroke-linecap:round;
+  stroke-dasharray:900;stroke-dashoffset:900;
+  animation:draw 2.2s .4s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+.bars{display:flex;flex-direction:column;gap:10px}
+.bar-row s{text-decoration:none;display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-3);font-weight:600;margin-bottom:5px}
+.bar-row s b{color:var(--ink-2);font-weight:600}
+.bar-track{height:6px;border-radius:4px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar-fill{
+  height:100%;border-radius:4px;
+  background:linear-gradient(90deg,var(--mint),var(--mint-2));
+  transform-origin:left;animation:fill 1.4s .6s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.chip-float{
+  position:absolute;left:-28px;bottom:34px;
+  display:flex;align-items:center;gap:10px;
+  background:var(--bg-panel-2);border:1px solid rgba(204,255,0,.35);
+  border-radius:12px;padding:11px 16px;
+  box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 24px rgba(204,255,0,.12);
+  animation:rise 1s .5s cubic-bezier(.2,.7,.2,1) both;
+}
+.chip-float small{display:block;font-size:10px;color:var(--ink-3);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.chip-float b{font-size:12.5px;font-weight:600;color:var(--ink)}
+.check-orb{
+  width:30px;height:30px;border-radius:50%;flex:none;
+  background:var(--mint-dim);display:grid;place-items:center;
+}
+
+/* ============ LOGO CHIPS ============ */
+.chips{padding:0 0 80px}
+.chips-label{
+  text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:22px;
+}
+.chips-row{display:flex;justify-content:center;gap:18px}
+.chip{
+  display:flex;align-items:center;gap:11px;
+  background:var(--bg-panel);border:1px solid var(--line);
+  border-radius:14px;padding:15px 28px;
+  color:var(--ink-2);font-weight:600;font-size:14.5px;
+  transition:border-color .2s ease,color .2s ease,transform .2s ease;
+}
+.chip:hover{border-color:rgba(204,255,0,.35);color:var(--ink);transform:translateY(-2px)}
+.chip svg{opacity:.85}
+
+/* ============ SECTIONS ============ */
+section{position:relative}
+.sec{padding:88px 0}
+.sec-head{max-width:640px;margin-bottom:56px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.eyebrow{
+  font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mint-2);margin-bottom:14px;
+}
+h2{
+  font-family:var(--font-head);font-weight:700;
+  font-size:40px;line-height:1.12;letter-spacing:-.03em;margin-bottom:16px;
+}
+.sec-sub{font-size:16.5px;line-height:1.65;color:var(--ink-2)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent)}
+
+/* ============ SHOWCASE TABLE ============ */
+.showcase{
+  background:var(--bg-panel);border:1px solid var(--line-strong);
+  border-radius:var(--r-md);overflow:hidden;
+  box-shadow:0 30px 90px rgba(0,0,0,.45);
+}
+.show-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 22px;border-bottom:1px solid var(--line);background:var(--bg-panel-2);
+}
+.show-top-l{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);animation:pulse 2.4s ease-in-out infinite}
+.show-top-r{display:flex;gap:10px}
+.tag{
+  font-size:12px;font-weight:600;color:var(--ink-2);
+  border:1px solid var(--line-strong);border-radius:8px;padding:6px 12px;
+}
+.tag.mint{color:var(--mint-2);border-color:rgba(204,255,0,.35);background:var(--mint-dim)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead th{
+  text-align:left;padding:12px 22px;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);border-bottom:1px solid var(--line);background:var(--bg-inset);
+}
+tbody td{padding:15px 22px;border-bottom:1px solid var(--line);color:var(--ink-2)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr{transition:background .15s ease}
+tbody tr:hover{background:rgba(255,255,255,.025)}
+tbody td:first-child{color:var(--ink);font-weight:600}
+tr.hl td{background:rgba(204,255,0,.05)}
+.mono{font-family:'Space Grotesk',monospace;font-size:13px;letter-spacing:-.01em}
+.status{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  border-radius:100px;padding:5px 12px;
+}
+.status.v{color:#0a2e24;background:linear-gradient(180deg,var(--mint-2),var(--mint))}
+.status.c{color:var(--amber);background:rgba(232,194,88,.12);border:1px solid rgba(232,194,88,.3)}
+.status.p{color:var(--ink-3);background:rgba(255,255,255,.05);border:1px solid var(--line-strong)}
+.spin{
+  width:10px;height:10px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.15);border-top-color:var(--ink-2);
+  animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ============ PRODUCTS GRID ============ */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.prod{
+  background:var(--bg-panel);border:1px solid var(--line);
+  border-radius:var(--r-md);padding:28px 26px;
+  transition:border-color .22s ease,transform .22s ease,box-shadow .22s ease;
+  position:relative;
+}
+.prod:hover{
+  border-color:rgba(204,255,0,.4);transform:translateY(-4px);
+  box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 30px rgba(204,255,0,.07);
+}
+.prod-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--mint-dim);border:1px solid rgba(204,255,0,.22);
+  display:grid;place-items:center;margin-bottom:20px;
+}
+.prod h3{
+  font-family:var(--font-head);font-size:18px;font-weight:600;
+  letter-spacing:-.015em;margin-bottom:8px;
+  display:flex;align-items:center;gap:9px;
+}
+.prod p{font-size:14px;line-height:1.6;color:var(--ink-2)}
+.new-badge{
+  font-size:9.5px;font-weight:700;letter-spacing:.1em;
+  color:#131a00;background:linear-gradient(180deg,var(--mint-2),var(--mint));
+  border-radius:5px;padding:3px 7px;
+}
+.prod-wide{grid-column:span 3;display:flex;align-items:center;gap:36px;padding:34px 36px}
+.prod-wide .prod-icon{margin-bottom:0;width:52px;height:52px;flex:none}
+.prod-wide h3{margin-bottom:6px}
+.prod-wide p{max-width:660px}
+.prod-wide .arrow{margin-left:auto;flex:none;color:var(--mint-2);transition:transform .2s ease}
+.prod-wide:hover .arrow{transform:translateX(5px)}
+
+/* ============ SAFETY ============ */
+.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.safe-card{
+  border-radius:var(--r-md);padding:36px;
+  border:1px solid var(--line);background:var(--bg-panel);
+}
+.safe-card.bad{background:linear-gradient(180deg,#17181a,#141517)}
+.safe-card.good{
+  border-color:rgba(204,255,0,.35);
+  background:linear-gradient(180deg,rgba(204,255,0,.07),rgba(204,255,0,.015)),var(--bg-panel);
+  box-shadow:0 0 50px rgba(204,255,0,.06);
+}
+.safe-tag{
+  display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;border-radius:100px;padding:6px 14px;margin-bottom:22px;
+}
+.safe-card.bad .safe-tag{color:var(--red);background:rgba(242,109,109,.1);border:1px solid rgba(242,109,109,.25)}
+.safe-card.good .safe-tag{color:var(--mint-2);background:var(--mint-dim);border:1px solid rgba(204,255,0,.3)}
+.safe-card h3{font-family:var(--font-head);font-size:23px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.safe-card>p{font-size:14.5px;color:var(--ink-2);line-height:1.65;margin-bottom:26px}
+.safe-list{list-style:none;display:flex;flex-direction:column;gap:15px}
+.safe-list li{display:flex;gap:13px;align-items:flex-start;font-size:14.5px;color:var(--ink-2)}
+.safe-list li b{color:var(--ink);font-weight:600}
+.li-ico{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;margin-top:1px}
+.bad .li-ico{background:rgba(242,109,109,.12)}
+.good .li-ico{background:var(--mint-dim)}
+.safe-verdict{
+  margin-top:28px;padding-top:22px;border-top:1px solid var(--line);
+  font-family:var(--font-head);font-size:17px;font-weight:600;letter-spacing:-.01em;
+}
+.bad .safe-verdict{color:var(--red)}
+.good .safe-verdict{color:var(--mint-2)}
+
+/* ============ PRICING ============ */
+.price-grid{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:20px;align-items:stretch}
+.plan{
+  background:var(--bg-panel);border:1px solid var(--line);
+  border-radius:var(--r-md);padding:34px 30px;
+  display:flex;flex-direction:column;
+  transition:border-color .22s ease,transform .22s ease;
+}
+.plan:hover{border-color:var(--line-strong);transform:translateY(-3px)}
+.plan.featured{
+  border-color:rgba(204,255,0,.5);
+  background:linear-gradient(180deg,rgba(204,255,0,.09),rgba(204,255,0,.015)),var(--bg-panel);
+  box-shadow:0 24px 70px rgba(0,0,0,.5),0 0 44px rgba(204,255,0,.1);
+  position:relative;
+}
+.plan.featured:hover{transform:translateY(-6px)}
+.plan-flag{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:#131a00;background:linear-gradient(180deg,var(--mint-2),var(--mint));
+  border-radius:100px;padding:6px 16px;box-shadow:0 6px 18px var(--mint-glow);
+}
+.plan-name{font-family:var(--font-head);font-size:17px;font-weight:600;color:var(--ink-2);margin-bottom:14px}
+.plan.featured .plan-name{color:var(--mint-2)}
+.plan-price{font-family:var(--font-head);font-size:44px;font-weight:700;letter-spacing:-.035em;line-height:1}
+.plan-price small{font-size:15px;font-weight:500;color:var(--ink-3);letter-spacing:0}
+.plan-desc{font-size:13.5px;color:var(--ink-3);margin:12px 0 26px}
+.plan-list{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:32px}
+.plan-list li{display:flex;gap:11px;align-items:flex-start;font-size:14px;color:var(--ink-2)}
+.plan-list svg{flex:none;margin-top:3px}
+.plan .btn{margin-top:auto;width:100%}
+
+/* ============ FINAL CTA ============ */
+.final{
+  margin:0 48px;border-radius:var(--r-lg);
+  border:1px solid rgba(204,255,0,.25);
+  background:
+    radial-gradient(600px 300px at 50% -80px,rgba(204,255,0,.16),transparent 70%),
+    var(--bg-panel);
+  padding:88px 48px;text-align:center;overflow:hidden;position:relative;
+}
+.final h2{font-size:44px;max-width:640px;margin:0 auto 18px}
+.final p{color:var(--ink-2);font-size:16.5px;max-width:480px;margin:0 auto 36px}
+.final-actions{display:flex;justify-content:center;gap:14px}
+.final-note{margin-top:22px;font-size:13px;color:var(--ink-3);font-weight:500}
+
+/* ============ FOOTER ============ */
+footer{padding:56px 0 44px}
+.foot-grid{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:44px}
+.foot-brand p{margin-top:14px;font-size:13.5px;color:var(--ink-3);max-width:280px;line-height:1.6}
+.foot-cols{display:flex;gap:72px}
+.foot-col h4{
+  font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:16px;
+}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-col a{color:var(--ink-2);text-decoration:none;font-size:14px;transition:color .18s ease}
+.foot-col a:hover{color:var(--mint-2)}
+.foot-base{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:26px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--ink-3);
+}
+.foot-base-links{display:flex;gap:24px}
+.foot-base a{color:var(--ink-3);text-decoration:none;transition:color .18s ease}
+.foot-base a:hover{color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<div class="backdrop">
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+</div>
+
+<div class="frame">
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <a class="brand" href="#">
+      <span class="logo-tile">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <defs>
+            <path id="arm" d="M12 3.2 A 8.8 8.8 0 0 1 19 6.6" stroke="#06231a" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+          </defs>
+          <use href="#arm"/>
+          <use href="#arm" transform="rotate(60 12 12)"/>
+          <use href="#arm" transform="rotate(120 12 12)"/>
+          <use href="#arm" transform="rotate(180 12 12)"/>
+          <use href="#arm" transform="rotate(240 12 12)"/>
+          <use href="#arm" transform="rotate(300 12 12)"/>
+        </svg>
+      </span>
+      <span class="brand-name">Coldcast</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#safety">Safety</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#">Docs</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="link-quiet" href="#">Sign in</a>
+      <a class="btn btn-mint btn-sm" href="#">Start free trial</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="pill"><span class="pill-dot"></span>Premium account-safe scraping</span>
+          <h1>The world's <span class="h1-mint">safest</span> Sales Navigator scraper.</h1>
+          <p class="hero-sub">One subscription replaces your GTM stack — scrape Sales Navigator, Apollo &amp; ZoomInfo at zero ban risk, pull triple-verified emails &amp; phone numbers, and let the AI SDR run your outreach.</p>
+          <div class="hero-actions">
+            <a class="btn btn-mint btn-lg" href="#pricing">Start free trial
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#">Book a demo</a>
+          </div>
+          <div class="hero-proof">
+            <div class="avatars"><span>JT</span><span>MK</span><span>AL</span><span>+</span></div>
+            Tested by 10,000+ sales professionals
+          </div>
+          <div class="hero-stats">
+            <div><div class="stat-num">20,000</div><div class="stat-label">leads / day</div></div>
+            <div><div class="stat-num">10,000</div><div class="stat-label">leads / hour</div></div>
+            <div><div class="stat-num"><em>0</em></div><div class="stat-label">account bans</div></div>
+            <div><div class="stat-num"><em>99%</em></div><div class="stat-label">valid emails</div></div>
+          </div>
+        </div>
+
+        <!-- Dashboard mock -->
+        <div class="dash-wrap">
+          <div class="dash">
+            <div class="dash-bar">
+              <span class="tl"></span><span class="tl"></span><span class="tl"></span>
+              <span class="dash-url">app.coldcast.io/scrape</span>
+            </div>
+            <div class="dash-body">
+              <div class="dash-side">
+                <div class="sk active w1"></div>
+                <div class="sk w2"></div>
+                <div class="sk w3"></div>
+                <div class="sk w4"></div>
+                <div class="sk w5"></div>
+                <div class="sk w6"></div>
+                <div class="gap"></div>
+                <div class="sk w3"></div>
+                <div class="sk w6"></div>
+              </div>
+              <div class="dash-main">
+                <div class="mini-row">
+                  <div class="mini"><b>20,000</b><s>leads / day</s></div>
+                  <div class="mini"><b><i>99%</i></b><s>valid emails</s></div>
+                  <div class="mini"><b><i>0</i></b><s>account bans</s></div>
+                </div>
+                <div class="chart-card">
+                  <div class="chart-head">
+                    <s>Leads scraped — last 7 days</s>
+                    <span class="chart-badge">+2,431 today</span>
+                  </div>
+                  <svg class="chart-svg" viewBox="0 0 520 170" fill="none">
+                    <defs>
+                      <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#ccff00" stop-opacity=".28"/>
+                        <stop offset="1" stop-color="#ccff00" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <g stroke="rgba(255,255,255,.06)" stroke-width="1">
+                      <line x1="0" y1="42" x2="520" y2="42"/>
+                      <line x1="0" y1="84" x2="520" y2="84"/>
+                      <line x1="0" y1="126" x2="520" y2="126"/>
+                    </g>
+                    <path d="M0 132 C55 124 85 88 135 92 C185 96 205 62 255 66 C305 70 325 44 375 34 C415 26 465 34 520 16 L520 170 L0 170 Z" fill="url(#area)"/>
+                    <path class="chart-line" d="M0 132 C55 124 85 88 135 92 C185 96 205 62 255 66 C305 70 325 44 375 34 C415 26 465 34 520 16"/>
+                    <circle cx="375" cy="34" r="4" fill="#0f1214" stroke="#d9ff4d" stroke-width="2.5"/>
+                  </svg>
+                </div>
+                <div class="bars">
+                  <div class="bar-row">
+                    <s>Scrape queue · Sales Navigator <b>62%</b></s>
+                    <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div>
+                  </div>
+                  <div class="bar-row">
+                    <s>Waterfall enrichment <b>87%</b></s>
+                    <div class="bar-track"><div class="bar-fill" style="width:87%;animation-delay:.75s"></div></div>
+                  </div>
+                  <div class="bar-row">
+                    <s>Email verification <b>99%</b></s>
+                    <div class="bar-track"><div class="bar-fill" style="width:99%;animation-delay:.9s"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chip-float">
+            <span class="check-orb">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="#d9ff4d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span><small>Verified</small><b>tiffanie.k@illumenature.com</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ LOGO CHIPS ============ -->
+  <div class="chips">
+    <div class="wrap">
+      <div class="chips-label">Works with the sources your pipeline already lives in</div>
+      <div class="chips-row">
+        <div class="chip">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="1" y="1" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M6 8.5v6M6 5.8v.4M9.5 14.5v-4a2 2 0 0 1 4 0v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          LinkedIn Sales Navigator
+        </div>
+        <div class="chip">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 2 3 18M10 2l7 16M6 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Apollo
+        </div>
+        <div class="chip">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.5 7.5h7l-7 5h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          ZoomInfo
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ============ SHOWCASE ============ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="eyebrow">Live export</div>
+        <h2>From search URL to verified list in minutes.</h2>
+        <p class="sec-sub">Paste any Sales Navigator search. Coldcast scrapes at human pace inside your own browser, enriches every row through the waterfall, and triple-verifies each email before it hits your CSV.</p>
+      </div>
+      <div class="showcase">
+        <div class="show-top">
+          <div class="show-top-l"><span class="live-dot"></span>VP &amp; C-suite — Consumer wellness, US — 1,284 leads</div>
+          <div class="show-top-r"><span class="tag mint">99% valid</span><span class="tag">Export CSV</span><span class="tag">Export XLSX</span></div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Title</th><th>Company</th><th>Email</th><th>Phone</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr class="hl">
+              <td>Tiffanie K.</td><td>CRO</td><td>illumenature</td>
+              <td class="mono">tiffanie.k@illumenature.com</td><td class="mono">+1 (415) ··· ··42</td>
+              <td><span class="status v">
+                <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0a2e24" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                VERIFIED</span></td>
+            </tr>
+            <tr>
+              <td>Marcus D.</td><td>VP Sales</td><td>Northwind Labs</td>
+              <td class="mono">marcus.d@northwindlabs.com</td><td class="mono">+1 (628) ··· ··17</td>
+              <td><span class="status v">
+                <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0a2e24" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                VERIFIED</span></td>
+            </tr>
+            <tr>
+              <td>Priya S.</td><td>Head of Growth</td><td>Verdant Health</td>
+              <td class="mono">priya@verdanthealth.io</td><td class="mono">+1 (206) ··· ··90</td>
+              <td><span class="status v">
+                <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0a2e24" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                VERIFIED</span></td>
+            </tr>
+            <tr>
+              <td>Elena R.</td><td>CMO</td><td>Bloomfield Co.</td>
+              <td class="mono">e.rivera@bloomfield.co</td><td class="mono">—</td>
+              <td><span class="status c">CATCH-ALL</span></td>
+            </tr>
+            <tr>
+              <td>Jonah W.</td><td>Director, RevOps</td><td>Halcyon Systems</td>
+              <td class="mono">j.whitfield@halcyonsys.com</td><td class="mono">+1 (917) ··· ··63</td>
+              <td><span class="status p"><span class="spin"></span>VERIFYING</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============ PRODUCTS ============ -->
+  <section class="sec" id="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">The suite</div>
+        <h2>Seven tools. One subscription.<br>Zero duct tape.</h2>
+        <p class="sec-sub">Everything between "who should we sell to" and "reply received" — scraping, enrichment, verification and outreach, under one login.</p>
+      </div>
+      <div class="prod-grid">
+        <div class="prod">
+          <div class="prod-icon"><svg width="21" height="21" viewBox="0 0 22 22" fill="none"><circle cx="9.5" cy="9.5" r="6.5" stroke="#d9ff4d" stroke-width="1.8"/><path d="M14.5 14.5 19 19" stroke="#d9ff4d" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <h3>Sales Nav Scraper</h3>
+          <p>Export any Sales Navigator search or list — 20,000 leads a day from inside your own browser, at human pace.</p>
+        </div>
+        <div class="prod">
+          <div class="prod-icon"><svg width="21" height="21" viewBox="0 0 22 22" fill="none"><path d="M11 2 4 20M11 2l7 18M6.8 14h8.4" stroke="#d9ff4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Apollo Scraper</h3>
+          <p>Pull entire Apollo people searches past the export caps — company data enriched inline as pages stream in.</p>
+        </div>
+        <div class="prod">
+          <div class="prod-icon"><svg width="21" height="21" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="#d9ff4d" stroke-width="1.8"/><path d="M7.5 8.5h7l-7 5h7" stroke="#d9ff4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>ZoomInfo Scraper</h3>
+          <p>Turn ZoomInfo results into clean CSVs without seat gymnastics or credit anxiety. Same safety model, same speed.</p>
+        </div>
+        <div class="prod">
+          <div class="prod-icon"><svg width="21" height="21" viewBox="0 0 22 22" fill="none"><path d="M4 4h14M6.5 4l4.5 7v7l-1.5 1.5V11L4 4h2.5Z" stroke="#d9ff4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 13v6M12.5 16.5 15 19l2.5-2.5" stroke="#d9ff4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Waterfall Enricher</h3>
+          <p>Every lead runs a cascade of providers until a contact sticks — you only ever pay for data that lands.</p>
+        </div>
+        <div class="prod">
+          <div class="prod-icon"><svg width="21" height="21" viewBox="0 0 22 22" fill="none"><rect x="2.5" y="5" width="17" height="12" rx="2.5" stroke="#d9ff4d" stroke-width="1.8"/><path d="m3.5 6.5 7.5 5.5 7.5-5.5" stroke="#d9ff4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Email Verify</h3>
+          <p>Triple-verification on our own infrastructure — SMTP, catch-all resolution and pattern scoring. 99% deliverable.</p>
+        </div>
+        <div class="prod">
+          <div class="prod-icon"><svg width="21" height="21" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="#d9ff4d" stroke-width="1.8"/><path d="M2.5 11h17M11 2.5c2.6 2.3 3.9 5.2 3.9 8.5s-1.3 6.2-3.9 8.5c-2.6-2.3-3.9-5.2-3.9-8.5S8.4 4.8 11 2.5Z" stroke="#d9ff4d" stroke-width="1.8"/></svg></div>
+          <h3>Domain Enrichment</h3>
+          <p>Name in, firmographics out — domain, headcount, industry, tech stack and socials for any company on your list.</p>
+        </div>
+        <div class="prod prod-wide">
+          <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 22 22" fill="none"><path d="M11 2.5 12.9 8l5.6 1.9-5.6 1.9L11 17.5l-1.9-5.7L3.5 9.9 9.1 8 11 2.5Z" stroke="#d9ff4d" stroke-width="1.8" stroke-linejoin="round"/><path d="M17.5 14.5 18.3 17l2.4.8-2.4.8-.8 2.4-.8-2.4-2.4-.8 2.4-.8.8-2.5Z" stroke="#d9ff4d" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h3>AI SDR <span class="new-badge">NEW</span></h3>
+            <p>Hand the list off. The AI SDR writes the sequences, personalizes every touch from the enriched data, sends at deliverability-safe volume and books the replies onto your calendar.</p>
+          </div>
+          <svg class="arrow" width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 11h14M13 5.5 18.5 11 13 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============ SAFETY ============ -->
+  <section class="sec" id="safety">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="eyebrow">Account safety</div>
+        <h2>Your LinkedIn account is the asset.<br>We engineered around it.</h2>
+        <p class="sec-sub">Most scrapers get accounts restricted within weeks. Coldcast never touches your password and never leaves your machine — which is why our ban count is still zero.</p>
+      </div>
+      <div class="safety-grid">
+        <div class="safe-card bad">
+          <span class="safe-tag">Other scrapers</span>
+          <h3>Cloud bots on borrowed sessions</h3>
+          <p>The typical tool logs into your account from a datacenter and hammers the API until LinkedIn notices. It always notices.</p>
+          <ul class="safe-list">
+            <li><span class="li-ico"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 2.5 9.5 9.5M9.5 2.5 2.5 9.5" stroke="#f26d6d" stroke-width="2" stroke-linecap="round"/></svg></span><span><b>Stored passwords</b> — your credentials sit on someone else's server.</span></li>
+            <li><span class="li-ico"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 2.5 9.5 9.5M9.5 2.5 2.5 9.5" stroke="#f26d6d" stroke-width="2" stroke-linecap="round"/></svg></span><span><b>Datacenter IPs</b> — a login from a cloud region you've never visited.</span></li>
+            <li><span class="li-ico"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 2.5 9.5 9.5M9.5 2.5 2.5 9.5" stroke="#f26d6d" stroke-width="2" stroke-linecap="round"/></svg></span><span><b>Robotic request pace</b> — thousands of calls a minute, trivially fingerprinted.</span></li>
+          </ul>
+          <div class="safe-verdict">Result: restricted and banned accounts.</div>
+        </div>
+        <div class="safe-card good">
+          <span class="safe-tag">The Coldcast way</span>
+          <h3>Your browser. Your session. Human pace.</h3>
+          <p>Coldcast drives the browser you're already logged into, from your own machine — indistinguishable from you doing the work by hand, just 100x faster to a CSV.</p>
+          <ul class="safe-list">
+            <li><span class="li-ico"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>No password ever shared</b> — we ride your existing session, nothing stored.</span></li>
+            <li><span class="li-ico"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Your own IP and fingerprint</b> — same device LinkedIn already trusts.</span></li>
+            <li><span class="li-ico"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Human-pace pagination</b> — throttled to look exactly like a person browsing.</span></li>
+          </ul>
+          <div class="safe-verdict">Result: 0 bans across 10,000+ users.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============ PRICING ============ -->
+  <section class="sec" id="pricing">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="eyebrow">Pricing</div>
+        <h2>Cancel four subscriptions. Keep one.</h2>
+        <p class="sec-sub">Unlimited scraping on a flat fee. Enrichment is usage-based, so quiet months cost you almost nothing.</p>
+      </div>
+      <div class="price-grid">
+        <div class="plan">
+          <div class="plan-name">Free</div>
+          <div class="plan-price">$0</div>
+          <div class="plan-desc">1-day trial. No card required.</div>
+          <ul class="plan-list">
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>1,000 leads scraped</li>
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>50 enrichment credits</li>
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>All 7 products unlocked</li>
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>CSV &amp; XLSX export</li>
+          </ul>
+          <a class="btn btn-ghost btn-sm" href="#">Start free trial</a>
+        </div>
+        <div class="plan featured">
+          <span class="plan-flag">Most popular</span>
+          <div class="plan-name">Elite</div>
+          <div class="plan-price">$49<small> /mo</small></div>
+          <div class="plan-desc">Unlimited scraping + usage-based enrichment.</div>
+          <ul class="plan-list">
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited Sales Nav, Apollo &amp; ZoomInfo scraping</li>
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Waterfall enrichment — pay only for hits</li>
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Triple-verified emails &amp; phone numbers</li>
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>AI SDR outreach included</li>
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</li>
+          </ul>
+          <a class="btn btn-mint btn-sm" href="#">Start free trial</a>
+        </div>
+        <div class="plan">
+          <div class="plan-name">Custom</div>
+          <div class="plan-price">Let's talk</div>
+          <div class="plan-desc">For agencies and teams running volume.</div>
+          <ul class="plan-list">
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Multi-seat &amp; multi-profile</li>
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>API access &amp; webhooks</li>
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Volume enrichment pricing</li>
+            <li><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 6.5 5 9.5 10 3" stroke="#d9ff4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated success engineer</li>
+          </ul>
+          <a class="btn btn-ghost btn-sm" href="#">Book a demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final">
+    <h2>Find, enrich &amp; email your next customers.</h2>
+    <p>Join 10,000+ sales professionals scraping at zero ban risk. Your first 1,000 leads are on us.</p>
+    <div class="final-actions">
+      <a class="btn btn-mint btn-lg" href="#">Start free trial
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn-ghost btn-lg" href="#">Book a demo</a>
+    </div>
+    <div class="final-note">1-day free trial · 1,000 leads · 50 credits · no card required</div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="brand" href="#">
+            <span class="logo-tile">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <use href="#arm"/>
+                <use href="#arm" transform="rotate(60 12 12)"/>
+                <use href="#arm" transform="rotate(120 12 12)"/>
+                <use href="#arm" transform="rotate(180 12 12)"/>
+                <use href="#arm" transform="rotate(240 12 12)"/>
+                <use href="#arm" transform="rotate(300 12 12)"/>
+              </svg>
+            </span>
+            <span class="brand-name">Coldcast</span>
+          </a>
+          <p>The account-safe GTM suite. Scrape, enrich, verify and reach out — from one subscription.</p>
+        </div>
+        <div class="foot-cols">
+          <div class="foot-col">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="#products">Sales Nav Scraper</a></li>
+              <li><a href="#products">Apollo Scraper</a></li>
+              <li><a href="#products">ZoomInfo Scraper</a></li>
+              <li><a href="#products">Waterfall Enricher</a></li>
+              <li><a href="#products">AI SDR</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#safety">Safety</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#">Docs</a></li>
+              <li><a href="#">Changelog</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:hello@coldcast.io">hello@coldcast.io</a></li>
+              <li><a href="#">Book a demo</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="foot-base">
+        <span>© 2026 Coldcast. All rights reserved.</span>
+        <div class="foot-base-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
