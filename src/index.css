@@ -250,6 +250,28 @@
   }
 }
 
+/* Hero dashboard progress track — shimmer sweep, reads as "still running" */
+@keyframes track-shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(400%);
+  }
+}
+
+/* Hero dashboard status pill — cross-fade as a lead resolves lime -> mint */
+@keyframes status-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* Hero glass squares — gentle blink */
 @keyframes square-blink {
   0%, 100% { opacity: 0.4; }

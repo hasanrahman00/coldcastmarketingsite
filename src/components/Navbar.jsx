@@ -19,6 +19,8 @@ import {
   Briefcase,
   Settings2,
   UserSearch,
+  Wrench,
+  BadgePercent,
 } from 'lucide-react'
 import Logo from './Logo'
 import Button from './Button'
@@ -26,6 +28,9 @@ import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 
 const TAG = {
   New: 'bg-brand/25 text-brand',
+  // Lives inside an ItemRow now (mint IconTile 12px away), so it reads mint —
+  // a lime pill beside a mint tile would put two accents in one row.
+  '−75%': 'bg-brand/25 text-brand',
 }
 
 const AI_SDR = { icon: Bot, name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', to: '/coldcast-agent' }
@@ -47,6 +52,13 @@ const PRODUCT_COLUMNS = [
       { icon: Globe, name: 'Domain Enrichment', desc: 'Company data from a domain', to: '/products/domain-enrichment' },
     ],
   },
+  {
+    heading: 'More',
+    items: [
+      { icon: Wrench, name: 'Free Tools', desc: 'Free email verifier & more', to: '/tools' },
+      { icon: BadgePercent, name: 'Sales Nav Advanced', desc: 'Sales Nav power search — $25/mo', tag: '−75%', to: '/sales-nav-advanced' },
+    ],
+  },
 ]
 
 const ROLES = [
@@ -61,10 +73,8 @@ const ROLES = [
 const NAV = [
   { key: 'agent', label: 'Coldcast Agent', to: '/coldcast-agent' },
   { key: 'products', label: 'Products', to: '/products', menu: 'products', caret: true },
-  { key: 'role', label: 'Role', to: '/roles', menu: 'role', caret: true },
   { key: 'pricing', label: 'Pricing', to: '/#pricing' },
-  { key: 'tools', label: 'Free Tools', to: '/tools' },
-  { key: 'deal', label: 'Sales Nav Advanced', to: '/sales-nav-advanced', badge: '−75%' },
+  { key: 'role', label: 'Role', to: '/roles', menu: 'role', caret: true },
 ]
 
 // Small mint tile + lucide glyph — mirrors the mock's .prod-icon.
@@ -201,12 +211,16 @@ export default function Navbar() {
             exit="exit"
             onMouseEnter={() => clearTimeout(closeTimer.current)}
             onMouseLeave={scheduleClose}
-            className="absolute inset-x-0 top-full mx-auto hidden w-[min(60rem,calc(100vw-2rem))] px-4 lg:block"
+            // Products carries a third column now, so it gets a wider shell; the
+            // role panel keeps its original width. Both stay clamped to the viewport.
+            className={`absolute inset-x-0 top-full mx-auto hidden px-4 lg:block ${
+              menu === 'products' ? 'w-[min(76rem,calc(100vw-2rem))]' : 'w-[min(60rem,calc(100vw-2rem))]'
+            }`}
           >
             <div className="overflow-hidden rounded-2xl border border-hairline-strong bg-panel shadow-card">
               {menu === 'products' && (
-                <div className="grid grid-cols-[1.5fr_1fr]">
-                  <div className="grid grid-cols-2 gap-x-8 p-7">
+                <div className="grid grid-cols-[2.7fr_1fr]">
+                  <div className="grid grid-cols-3 gap-x-4 p-7">
                     {PRODUCT_COLUMNS.map((col) => (
                       <div key={col.heading}>
                         <p className="px-2.5 pb-2 text-xs font-semibold uppercase tracking-wider text-faint">{col.heading}</p>
@@ -275,18 +289,13 @@ export default function Navbar() {
                   {it.tag && <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[it.tag]}`}>{it.tag}</span>}
                 </Link>
               ))}
+              <Link to="/#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">Pricing</Link>
               <Link to="/roles" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">Role</Link>
               {ROLES.map((r) => (
                 <Link key={r.name} to={r.to} onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted hover:bg-white/[0.05] hover:text-ink">
                   <IconTile icon={r.icon} size={15} />{r.name}
                 </Link>
               ))}
-              <Link to="/#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">Pricing</Link>
-              <Link to="/tools" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">Free Tools</Link>
-              <Link to="/sales-nav-advanced" onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">
-                Sales Nav Advanced
-                <span className="rounded-full bg-lime/15 px-1.5 py-0.5 text-[10px] font-bold text-lime">−75%</span>
-              </Link>
               <div className="mt-4 flex flex-col gap-3 border-t border-hairline pt-5">
                 <Button as="a" href={TRIAL_URL} variant="primary" size="lg" onClick={() => setOpen(false)}>Free trial</Button>
                 <Button as="a" href={DEMO_URL} variant="ghost" size="lg" onClick={() => setOpen(false)}>Book a demo</Button>

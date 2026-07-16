@@ -1,4 +1,5 @@
 import Hero from '../components/Hero'
+import LiveExport from '../components/LiveExport'
 import ProductSuite from '../components/ProductSuite'
 import AiSdr from '../components/AiSdr'
 import GtmPipeline from '../components/GtmPipeline'
@@ -23,6 +24,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <LiveExport />
       <ProductSuite />
       <AiSdr />
       <GtmPipeline />
