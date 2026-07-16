@@ -63,7 +63,7 @@ function FaqItem({ item, isOpen, onToggle, index }) {
   const panelId = `faq-panel-${index}`
   const buttonId = `faq-button-${index}`
   return (
-    <div className="overflow-hidden rounded-2xl border border-hairline bg-panel/60 shadow-card backdrop-blur-sm transition-colors hover:border-black/15">
+    <div className="overflow-hidden rounded-2xl border border-hairline bg-panel/60 shadow-card backdrop-blur-sm transition-colors hover:border-hairline-strong">
       <h3>
         <button
           id={buttonId}
@@ -76,7 +76,7 @@ function FaqItem({ item, isOpen, onToggle, index }) {
           <span className="text-base font-semibold text-ink">{item.q}</span>
           <ChevronDown
             size={20}
-            className={`shrink-0 text-[#0e90ad] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+            className={`shrink-0 text-accent transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
           />
         </button>
       </h3>

@@ -15,12 +15,12 @@ import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 const PAGES = { ...PRODUCT_PAGES, ...ROLE_PAGES }
 
 const ACCENT = {
-  brand: { tile: 'bg-brand/15 ring-brand/30', text: 'text-brand', dot: 'bg-brand', line: 'from-brand', grad: 'from-brand to-brand-light', glow: 'rgba(79,124,245,0.18)' },
-  violet: { tile: 'bg-violet/15 ring-violet/30', text: 'text-[#7c3aed]', dot: 'bg-violet', line: 'from-violet', grad: 'from-violet to-magenta', glow: 'rgba(167,139,250,0.18)' },
-  cyan: { tile: 'bg-accent/15 ring-accent/30', text: 'text-[#0e90ad]', dot: 'bg-accent', line: 'from-accent', grad: 'from-accent to-brand-light', glow: 'rgba(34,211,238,0.16)' },
-  safe: { tile: 'bg-safe/15 ring-safe/30', text: 'text-[#0f9d72]', dot: 'bg-safe', line: 'from-safe', grad: 'from-safe to-accent', glow: 'rgba(52,211,153,0.16)' },
-  amber: { tile: 'bg-amber/15 ring-amber/30', text: 'text-[#c2740c]', dot: 'bg-amber', line: 'from-amber', grad: 'from-amber to-magenta', glow: 'rgba(251,191,36,0.16)' },
-  magenta: { tile: 'bg-magenta/15 ring-magenta/30', text: 'text-[#c026d3]', dot: 'bg-magenta', line: 'from-magenta', grad: 'from-magenta to-violet', glow: 'rgba(232,121,249,0.16)' },
+  brand: { tile: 'bg-brand/15 ring-brand/30', text: 'text-brand', dot: 'bg-brand', line: 'from-brand', grad: 'from-brand to-brand-light', glow: 'rgba(53,224,184,0.18)' },
+  violet: { tile: 'bg-violet/15 ring-violet/30', text: 'text-violet', dot: 'bg-violet', line: 'from-violet', grad: 'from-violet to-magenta', glow: 'rgba(45,212,191,0.18)' },
+  cyan: { tile: 'bg-accent/15 ring-accent/30', text: 'text-accent', dot: 'bg-accent', line: 'from-accent', grad: 'from-accent to-brand-light', glow: 'rgba(34,211,238,0.16)' },
+  safe: { tile: 'bg-safe/15 ring-safe/30', text: 'text-safe', dot: 'bg-safe', line: 'from-safe', grad: 'from-safe to-accent', glow: 'rgba(53,224,184,0.16)' },
+  amber: { tile: 'bg-amber/15 ring-amber/30', text: 'text-amber', dot: 'bg-amber', line: 'from-amber', grad: 'from-amber to-magenta', glow: 'rgba(232,194,88,0.16)' },
+  magenta: { tile: 'bg-magenta/15 ring-magenta/30', text: 'text-magenta', dot: 'bg-magenta', line: 'from-magenta', grad: 'from-magenta to-violet', glow: 'rgba(34,211,238,0.16)' },
 }
 
 function HeroBg({ accent }) {
@@ -28,7 +28,7 @@ function HeroBg({ accent }) {
     <div
       aria-hidden
       className="absolute inset-0 -z-10"
-      style={{ backgroundImage: `radial-gradient(95% 75% at 50% -10%, ${accent.glow}, transparent 60%), radial-gradient(60% 50% at 85% 0%, rgba(34,211,238,0.10), transparent 55%), linear-gradient(180deg,#efeafd,#f6f7fc)` }}
+      style={{ backgroundImage: `radial-gradient(95% 75% at 50% -10%, ${accent.glow}, transparent 60%), radial-gradient(60% 50% at 85% 0%, rgba(34,211,238,0.10), transparent 55%), linear-gradient(180deg,#121517,#0f1214)` }}
     />
   )
 }
@@ -110,7 +110,7 @@ function Hero({ data, accent, Visual }) {
 function StepsTimeline({ how, accent }) {
   return (
     <ol className="relative mx-auto mt-14 max-w-2xl">
-      <span aria-hidden className={`absolute bottom-6 left-[27px] top-6 w-px bg-gradient-to-b ${accent.line} via-black/15 to-transparent`} />
+      <span aria-hidden className={`absolute bottom-6 left-[27px] top-6 w-px bg-gradient-to-b ${accent.line} via-white/15 to-transparent`} />
       {how.steps.map((s, i) => (
         <motion.li key={s.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.45, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }} className="relative flex gap-5 pb-8 last:pb-0">
@@ -131,7 +131,7 @@ function StepsRail({ how, accent }) {
       {how.steps.map((s, i) => (
         <motion.div key={s.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.45, delay: (i % 3) * 0.07, ease: [0.16, 1, 0.3, 1] }}
-          className="group relative overflow-hidden rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(28,23,65,0.18)]">
+          className="group relative overflow-hidden rounded-2xl border border-hairline bg-panel p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/40 hover:bg-panel2 hover:shadow-card">
           <span aria-hidden className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${accent.grad}`} />
           <div className="flex items-center justify-between">
             <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${accent.tile}`}>{s.emoji}</span>
@@ -157,7 +157,7 @@ function Steps({ how, accent, variant }) {
 // ── Features ─────────────────────────────────────────────────────────────────
 function FeatureCard({ f, accent, className = '' }) {
   return (
-    <div className={`group rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(28,23,65,0.18)] ${className}`}>
+    <div className={`group rounded-2xl border border-hairline bg-panel p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/40 hover:bg-panel2 hover:shadow-card ${className}`}>
       <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${accent.tile}`}>{f.emoji}</span>
       <h3 className="mt-5 text-base font-semibold text-ink">{f.title}</h3>
       <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.desc}</p>
@@ -174,7 +174,7 @@ function Features({ features, accent, variant }) {
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((f, i) => (
             <Reveal as="div" key={f.title} delay={(i % 3) * 0.05} className={i === 0 ? 'sm:col-span-2 lg:row-span-2' : ''}>
-              <FeatureCard f={f} accent={accent} className={`h-full ${i === 0 ? 'bg-black/[0.05]' : ''}`} />
+              <FeatureCard f={f} accent={accent} className={`h-full ${i === 0 ? 'bg-panel2' : ''}`} />
             </Reveal>
           ))}
         </div>
@@ -221,7 +221,7 @@ function Benefits({ benefits, accent }) {
       <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
         {benefits.items.map((b, i) => (
           <Reveal key={b.title} delay={i * 0.06}>
-            <div className="group h-full rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(28,23,65,0.18)]">
+            <div className="group h-full rounded-2xl border border-hairline bg-panel p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/40 hover:bg-panel2 hover:shadow-card">
               <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-xl leading-none ring-1 ${accent.tile}`}>{b.emoji}</span>
               <h3 className="mt-4 text-base font-semibold text-ink">{b.title}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-muted">{b.desc}</p>
@@ -238,7 +238,7 @@ function Comparison({ comparison, accent }) {
     <section className="container-px py-20 sm:py-24">
       <SectionHeading eyebrow="The difference" title={comparison.heading} />
       <Reveal className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-2xl border border-hairline">
-        <div className="grid grid-cols-[1.4fr_1fr_1fr] bg-black/[0.03] text-xs font-semibold uppercase tracking-wider text-muted">
+        <div className="grid grid-cols-[1.4fr_1fr_1fr] bg-panel2 text-xs font-semibold uppercase tracking-wider text-muted">
           <div className="p-4" />
           <div className="p-4 text-center">Other tools</div>
           <div className={`p-4 text-center ${accent.text}`}>Coldcast</div>

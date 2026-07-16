@@ -3,19 +3,21 @@ import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import SpotlightCard from './SpotlightCard'
 
+// Tile fills stay in the graphite-safe amber / mint / teal / cyan family.
+// `fg` is the icon colour that sits ON the fill — always dark, never white.
 const TINT = {
-  amber: { grad: 'from-[#fbbf24] to-[#f59e0b]', glow: 'rgba(245,158,11,0.22)' },
-  violet: { grad: 'from-[#a855f7] to-[#7c3aed]', glow: 'rgba(124,58,237,0.22)' },
-  brand: { grad: 'from-[#60a5fa] to-[#3257d6]', glow: 'rgba(79,124,245,0.22)' },
-  cyan: { grad: 'from-[#22d3ee] to-[#0891b2]', glow: 'rgba(8,145,178,0.22)' },
-  safe: { grad: 'from-[#34d399] to-[#059669]', glow: 'rgba(5,150,105,0.22)' },
+  amber: { grad: 'from-[#e8c258] to-[#d4a62e]', glow: 'rgba(232,194,88,0.22)', fg: '#2b2007' },
+  violet: { grad: 'from-[#4ce8c3] to-[#2dd4bf]', glow: 'rgba(45,212,191,0.22)', fg: '#062119' },
+  brand: { grad: 'from-[#4ce8c3] to-[#1fbf9a]', glow: 'rgba(53,224,184,0.22)', fg: '#062119' },
+  cyan: { grad: 'from-[#22d3ee] to-[#0891b2]', glow: 'rgba(34,211,238,0.22)', fg: '#04222b' },
+  safe: { grad: 'from-[#35e0b8] to-[#1fbf9a]', glow: 'rgba(53,224,184,0.22)', fg: '#062119' },
 }
 
 function TileIcon({ icon: Icon, tint }) {
   return (
     <span
-      className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${TINT[tint].grad} text-white`}
-      style={{ boxShadow: `0 10px 24px -8px ${TINT[tint].glow}` }}
+      className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${TINT[tint].grad}`}
+      style={{ boxShadow: `0 10px 24px -8px ${TINT[tint].glow}`, color: TINT[tint].fg }}
     >
       <Icon size={22} />
     </span>
@@ -60,7 +62,7 @@ export default function Features() {
                 {INTENT_PILLS.map((p) => (
                   <span
                     key={p}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-amber/10 px-2.5 py-1 text-[11px] font-medium text-[#c2740c]"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-amber/30 bg-amber/10 px-2.5 py-1 text-[11px] font-medium text-amber"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-amber" />
                     {p}
@@ -84,17 +86,17 @@ export default function Features() {
                 {SOURCES.map((s) => (
                   <div
                     key={s}
-                    className="flex items-center justify-between rounded-lg border border-hairline bg-black/[0.03] px-3 py-2 text-xs"
+                    className="flex items-center justify-between rounded-lg border border-hairline bg-white/[0.03] px-3 py-2 text-xs"
                   >
                     <span className="text-muted">{s}</span>
-                    <span className="inline-flex items-center gap-1 text-[#7c3aed]">
+                    <span className="inline-flex items-center gap-1 text-accent">
                       <Check size={13} /> matched
                     </span>
                   </div>
                 ))}
                 <div className="mt-1 flex items-center justify-between rounded-lg border border-accent/20 bg-accent/[0.06] px-3 py-2 text-xs">
                   <span className="font-medium text-ink">Verified email</span>
-                  <MailCheck size={14} className="text-[#0e90ad]" />
+                  <MailCheck size={14} className="text-accent" />
                 </div>
               </div>
             </SpotlightCard>

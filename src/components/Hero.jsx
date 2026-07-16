@@ -1,131 +1,297 @@
-import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight, ShieldCheck } from 'lucide-react'
-import BrandLogo from './BrandLogo'
-import { TRIAL_URL, DEMO_URL, CUSTOMER_COUNT } from '../lib/constants'
+import { useReducedMotion } from 'framer-motion'
+import { ArrowRight, Check, Database, Linkedin, Rocket } from 'lucide-react'
+import { TRIAL_URL, DEMO_URL, CUSTOMER_COUNT, SAMPLE_LEADS } from '../lib/constants'
 
-// Cloud-Büro-style cloud gradient: deep purple sky fading to soft white cloud
-// at the bottom, which flows straight into the light body below.
-const CLOUD_BG =
-  'radial-gradient(ellipse 130% 52% at 50% 112%, rgba(255,255,255,1) 0%, rgba(214,224,255,0.85) 32%, rgba(140,170,255,0.25) 58%, transparent 78%),' +
-  'linear-gradient(176deg, #1c074c 0%, #3a10a0 28%, #5720ce 52%, #7b4fd4 70%, rgba(190,202,255,0.45) 86%, transparent 100%)'
-
-// Floating glassmorphism squares — positions adapted from the reference (em units).
-const LEFT = [
-  [10, 0.75], [19, 0.75], [28.1, 0.75], [1, 5.25], [5.6, 5.25], [22.2, 5.25],
-  [1, 9.75], [14.6, 9.75], [27.4, 10.5], [32.5, 9.75], [1, 18.75], [14.6, 18.75],
-  [10, 26.25], [1, 32.25], [6.25, 32.25], [1, 36.75], [1, 41.25],
-]
-const RIGHT = [
-  [1, 27.75], [6.25, 27.75], [1, 23.25], [6.25, 23.25], [1, 18.75], [14.6, 18.75],
-  [1, 14.25], [5.6, 14.25], [23.5, 14.25], [10, 9.75], [19.1, 9.75], [32.5, 10.75],
-  [1, 5.25], [14.6, 5.25], [1, 0.75], [10, 0.75], [23.6, 0.75], [19.1, 26.5],
+// ── Hero content ─────────────────────────────────────────────
+const STATS = [
+  { num: '20,000', label: 'leads / day', mint: false },
+  { num: '10,000', label: 'leads / hour', mint: false },
+  { num: '0', label: 'account bans', mint: true },
+  { num: '99%', label: 'valid emails', mint: true },
 ]
 
-function Squares() {
-  const make = (arr, side) =>
-    arr.map(([bottom, off], i) => (
-      <div
-        key={`${side}-${i}`}
-        className="absolute h-[5.25em] w-[5.25em] rounded-[1em] border border-white/15 bg-white/[0.13] backdrop-blur-[4px] motion-reduce:!animate-none"
-        style={{
-          bottom: `${bottom}em`,
-          [side]: `${off}em`,
-          animation: `square-blink ${(2.6 + ((i * 7) % 9) * 0.35).toFixed(2)}s ease-in-out ${(((i * 5 + (side === 'right' ? 3 : 0)) % 11) * 0.32).toFixed(2)}s infinite`,
-        }}
-      />
-    ))
-  return (
-    <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 top-0 hidden max-h-[82vh] overflow-hidden lg:block">
-      {make(LEFT, 'left')}
-      {make(RIGHT, 'right')}
-    </div>
-  )
-}
-
-const INTEGRATIONS = [
-  { name: 'Apollo', domain: 'apollo.io' },
-  { name: 'Instantly', domain: 'instantly.ai' },
-  { name: 'Smartlead', domain: 'smartlead.ai' },
-  { name: 'HubSpot', domain: 'hubspot.com' },
-  { name: 'Salesforce', domain: 'salesforce.com' },
+// Overlapping proof avatars — descending mint shades, dark initials.
+const AVATARS = [
+  { initials: 'JT', bg: '#63e6c5', fg: '#062119' },
+  { initials: 'MK', bg: '#3fc9a8', fg: '#062119' },
+  { initials: 'AL', bg: '#2ba98c', fg: '#062119' },
+  { initials: '+', bg: '#1f8c74', fg: '#c9f6ea' },
 ]
 
-const fade = {
-  hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } },
-}
-const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.08 } } }
+// ── Dashboard mock content ───────────────────────────────────
+const MINI_STATS = [
+  { num: '20,000', label: 'leads / day', mint: false },
+  { num: '99%', label: 'valid emails', mint: true },
+  { num: '0', label: 'account bans', mint: true },
+]
+
+// Sidebar skeleton bars — the first one is the "active" nav item.
+const SKELETONS = [
+  { w: '82%', active: true },
+  { w: '64%' },
+  { w: '74%' },
+  { w: '52%' },
+  { w: '68%' },
+  { w: '44%' },
+  { gap: true },
+  { w: '74%' },
+  { w: '44%' },
+]
+
+const BARS = [
+  { label: 'Scrape queue · Sales Navigator', pct: '62%', delay: '.6s' },
+  { label: 'Waterfall enrichment', pct: '87%', delay: '.75s' },
+  { label: 'Email verification', pct: '99%', delay: '.9s' },
+]
+
+// Chart geometry — copied verbatim from the mock.
+const CHART_LINE = 'M0 132 C55 124 85 88 135 92 C185 96 205 62 255 66 C305 70 325 44 375 34 C415 26 465 34 520 16'
+const CHART_AREA = `${CHART_LINE} L520 170 L0 170 Z`
+
+const SOURCES = [
+  { name: 'LinkedIn Sales Navigator', icon: Linkedin },
+  { name: 'Apollo', icon: Rocket },
+  { name: 'ZoomInfo', icon: Database },
+]
 
 export default function Hero() {
   const reduce = useReducedMotion()
+
+  // CSS-driven entrance/draw/fill animations, gated on reduced-motion.
+  const anim = (value) => (reduce ? undefined : value)
+
   return (
-    <section
-      id="top"
-      className="relative flex min-h-[94vh] flex-col items-center justify-center overflow-hidden pb-28 pt-40 sm:pt-44"
-      style={{ backgroundImage: CLOUD_BG }}
-    >
-      <Squares />
+    <section id="top" className="relative overflow-hidden pb-20 pt-40 sm:pt-44">
+      <div className="container-px">
+        <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
+          {/* ── Left column ─────────────────────────────── */}
+          <div>
+            <span className="mb-7 inline-flex items-center gap-[9px] rounded-full border border-[rgba(53,224,184,0.28)] bg-brand/15 px-[15px] py-[7px] text-[13px] font-semibold tracking-[0.01em] text-accent">
+              <span
+                aria-hidden
+                className="h-[7px] w-[7px] flex-none rounded-full bg-brand"
+                style={{ animation: anim('pill-pulse 2.4s ease-in-out infinite') }}
+              />
+              Premium account-safe scraping
+            </span>
 
-      <motion.div
-        variants={stagger}
-        initial={reduce ? false : 'hidden'}
-        animate="show"
-        className="container-px relative z-10"
-      >
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-7 text-center">
-          {/* social-proof eyebrow */}
-          <motion.a
-            variants={fade}
-            href="#safety"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.10] px-3.5 py-1.5 text-sm text-white/85 backdrop-blur transition-colors hover:bg-white/[0.16]"
-          >
-            <ShieldCheck size={14} className="text-[#9fe3c3]" />
-            Tested by <span className="font-semibold text-white">{CUSTOMER_COUNT}</span> sales professionals
-            <ArrowRight size={14} className="text-white/55" />
-          </motion.a>
+            <h1 className="mb-6 font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold leading-[1.04] tracking-[-0.035em] text-ink">
+              The world&rsquo;s{' '}
+              <span className="bg-[linear-gradient(100deg,#4ce8c3,#8ff2da)] bg-clip-text text-transparent">
+                safest
+              </span>{' '}
+              Sales Navigator scraper.
+            </h1>
 
-          <motion.h1
-            variants={fade}
-            className="text-balance font-display text-[2.75rem] font-bold leading-[1.04] tracking-[-0.02em] text-white sm:text-[3.6rem] lg:text-[4.6rem]"
-          >
-            The world&rsquo;s safest<br />Sales Navigator scraper.
-          </motion.h1>
+            <p className="mb-9 max-w-[520px] text-[17.5px] leading-[1.65] text-muted">
+              One subscription replaces your GTM stack — scrape Sales Navigator, Apollo &amp; ZoomInfo at zero
+              ban risk, pull triple-verified emails &amp; phone numbers, and let the AI SDR run your outreach.
+            </p>
 
-          <motion.p variants={fade} className="max-w-2xl text-pretty text-base leading-relaxed text-[#e3ddf6] sm:text-lg">
-            The <span className="font-semibold text-white">Apify alternative</span> that replaces your whole GTM
-            stack — one subscription to scrape Sales Navigator, Apollo &amp; ZoomInfo at zero ban risk and pull{' '}
-            <span className="font-semibold text-white">fresh, triple-verified</span> emails &amp; phone numbers.
-          </motion.p>
+            <div className="mb-8 flex flex-wrap gap-[14px]">
+              <a
+                href={TRIAL_URL}
+                className="group inline-flex items-center justify-center gap-[9px] rounded-xl bg-brand-gradient px-7 py-[15px] text-[15.5px] font-semibold text-[#062119] shadow-brand-btn transition-all duration-200 hover:-translate-y-0.5 hover:shadow-brand-btn-hover"
+              >
+                Start free trial
+                <ArrowRight size={15} strokeWidth={2.2} className="transition-transform group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href={DEMO_URL}
+                className="inline-flex items-center justify-center rounded-xl border border-hairline-strong px-7 py-[15px] text-[15.5px] font-semibold text-ink transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-light/50 hover:bg-brand/[0.06]"
+              >
+                Book a demo
+              </a>
+            </div>
 
-          <motion.div variants={fade} className="mt-1 flex flex-col items-center gap-3 sm:flex-row">
-            <a
-              href={TRIAL_URL}
-              className="group inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white px-8 text-sm font-semibold uppercase tracking-[0.08em] text-[#3a10a0] shadow-[0_14px_40px_-10px_rgba(20,8,60,0.5)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_-10px_rgba(20,8,60,0.6)]"
-            >
-              Start free trial
-              <ArrowRight size={17} className="transition-transform group-hover:translate-x-0.5" />
-            </a>
-            <a
-              href={DEMO_URL}
-              className="inline-flex h-14 items-center justify-center rounded-full border border-white/35 bg-white/[0.10] px-8 text-sm font-semibold uppercase tracking-[0.08em] text-white backdrop-blur transition-all duration-200 hover:border-white/60 hover:bg-white/[0.18]"
-            >
-              Book a demo
-            </a>
-          </motion.div>
+            {/* Proof row */}
+            <div className="flex items-center gap-[14px] text-[13.5px] font-medium text-faint">
+              <div aria-hidden className="flex">
+                {AVATARS.map((a) => (
+                  <span
+                    key={a.initials}
+                    className="-mr-[9px] grid h-7 w-7 flex-none place-items-center rounded-full border-2 border-bg text-[10px] font-bold"
+                    style={{ background: a.bg, color: a.fg }}
+                  >
+                    {a.initials}
+                  </span>
+                ))}
+              </div>
+              <span className="pl-[9px]">Tested by {CUSTOMER_COUNT} sales professionals</span>
+            </div>
 
-          {/* integrations strip — sits on the light cloud base */}
-          <motion.div variants={fade} className="mt-10 flex flex-col items-center gap-4 border-t border-white/15 pt-8">
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {INTEGRATIONS.map((b) => (
-                <BrandLogo key={b.name} domain={b.domain} name={b.name} size={36} />
+            {/* Stats row */}
+            <div className="mt-11 grid w-fit grid-cols-2 gap-8 border-t border-hairline pt-8 sm:grid-cols-4 sm:gap-10">
+              {STATS.map((s) => (
+                <div key={s.label}>
+                  <div
+                    className={`font-display text-[26px] font-bold tracking-[-0.02em] ${
+                      s.mint ? 'text-accent' : 'text-ink'
+                    }`}
+                  >
+                    {s.num}
+                  </div>
+                  <div className="mt-0.5 text-[12.5px] font-medium text-faint">{s.label}</div>
+                </div>
               ))}
             </div>
-            <p className="text-sm font-medium text-[#4b4a73]">
-              Plugs into the outbound &amp; CRM tools you already use
-            </p>
-          </motion.div>
+          </div>
+
+          {/* ── Right column — dashboard mock ───────────── */}
+          <div className="relative">
+            <div
+              className="overflow-hidden rounded-2xl border border-hairline-strong bg-panel shadow-[0_30px_80px_rgba(0,0,0,0.55)]"
+              style={{ animation: anim('rise .9s cubic-bezier(.2,.7,.2,1) both') }}
+            >
+              {/* Browser chrome */}
+              <div className="flex h-[42px] items-center gap-2 bg-[linear-gradient(90deg,#35e0b8,#4ce8c3)] px-4">
+                <span className="h-2.5 w-2.5 flex-none rounded-full bg-[rgba(6,33,25,0.55)]" />
+                <span className="h-2.5 w-2.5 flex-none rounded-full bg-[rgba(6,33,25,0.38)]" />
+                <span className="h-2.5 w-2.5 flex-none rounded-full bg-[rgba(6,33,25,0.22)]" />
+                <span className="ml-[14px] flex h-[22px] max-w-[230px] flex-1 items-center overflow-hidden rounded-md bg-[rgba(6,33,25,0.28)] px-2.5 text-[10.5px] font-semibold tracking-[0.02em] text-[#06382b]">
+                  app.coldcast.io/scrape
+                </span>
+              </div>
+
+              <div className="grid min-h-[392px] grid-cols-[148px_1fr]">
+                {/* Sidebar */}
+                <div aria-hidden className="flex flex-col gap-[13px] border-r border-hairline bg-inset px-[14px] py-4">
+                  {SKELETONS.map((s, i) =>
+                    s.gap ? (
+                      <div key="gap" className="flex-1" />
+                    ) : (
+                      <div
+                        key={i}
+                        className={`relative h-[9px] rounded-[5px] ${s.active ? 'bg-brand/15' : 'bg-white/[0.08]'}`}
+                        style={{ width: s.w }}
+                      >
+                        {s.active && (
+                          <span className="absolute -left-2 top-0.5 h-[5px] w-[5px] rounded-full bg-brand" />
+                        )}
+                      </div>
+                    ),
+                  )}
+                </div>
+
+                {/* Main */}
+                <div className="flex flex-col gap-[14px] p-4">
+                  {/* Mini stat cards */}
+                  <div className="grid grid-cols-3 gap-2.5">
+                    {MINI_STATS.map((m) => (
+                      <div key={m.label} className="rounded-[10px] border border-hairline bg-panel2 px-3 py-[11px]">
+                        <div
+                          className={`font-display text-base font-bold tracking-[-0.02em] ${
+                            m.mint ? 'text-accent' : 'text-ink'
+                          }`}
+                        >
+                          {m.num}
+                        </div>
+                        <div className="text-[10px] font-medium text-faint">{m.label}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Chart */}
+                  <div className="rounded-[10px] border border-hairline bg-panel2 px-[14px] pb-2 pt-[13px]">
+                    <div className="mb-1.5 flex items-center justify-between">
+                      <span className="text-[11px] font-semibold text-faint">Leads scraped — last 7 days</span>
+                      <span className="rounded-[5px] bg-brand/15 px-[7px] py-[3px] text-[10px] font-bold text-accent">
+                        +2,431 today
+                      </span>
+                    </div>
+                    <svg viewBox="0 0 520 170" fill="none" className="block h-auto w-full" aria-hidden>
+                      <defs>
+                        <linearGradient id="hero-chart-area" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stopColor="#35e0b8" stopOpacity=".28" />
+                          <stop offset="1" stopColor="#35e0b8" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <g stroke="rgba(255,255,255,.06)" strokeWidth="1">
+                        <line x1="0" y1="42" x2="520" y2="42" />
+                        <line x1="0" y1="84" x2="520" y2="84" />
+                        <line x1="0" y1="126" x2="520" y2="126" />
+                      </g>
+                      <path d={CHART_AREA} fill="url(#hero-chart-area)" />
+                      <path
+                        d={CHART_LINE}
+                        fill="none"
+                        stroke="#4ce8c3"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        style={
+                          reduce
+                            ? undefined
+                            : {
+                                strokeDasharray: 900,
+                                strokeDashoffset: 900,
+                                animation: 'draw 2.2s .4s cubic-bezier(.4,0,.2,1) forwards',
+                              }
+                        }
+                      />
+                      <circle cx="375" cy="34" r="4" fill="#0f1214" stroke="#4ce8c3" strokeWidth="2.5" />
+                    </svg>
+                  </div>
+
+                  {/* Progress bars */}
+                  <div className="flex flex-col gap-2.5">
+                    {BARS.map((b) => (
+                      <div key={b.label}>
+                        <div className="mb-[5px] flex justify-between text-[10.5px] font-semibold text-faint">
+                          <span>{b.label}</span>
+                          <span className="text-muted">{b.pct}</span>
+                        </div>
+                        <div className="h-1.5 overflow-hidden rounded-[4px] bg-hairline">
+                          <div
+                            className="h-full origin-left rounded-[4px] bg-[linear-gradient(90deg,#35e0b8,#4ce8c3)]"
+                            style={{
+                              width: b.pct,
+                              animation: anim(`fill 1.4s ${b.delay} cubic-bezier(.2,.7,.2,1) both`),
+                            }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating verified chip — overlaps the card edge on desktop */}
+            <div
+              className="mt-4 flex w-fit items-center gap-2.5 rounded-xl border border-[rgba(53,224,184,0.35)] bg-panel2 px-4 py-[11px] shadow-[0_18px_50px_rgba(0,0,0,0.55),0_0_24px_rgba(53,224,184,0.12)] lg:absolute lg:-left-7 lg:bottom-[34px] lg:mt-0"
+              style={{ animation: anim('rise 1s .5s cubic-bezier(.2,.7,.2,1) both') }}
+            >
+              <span className="grid h-[30px] w-[30px] flex-none place-items-center rounded-full bg-brand/15">
+                <Check size={14} strokeWidth={2.2} className="text-accent" />
+              </span>
+              <span>
+                <small className="block text-[10px] font-semibold uppercase tracking-[0.06em] text-faint">
+                  Verified
+                </small>
+                <b className="text-[12.5px] font-semibold text-ink">{SAMPLE_LEADS[0].email}</b>
+              </span>
+            </div>
+          </div>
         </div>
-      </motion.div>
+
+        {/* ── Logo chips ───────────────────────────────── */}
+        <div className="mt-[72px]">
+          <div className="mb-[22px] text-center text-[12.5px] font-semibold uppercase tracking-[0.14em] text-faint">
+            Works with the sources your pipeline already lives in
+          </div>
+          <div className="flex flex-wrap justify-center gap-[18px]">
+            {SOURCES.map(({ name, icon: Icon }) => (
+              <div
+                key={name}
+                className="flex items-center gap-[11px] rounded-2xl border border-hairline bg-panel px-7 py-[15px] text-[14.5px] font-semibold text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/35 hover:text-ink"
+              >
+                <Icon size={18} strokeWidth={1.6} className="flex-none opacity-85" />
+                {name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

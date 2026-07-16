@@ -4,7 +4,7 @@ import Reveal from './Reveal'
 export function Eyebrow({ children, className = '' }) {
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-full border border-hairline bg-black/5 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-muted backdrop-blur ${className}`}
+      className={`inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/15 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-accent backdrop-blur ${className}`}
     >
       {children}
     </span>

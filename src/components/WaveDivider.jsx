@@ -1,6 +1,6 @@
 // Low-amplitude SVG wave divider. Set `fill` to the color of the section it
 // flows INTO so the two sections appear to blend. `flip` mirrors it vertically.
-export default function WaveDivider({ fill = '#0b0a1f', flip = false, className = '' }) {
+export default function WaveDivider({ fill = '#0f1214', flip = false, className = '' }) {
   return (
     <div
       aria-hidden

@@ -22,7 +22,7 @@ const ROWS = [
 
 const labelCell = 'border-t border-hairline px-5 py-4 text-left text-sm font-medium text-ink'
 const otherCell = 'border-t border-hairline px-5 py-4 text-center text-sm text-muted'
-const coldCell = 'border-x-2 border-t border-brand/15 border-x-brand/30 bg-black/[0.06] px-5 py-4 text-center text-sm'
+const coldCell = 'border-x-2 border-t border-brand/15 border-x-brand/30 bg-brand/[0.06] px-5 py-4 text-center text-sm'
 
 export default function SpeedAccuracy() {
   return (
@@ -48,8 +48,8 @@ export default function SpeedAccuracy() {
                 <div className="flex items-end justify-center px-5 pb-4 text-center text-sm font-semibold text-muted">
                   Other Sales Navigator scrapers
                 </div>
-                <div className="rounded-t-[1.4rem] border-x-2 border-t-2 border-brand/30 bg-black/[0.06] px-5 pb-4 pt-5 text-center">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-3 py-1.5 text-sm font-semibold text-white shadow-brand-btn">
+                <div className="rounded-t-[1.4rem] border-x-2 border-t-2 border-brand/30 bg-brand/[0.06] px-5 pb-4 pt-5 text-center">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-3 py-1.5 text-sm font-semibold text-[#062119] shadow-brand-btn">
                     <Logo size={18} />
                     With Coldcast
                   </span>
@@ -70,10 +70,10 @@ export default function SpeedAccuracy() {
 
                     <div className={coldCell}>
                       {row.bool ? (
-                        <Check size={16} className="mx-auto text-[#0f9d72]" />
+                        <Check size={16} className="mx-auto text-brand" />
                       ) : (
-                        <span className={`font-semibold ${row.win ? 'text-[#0f9d72]' : 'text-ink'}`}>
-                          {row.win && <Zap size={12} className="mr-1 inline-block -translate-y-px fill-safe text-[#0f9d72]" />}
+                        <span className={`font-semibold ${row.win ? 'text-accent' : 'text-ink'}`}>
+                          {row.win && <Zap size={12} className="mr-1 inline-block -translate-y-px fill-safe text-brand" />}
                           {row.cold}
                         </span>
                       )}
@@ -84,18 +84,18 @@ export default function SpeedAccuracy() {
                 {/* CTA footer under the Coldcast column */}
                 <div />
                 <div />
-                <div className="rounded-b-[1.4rem] border-x-2 border-b-2 border-brand/30 bg-black/[0.06] px-5 pb-6 pt-5 text-center">
+                <div className="rounded-b-[1.4rem] border-x-2 border-b-2 border-brand/30 bg-brand/[0.06] px-5 pb-6 pt-5 text-center">
                   <Button as="a" href={TRIAL_URL} variant="primary" size="md" className="w-full">
                     Start free trial
                   </Button>
                   <div className="mt-3 flex items-center justify-center gap-3 text-[11px] font-medium text-muted">
                     <span className="inline-flex items-center gap-1">
-                      <ShieldCheck size={12} className="text-[#0f9d72]" />
+                      <ShieldCheck size={12} className="text-brand" />
                       Account-safe
                     </span>
                     <span className="h-3 w-px bg-hairline" />
                     <span className="inline-flex items-center gap-1">
-                      <Check size={12} className="text-[#0f9d72]" />
+                      <Check size={12} className="text-brand" />
                       No card required
                     </span>
                   </div>

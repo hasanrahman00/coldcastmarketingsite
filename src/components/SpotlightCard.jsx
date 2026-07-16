@@ -5,7 +5,7 @@ import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
 export default function SpotlightCard({
   children,
   className = '',
-  glow = 'rgba(79,124,245,0.16)',
+  glow = 'rgba(53,224,184,0.16)',
   spanClass = '',
 }) {
   const x = useMotionValue(-200)
@@ -24,7 +24,7 @@ export default function SpotlightCard({
       <motion.div
         whileHover={{ y: -4 }}
         transition={{ type: 'spring', stiffness: 300, damping: 26 }}
-        className={`relative h-full overflow-hidden rounded-[1.25rem] bg-black/[0.045] shadow-card backdrop-blur-xl ${className}`}
+        className={`relative h-full overflow-hidden rounded-[1.25rem] bg-panel/80 shadow-card backdrop-blur-xl ${className}`}
       >
         <motion.div
           aria-hidden

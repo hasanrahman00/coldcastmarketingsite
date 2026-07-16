@@ -50,13 +50,13 @@ export default function DashboardMock() {
   return (
     <div className="overflow-hidden rounded-2xl border border-hairline bg-panel/80 shadow-card backdrop-blur-xl">
       {/* Browser chrome */}
-      <div className="flex items-center gap-2 border-b border-hairline bg-black/[0.03] px-4 py-3">
-        <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-        <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-        <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+      <div className="flex items-center gap-2 border-b border-hairline bg-panel2 px-4 py-3">
+        <span className="h-3 w-3 rounded-full bg-white/20" />
+        <span className="h-3 w-3 rounded-full bg-white/[0.14]" />
+        <span className="h-3 w-3 rounded-full bg-white/[0.08]" />
         <div className="ml-2 flex flex-1 justify-center">
-          <div className="inline-flex items-center gap-1.5 rounded-md bg-black/5 px-3 py-1 text-[11px] text-muted">
-            <Lock size={11} className="text-[#0e90ad]" />
+          <div className="inline-flex items-center gap-1.5 rounded-md bg-white/5 px-3 py-1 text-[11px] text-muted">
+            <Lock size={11} className="text-accent" />
             app.coldcast.io
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function DashboardMock() {
       {/* App body */}
       <div className="flex">
         {/* Sidebar */}
-        <aside className="hidden w-44 shrink-0 flex-col border-r border-hairline bg-black/[0.02] p-3 sm:flex">
+        <aside className="hidden w-44 shrink-0 flex-col border-r border-hairline bg-inset p-3 sm:flex">
           <div className="flex items-center gap-2 px-2 pb-4 pt-1">
             <Logo size={22} />
             <span className="text-sm font-semibold">Coldcast</span>
@@ -78,15 +78,15 @@ export default function DashboardMock() {
                   active ? 'bg-brand-light/15 text-ink' : 'text-muted'
                 }`}
               >
-                <Icon size={15} className={active ? 'text-[#0e90ad]' : ''} />
+                <Icon size={15} className={active ? 'text-accent' : ''} />
                 {label}
               </span>
             ))}
           </nav>
-          <div className="mt-auto rounded-lg border border-hairline bg-black/[0.03] p-3">
+          <div className="mt-auto rounded-lg border border-hairline bg-white/[0.03] p-3">
             <div className="text-[11px] text-muted">Credits left</div>
             <div className="mt-1 text-sm font-semibold text-ink">3,752</div>
-            <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-black/10">
+            <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
               <div className="h-full w-3/4 rounded-full bg-brand-gradient" />
             </div>
           </div>
@@ -101,11 +101,11 @@ export default function DashboardMock() {
               <div className="text-[11px] text-muted">1,248 contacts · sample data</div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="hidden items-center gap-1.5 rounded-lg border border-hairline bg-black/5 px-2.5 py-1.5 text-[11px] text-muted sm:inline-flex">
-                <TrendingUp size={12} className="text-[#0f9d72]" />
+              <span className="hidden items-center gap-1.5 rounded-lg border border-hairline bg-white/5 px-2.5 py-1.5 text-[11px] text-muted sm:inline-flex">
+                <TrendingUp size={12} className="text-brand" />
                 <Counter to={18932} className="font-semibold text-ink" /> exported today
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-lg bg-brand-gradient px-2.5 py-1.5 text-[11px] font-semibold text-white">
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-brand-gradient px-2.5 py-1.5 text-[11px] font-semibold text-[#062119]">
                 <Download size={12} />
                 Export
               </span>
@@ -113,14 +113,14 @@ export default function DashboardMock() {
           </div>
 
           {/* Job status */}
-          <div className="mt-4 flex items-center gap-3 rounded-lg border border-hairline bg-black/[0.03] px-3 py-2.5">
+          <div className="mt-4 flex items-center gap-3 rounded-lg border border-hairline bg-white/[0.03] px-3 py-2.5">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
             <span className="text-[11px] font-medium text-ink">Enriching emails, phones &amp; signals</span>
             <div className="ml-auto flex w-28 items-center gap-2">
-              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-black/10">
+              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
                 <div
                   className="h-full rounded-full bg-gradient-to-r from-accent to-brand-light transition-[width] duration-700 ease-out"
                   style={{ width: `${Math.max(progress, 6)}%` }}
@@ -134,7 +134,7 @@ export default function DashboardMock() {
           <div className="mt-4 overflow-hidden rounded-lg border border-hairline">
             <table className="w-full border-collapse text-left text-[11px]">
               <thead>
-                <tr className="bg-black/[0.03] text-muted">
+                <tr className="bg-inset text-muted">
                   <th className="px-3 py-2 font-medium">Name</th>
                   <th className="px-3 py-2 font-medium">Company</th>
                   <th className="hidden px-3 py-2 font-medium md:table-cell">Work email</th>
@@ -145,7 +145,7 @@ export default function DashboardMock() {
                 {SAMPLE_LEADS.map((lead, i) => {
                   const state = stateFor(i)
                   return (
-                    <tr key={lead.email} className={i % 2 ? 'bg-black/[0.015]' : ''}>
+                    <tr key={lead.email} className={i % 2 ? 'bg-white/[0.015]' : ''}>
                       {/* Name (scraped — always shown) */}
                       <td className="px-3 py-2.5">
                         <div className="flex items-center gap-2">
@@ -162,18 +162,18 @@ export default function DashboardMock() {
                             initial={{ opacity: 0, x: -4 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.35 }}
-                            className="inline-flex items-center gap-1 text-[#0e90ad]"
+                            className="inline-flex items-center gap-1 text-accent"
                           >
                             <BadgeCheck size={12} className="shrink-0" />
                             {lead.email}
                           </motion.span>
                         ) : state === 'enriching' ? (
                           <span className="inline-flex items-center gap-1.5 text-muted/70">
-                            <Loader2 size={11} className="animate-spin text-[#0e90ad]" />
+                            <Loader2 size={11} className="animate-spin text-accent" />
                             finding…
                           </span>
                         ) : (
-                          <span className="block h-2 w-28 rounded bg-black/[0.06]" />
+                          <span className="block h-2 w-28 rounded bg-white/[0.06]" />
                         )}
                       </td>
                       {/* Signal (enriched) */}
@@ -183,7 +183,7 @@ export default function DashboardMock() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.35 }}
-                            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-amber/15 px-2 py-0.5 text-[10px] font-medium text-[#c2740c]"
+                            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-amber/15 px-2 py-0.5 text-[10px] font-medium text-amber"
                           >
                             <span className="h-1.5 w-1.5 rounded-full bg-amber" />
                             {lead.signals?.[0]?.label ?? 'Verified'}
@@ -191,7 +191,7 @@ export default function DashboardMock() {
                         ) : state === 'enriching' ? (
                           <span className="block h-3.5 w-20 animate-pulse rounded-full bg-amber/15" />
                         ) : (
-                          <span className="block h-3.5 w-16 rounded-full bg-black/[0.06]" />
+                          <span className="block h-3.5 w-16 rounded-full bg-white/[0.06]" />
                         )}
                       </td>
                     </tr>

@@ -26,10 +26,10 @@ const LEAD = {
 function StatusPill({ state }) {
   const map = {
     idle: { cls: 'text-muted/40', icon: <span className="h-1.5 w-1.5 rounded-full bg-muted/30" />, label: 'Queued' },
-    checking: { cls: 'text-[#0e90ad]', icon: <Loader2 size={13} className="animate-spin" />, label: 'Checking…' },
+    checking: { cls: 'text-accent', icon: <Loader2 size={13} className="animate-spin" />, label: 'Checking…' },
     miss: { cls: 'text-muted', icon: <X size={13} className="text-danger" />, label: 'No match' },
-    hit: { cls: 'text-[#0f9d72]', icon: <Check size={13} />, label: 'Match found' },
-    verified: { cls: 'text-[#0f9d72]', icon: <Check size={13} />, label: 'Verified' },
+    hit: { cls: 'text-safe', icon: <Check size={13} />, label: 'Match found' },
+    verified: { cls: 'text-safe', icon: <Check size={13} />, label: 'Verified' },
     skip: { cls: 'text-muted/50', icon: <Minus size={13} />, label: 'Skipped' },
   }
   const s = map[state] || map.idle
@@ -66,7 +66,7 @@ export default function WaterfallEnrichment() {
         <SectionHeading
           eyebrow={
             <>
-              <BadgeCheck size={13} className="text-[#0e90ad]" />
+              <BadgeCheck size={13} className="text-accent" />
               Waterfall enrichment
             </>
           }
@@ -105,7 +105,7 @@ export default function WaterfallEnrichment() {
                         ? 'border-safe/30 bg-safe/[0.06]'
                         : state === 'checking'
                           ? 'border-accent/30 bg-accent/[0.05]'
-                          : 'border-hairline bg-black/[0.03]'
+                          : 'border-hairline bg-white/[0.03]'
                     } ${dim ? 'opacity-50' : 'opacity-100'}`}
                   >
                     <BrandLogo domain={p.domain} name={p.name} size={28} />
@@ -125,10 +125,10 @@ export default function WaterfallEnrichment() {
                     ? 'border-safe/30 bg-safe/[0.06]'
                     : validate === 'checking'
                       ? 'border-accent/30 bg-accent/[0.05]'
-                      : 'border-hairline bg-black/[0.03] opacity-50'
+                      : 'border-hairline bg-white/[0.03] opacity-50'
                 }`}
               >
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-gradient-soft text-[#0e90ad]">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-gradient-soft text-accent">
                   <ShieldCheck size={16} />
                 </span>
                 <span className="text-sm font-medium text-ink">Email validation</span>
@@ -146,11 +146,11 @@ export default function WaterfallEnrichment() {
                   initial={reduce ? false : { opacity: 0, y: 8 }}
                   animate={reduce ? {} : { opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="flex items-center gap-3 rounded-xl border border-safe/40 bg-safe/10 px-4 py-3 shadow-[0_8px_24px_-10px_rgba(5,150,105,0.35)]"
+                  className="flex items-center gap-3 rounded-xl border border-safe/40 bg-safe/10 px-4 py-3 shadow-[0_8px_24px_-10px_rgba(53,224,184,0.35)]"
                 >
-                  <BadgeCheck size={18} className="shrink-0 text-[#0f9d72]" />
+                  <BadgeCheck size={18} className="shrink-0 text-safe" />
                   <span className="truncate font-medium text-ink">{LEAD.email}</span>
-                  <span className="ml-auto whitespace-nowrap text-xs font-semibold text-[#0f9d72]">
+                  <span className="ml-auto whitespace-nowrap text-xs font-semibold text-safe">
                     verified · deliverable
                   </span>
                 </motion.div>

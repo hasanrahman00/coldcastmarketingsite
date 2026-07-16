@@ -4,29 +4,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Surfaces — light theme (sky/cloud body matching the hero's lower edge)
-        bg: '#f6f7fc',
-        bg2: '#eef1fb',
-        panel: '#ffffff',
-        panel2: '#f3f5fd',
+        // Surfaces — Graphite & Mint. `bg` is the app-frame interior,
+        // `bg2` the deep backdrop the frame floats on.
+        bg: '#0f1214',
+        bg2: '#08090b',
+        panel: '#16191c',
+        panel2: '#1b1f23',
+        inset: '#121517',
         // Text
-        ink: '#1c1741',
-        muted: '#5a6988',
-        // Brand blue — EXPORT / SCALE
+        ink: '#f4f7f6',
+        muted: '#a7b0ad',
+        faint: '#6b7472',
+        // Brand mint — the single accent the whole system leans on
         brand: {
-          light: '#6ea0ff',
-          DEFAULT: '#4f7cf5',
-          dark: '#3257d6',
+          light: '#4ce8c3',
+          DEFAULT: '#35e0b8',
+          dark: '#1fbf9a',
         },
-        // Accents (lightened for legibility on dark)
-        accent: '#22d3ee', // cyan-400 — DATA / ACCURACY
-        violet: '#a78bfa', // violet-400 — ENRICHMENT / AI
-        magenta: '#e879f9', // aurora / hero-text accent
-        amber: '#fbbf24', // amber-400 — INTENT SIGNAL
-        safe: '#34d399', // emerald-400 — safety
-        danger: '#fb7185', // rose-400 — contrast / "others"
-        // Hairline border
-        hairline: 'rgba(28,23,65,0.10)',
+        // Accents — kept in a cool mint/teal/cyan family so nothing
+        // fights the graphite base. amber/danger stay for status only.
+        accent: '#4ce8c3', // mint-2 — primary highlight
+        violet: '#2dd4bf', // teal-400 — ENRICHMENT / AI
+        magenta: '#22d3ee', // cyan-400 — secondary highlight
+        amber: '#e8c258', // INTENT SIGNAL / warning
+        safe: '#35e0b8', // mint — safety
+        danger: '#f26d6d', // contrast / "others"
+        // Hairline borders
+        hairline: 'rgba(255,255,255,0.07)',
+        'hairline-strong': 'rgba(255,255,255,0.12)',
       },
       fontFamily: {
         freudian: ['Freudian', '"Space Grotesk"', 'sans-serif'],
@@ -34,22 +39,23 @@ export default {
         sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       backgroundImage: {
-        'brand-gradient': 'linear-gradient(135deg, #4f7cf5 0%, #3257d6 100%)',
-        'brand-gradient-vivid': 'linear-gradient(135deg, #4f7cf5 0%, #a855f7 100%)',
+        // Mint button face — light-to-base so it reads as a lit surface
+        'brand-gradient': 'linear-gradient(180deg, #4ce8c3 0%, #35e0b8 100%)',
+        'brand-gradient-vivid': 'linear-gradient(135deg, #4ce8c3 0%, #2dd4bf 100%)',
         'brand-gradient-soft':
-          'linear-gradient(135deg, rgba(79,124,245,0.16) 0%, rgba(168,85,247,0.16) 100%)',
-        'hero-text': 'linear-gradient(90deg,#4f7cf5,#a855f7,#22d3ee,#4f7cf5)',
-        'lit-edge': 'linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0))',
+          'linear-gradient(135deg, rgba(53,224,184,0.16) 0%, rgba(45,212,191,0.16) 100%)',
+        'hero-text': 'linear-gradient(100deg,#4ce8c3,#8ff2da,#4ce8c3)',
+        'lit-edge': 'linear-gradient(to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0))',
       },
       boxShadow: {
-        card: '0 1px 2px rgba(20,30,80,0.06), 0 14px 30px -12px rgba(20,30,80,0.16), 0 40px 80px -40px rgba(28,40,110,0.22)',
-        float: '0 2px 4px -2px rgba(20,30,80,0.08), 0 18px 40px -14px rgba(20,30,80,0.18), 0 50px 90px -45px rgba(28,40,110,0.26)',
-        glow: '0 0 80px -10px rgba(79,124,245,0.45)',
-        'glow-violet': '0 8px 50px -12px rgba(168,85,247,0.45)',
-        'glow-safe': '0 0 70px -14px rgba(52,211,153,0.45)',
-        'brand-btn': '0 10px 30px -8px rgba(79,124,245,0.6)',
-        'brand-btn-hover': '0 16px 48px -8px rgba(124,92,245,0.75)',
-        'inner-top': 'inset 0 1px 0 rgba(255,255,255,0.08)',
+        card: '0 1px 2px rgba(0,0,0,0.30), 0 14px 30px -12px rgba(0,0,0,0.50), 0 40px 80px -40px rgba(0,0,0,0.60)',
+        float: '0 2px 4px -2px rgba(0,0,0,0.35), 0 18px 40px -14px rgba(0,0,0,0.55), 0 50px 90px -45px rgba(0,0,0,0.65)',
+        glow: '0 0 80px -10px rgba(53,224,184,0.35)',
+        'glow-violet': '0 8px 50px -12px rgba(45,212,191,0.40)',
+        'glow-safe': '0 0 70px -14px rgba(53,224,184,0.45)',
+        'brand-btn': '0 6px 26px rgba(53,224,184,0.35), inset 0 1px 0 rgba(255,255,255,0.35)',
+        'brand-btn-hover': '0 12px 36px rgba(53,224,184,0.50), inset 0 1px 0 rgba(255,255,255,0.35)',
+        'inner-top': 'inset 0 1px 0 rgba(255,255,255,0.06)',
       },
       keyframes: {
         shine: {

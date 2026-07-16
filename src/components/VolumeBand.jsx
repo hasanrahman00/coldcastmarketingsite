@@ -50,7 +50,7 @@ export default function VolumeBand() {
           {/* Left — the claim */}
           <div>
             <Eyebrow>
-              <Boxes size={13} className="text-[#7c3aed]" />
+              <Boxes size={13} className="text-accent" />
               One subscription
             </Eyebrow>
 
@@ -62,12 +62,12 @@ export default function VolumeBand() {
                 transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
               />
               <span className="text-ink/25 line-through decoration-2">6</span>
-              <ArrowRight size={40} strokeWidth={2.5} className="text-[#7c3aed]" />
+              <ArrowRight size={40} strokeWidth={2.5} className="text-violet" />
               <span className="bg-gradient-to-br from-brand via-violet to-brand-light bg-clip-text text-transparent">
                 1
               </span>
             </div>
-            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#7c3aed]">
+            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
               six tools → one subscription
             </p>
 
@@ -87,7 +87,7 @@ export default function VolumeBand() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.45, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex h-full gap-3 rounded-xl border border-hairline bg-black/[0.025] p-3.5 transition-colors duration-300 hover:border-black/15 hover:bg-black/[0.05]"
+                  className="flex h-full gap-3 rounded-xl border border-hairline bg-white/[0.03] p-3.5 transition-colors duration-300 hover:border-hairline-strong hover:bg-white/[0.06]"
                 >
                   <span className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-[19px] leading-none ring-1 ${TINT[tint]}`}>
                     {emoji}
@@ -114,9 +114,9 @@ export default function VolumeBand() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.4, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-black/[0.03]"
+                  className="flex items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-white/[0.04]"
                 >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-safe/20 text-[#0f9d72] ring-1 ring-safe/30">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-safe/20 text-brand ring-1 ring-safe/30">
                     <Check size={13} strokeWidth={3} />
                   </span>
                   <span className="flex-1 text-sm font-medium text-ink">{r.cat}</span>
@@ -138,7 +138,7 @@ export default function VolumeBand() {
 
             <a
               href="#pricing"
-              className="group mt-5 flex items-center justify-between rounded-xl bg-brand-gradient px-4 py-3.5 text-white shadow-brand-btn transition-shadow hover:shadow-[0_0_28px_-4px_rgba(79,124,245,0.85)]"
+              className="group mt-5 flex items-center justify-between rounded-xl bg-brand-gradient px-4 py-3.5 text-[#062119] shadow-brand-btn transition-shadow hover:shadow-[0_0_28px_-4px_rgba(53,224,184,0.85)]"
             >
               <span className="text-sm font-semibold">All in one Coldcast subscription</span>
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />

@@ -59,7 +59,7 @@ export default function Comparison() {
                 <tr>
                   <th className="w-1/3 px-5 py-4" />
                   <th className="w-1/3 px-5 py-4">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-3 py-1.5 text-sm font-semibold text-white shadow-brand-btn">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-3 py-1.5 text-sm font-semibold text-[#062119] shadow-brand-btn">
                       <Logo size={18} />
                       Coldcast
                     </span>
@@ -85,7 +85,7 @@ export default function Comparison() {
                       } ${i === ROWS.length - 1 ? 'rounded-b-2xl' : ''}`}
                     >
                       <span className="flex items-start gap-2.5 text-ink/90">
-                        <Check size={16} className="mt-0.5 shrink-0 text-[#0f9d72]" />
+                        <Check size={16} className="mt-0.5 shrink-0 text-safe" />
                         {row.coldcast}
                       </span>
                     </td>

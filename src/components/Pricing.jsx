@@ -75,8 +75,8 @@ export default function Pricing() {
               <div
                 className={`relative flex h-full flex-col rounded-3xl p-7 transition-transform duration-200 hover:-translate-y-1 ${
                   plan.featured
-                    ? 'bg-black/[0.06] shadow-float backdrop-blur-sm'
-                    : 'border border-hairline bg-black/[0.045] shadow-card backdrop-blur-sm'
+                    ? 'bg-panel2 shadow-float backdrop-blur-sm'
+                    : 'border border-hairline bg-panel shadow-card backdrop-blur-sm'
                 }`}
               >
                 {/* Gradient border for the featured card */}
@@ -85,7 +85,7 @@ export default function Pricing() {
                 )}
 
                 {plan.featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-gradient-vivid px-3 py-1 text-xs font-semibold text-white shadow-brand-btn">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-gradient-vivid px-3 py-1 text-xs font-semibold text-[#062119] shadow-brand-btn">
                     Most popular
                   </span>
                 )}
@@ -120,11 +120,11 @@ export default function Pricing() {
                     {plan.features.map((feature) => (
                       <li key={feature.label} className="flex items-start gap-3 text-sm">
                         <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15">
-                          <Check size={13} className="text-[#0e90ad]" />
+                          <Check size={13} className="text-accent" />
                         </span>
                         <span className="flex-1 text-ink/90">{feature.label}</span>
                         {feature.tag && (
-                          <span className="shrink-0 rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-[#0e90ad]">
+                          <span className="shrink-0 rounded-full bg-accent/15 px-2 py-0.5 text-[11px] font-semibold text-accent">
                             {feature.tag}
                           </span>
                         )}

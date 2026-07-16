@@ -69,20 +69,20 @@ const STAGES = [
 ]
 
 const TINT = {
-  cyan: { icon: 'text-[#0e90ad]', ring: 'ring-accent/50', glow: 'shadow-card' },
-  violet: { icon: 'text-[#7c3aed]', ring: 'ring-violet/50', glow: 'shadow-card' },
-  safe: { icon: 'text-[#0f9d72]', ring: 'ring-safe/50', glow: 'shadow-card' },
+  cyan: { icon: 'text-magenta', ring: 'ring-accent/50', glow: 'shadow-card' },
+  violet: { icon: 'text-violet', ring: 'ring-violet/50', glow: 'shadow-card' },
+  safe: { icon: 'text-brand', ring: 'ring-safe/50', glow: 'shadow-card' },
 }
 
 const ARMS = [0, 60, 120, 180, 240, 300]
 function SwirlMark({ size = 44 }) {
   return (
     <svg viewBox="20 20 88 88" width={size} height={size} fill="none" aria-hidden>
-      <g stroke="#fff" strokeWidth="11" strokeLinecap="round" fill="none">
+      <g stroke="#062119" strokeWidth="11" strokeLinecap="round" fill="none">
         {ARMS.map((d) => (
           <g key={d} transform={`rotate(${d} 64 64)`}>
             <path d="M64 56 C 71 46 86 48 92 60" />
-            <circle cx="92" cy="60" r="6" fill="#fff" stroke="none" />
+            <circle cx="92" cy="60" r="6" fill="#062119" stroke="none" />
           </g>
         ))}
       </g>
@@ -111,7 +111,7 @@ function Node({ domain, name, emoji, size = 38 }) {
 function Connector({ reduce, index = 0 }) {
   return (
     <div className="relative flex h-14 w-px items-stretch justify-center">
-      <div className="relative h-full w-px overflow-hidden bg-gradient-to-b from-accent/40 via-black/15 to-accent/40">
+      <div className="relative h-full w-px overflow-hidden bg-gradient-to-b from-accent/40 via-white/15 to-accent/40">
         {!reduce &&
           [0, 1].map((p) => (
             <motion.span
@@ -139,7 +139,7 @@ function Hub({ active, reduce }) {
       <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
         <defs>
           <linearGradient id="spoke" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#4f7cf5" stopOpacity="0.7" />
+            <stop offset="0" stopColor="#35e0b8" stopOpacity="0.7" />
             <stop offset="1" stopColor="#22d3ee" stopOpacity="0.2" />
           </linearGradient>
         </defs>
@@ -207,7 +207,7 @@ function MiniHub({ nodes: items, reduce, center }) {
       <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
         <defs>
           <linearGradient id="mini-spoke" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#a78bfa" stopOpacity="0.7" />
+            <stop offset="0" stopColor="#2dd4bf" stopOpacity="0.7" />
             <stop offset="1" stopColor="#22d3ee" stopOpacity="0.2" />
           </linearGradient>
         </defs>
@@ -237,7 +237,7 @@ function MiniHub({ nodes: items, reduce, center }) {
             animate={reduce ? {} : { scale: [1, 1.25, 1], opacity: [0.5, 0.85, 0.5] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
           />
-          {CenterIcon ? <CenterIcon size={24} className="text-ink" /> : <SwirlMark size={30} />}
+          {CenterIcon ? <CenterIcon size={24} className="text-[#062119]" /> : <SwirlMark size={30} />}
         </div>
         <span className="mt-1.5 text-[11px] font-semibold text-ink">{center ? center.label : 'Coldcast'}</span>
       </div>
@@ -283,7 +283,7 @@ function StageCard({ stage, active, reduce }) {
         {stage.hub ? (
           <MiniHub nodes={stage.nodes} center={stage.center} reduce={reduce} />
         ) : stage.coldcast ? (
-          <span className="inline-flex items-center gap-2 rounded-xl bg-brand-gradient px-3.5 py-2.5 text-sm font-semibold text-white shadow-brand-btn">
+          <span className="inline-flex items-center gap-2 rounded-xl bg-brand-gradient px-3.5 py-2.5 text-sm font-semibold text-[#062119] shadow-brand-btn">
             <Logo size={18} />
             Coldcast
           </span>
@@ -322,7 +322,7 @@ export default function GtmPipeline() {
       <div className="mx-auto max-w-3xl">
         <Reveal className="mb-10 flex flex-col items-center text-center">
           <Eyebrow>
-            <Sparkles size={13} className="text-[#0e90ad]" />
+            <Sparkles size={13} className="text-accent" />
             One automated GTM pipeline
           </Eyebrow>
           <h2 className="mt-4 text-balance text-2xl font-bold tracking-tight text-ink sm:text-3xl">
@@ -338,8 +338,8 @@ export default function GtmPipeline() {
           <div className="relative overflow-hidden rounded-[2rem] border border-hairline bg-bg2/60 px-4 py-10 shadow-card backdrop-blur-md sm:px-8">
             <div aria-hidden className="pointer-events-none absolute inset-0">
               <div className="absolute left-1/2 top-0 h-48 w-72 -translate-x-1/2 rounded-full bg-brand-light/15 blur-[90px]" />
-              <div className="absolute left-1/2 top-1/2 h-40 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet/12 blur-[90px]" />
-              <div className="absolute bottom-0 left-1/2 h-48 w-72 -translate-x-1/2 rounded-full bg-safe/12 blur-[90px]" />
+              <div className="absolute left-1/2 top-1/2 h-40 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet/15 blur-[90px]" />
+              <div className="absolute bottom-0 left-1/2 h-48 w-72 -translate-x-1/2 rounded-full bg-safe/15 blur-[90px]" />
             </div>
 
             <div className="relative flex flex-col items-center">

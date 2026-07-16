@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import BackgroundFX from './BackgroundFX'
 import Grain from './Grain'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -35,27 +34,32 @@ export default function Layout() {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-gradient focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-gradient focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#062119]"
       >
         Skip to content
       </a>
 
       <ScrollManager />
-      <BackgroundFX />
       <Grain />
 
-      {/* Rounded "framed website" bezel */}
-      <div
-        aria-hidden
-        className="pointer-events-none fixed inset-0 z-[70] rounded-[1.35rem] border-[7px] border-[#f6f7fc] shadow-[inset_0_0_0_1.5px_rgba(28,23,65,0.06)] sm:rounded-[2rem] sm:border-[10px]"
-      />
+      {/* Drifting mint/teal orbs behind the frame */}
+      <div aria-hidden className="backdrop">
+        <div className="orb orb-a" />
+        <div className="orb orb-b" />
+        <div className="orb orb-c" />
+      </div>
 
-      {showBar && <AnnouncementBar onClose={dismissBar} />}
-      <Navbar barOffset={showBar} />
-      <main id="main">
-        <Outlet />
-      </main>
-      <Footer />
+      {/* The whole site is one graphite card floating on the backdrop.
+          No overflow-hidden here — it would break the sticky navbar; the
+          nav and footer round their own outer corners to match the frame. */}
+      <div className="app-frame">
+        {showBar && <AnnouncementBar onClose={dismissBar} />}
+        <Navbar />
+        <main id="main">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }

@@ -26,27 +26,22 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Offset anchor jumps so they clear the fixed nav */
-    scroll-padding-top: 5.5rem;
+    /* Offset anchor jumps so they clear the sticky nav. The AnnouncementBar is
+       in-flow, so it scrolls away and the nav pins at top-0 at ~77px tall;
+       6rem clears it with a little breathing room. */
+    scroll-padding-top: 6rem;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-bg font-sans text-ink antialiased;
+    @apply bg-bg2 font-sans text-ink antialiased;
   }
 
-  /* Continuous airy gradient down the whole page (scrolls with content),
-     so every section sits on one seamless cloud backdrop. */
+  /* The deep backdrop the app frame floats on. Drifting mint/teal orbs
+     live in a fixed layer behind it (see .backdrop / .orb below). */
   #root {
-    background-image: linear-gradient(
-      180deg,
-      #e7eafd 0%,
-      #e1e4fb 9%,
-      #e7e3fb 24%,
-      #ede7fc 48%,
-      #f0edfc 72%,
-      #f5f4fc 100%
-    );
+    position: relative;
+    z-index: 1;
   }
 
   /* Display font for big headings */
@@ -62,8 +57,56 @@
   }
 
   ::selection {
-    background-color: rgba(87, 32, 206, 0.18);
-    color: #1c1741;
+    background-color: #35e0b8;
+    color: #08221b;
+  }
+}
+
+/* ─── Backdrop orbs ─────────────────────────────────────────────
+   Fixed behind the app frame; slow drift keeps the graphite alive. */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.5;
+}
+.orb-a {
+  width: 720px;
+  height: 720px;
+  left: -180px;
+  top: -260px;
+  background: radial-gradient(circle, #0f6b57 0%, transparent 65%);
+  animation: orb-drift 22s ease-in-out infinite alternate;
+}
+.orb-b {
+  width: 640px;
+  height: 640px;
+  right: -160px;
+  top: 120px;
+  background: radial-gradient(circle, #0a5f6b 0%, transparent 65%);
+  animation: orb-drift 26s ease-in-out infinite alternate-reverse;
+}
+.orb-c {
+  width: 560px;
+  height: 560px;
+  left: 32%;
+  bottom: -320px;
+  background: radial-gradient(circle, #0d5c4a 0%, transparent 65%);
+  animation: orb-drift 30s ease-in-out infinite alternate;
+}
+@keyframes orb-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(60px, 40px, 0) scale(1.08);
   }
 }
 
@@ -72,9 +115,32 @@
     @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
   }
 
+  /* The app frame — the whole site is one graphite card floating on the
+     deep backdrop. Nav sticks to its top, footer closes its bottom. */
+  .app-frame {
+    position: relative;
+    z-index: 1;
+    max-width: 1392px;
+    margin: 24px auto 48px;
+    background-color: #0f1214;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    box-shadow:
+      0 40px 120px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(0, 0, 0, 0.4);
+  }
+  @media (max-width: 640px) {
+    .app-frame {
+      margin: 0;
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+
   /* Animated gradient text — slow shine sweep */
   .text-gradient {
-    background-image: linear-gradient(90deg, #4f7cf5, #a855f7, #22d3ee, #4f7cf5);
+    background-image: linear-gradient(100deg, #4ce8c3, #8ff2da, #4ce8c3);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -85,7 +151,7 @@
   /* Gradient lit-edge wrapper for glass cards */
   .lit-edge {
     border-radius: 1.25rem;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0));
     padding: 1px;
   }
 
@@ -95,7 +161,7 @@
   .gradient-ring {
     border-radius: 1.5rem; /* matches rounded-3xl */
     padding: 1px;
-    background-image: linear-gradient(135deg, #4f7cf5, #a855f7, #d946ef);
+    background-image: linear-gradient(135deg, #35e0b8, #2dd4bf, #22d3ee);
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
@@ -106,22 +172,72 @@
     mask-composite: exclude;
   }
 
-  /* Floating section panel — frosted white card with soft sky shadow (light theme) */
+  /* Floating section panel — graphite card lifted off the frame */
   .floating-panel {
     position: relative;
     border-radius: 2rem;
-    border: 1px solid rgba(28, 23, 65, 0.07);
-    background-color: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: #16191c;
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 30px 80px -38px rgba(28, 40, 110, 0.28);
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 30px 90px rgba(0, 0, 0, 0.45);
+  }
+
+  /* Section rhythm + hairline divider, ported from the mock */
+  .sec-divider {
+    height: 1px;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.12),
+      transparent
+    );
   }
 }
 
 @keyframes text-shine {
   to {
     background-position: 200% center;
+  }
+}
+
+/* Hero pill dot — pulsing mint ring */
+@keyframes pill-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(53, 224, 184, 0.5);
+  }
+  55% {
+    box-shadow: 0 0 0 7px rgba(53, 224, 184, 0);
+  }
+}
+
+/* Hero dashboard mock — entrance lift */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero chart line — stroke-dasharray draw */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Hero progress bars — scaleX fill */
+@keyframes fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 

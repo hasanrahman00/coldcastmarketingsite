@@ -16,21 +16,21 @@ const CASES = [
   },
   {
     icon: Briefcase,
-    color: 'text-[#7c3aed]',
+    color: 'text-violet',
     title: 'Lead-gen agencies & freelancers',
     to: '/roles/agencies',
     desc: 'Deliver clean, enriched lead lists for every client without paying for a stack of data tools. Connect each client’s Sales Navigator, export leads at scale, and hand over CRM-ready CSV or XLSX files with emails, phones and buying signals already attached.',
   },
   {
     icon: Rocket,
-    color: 'text-[#c2740c]',
+    color: 'text-amber',
     title: 'Founders & GTM teams',
     to: '/roles/founders',
     desc: 'Go to market without a data budget. Pull your entire ICP out of LinkedIn Sales Navigator, score every lead by buying intent, and push send-ready prospects straight into your sequencer and CRM — all account-safe, from your own browser.',
   },
   {
     icon: Users,
-    color: 'text-[#0f9d72]',
+    color: 'text-magenta',
     title: 'Recruiters & talent teams',
     to: '/roles/recruiters',
     desc: 'Source candidates straight from Sales Navigator searches. Export profiles with verified personal and work emails plus phone numbers, so you can reach passive talent by email and phone instead of waiting on LinkedIn InMail credits.',
@@ -54,7 +54,7 @@ export default function UseCases({ showHeading = true }) {
             <Reveal key={title} delay={(i % 2) * 0.08}>
               <Link
                 to={to}
-                className="group flex h-full flex-col rounded-2xl border border-hairline bg-black/[0.045] p-7 shadow-card backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1"
+                className="group flex h-full flex-col rounded-2xl border border-hairline bg-panel p-7 shadow-card backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1"
               >
                 <span
                   className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-hairline bg-brand-gradient-soft ${color}`}

@@ -28,7 +28,7 @@ function ActivationForm({ id = 'activate', autoFocus = false }) {
         animate={{ opacity: 1, y: 0 }}
         className="flex items-start gap-3 rounded-2xl border border-safe/30 bg-safe/10 p-5 text-left"
       >
-        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-safe/20 text-[#0f9d72]">
+        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-safe/20 text-safe">
           <Check size={18} strokeWidth={3} />
         </span>
         <div>
@@ -56,12 +56,12 @@ function ActivationForm({ id = 'activate', autoFocus = false }) {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@company.com"
             aria-label="Your email for the activation link"
-            className="w-full rounded-xl border border-hairline bg-black/[0.05] py-3.5 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30"
+            className="w-full rounded-xl border border-hairline bg-white/[0.05] py-3.5 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30"
           />
         </div>
         <button
           type="submit"
-          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-gradient px-6 py-3.5 text-sm font-semibold text-white shadow-brand-btn transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-gradient-vivid"
+          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-gradient px-6 py-3.5 text-sm font-semibold text-[#062119] shadow-brand-btn transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-gradient-vivid"
         >
           Get my activation link
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
@@ -76,7 +76,7 @@ function ActivationForm({ id = 'activate', autoFocus = false }) {
 const INCLUDED = ['50 InMail credits / month', 'Advanced search filters', 'Saved searches & alerts', 'Lead & account lists', 'TeamLink network access', 'Smart Links tracking']
 function PlanCard() {
   return (
-    <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-hairline bg-black/[0.04] p-7 shadow-card backdrop-blur-md">
+    <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-hairline bg-white/[0.04] p-7 shadow-card backdrop-blur-md">
       <div aria-hidden className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-brand/25 blur-[70px]" />
       <div className="relative flex items-center justify-between">
         <span className="text-sm font-semibold text-ink">Sales Navigator Advanced</span>
@@ -104,7 +104,7 @@ function PlanCard() {
           </motion.li>
         ))}
       </ul>
-      <div className="relative mt-6 rounded-xl bg-brand-gradient px-4 py-2.5 text-center text-sm font-semibold text-white">
+      <div className="relative mt-6 rounded-xl bg-brand-gradient px-4 py-2.5 text-center text-sm font-semibold text-[#062119]">
         Activate with just your email
       </div>
     </div>
@@ -151,7 +151,7 @@ export default function SalesNavAdvancedPage() {
         <div
           aria-hidden
           className="absolute inset-0 -z-10"
-          style={{ backgroundImage: 'radial-gradient(95% 75% at 50% -10%, rgba(124,58,237,0.16), transparent 60%), radial-gradient(60% 50% at 85% 0%, rgba(34,211,238,0.12), transparent 55%), linear-gradient(180deg,#efeafd,#f6f7fc)' }}
+          style={{ backgroundImage: 'radial-gradient(95% 75% at 50% -10%, rgba(53,224,184,0.16), transparent 60%), radial-gradient(60% 50% at 85% 0%, rgba(34,211,238,0.10), transparent 55%), linear-gradient(180deg,#0f1214,#08090b)' }}
         />
         <div className="container-px relative grid items-center gap-12 lg:grid-cols-2">
           <div>
@@ -209,7 +209,7 @@ export default function SalesNavAdvancedPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.45, delay: (i % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
-              className="group rounded-2xl border border-hairline bg-black/[0.03] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/30 hover:bg-black/[0.05] hover:shadow-card"
+              className="group rounded-2xl border border-hairline bg-white/[0.03] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/30 hover:bg-white/[0.05] hover:shadow-card"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand ring-1 ring-brand/30">
                 <Icon size={18} />
@@ -243,7 +243,7 @@ export default function SalesNavAdvancedPage() {
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
           {BENEFITS.map(({ icon: Icon, title, desc }, i) => (
             <Reveal key={title} delay={i * 0.07}>
-              <div className="h-full rounded-2xl border border-hairline bg-black/[0.03] p-6 shadow-card">
+              <div className="h-full rounded-2xl border border-hairline bg-white/[0.03] p-6 shadow-card">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand ring-1 ring-brand/30">
                   <Icon size={20} />
                 </span>
@@ -266,7 +266,7 @@ export default function SalesNavAdvancedPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.45, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative overflow-hidden rounded-2xl border border-hairline bg-black/[0.03] p-6"
+              className="relative overflow-hidden rounded-2xl border border-hairline bg-white/[0.03] p-6"
             >
               <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-brand to-brand-light" />
               <div className="flex items-center justify-between">

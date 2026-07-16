@@ -1,16 +1,16 @@
 import { motion, useReducedMotion } from 'framer-motion'
 
-// Compact page header for sub-pages (Products, Roles) — soft lavender light hero.
+// Compact page header for sub-pages (Products, Roles) — graphite hero with a mint wash.
 export default function PageHero({ eyebrow, title, subtitle, children }) {
   const reduce = useReducedMotion()
   return (
-    <section className="relative overflow-hidden pb-10 pt-36 sm:pb-14 sm:pt-44" style={{ backgroundColor: '#efeafd' }}>
+    <section className="relative overflow-hidden pb-10 pt-36 sm:pb-14 sm:pt-44" style={{ backgroundColor: '#0f1214' }}>
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
         style={{
           backgroundImage:
-            'radial-gradient(100% 80% at 50% -20%, rgba(124,58,237,0.16), transparent 60%), radial-gradient(70% 60% at 85% 0%, rgba(34,211,238,0.12), transparent 55%), linear-gradient(180deg, #efeafd, #f6f7fc)',
+            'radial-gradient(100% 80% at 50% -20%, rgba(53,224,184,0.16), transparent 60%), radial-gradient(70% 60% at 85% 0%, rgba(34,211,238,0.12), transparent 55%), linear-gradient(180deg, #121517, #0f1214)',
         }}
       />
       <motion.div
@@ -20,7 +20,7 @@ export default function PageHero({ eyebrow, title, subtitle, children }) {
         className="container-px relative text-center"
       >
         {eyebrow && (
-          <span className="inline-flex items-center gap-2 rounded-full border border-black/[0.06] bg-white/70 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-ink/80 shadow-sm ring-1 ring-black/5 backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand/25 bg-brand/15 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent shadow-sm ring-1 ring-white/5 backdrop-blur">
             {eyebrow}
           </span>
         )}

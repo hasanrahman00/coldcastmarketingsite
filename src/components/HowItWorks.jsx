@@ -24,10 +24,10 @@ export default function HowItWorks() {
             <Reveal as="li" key={title} delay={i * 0.1}>
               <div className="floating-panel h-full p-6 transition-transform duration-200 hover:-translate-y-1">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-hairline bg-brand-gradient-soft text-[#0e90ad]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-hairline bg-brand-gradient-soft text-accent">
                     <Icon size={22} />
                   </span>
-                  <span className="font-display text-4xl font-bold tracking-tight text-black/[0.08]">
+                  <span className="font-display text-4xl font-bold tracking-tight text-white/[0.10]">
                     {i + 1}
                   </span>
                 </div>

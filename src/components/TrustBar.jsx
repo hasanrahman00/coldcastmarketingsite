@@ -13,7 +13,7 @@ const AVATARS = [
 
 export default function TrustBar() {
   return (
-    <section className="border-y border-hairline bg-black/[0.015] py-12">
+    <section className="border-y border-hairline bg-white/[0.02] py-12">
       <div className="container-px">
         <Reveal className="flex flex-col items-center gap-7 text-center">
           {/* Social proof — trusted by 2,500+ sales teams */}
@@ -30,7 +30,7 @@ export default function TrustBar() {
               ))}
             </div>
             <div className="flex flex-col items-start">
-              <span className="flex items-center gap-0.5 text-[#c2740c]">
+              <span className="flex items-center gap-0.5 text-amber">
                 {[0, 1, 2, 3, 4].map((i) => (
                   <Star key={i} size={14} className="fill-amber stroke-amber" />
                 ))}
@@ -42,7 +42,7 @@ export default function TrustBar() {
           </div>
 
           <p className="flex items-center gap-2.5 text-sm font-medium text-ink sm:text-base">
-            <ShieldCheck size={18} className="shrink-0 text-[#0e90ad]" />
+            <ShieldCheck size={18} className="shrink-0 text-accent" />
             Tested daily with internal sales teams for 6+ months — zero account bans.
           </p>
 

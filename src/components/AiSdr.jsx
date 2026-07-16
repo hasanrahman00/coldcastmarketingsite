@@ -36,7 +36,7 @@ const OUTREACH = [
 
 const STAT_STYLE = {
   sent: 'bg-brand/20 text-brand',
-  replied: 'bg-safe/15 text-[#0f9d72]',
+  replied: 'bg-safe/15 text-accent',
 }
 
 function OutreachCard() {
@@ -49,17 +49,17 @@ function OutreachCard() {
   const o = OUTREACH[i]
 
   return (
-    <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl border border-hairline bg-black/[0.04] p-5 shadow-card backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-float">
+    <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl border border-hairline bg-panel/70 p-5 shadow-card backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-float">
       <div aria-hidden className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-brand/20 blur-[80px]" />
 
       {/* Header — the agent */}
       <div className="relative flex items-center gap-3 border-b border-hairline pb-4">
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-gradient text-xs font-semibold text-white">AI</span>
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-gradient text-xs font-semibold text-[#062119]">AI</span>
         <div className="min-w-0">
           <div className="text-sm font-semibold text-ink">AI SDR</div>
           <div className="text-xs text-muted">drafting · just now</div>
         </div>
-        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-safe/15 px-2.5 py-1 text-[11px] font-medium text-[#0f9d72]">
+        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-safe/15 px-2.5 py-1 text-[11px] font-medium text-accent">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-safe opacity-70" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-safe" />
@@ -88,7 +88,7 @@ function OutreachCard() {
             <div className="mt-3 text-sm font-medium text-ink">{o.subject}</div>
             <p className="mt-2 text-sm leading-relaxed text-ink/80">{o.body}</p>
             <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-hairline pt-4">
-              <span className="rounded-full bg-black/10 px-2.5 py-1 text-[11px] font-medium text-muted">signal: {o.signal}</span>
+              <span className="rounded-full bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-muted">signal: {o.signal}</span>
               {o.status.map((s) => (
                 <span key={s} className={`rounded-full px-2.5 py-1 text-[11px] font-medium ${STAT_STYLE[s]}`}>{s}</span>
               ))}
@@ -101,7 +101,7 @@ function OutreachCard() {
       <div className="relative mt-4 flex items-center justify-between border-t border-hairline pt-4">
         <div className="flex items-center gap-1.5">
           {OUTREACH.map((_, idx) => (
-            <span key={idx} className={`h-1.5 rounded-full transition-all duration-300 ${idx === i ? 'w-4 bg-brand-light' : 'w-1.5 bg-black/20'}`} />
+            <span key={idx} className={`h-1.5 rounded-full transition-all duration-300 ${idx === i ? 'w-4 bg-brand-light' : 'w-1.5 bg-white/20'}`} />
           ))}
         </div>
         <span className="text-[11px] text-muted">Today · 142 sent · 38 replies · 9 booked</span>
@@ -114,8 +114,8 @@ export default function AiSdr() {
   return (
     <section id="ai-sdr" className="relative overflow-hidden py-24 sm:py-32">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[-6%] top-1/2 h-[440px] w-[560px] -translate-y-1/2 rounded-full bg-brand/12 blur-[150px]" />
-        <div className="absolute right-[-4%] top-[20%] h-[360px] w-[460px] rounded-full bg-violet/12 blur-[150px]" />
+        <div className="absolute left-[-6%] top-1/2 h-[440px] w-[560px] -translate-y-1/2 rounded-full bg-brand/15 blur-[150px]" />
+        <div className="absolute right-[-4%] top-[20%] h-[360px] w-[460px] rounded-full bg-violet/15 blur-[150px]" />
       </div>
 
       <div className="container-px relative">
@@ -157,7 +157,7 @@ export default function AiSdr() {
             </ol>
 
             <Reveal delay={0.4} className="mt-9">
-              <Button as="a" href={TRIAL_URL} variant="primary" size="lg" className="shadow-[0_0_28px_-6px_rgba(79,124,245,0.8)]">
+              <Button as="a" href={TRIAL_URL} variant="primary" size="lg" className="shadow-[0_0_28px_-6px_rgba(53,224,184,0.7)]">
                 Try the AI SDR free
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
               </Button>
