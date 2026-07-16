@@ -29,19 +29,19 @@ export default function FreeToolsPage() {
         </p>
 
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
-          {MORE_TOOLS.map((t, i) => (
+          {MORE_TOOLS.map((t) => (
             <a
               key={t.title}
               href={t.to}
-              className="group flex items-start gap-5 rounded-2xl border border-hairline bg-panel p-5 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-float"
+              className="group flex items-start gap-4 rounded-2xl border border-hairline bg-black/[0.025] p-5 transition-colors hover:border-black/15 hover:bg-black/[0.05]"
             >
-              <span className="pt-0.5 font-mono text-[12px] font-bold tracking-[0.14em] text-brand">
-                {String(i + 1).padStart(2, '0')}
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-[20px] leading-none">
+                {t.emoji}
               </span>
               <div className="min-w-0">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <h3 className="font-display text-base font-semibold tracking-tight text-ink">{t.title}</h3>
-                  <span className="rounded-[4px] border border-brand/40 px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.12em] text-brand">{t.tag}</span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-sm font-semibold text-ink">{t.title}</h3>
+                  <span className="rounded-full bg-brand/15 px-2 py-0.5 text-[10px] font-semibold text-brand">{t.tag}</span>
                 </div>
                 <p className="mt-1 text-[13px] leading-relaxed text-muted">{t.desc}</p>
               </div>

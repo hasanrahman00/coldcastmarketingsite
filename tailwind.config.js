@@ -1,60 +1,60 @@
 /** @type {import('tailwindcss').Config} */
-// "The Ledger" design system — warm paper, warm ink, ONE cobalt accent.
-// Legacy token names are kept (remapped into the warm palette) so components
-// that haven't been rebuilt yet stay coherent instead of breaking.
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        // Surfaces — warm ledger paper
-        bg: '#F7F4ED',
-        bg2: '#EFEBE0',
-        panel: '#FFFDF8',
-        panel2: '#F3F0E7',
-        // Text — warm ink
-        ink: '#171410',
-        muted: '#6E685A',
-        // THE accent — electric cobalt (the ink stamp)
+        // Surfaces — light theme (sky/cloud body matching the hero's lower edge)
+        bg: '#f6f7fc',
+        bg2: '#eef1fb',
+        panel: '#ffffff',
+        panel2: '#f3f5fd',
+        // Text
+        ink: '#1c1741',
+        muted: '#5a6988',
+        // Brand blue — EXPORT / SCALE
         brand: {
-          light: '#4A66E8',
-          DEFAULT: '#2545D9',
-          dark: '#1B33A8',
+          light: '#6ea0ff',
+          DEFAULT: '#4f7cf5',
+          dark: '#3257d6',
         },
-        accent: '#2545D9', // unified to cobalt — one accent, ruthless restraint
-        // Legacy accent names, remapped to muted warm tones (old components only)
-        violet: '#6E5F9E',
-        magenta: '#9E5F7A',
-        amber: '#A87E2F',
-        safe: '#1E7A44', // the "VERIFIED" stamp green
-        danger: '#C0392B', // ink red
-        hairline: 'rgba(23,20,16,0.12)',
+        // Accents (lightened for legibility on dark)
+        accent: '#22d3ee', // cyan-400 — DATA / ACCURACY
+        violet: '#a78bfa', // violet-400 — ENRICHMENT / AI
+        magenta: '#e879f9', // aurora / hero-text accent
+        amber: '#fbbf24', // amber-400 — INTENT SIGNAL
+        safe: '#34d399', // emerald-400 — safety
+        danger: '#fb7185', // rose-400 — contrast / "others"
+        // Hairline border
+        hairline: 'rgba(28,23,65,0.10)',
       },
       fontFamily: {
-        display: ['"Fraunces Variable"', 'Georgia', 'serif'],
-        sans: ['"Instrument Sans Variable"', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"JetBrains Mono Variable"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-        freudian: ['"Fraunces Variable"', 'Georgia', 'serif'],
+        freudian: ['Freudian', '"Space Grotesk"', 'sans-serif'],
+        display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       backgroundImage: {
-        'brand-gradient': 'linear-gradient(135deg, #2545D9 0%, #1B33A8 100%)',
-        'brand-gradient-vivid': 'linear-gradient(135deg, #4A66E8 0%, #2545D9 100%)',
-        'brand-gradient-soft': 'linear-gradient(135deg, rgba(37,69,217,0.08) 0%, rgba(37,69,217,0.05) 100%)',
-        'hero-text': 'linear-gradient(90deg,#2545D9,#1B33A8,#2545D9)',
-        'lit-edge': 'linear-gradient(to bottom, rgba(23,20,16,0.06), rgba(23,20,16,0))',
+        'brand-gradient': 'linear-gradient(135deg, #4f7cf5 0%, #3257d6 100%)',
+        'brand-gradient-vivid': 'linear-gradient(135deg, #4f7cf5 0%, #a855f7 100%)',
+        'brand-gradient-soft':
+          'linear-gradient(135deg, rgba(79,124,245,0.16) 0%, rgba(168,85,247,0.16) 100%)',
+        'hero-text': 'linear-gradient(90deg,#4f7cf5,#a855f7,#22d3ee,#4f7cf5)',
+        'lit-edge': 'linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0))',
       },
       boxShadow: {
-        card: '0 1px 2px rgba(23,20,16,0.04), 0 12px 32px -18px rgba(23,20,16,0.22)',
-        float: '0 2px 4px -2px rgba(23,20,16,0.06), 0 24px 48px -20px rgba(23,20,16,0.28)',
-        glow: '0 12px 32px -16px rgba(37,69,217,0.35)',
-        'glow-violet': '0 12px 32px -16px rgba(37,69,217,0.35)',
-        'glow-safe': '0 12px 32px -16px rgba(30,122,68,0.30)',
-        'brand-btn': '0 10px 24px -10px rgba(37,69,217,0.55)',
-        'brand-btn-hover': '0 16px 36px -12px rgba(37,69,217,0.65)',
-        'inner-top': 'inset 0 1px 0 rgba(255,255,255,0.7)',
+        card: '0 1px 2px rgba(20,30,80,0.06), 0 14px 30px -12px rgba(20,30,80,0.16), 0 40px 80px -40px rgba(28,40,110,0.22)',
+        float: '0 2px 4px -2px rgba(20,30,80,0.08), 0 18px 40px -14px rgba(20,30,80,0.18), 0 50px 90px -45px rgba(28,40,110,0.26)',
+        glow: '0 0 80px -10px rgba(79,124,245,0.45)',
+        'glow-violet': '0 8px 50px -12px rgba(168,85,247,0.45)',
+        'glow-safe': '0 0 70px -14px rgba(52,211,153,0.45)',
+        'brand-btn': '0 10px 30px -8px rgba(79,124,245,0.6)',
+        'brand-btn-hover': '0 16px 48px -8px rgba(124,92,245,0.75)',
+        'inner-top': 'inset 0 1px 0 rgba(255,255,255,0.08)',
       },
       keyframes: {
-        shine: { to: { backgroundPosition: '200% center' } },
+        shine: {
+          to: { backgroundPosition: '200% center' },
+        },
         marquee: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
@@ -75,19 +75,14 @@ export default {
           '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
           '50%': { transform: 'translate(-34px, 30px) scale(1.1)' },
         },
-        caret: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' },
-        },
       },
       animation: {
         shine: 'shine 6s linear infinite',
-        marquee: 'marquee 36s linear infinite',
+        marquee: 'marquee 32s linear infinite',
         float: 'float 7s ease-in-out infinite',
         'float-slow': 'float-slow 11s ease-in-out infinite',
         drift: 'drift 20s ease-in-out infinite',
         'drift-alt': 'drift-alt 26s ease-in-out infinite',
-        caret: 'caret 1s step-end infinite',
       },
     },
   },

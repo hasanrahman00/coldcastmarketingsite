@@ -1,93 +1,90 @@
 import { Link } from 'react-router-dom'
-import { ArrowUpRight } from 'lucide-react'
+import { Twitter, Linkedin, Github, ArrowRight } from 'lucide-react'
+import Logo from './Logo'
 
-// Ink footer — ruled mono columns under a giant serif contact line.
-const COLUMNS = [
-  {
-    title: 'Suite',
-    links: [
-      { label: 'Coldcast Agent', to: '/coldcast-agent' },
-      { label: 'Sales Nav Scraper', to: '/products/sales-navigator-scraper' },
-      { label: 'Waterfall Enricher', to: '/products/waterfall-enricher' },
-      { label: 'Email Verify', to: '/products/email-verify' },
-      { label: 'All products', to: '/products' },
-    ],
-  },
-  {
-    title: 'Explore',
-    links: [
-      { label: 'By role', to: '/roles' },
-      { label: 'Pricing', to: '/#pricing' },
-      { label: 'Free tools', to: '/tools' },
-      { label: 'Sales Nav −75%', to: '/sales-nav-advanced' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Privacy', to: '/privacy/', external: true },
-      { label: 'Terms', to: '/terms/', external: true },
-    ],
-  },
+// Tool quick-links shown as pills in the footer.
+const TOOLS = [
+  { emoji: '🎯', label: 'Sales Nav Scraper', to: '/products/sales-navigator-scraper' },
+  { emoji: '💧', label: 'Waterfall Enricher', to: '/products/waterfall-enricher' },
+  { emoji: '✅', label: 'Email Verify', to: '/products/email-verify' },
+  { emoji: '🤖', label: 'Coldcast Agent', to: '/coldcast-agent' },
+]
+
+const SOCIALS = [
+  { label: 'Coldcast on X', icon: Twitter, href: '#' },
+  { label: 'Coldcast on LinkedIn', icon: Linkedin, href: '#' },
+  { label: 'Coldcast on GitHub', icon: Github, href: '#' },
 ]
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-ink text-bg">
-      <div className="container-px pb-10 pt-16 sm:pt-20">
-        {/* Contact line */}
-        <div className="flex flex-col gap-6 border-b border-white/10 pb-12 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="kicker !text-bg/40">Talk to a human</p>
-            <a
-              href="mailto:hello@coldcast.io"
-              className="link-draw mt-3 inline-block font-display text-3xl font-semibold tracking-tight text-bg sm:text-5xl"
-            >
-              hello@coldcast.io
-            </a>
-          </div>
-          <p className="max-w-xs text-sm leading-relaxed text-bg/50">
-            The world&rsquo;s safest Sales Navigator scraper — verified leads, zero bans, one
-            subscription.
-          </p>
-        </div>
-
-        {/* Link columns */}
-        <div className="grid grid-cols-2 gap-10 py-12 sm:grid-cols-3">
-          {COLUMNS.map((col) => (
-            <div key={col.title}>
-              <h4 className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.2em] text-bg/40">{col.title}</h4>
-              <ul className="mt-5 flex flex-col gap-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    {link.external ? (
-                      <a href={link.to} className="group inline-flex items-center gap-1 text-[15px] text-bg/75 transition-colors hover:text-bg">
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link to={link.to} className="group inline-flex items-center gap-1 text-[15px] text-bg/75 transition-colors hover:text-bg">
-                        {link.label}
-                        <ArrowUpRight size={13} className="opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-60" />
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
+    <footer
+      className="relative overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #3a10a0 0%, #2c0c74 100%)' }}
+    >
+      <div className="container-px py-12 sm:py-16">
+        <div className="rounded-[2.25rem] border border-white/12 bg-white/[0.06] p-8 backdrop-blur-sm sm:p-12">
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1.2fr]">
+            {/* Brand */}
+            <div>
+              <Link to="/" className="inline-flex items-center gap-3" aria-label="Coldcast — home">
+                <Logo size={44} />
+                <span className="font-display text-2xl font-bold tracking-tight text-white">Coldcast</span>
+              </Link>
+              <p className="mt-6 max-w-xs text-xl font-semibold leading-snug text-white">
+                The world&rsquo;s safest Sales Navigator scraper.
+              </p>
+              <p className="mt-8 text-sm text-white/55">© 2026 Coldcast. All rights reserved.</p>
             </div>
-          ))}
-        </div>
 
-        {/* Giant wordmark */}
-        <div aria-hidden className="select-none overflow-hidden border-t border-white/10 pt-8">
-          <p className="font-display text-[19vw] font-bold leading-[0.8] tracking-[-0.03em] text-bg/[0.07] lg:text-[13rem]">
-            Coldcast
-          </p>
-        </div>
+            {/* Tool pills */}
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.15em] text-white/55">Discover our tools</div>
+              <div className="mt-5 flex flex-col gap-3">
+                {TOOLS.map((t) => (
+                  <Link
+                    key={t.label}
+                    to={t.to}
+                    className="group flex items-center justify-between gap-3 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.14]"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="text-base leading-none">{t.emoji}</span>
+                      {t.label}
+                    </span>
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15 transition-transform group-hover:translate-x-0.5">
+                      <ArrowRight size={13} />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
 
-        {/* Bottom bar */}
-        <div className="mt-8 flex flex-col items-start justify-between gap-3 font-mono text-[10.5px] uppercase tracking-[0.16em] text-bg/40 sm:flex-row sm:items-center">
-          <span>© 2026 Coldcast · coldcast.io</span>
-          <span>Built for people who live in Sales Navigator</span>
+            {/* Contact + socials */}
+            <div className="lg:text-right">
+              <a
+                href="mailto:hello@coldcast.io"
+                className="inline-block text-2xl font-bold tracking-tight text-white underline decoration-white/25 decoration-2 underline-offset-4 transition-colors hover:text-white/85 hover:decoration-white/60 sm:text-3xl"
+              >
+                hello@coldcast.io
+              </a>
+              <div className="mt-6 flex items-center gap-3 lg:justify-end">
+                {SOCIALS.map(({ label, icon: Icon, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white/85 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.14] hover:text-white"
+                  >
+                    <Icon size={17} />
+                  </a>
+                ))}
+              </div>
+              <div className="mt-8 flex flex-wrap gap-5 text-sm text-white/60 lg:justify-end">
+                <a href="/privacy/" className="transition-colors hover:text-white">Privacy Policy</a>
+                <a href="/terms/" className="transition-colors hover:text-white">Terms</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

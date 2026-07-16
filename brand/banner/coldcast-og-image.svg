@@ -1,18 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <!-- The Ledger brand — warm paper, warm ink, one cobalt accent -->
-  <rect width="1200" height="630" fill="#F7F4ED" />
+  <defs>
+    <linearGradient id="og-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#233f9e" />
+      <stop offset="0.5" stop-color="#3257d6" />
+      <stop offset="1" stop-color="#6d3df0" />
+    </linearGradient>
+    <linearGradient id="og-tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b8bff" />
+      <stop offset="1" stop-color="#3257d6" />
+    </linearGradient>
+    <radialGradient id="og-cyan" cx="1040" cy="40" r="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="og-mag" cx="150" cy="600" r="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d946ef" stop-opacity="0.45" />
+      <stop offset="1" stop-color="#d946ef" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="og-grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1" />
+    </pattern>
+    <g id="og-swirl" stroke="#ffffff" stroke-width="11" stroke-linecap="round" fill="none">
+      <g transform="rotate(0 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+      <g transform="rotate(60 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+      <g transform="rotate(120 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+      <g transform="rotate(180 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+      <g transform="rotate(240 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+      <g transform="rotate(300 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
+    </g>
+  </defs>
 
-  <!-- ruled ledger lines -->
-  <g stroke="#171410" stroke-opacity="0.08" stroke-width="1">
-    <line x1="80" y1="470" x2="1120" y2="470" />
-    <line x1="80" y1="516" x2="1120" y2="516" />
-  </g>
-  <line x1="80" y1="150" x2="1120" y2="150" stroke="#171410" stroke-opacity="0.85" stroke-width="2.5" />
+  <rect width="1200" height="630" fill="url(#og-bg)" />
+  <rect width="1200" height="630" fill="url(#og-cyan)" />
+  <rect width="1200" height="630" fill="url(#og-mag)" />
+  <rect width="1200" height="630" fill="url(#og-grid)" />
+  <use href="#og-swirl" transform="translate(905 -70) scale(3.4)" opacity="0.10" />
+  <use href="#og-swirl" transform="translate(-90 350) scale(2.4)" opacity="0.08" />
 
   <!-- logo tile -->
-  <g transform="translate(80 64)">
-    <rect width="56" height="56" rx="15" fill="#2545D9" />
-    <g stroke="#ffffff" stroke-width="11" stroke-linecap="round" fill="none" transform="translate(28 28) scale(0.34) translate(-64 -64)">
+  <g transform="translate(536 96) scale(1.0)">
+    <rect x="6" y="6" width="116" height="116" rx="30" fill="url(#og-tile)" />
+    <g stroke="#ffffff" stroke-width="11" stroke-linecap="round" fill="none">
       <g transform="rotate(0 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
       <g transform="rotate(60 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
       <g transform="rotate(120 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
@@ -21,23 +49,12 @@
       <g transform="rotate(300 64 64)"><path d="M64 56 C 71 46 86 48 92 60" /><circle cx="92" cy="60" r="6" fill="#ffffff" stroke="none" /></g>
     </g>
   </g>
-  <text x="156" y="102" font-family="Georgia, serif" font-size="34" font-weight="700" letter-spacing="-0.5" fill="#171410">Coldcast</text>
 
-  <!-- kicker -->
-  <text x="80" y="196" font-family="'Consolas', 'Courier New', monospace" font-size="17" letter-spacing="4" fill="#6E685A">ACCOUNT-SAFE GTM SUITE — TESTED BY 10,000+ SALES PROFESSIONALS</text>
+  <text x="600" y="280" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="2.5" fill="#ffffff" fill-opacity="0.8">TESTED BY 10,000+ SALES PROFESSIONALS</text>
+  <text x="600" y="352" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-1" fill="#ffffff">The world&#8217;s safest</text>
+  <text x="600" y="414" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-1" fill="#ffffff">Sales Navigator scraper</text>
+  <text x="600" y="468" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="500" letter-spacing="0.2" fill="#ffffff" fill-opacity="0.9">Apify alternative &#160;&#183;&#160; triple-verified emails &amp; phones &#160;&#183;&#160; 0 ban risk</text>
 
-  <!-- headline: serif, cobalt italic on "safest" -->
-  <text x="76" y="292" font-family="Georgia, serif" font-size="76" font-weight="700" letter-spacing="-1.5" fill="#171410">The <tspan font-style="italic" fill="#2545D9">safest</tspan> LinkedIn</text>
-  <text x="76" y="378" font-family="Georgia, serif" font-size="76" font-weight="700" letter-spacing="-1.5" fill="#171410">Sales Navigator scraper.</text>
-
-  <!-- ledger row -->
-  <text x="80" y="500" font-family="'Consolas', 'Courier New', monospace" font-size="17" fill="#171410">Tiffanie K.   CRO   illumenature   tiffanie.k@illumenature.com</text>
-  <g transform="translate(1010 480) rotate(-2)">
-    <rect x="0" y="0" width="110" height="30" rx="4" fill="none" stroke="#1E7A44" stroke-width="2.5" />
-    <text x="55" y="21" text-anchor="middle" font-family="'Consolas', 'Courier New', monospace" font-size="14" font-weight="700" letter-spacing="2" fill="#1E7A44">VERIFIED</text>
-  </g>
-
-  <!-- footer strip -->
-  <text x="80" y="580" font-family="'Consolas', 'Courier New', monospace" font-size="15" letter-spacing="3" fill="#6E685A">20,000 LEADS/DAY  ·  0 BANS  ·  ONE SUBSCRIPTION</text>
-  <text x="1120" y="580" text-anchor="end" font-family="'Consolas', 'Courier New', monospace" font-size="15" letter-spacing="2" fill="#2545D9">coldcast.io</text>
+  <rect x="524" y="502" width="152" height="40" rx="20" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1" />
+  <text x="600" y="529" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="0.3" fill="#ffffff">coldcast.io</text>
 </svg>

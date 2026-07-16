@@ -56,12 +56,12 @@ function ActivationForm({ id = 'activate', autoFocus = false }) {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@company.com"
             aria-label="Your email for the activation link"
-            className="h-13 w-full rounded-full border border-ink/20 bg-panel py-3.5 pl-10 pr-4 text-sm text-ink shadow-card placeholder:text-muted/60 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25"
+            className="w-full rounded-xl border border-hairline bg-black/[0.05] py-3.5 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30"
           />
         </div>
         <button
           type="submit"
-          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-bg shadow-[0_10px_28px_-12px_rgba(23,20,16,0.5)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand hover:text-white hover:shadow-brand-btn"
+          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-gradient px-6 py-3.5 text-sm font-semibold text-white shadow-brand-btn transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-gradient-vivid"
         >
           Get my activation link
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
@@ -151,7 +151,7 @@ export default function SalesNavAdvancedPage() {
         <div
           aria-hidden
           className="absolute inset-0 -z-10"
-          style={{ backgroundImage: 'radial-gradient(95% 75% at 50% -10%, rgba(37,69,217,0.08), transparent 60%), linear-gradient(180deg,#F3F0E7,#F7F4ED)' }}
+          style={{ backgroundImage: 'radial-gradient(95% 75% at 50% -10%, rgba(124,58,237,0.16), transparent 60%), radial-gradient(60% 50% at 85% 0%, rgba(34,211,238,0.12), transparent 55%), linear-gradient(180deg,#efeafd,#f6f7fc)' }}
         />
         <div className="container-px relative grid items-center gap-12 lg:grid-cols-2">
           <div>

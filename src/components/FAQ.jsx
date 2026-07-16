@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Plus } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import Reveal from './Reveal'
+import SectionHeading from './SectionHeading'
 
 const FAQS = [
   {
@@ -58,12 +59,11 @@ const FAQS = [
   },
 ]
 
-// Ruled editorial accordion — hairline rows, serif questions, mono index.
 function FaqItem({ item, isOpen, onToggle, index }) {
   const panelId = `faq-panel-${index}`
   const buttonId = `faq-button-${index}`
   return (
-    <div className="border-b border-hairline">
+    <div className="overflow-hidden rounded-2xl border border-hairline bg-panel/60 shadow-card backdrop-blur-sm transition-colors hover:border-black/15">
       <h3>
         <button
           id={buttonId}
@@ -71,17 +71,12 @@ function FaqItem({ item, isOpen, onToggle, index }) {
           onClick={onToggle}
           aria-expanded={isOpen}
           aria-controls={panelId}
-          className="group flex w-full items-baseline gap-5 py-5 text-left"
+          className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left sm:px-6"
         >
-          <span className={`font-mono text-[11px] tabular-nums transition-colors ${isOpen ? 'text-brand' : 'text-muted/60 group-hover:text-brand'}`}>
-            {String(index + 1).padStart(2, '0')}
-          </span>
-          <span className={`flex-1 font-display text-lg font-semibold tracking-tight transition-colors sm:text-xl ${isOpen ? 'text-brand' : 'text-ink group-hover:text-brand'}`}>
-            {item.q}
-          </span>
-          <Plus
-            size={18}
-            className={`shrink-0 self-center transition-all duration-300 ${isOpen ? 'rotate-45 text-brand' : 'text-muted group-hover:text-brand'}`}
+          <span className="text-base font-semibold text-ink">{item.q}</span>
+          <ChevronDown
+            size={20}
+            className={`shrink-0 text-[#0e90ad] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
           />
         </button>
       </h3>
@@ -97,7 +92,7 @@ function FaqItem({ item, isOpen, onToggle, index }) {
             transition={{ duration: 0.28, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <p className="max-w-2xl pb-6 pl-[2.1rem] text-[15px] leading-relaxed text-muted">{item.a}</p>
+            <p className="px-5 pb-5 text-sm leading-relaxed text-muted sm:px-6">{item.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -109,29 +104,25 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section id="faq" className="py-24 sm:py-32">
-      <div className="container-px grid gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-3">
-          <p className="kicker lg:sticky lg:top-28">06 — Questions</p>
-        </div>
-        <div className="lg:col-span-9">
-          <Reveal>
-            <h2 className="font-display text-3xl font-semibold leading-[1.1] tracking-[-0.015em] text-ink sm:text-[2.6rem]">
-              Asked before <em className="accent-em">every first export.</em>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1} className="mt-10 border-t border-ink/15">
-            {FAQS.map((item, i) => (
-              <FaqItem
-                key={item.q}
-                item={item}
-                index={i}
-                isOpen={openIndex === i}
-                onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
-              />
-            ))}
-          </Reveal>
-        </div>
+    <section id="faq" className="relative py-24 sm:py-32">
+      <div className="container-px">
+        <SectionHeading
+          eyebrow="FAQ"
+          title="Questions, answered."
+          subtitle="Everything reps ask before their first export."
+        />
+
+        <Reveal delay={0.1} className="mx-auto mt-14 flex max-w-3xl flex-col gap-4">
+          {FAQS.map((item, i) => (
+            <FaqItem
+              key={item.q}
+              item={item}
+              index={i}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
+            />
+          ))}
+        </Reveal>
       </div>
     </section>
   )
