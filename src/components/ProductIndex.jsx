@@ -14,14 +14,14 @@ const TOOLS = [
   { n: '07', name: 'Domain Enrichment', desc: 'Any domain → firmographics, tech & contacts', to: '/products/domain-enrichment' },
 ]
 
-export default function ProductIndex() {
+export default function ProductIndex({ kicker = '02 — The suite' }) {
   const reduce = useReducedMotion()
   return (
     <section id="products" className="py-24 sm:py-32">
       <div className="container-px">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-3">
-            <p className="kicker lg:sticky lg:top-28">02 — The suite</p>
+            <p className="kicker lg:sticky lg:top-28">{kicker}</p>
           </div>
 
           <div className="lg:col-span-9">

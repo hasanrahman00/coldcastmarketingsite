@@ -8,11 +8,11 @@ const STATS = [
   { value: '10,000+', label: 'Sales professionals' },
 ]
 
-export default function ProofBand() {
+export default function ProofBand({ kicker = '04 — The record' }) {
   return (
     <section className="py-24 sm:py-32">
       <div className="container-px">
-        <p className="kicker">03 — The record</p>
+        <p className="kicker">{kicker}</p>
         <div className="mt-8 grid grid-cols-2 gap-x-8 lg:grid-cols-4">
           {STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.07}>

@@ -1,13 +1,11 @@
 import PageHero from '../components/PageHero'
-import ProductSuite from '../components/ProductSuite'
-import AiSdr from '../components/AiSdr'
-import GtmPipeline from '../components/GtmPipeline'
-import WaterfallEnrichment from '../components/WaterfallEnrichment'
-import OutputPreview from '../components/OutputPreview'
+import ProductIndex from '../components/ProductIndex'
+import ProofBand from '../components/ProofBand'
 import FinalCTA from '../components/FinalCTA'
 import Button from '../components/Button'
 import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 
+// Editorial products overview — the index does the talking.
 export default function ProductsPage() {
   return (
     <>
@@ -19,16 +17,13 @@ export default function ProductsPage() {
         <Button as="a" href={TRIAL_URL} variant="primary" size="lg">
           Start free trial
         </Button>
-        <Button as="a" href={DEMO_URL} variant="outline-light" size="lg">
+        <Button as="a" href={DEMO_URL} variant="ghost" size="lg">
           Book a demo
         </Button>
       </PageHero>
 
-      <ProductSuite showHeading={false} />
-      <AiSdr />
-      <WaterfallEnrichment />
-      <GtmPipeline />
-      <OutputPreview />
+      <ProductIndex kicker="The suite" />
+      <ProofBand kicker="The record" />
       <FinalCTA />
     </>
   )

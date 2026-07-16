@@ -13,7 +13,7 @@ export default function ToolMarquee() {
           {row.map((t, i) => (
             <span key={i} className="flex items-center gap-10 font-mono text-[11.5px] font-medium uppercase tracking-[0.22em] text-muted">
               {t}
-              <span aria-hidden className="text-brand">✳</span>
+              <span aria-hidden className="font-mono text-[14px] text-brand">*</span>
             </span>
           ))}
         </div>

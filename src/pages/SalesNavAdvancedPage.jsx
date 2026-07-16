@@ -56,12 +56,12 @@ function ActivationForm({ id = 'activate', autoFocus = false }) {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@company.com"
             aria-label="Your email for the activation link"
-            className="w-full rounded-xl border border-hairline bg-black/[0.05] py-3.5 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30"
+            className="h-13 w-full rounded-full border border-ink/20 bg-panel py-3.5 pl-10 pr-4 text-sm text-ink shadow-card placeholder:text-muted/60 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25"
           />
         </div>
         <button
           type="submit"
-          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-gradient px-6 py-3.5 text-sm font-semibold text-white shadow-brand-btn transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-gradient-vivid"
+          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-bg shadow-[0_10px_28px_-12px_rgba(23,20,16,0.5)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand hover:text-white hover:shadow-brand-btn"
         >
           Get my activation link
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />

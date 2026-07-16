@@ -9,7 +9,7 @@ export default function FinalCTA() {
     <section className="bg-ink pb-28 pt-24 sm:pb-36 sm:pt-32">
       <div className="container-px">
         <Reveal>
-          <p className="kicker !text-bg/50">04 — Start tonight</p>
+          <p className="kicker !text-bg/50">07 — Start tonight</p>
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="mt-6 max-w-4xl font-display text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.02em] text-bg sm:text-[3.6rem] lg:text-[4.2rem]">

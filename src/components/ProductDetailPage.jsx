@@ -87,17 +87,15 @@ function Hero({ data, accent, Visual }) {
     <section className="relative overflow-hidden pb-14 pt-36 text-center sm:pt-44">
       <HeroBg accent={accent} />
       <div className="container-px relative">
-        <Reveal className="flex justify-center">
-          {isAgent ? (
+        {isAgent && (
+          <Reveal className="flex justify-center">
             <div className="relative">
-              <motion.span aria-hidden className="absolute inset-0 -z-10 rounded-3xl bg-brand/40 blur-2xl"
+              <motion.span aria-hidden className="absolute inset-0 -z-10 rounded-3xl bg-brand/30 blur-2xl"
                 animate={reduce ? {} : { opacity: [0.5, 0.9, 0.5], scale: [1, 1.12, 1] }} transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }} />
               <Logo size={64} className="!rounded-3xl" />
             </div>
-          ) : (
-            <span className={`flex h-16 w-16 items-center justify-center rounded-2xl text-3xl leading-none ring-1 ${accent.tile}`}>{data.emoji}</span>
-          )}
-        </Reveal>
+          </Reveal>
+        )}
         <Reveal delay={0.05} className="mt-6 flex justify-center"><Eyebrow><span className={`h-1.5 w-1.5 rounded-full ${accent.dot}`} />{data.hero.eyebrow}</Eyebrow></Reveal>
         <Reveal delay={0.1}><h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">{data.hero.title}</h1></Reveal>
         <Reveal delay={0.15}><p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-relaxed text-ink/65 sm:text-lg">{data.hero.subtitle}</p></Reveal>
@@ -116,9 +114,11 @@ function StepsTimeline({ how, accent }) {
       {how.steps.map((s, i) => (
         <motion.li key={s.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.45, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }} className="relative flex gap-5 pb-8 last:pb-0">
-          <span className={`relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-2xl leading-none ring-1 ${accent.tile}`}>{s.emoji}</span>
-          <div className="pt-1.5">
-            <div className="flex items-center gap-2"><span className={`text-xs font-bold tabular-nums ${accent.text}`}>{String(i + 1).padStart(2, '0')}</span><h3 className="text-base font-semibold text-ink">{s.title}</h3></div>
+          <span className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-ink/15 bg-panel font-mono text-[13px] font-bold text-brand shadow-card">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <div className="pt-2">
+            <h3 className="font-display text-lg font-semibold tracking-tight text-ink">{s.title}</h3>
             <p className="mt-1.5 text-sm leading-relaxed text-muted">{s.desc}</p>
           </div>
         </motion.li>
@@ -135,11 +135,8 @@ function StepsRail({ how, accent }) {
           transition={{ duration: 0.45, delay: (i % 3) * 0.07, ease: [0.16, 1, 0.3, 1] }}
           className="group relative overflow-hidden rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(28,23,65,0.18)]">
           <span aria-hidden className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${accent.grad}`} />
-          <div className="flex items-center justify-between">
-            <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${accent.tile}`}>{s.emoji}</span>
-            <span className={`font-display text-2xl font-bold ${accent.text} opacity-40`}>{String(i + 1).padStart(2, '0')}</span>
-          </div>
-          <h3 className="mt-5 text-base font-semibold text-ink">{s.title}</h3>
+          <span className="font-mono text-[12px] font-bold tracking-[0.16em] text-brand">{String(i + 1).padStart(2, '0')}</span>
+          <h3 className="mt-4 font-display text-lg font-semibold tracking-tight text-ink">{s.title}</h3>
           <p className="mt-1.5 text-sm leading-relaxed text-muted">{s.desc}</p>
         </motion.div>
       ))}
@@ -157,11 +154,11 @@ function Steps({ how, accent, variant }) {
 }
 
 // ── Features ─────────────────────────────────────────────────────────────────
-function FeatureCard({ f, accent, className = '' }) {
+function FeatureCard({ f, i = 0, className = '' }) {
   return (
-    <div className={`group rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(28,23,65,0.18)] ${className}`}>
-      <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-[22px] leading-none ring-1 ${accent.tile}`}>{f.emoji}</span>
-      <h3 className="mt-5 text-base font-semibold text-ink">{f.title}</h3>
+    <div className={`group rounded-2xl border border-hairline bg-panel p-6 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-float ${className}`}>
+      <span className="font-mono text-[12px] font-bold tracking-[0.16em] text-brand">{String(i + 1).padStart(2, '0')}</span>
+      <h3 className="mt-4 font-display text-lg font-semibold tracking-tight text-ink">{f.title}</h3>
       <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.desc}</p>
     </div>
   )
@@ -176,7 +173,7 @@ function Features({ features, accent, variant }) {
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((f, i) => (
             <Reveal as="div" key={f.title} delay={(i % 3) * 0.05} className={i === 0 ? 'sm:col-span-2 lg:row-span-2' : ''}>
-              <FeatureCard f={f} accent={accent} className={`h-full ${i === 0 ? 'bg-black/[0.05]' : ''}`} />
+              <FeatureCard f={f} i={i} className={`h-full ${i === 0 ? 'bg-panel2' : ''}`} />
             </Reveal>
           ))}
         </div>
@@ -184,16 +181,16 @@ function Features({ features, accent, variant }) {
         <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-x-10 gap-y-2 sm:grid-cols-2">
           {items.map((f, i) => (
             <motion.div key={f.title} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.4, delay: (i % 2) * 0.06 }} className="flex gap-4 border-b border-hairline py-5">
-              <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-xl leading-none ring-1 ${accent.tile}`}>{f.emoji}</span>
-              <div><h3 className="text-sm font-semibold text-ink">{f.title}</h3><p className="mt-1 text-[13px] leading-relaxed text-muted">{f.desc}</p></div>
+              transition={{ duration: 0.4, delay: (i % 2) * 0.06 }} className="flex gap-5 border-b border-hairline py-5">
+              <span className="pt-0.5 font-mono text-[12px] font-bold tracking-[0.14em] text-brand">{String(i + 1).padStart(2, '0')}</span>
+              <div><h3 className="font-display text-base font-semibold tracking-tight text-ink">{f.title}</h3><p className="mt-1 text-[13px] leading-relaxed text-muted">{f.desc}</p></div>
             </motion.div>
           ))}
         </div>
       ) : (
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((f, i) => (
-            <Reveal as="div" key={f.title} delay={(i % 3) * 0.06}><FeatureCard f={f} accent={accent} className="h-full" /></Reveal>
+            <Reveal as="div" key={f.title} delay={(i % 3) * 0.06}><FeatureCard f={f} i={i} className="h-full" /></Reveal>
           ))}
         </div>
       )}
@@ -223,9 +220,9 @@ function Benefits({ benefits, accent }) {
       <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
         {benefits.items.map((b, i) => (
           <Reveal key={b.title} delay={i * 0.06}>
-            <div className="group h-full rounded-2xl border border-hairline bg-black/[0.03] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(28,23,65,0.18)]">
-              <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-xl leading-none ring-1 ${accent.tile}`}>{b.emoji}</span>
-              <h3 className="mt-4 text-base font-semibold text-ink">{b.title}</h3>
+            <div className="group h-full border-t-[1.5px] border-ink pt-5 transition-transform duration-200 hover:-translate-y-0.5">
+              <span className="font-mono text-[12px] font-bold tracking-[0.16em] text-brand">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="mt-3 font-display text-lg font-semibold tracking-tight text-ink">{b.title}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-muted">{b.desc}</p>
             </div>
           </Reveal>
