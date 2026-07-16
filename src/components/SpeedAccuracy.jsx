@@ -49,7 +49,10 @@ export default function SpeedAccuracy() {
                   Other Sales Navigator scrapers
                 </div>
                 <div className="rounded-t-[1.4rem] border-x-2 border-t-2 border-brand/30 bg-brand/[0.06] px-5 pb-4 pt-5 text-center">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-3 py-1.5 text-sm font-semibold text-[#062119] shadow-brand-btn">
+                  {/* Neutral chip: it's a column label, not a CTA. Graphite lets the
+                      lime logo tile read as the brand mark without fighting the
+                      mint STATE column beneath it. */}
+                  <span className="inline-flex items-center gap-2 rounded-full border border-hairline bg-white/[0.05] px-3 py-1.5 text-sm font-semibold text-ink">
                     <Logo size={18} />
                     With Coldcast
                   </span>

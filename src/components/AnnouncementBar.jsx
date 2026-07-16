@@ -13,8 +13,10 @@ export default function AnnouncementBar({ onClose }) {
         <span className="hidden sm:inline">
           Now offering LinkedIn Sales Navigator Advanced for <strong className="font-bold text-ink">$25/mo</strong> — 75% off.
         </span>
-        <span className="font-semibold text-brand underline decoration-brand/40 underline-offset-2 transition-colors group-hover:text-accent">Check it out</span>
-        <ArrowRight size={13} className="text-brand transition-transform group-hover:translate-x-0.5" />
+        {/* Promo, so the click cue is lime — but kept to type + a 13px glyph on the
+            graphite strip, never a lime slab. */}
+        <span className="font-semibold text-lime underline decoration-lime/40 underline-offset-2 transition-colors group-hover:text-lime-light">Check it out</span>
+        <ArrowRight size={13} className="text-lime transition-transform group-hover:translate-x-0.5" />
       </Link>
       <button
         onClick={onClose}

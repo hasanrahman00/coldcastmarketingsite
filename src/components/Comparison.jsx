@@ -59,7 +59,10 @@ export default function Comparison() {
                 <tr>
                   <th className="w-1/3 px-5 py-4" />
                   <th className="w-1/3 px-5 py-4">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-3 py-1.5 text-sm font-semibold text-[#062119] shadow-brand-btn">
+                    {/* Neutral chip: it's a column label, not a CTA. Graphite lets the
+                        lime logo tile read as the brand mark without fighting the
+                        mint STATE column beneath it. */}
+                    <span className="inline-flex items-center gap-2 rounded-full border border-hairline bg-white/[0.05] px-3 py-1.5 text-sm font-semibold text-ink">
                       <Logo size={18} />
                       Coldcast
                     </span>

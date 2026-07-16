@@ -56,12 +56,12 @@ function ActivationForm({ id = 'activate', autoFocus = false }) {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@company.com"
             aria-label="Your email for the activation link"
-            className="w-full rounded-xl border border-hairline bg-white/[0.05] py-3.5 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30"
+            className="w-full rounded-xl border border-hairline bg-white/[0.05] py-3.5 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-lime/50 focus:outline-none focus:ring-2 focus:ring-lime/30"
           />
         </div>
         <button
           type="submit"
-          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-gradient px-6 py-3.5 text-sm font-semibold text-[#062119] shadow-brand-btn transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-gradient-vivid"
+          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-lime-gradient px-6 py-3.5 text-sm font-semibold text-lime-ink shadow-lime-btn transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lime-btn-hover focus-visible:ring-lime"
         >
           Get my activation link
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
@@ -156,7 +156,7 @@ export default function SalesNavAdvancedPage() {
         <div className="container-px relative grid items-center gap-12 lg:grid-cols-2">
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-brand">
+              <span className="inline-flex items-center gap-2 rounded-full border border-lime/30 bg-lime/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-lime">
                 <BadgePercent size={13} /> 75% off · limited deal
               </span>
             </Reveal>

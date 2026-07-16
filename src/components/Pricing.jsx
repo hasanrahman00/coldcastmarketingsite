@@ -79,13 +79,17 @@ export default function Pricing() {
                     : 'border border-hairline bg-panel shadow-card backdrop-blur-sm'
                 }`}
               >
-                {/* Gradient border for the featured card */}
+                {/* Lime gradient border for the featured card — it's a buy
+                    surface, so the ring matches the pill + CTA accent. */}
                 {plan.featured && (
-                  <span aria-hidden className="gradient-ring pointer-events-none absolute inset-0" />
+                  <span
+                    aria-hidden
+                    className="gradient-ring-lime pointer-events-none absolute inset-0"
+                  />
                 )}
 
                 {plan.featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-gradient-vivid px-3 py-1 text-xs font-semibold text-[#062119] shadow-brand-btn">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full border border-hairline bg-panel px-3 py-1 text-xs font-semibold text-ink">
                     Most popular
                   </span>
                 )}

@@ -42,13 +42,15 @@ export default function Footer() {
                 <Link
                   key={t.label}
                   to={t.to}
-                  className="group flex items-center justify-between gap-3 rounded-full border border-hairline bg-panel px-4 py-2.5 text-sm font-semibold text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/40 hover:bg-brand/[0.08] hover:text-accent"
+                  className="group flex items-center justify-between gap-3 rounded-full border border-hairline bg-panel px-4 py-2.5 text-sm font-semibold text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-lime/40 hover:bg-lime/[0.06] hover:text-lime"
                 >
                   <span className="flex items-center gap-2.5">
                     <span className="text-base leading-none">{t.emoji}</span>
                     {t.label}
                   </span>
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand/15 text-brand transition-transform group-hover:translate-x-0.5">
+                  {/* Graphite at rest: the whole pill lights lime together on hover, so
+                      this chip is never a mint spot inside a lime element. */}
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/[0.06] text-muted transition-all duration-200 group-hover:translate-x-0.5 group-hover:bg-lime/15 group-hover:text-lime">
                     <ArrowRight size={13} />
                   </span>
                 </Link>
@@ -60,7 +62,7 @@ export default function Footer() {
           <div className="lg:text-right">
             <a
               href="mailto:hello@coldcast.io"
-              className="inline-block text-2xl font-bold tracking-tight text-ink underline decoration-brand/35 decoration-2 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent/70 sm:text-3xl"
+              className="inline-block text-2xl font-bold tracking-tight text-ink underline decoration-lime/35 decoration-2 underline-offset-4 transition-colors hover:text-lime hover:decoration-lime/70 sm:text-3xl"
             >
               hello@coldcast.io
             </a>
@@ -70,15 +72,15 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-panel text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/40 hover:bg-brand/[0.08] hover:text-accent"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-panel text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-lime/40 hover:bg-lime/[0.06] hover:text-lime"
                 >
                   <Icon size={17} />
                 </a>
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-5 text-[13px] text-faint lg:justify-end">
-              <a href="/privacy/" className="transition-colors hover:text-accent">Privacy Policy</a>
-              <a href="/terms/" className="transition-colors hover:text-accent">Terms</a>
+              <a href="/privacy/" className="transition-colors hover:text-lime">Privacy Policy</a>
+              <a href="/terms/" className="transition-colors hover:text-lime">Terms</a>
             </div>
           </div>
         </div>

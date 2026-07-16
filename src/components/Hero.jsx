@@ -66,10 +66,10 @@ export default function Hero() {
         <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
           {/* ── Left column ─────────────────────────────── */}
           <div>
-            <span className="mb-7 inline-flex items-center gap-[9px] rounded-full border border-[rgba(53,224,184,0.28)] bg-brand/15 px-[15px] py-[7px] text-[13px] font-semibold tracking-[0.01em] text-accent">
+            <span className="mb-7 inline-flex items-center gap-[9px] rounded-full border border-lime/30 bg-lime/[0.12] px-[15px] py-[7px] text-[13px] font-semibold tracking-[0.01em] text-lime-light">
               <span
                 aria-hidden
-                className="h-[7px] w-[7px] flex-none rounded-full bg-brand"
+                className="h-[7px] w-[7px] flex-none rounded-full bg-lime"
                 style={{ animation: anim('pill-pulse 2.4s ease-in-out infinite') }}
               />
               Premium account-safe scraping
@@ -91,14 +91,14 @@ export default function Hero() {
             <div className="mb-8 flex flex-wrap gap-[14px]">
               <a
                 href={TRIAL_URL}
-                className="group inline-flex items-center justify-center gap-[9px] rounded-xl bg-brand-gradient px-7 py-[15px] text-[15.5px] font-semibold text-[#062119] shadow-brand-btn transition-all duration-200 hover:-translate-y-0.5 hover:shadow-brand-btn-hover"
+                className="group inline-flex items-center justify-center gap-[9px] rounded-xl bg-lime-gradient px-7 py-[15px] text-[15.5px] font-semibold text-lime-ink shadow-lime-btn transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lime-btn-hover focus-visible:ring-lime"
               >
                 Start free trial
                 <ArrowRight size={15} strokeWidth={2.2} className="transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
                 href={DEMO_URL}
-                className="inline-flex items-center justify-center rounded-xl border border-hairline-strong px-7 py-[15px] text-[15.5px] font-semibold text-ink transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-light/50 hover:bg-brand/[0.06]"
+                className="inline-flex items-center justify-center rounded-xl border border-hairline-strong px-7 py-[15px] text-[15.5px] font-semibold text-ink transition-all duration-200 hover:-translate-y-0.5 hover:border-lime/50 hover:bg-lime/[0.06]"
               >
                 Book a demo
               </a>

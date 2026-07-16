@@ -167,7 +167,8 @@ export default function Navbar() {
                 <Link to={item.to} className={linkCls} onClick={() => setMenu(null)} aria-expanded={item.menu ? menu === item.menu : undefined}>
                   {item.label}
                   {item.caret && <ChevronDown size={14} className={`transition-transform ${menu === item.menu ? 'rotate-180' : ''}`} />}
-                  {item.badge && <span className="rounded-full bg-brand/20 px-1.5 py-0.5 text-[10px] font-bold text-brand">{item.badge}</span>}
+                  {/* Promo hook, not a status — same deal as the announcement bar, so it reads lime. */}
+                  {item.badge && <span className="rounded-full bg-lime/15 px-1.5 py-0.5 text-[10px] font-bold text-lime">{item.badge}</span>}
                 </Link>
               )}
             </li>
@@ -176,7 +177,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Button as="a" href={DEMO_URL} variant="ghost" size="sm">Book a demo</Button>
-          <Button as="a" href={TRIAL_URL} variant="primary" size="sm" className="!text-[#062119]">Free trial</Button>
+          <Button as="a" href={TRIAL_URL} variant="primary" size="sm">Free trial</Button>
         </div>
 
         <button
@@ -246,7 +247,7 @@ export default function Navbar() {
                 <span className="text-xs text-muted">One account-safe platform · scrape → enrich → reach</span>
                 <div className="flex items-center gap-2.5">
                   <Button as="a" href={DEMO_URL} variant="ghost" size="sm" onClick={() => setMenu(null)}>Book a demo</Button>
-                  <Button as="a" href={TRIAL_URL} variant="primary" size="sm" className="!text-[#062119]" onClick={() => setMenu(null)}>Free trial</Button>
+                  <Button as="a" href={TRIAL_URL} variant="primary" size="sm" onClick={() => setMenu(null)}>Free trial</Button>
                 </div>
               </div>
             </div>
@@ -284,10 +285,10 @@ export default function Navbar() {
               <Link to="/tools" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">Free Tools</Link>
               <Link to="/sales-nav-advanced" onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">
                 Sales Nav Advanced
-                <span className="rounded-full bg-brand/20 px-1.5 py-0.5 text-[10px] font-bold text-brand">−75%</span>
+                <span className="rounded-full bg-lime/15 px-1.5 py-0.5 text-[10px] font-bold text-lime">−75%</span>
               </Link>
               <div className="mt-4 flex flex-col gap-3 border-t border-hairline pt-5">
-                <Button as="a" href={TRIAL_URL} variant="primary" size="lg" className="!text-[#062119]" onClick={() => setOpen(false)}>Free trial</Button>
+                <Button as="a" href={TRIAL_URL} variant="primary" size="lg" onClick={() => setOpen(false)}>Free trial</Button>
                 <Button as="a" href={DEMO_URL} variant="ghost" size="lg" onClick={() => setOpen(false)}>Book a demo</Button>
               </div>
             </div>

@@ -33,19 +33,19 @@ export default function FreeToolsPage() {
             <a
               key={t.title}
               href={t.to}
-              className="group flex items-start gap-4 rounded-2xl border border-hairline bg-white/[0.025] p-5 transition-colors hover:border-hairline-strong hover:bg-white/[0.05]"
+              className="group flex items-start gap-4 rounded-2xl border border-hairline bg-white/[0.025] p-5 transition-colors hover:border-lime/30 hover:bg-white/[0.05]"
             >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-[20px] leading-none">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-hairline bg-lime-gradient-soft text-[20px] leading-none">
                 {t.emoji}
               </span>
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="text-sm font-semibold text-ink">{t.title}</h3>
-                  <span className="rounded-full bg-brand/15 px-2 py-0.5 text-[10px] font-semibold text-brand">{t.tag}</span>
+                  <span className="rounded-full bg-lime/15 px-2 py-0.5 text-[10px] font-semibold text-lime">{t.tag}</span>
                 </div>
                 <p className="mt-1 text-[13px] leading-relaxed text-muted">{t.desc}</p>
               </div>
-              <ArrowRight size={16} className="ml-auto mt-1 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight size={16} className="ml-auto mt-1 shrink-0 text-muted transition-all group-hover:translate-x-0.5 group-hover:text-lime" />
             </a>
           ))}
         </div>

@@ -15,12 +15,29 @@ export default {
         ink: '#f4f7f6',
         muted: '#a7b0ad',
         faint: '#6b7472',
-        // Brand mint — the single accent the whole system leans on
+        // ── Two accents, two jobs. Keep them strictly separated: mixing
+        //    them inside one component is what makes two greens read as an
+        //    accident instead of a decision.
+        //
+        //    LIME = ACTION   — things you click, and the GTM showcase.
+        //    MINT = STATE    — verified / safe / 0 bans / live data.
+        //
+        // Brand mint — STATE. Quietly says "verified".
         brand: {
           light: '#4ce8c3',
           DEFAULT: '#35e0b8',
           dark: '#1fbf9a',
         },
+        // Acid lime — ACTION. Loud on purpose, and rare on purpose: its
+        // impact comes from scarcity, so never use it as a large flat fill.
+        lime: {
+          light: '#d9ff4d',
+          DEFAULT: '#ccff00',
+          dark: '#a3cc00',
+        },
+        // Ink for text/icons sitting ON a lime fill. NOT #062119 — that's a
+        // dark green and goes muddy on lime.
+        'lime-ink': '#131a00',
         // Accents — kept in a cool mint/teal/cyan family so nothing
         // fights the graphite base. amber/danger stay for status only.
         accent: '#4ce8c3', // mint-2 — primary highlight
@@ -39,7 +56,11 @@ export default {
         sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       backgroundImage: {
-        // Mint button face — light-to-base so it reads as a lit surface
+        // Lime button face — ACTION. The default for anything clickable.
+        'lime-gradient': 'linear-gradient(180deg, #d9ff4d 0%, #ccff00 100%)',
+        'lime-gradient-soft':
+          'linear-gradient(135deg, rgba(204,255,0,0.16) 0%, rgba(163,204,0,0.16) 100%)',
+        // Mint button face — STATE. Reserved for status surfaces, not CTAs.
         'brand-gradient': 'linear-gradient(180deg, #4ce8c3 0%, #35e0b8 100%)',
         'brand-gradient-vivid': 'linear-gradient(135deg, #4ce8c3 0%, #2dd4bf 100%)',
         'brand-gradient-soft':
@@ -53,6 +74,11 @@ export default {
         glow: '0 0 80px -10px rgba(53,224,184,0.35)',
         'glow-violet': '0 8px 50px -12px rgba(45,212,191,0.40)',
         'glow-safe': '0 0 70px -14px rgba(53,224,184,0.45)',
+        'glow-lime': '0 0 80px -10px rgba(204,255,0,0.35)',
+        // ACTION buttons — lime
+        'lime-btn': '0 6px 26px rgba(204,255,0,0.35), inset 0 1px 0 rgba(255,255,255,0.35)',
+        'lime-btn-hover': '0 12px 36px rgba(204,255,0,0.50), inset 0 1px 0 rgba(255,255,255,0.35)',
+        // STATE surfaces — mint
         'brand-btn': '0 6px 26px rgba(53,224,184,0.35), inset 0 1px 0 rgba(255,255,255,0.35)',
         'brand-btn-hover': '0 12px 36px rgba(53,224,184,0.50), inset 0 1px 0 rgba(255,255,255,0.35)',
         'inner-top': 'inset 0 1px 0 rgba(255,255,255,0.06)',

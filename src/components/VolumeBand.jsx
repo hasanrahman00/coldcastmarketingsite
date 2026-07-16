@@ -1,9 +1,29 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Boxes, Check, ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
-import Logo from './Logo'
 import BrandLogo from './BrandLogo'
 import { Eyebrow } from './SectionHeading'
+
+const ARMS = [0, 60, 120, 180, 240, 300]
+
+// The Coldcast swirl as currentColor linework, so it takes the pill's own text
+// colour. The "Built in" pill reports a STATE and isn't clickable, so it must
+// carry no lime: the full <Logo> tile would drop a lime-gradient fill and lime
+// glow into it, next to the row's mint check.
+function SwirlMark({ size = 13 }) {
+  return (
+    <svg viewBox="20 20 88 88" width={size} height={size} fill="none" aria-hidden>
+      <g stroke="currentColor" strokeWidth="11" strokeLinecap="round" fill="none">
+        {ARMS.map((d) => (
+          <g key={d} transform={`rotate(${d} 64 64)`}>
+            <path d="M64 56 C 71 46 86 48 92 60" />
+            <circle cx="92" cy="60" r="6" fill="currentColor" stroke="none" />
+          </g>
+        ))}
+      </g>
+    </svg>
+  )
+}
 
 // Per-card emoji tile colour — variety = contrast = attention.
 const TINT = {
@@ -121,8 +141,8 @@ export default function VolumeBand() {
                   </span>
                   <span className="flex-1 text-sm font-medium text-ink">{r.cat}</span>
                   {r.builtIn ? (
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-2.5 py-1 text-[11px] font-semibold text-brand">
-                      <Logo size={13} />
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-white/[0.05] px-2.5 py-1 text-[11px] font-semibold text-ink">
+                      <SwirlMark size={13} />
                       Built in
                     </span>
                   ) : (
@@ -138,7 +158,7 @@ export default function VolumeBand() {
 
             <a
               href="#pricing"
-              className="group mt-5 flex items-center justify-between rounded-xl bg-brand-gradient px-4 py-3.5 text-[#062119] shadow-brand-btn transition-shadow hover:shadow-[0_0_28px_-4px_rgba(53,224,184,0.85)]"
+              className="group mt-5 flex items-center justify-between rounded-xl bg-lime-gradient px-4 py-3.5 text-lime-ink shadow-lime-btn transition-shadow hover:shadow-lime-btn-hover focus-visible:ring-lime"
             >
               <span className="text-sm font-semibold">All in one Coldcast subscription</span>
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />

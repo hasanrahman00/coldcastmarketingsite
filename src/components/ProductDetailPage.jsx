@@ -88,7 +88,10 @@ function Hero({ data, accent, Visual }) {
         <Reveal className="flex justify-center">
           {isAgent ? (
             <div className="relative">
-              <motion.span aria-hidden className="absolute inset-0 -z-10 rounded-3xl bg-brand/40 blur-2xl"
+              {/* The tile below is the lime logo mark, so the bloom follows it into
+                  lime rather than ringing it in mint. Alpha drops from the old mint's
+                  0.40 because #ccff00 carries far more light (see FinalCTA.jsx). */}
+              <motion.span aria-hidden className="absolute inset-0 -z-10 rounded-3xl bg-lime/30 blur-2xl"
                 animate={reduce ? {} : { opacity: [0.5, 0.9, 0.5], scale: [1, 1.12, 1] }} transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }} />
               <Logo size={64} className="!rounded-3xl" />
             </div>

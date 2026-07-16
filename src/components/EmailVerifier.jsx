@@ -140,7 +140,7 @@ export default function EmailVerifier() {
               onChange={onChange}
               placeholder="name@company.com"
               aria-label="Email address to verify"
-              className="w-full rounded-xl border border-hairline bg-inset py-3 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30"
+              className="w-full rounded-xl border border-hairline bg-inset py-3 pl-10 pr-3 text-sm text-ink placeholder:text-muted/60 focus:border-lime/50 focus:outline-none focus:ring-2 focus:ring-lime/30"
             />
           </div>
           <Button as="button" type="submit" variant="primary" size="md" className="shrink-0">
@@ -156,7 +156,7 @@ export default function EmailVerifier() {
               key={ex}
               type="button"
               onClick={() => run(ex)}
-              className="rounded-full border border-hairline bg-white/[0.03] px-2.5 py-1 text-xs text-muted transition-colors hover:border-brand/40 hover:bg-brand/5 hover:text-brand"
+              className="rounded-full border border-hairline bg-white/[0.03] px-2.5 py-1 text-xs text-muted transition-colors hover:border-lime/40 hover:bg-lime/5 hover:text-lime"
             >
               {ex}
             </button>

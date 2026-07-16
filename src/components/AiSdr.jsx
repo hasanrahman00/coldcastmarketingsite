@@ -157,7 +157,7 @@ export default function AiSdr() {
             </ol>
 
             <Reveal delay={0.4} className="mt-9">
-              <Button as="a" href={TRIAL_URL} variant="primary" size="lg" className="shadow-[0_0_28px_-6px_rgba(53,224,184,0.7)]">
+              <Button as="a" href={TRIAL_URL} variant="primary" size="lg">
                 Try the AI SDR free
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
               </Button>
