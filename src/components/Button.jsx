@@ -12,6 +12,10 @@ const VARIANTS = {
   // and never the dark green #062119, which goes muddy on lime.
   primary:
     'bg-lime-gradient text-lime-ink shadow-lime-btn hover:-translate-y-0.5 hover:brightness-105 hover:shadow-lime-btn-hover',
+  // Mint face — the secondary CTA beside a lime primary. Ink here is #062119,
+  // NOT lime's #131a00: each fill has its own ink, and swapping them muddies.
+  mint:
+    'bg-brand-gradient text-[#062119] shadow-brand-btn hover:-translate-y-0.5 hover:brightness-105 hover:shadow-brand-btn-hover',
   ghost:
     'border border-hairline bg-white/[0.04] text-ink hover:bg-white/[0.07] hover:text-ink',
   // Inverted pill: light ink surface, so the label goes dark.

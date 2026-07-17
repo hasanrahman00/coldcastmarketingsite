@@ -26,13 +26,12 @@ import Logo from './Logo'
 import Button from './Button'
 import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 
-// Both pills sit in an ItemRow beside the IconTile, which is LIME now — so they
-// are lime too. They were mint back when the tile was mint; leaving them would
-// have put a mint pill 12px from a lime tile, which is the two-accents-in-one-
-// component mistake the whole system exists to avoid.
+// Both pills sit in an ItemRow beside the IconTile, which is MINT — so they are
+// mint too. Leaving them lime would put a lime pill 12px from a mint tile, which
+// is the two-accents-in-one-component mistake the whole system exists to avoid.
 const TAG = {
-  New: 'bg-lime/15 text-lime',
-  '−75%': 'bg-lime/15 text-lime',
+  New: 'bg-brand/15 text-accent',
+  '−75%': 'bg-brand/15 text-accent',
 }
 
 const AI_SDR = { icon: Bot, name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', to: '/coldcast-agent' }
@@ -81,14 +80,13 @@ const NAV = [
   { key: 'role', label: 'Role', to: '/roles', menu: 'role', caret: true },
 ]
 
-// Small LIME tile + lucide glyph, for both the Scrapers and Role menus.
-// Lime because a menu row is something you click — it's navigation, not status.
-// A lime WASH (not a fill) means the glyph can stay bright lime and still read:
-// bg-lime/15 over the graphite panel is dark, so text-lime lands ~11:1 on it.
-// (A solid lime fill would need #131a00 ink instead — see Logo.jsx.)
+// Small MINT tile + lucide glyph, for both the Scrapers and Role menus.
+// A mint WASH (not a fill) means the glyph can stay bright mint and still read:
+// bg-brand/15 over the graphite panel is dark, so text-accent lands ~10:1 on it.
+// (A solid mint fill would need #062119 ink instead — see Button.jsx.)
 function IconTile({ icon: Icon, size = 17 }) {
   return (
-    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-lime/25 bg-lime/15 text-lime">
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-brand/25 bg-brand/15 text-accent">
       <Icon size={size} strokeWidth={1.8} />
     </span>
   )
@@ -102,7 +100,8 @@ function ItemRow({ icon, name, desc, tag, to, onClick }) {
       </span>
       <span className="min-w-0">
         <span className="flex items-center gap-2">
-          <span className="text-sm font-semibold text-ink">{name}</span>
+          {/* Variant B: LIME label against the MINT icon tile. */}
+          <span className="text-sm font-semibold text-lime">{name}</span>
           {tag && <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[tag]}`}>{tag}</span>}
         </span>
         <span className="mt-0.5 block text-xs leading-snug text-muted">{desc}</span>
@@ -117,8 +116,11 @@ const panelV = {
   exit: { opacity: 0, y: 8, transition: { duration: 0.12 } },
 }
 
+// Top-level nav links are MINT at rest, brightening to the light mint on hover.
+// The hover pill (bg-white/[0.06]) still carries most of the feedback, so the
+// colour shift stays subtle rather than fighting the lime Free trial button.
 const linkCls =
-  'relative z-10 flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-muted transition-colors hover:text-ink'
+  'relative z-10 flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-brand transition-colors hover:text-accent'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -187,8 +189,11 @@ export default function Navbar() {
                 <Link to={item.to} className={linkCls} onClick={() => setMenu(null)} aria-expanded={item.menu ? menu === item.menu : undefined}>
                   {item.label}
                   {item.caret && <ChevronDown size={14} className={`transition-transform ${menu === item.menu ? 'rotate-180' : ''}`} />}
-                  {/* Promo hook, not a status — same deal as the announcement bar, so it reads lime. */}
-                  {item.badge && <span className="rounded-full bg-lime/15 px-1.5 py-0.5 text-[10px] font-bold text-lime">{item.badge}</span>}
+                  {/* A top-level badge used to render here for Sales Nav Advanced's
+                      −75%. That item moved into the Scrapers menu (where its badge
+                      lives on the ItemRow), so no NAV entry carries `badge` any
+                      more and this branch was unreachable. Removed rather than
+                      left as dead lime in a mint nav. */}
                 </Link>
               )}
             </li>
@@ -196,7 +201,7 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button as="a" href={DEMO_URL} variant="ghost" size="sm">Book a demo</Button>
+          <Button as="a" href={DEMO_URL} variant="mint" size="sm">Book a demo</Button>
           <Button as="a" href={TRIAL_URL} variant="primary" size="sm">Free trial</Button>
         </div>
 
@@ -233,7 +238,8 @@ export default function Navbar() {
                   <div className="grid grid-cols-3 gap-x-4 p-7">
                     {PRODUCT_COLUMNS.map((col) => (
                       <div key={col.heading}>
-                        <p className="px-2.5 pb-2 text-xs font-semibold uppercase tracking-wider text-faint">{col.heading}</p>
+                        {/* Variant B: column headings ride with the lime labels. */}
+                        <p className="px-2.5 pb-2 text-xs font-semibold uppercase tracking-wider text-lime">{col.heading}</p>
                         <div className="flex flex-col gap-1">
                           {col.items.map((it) => (<ItemRow key={it.name} {...it} onClick={() => setMenu(null)} />))}
                         </div>
@@ -270,7 +276,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between border-t border-hairline px-6 py-3.5">
                 <span className="text-xs text-muted">One account-safe platform · scrape → enrich → reach</span>
                 <div className="flex items-center gap-2.5">
-                  <Button as="a" href={DEMO_URL} variant="ghost" size="sm" onClick={() => setMenu(null)}>Book a demo</Button>
+                  <Button as="a" href={DEMO_URL} variant="mint" size="sm" onClick={() => setMenu(null)}>Book a demo</Button>
                   <Button as="a" href={TRIAL_URL} variant="primary" size="sm" onClick={() => setMenu(null)}>Free trial</Button>
                 </div>
               </div>
@@ -291,28 +297,28 @@ export default function Navbar() {
             className="absolute inset-x-0 top-full max-h-[calc(100dvh-7rem)] overflow-y-auto border-b border-hairline-strong bg-panel shadow-card lg:hidden"
           >
             <div className="container-px flex flex-col gap-1 py-5">
-              <Link to="/coldcast-agent" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">Coldcast Agent</Link>
+              <Link to="/coldcast-agent" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">Coldcast Agent</Link>
               {/* Label pulled from NAV so desktop and mobile can't drift apart —
                   this was hardcoded "Products" and would have survived the rename. */}
-              <Link to="/products" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">
+              <Link to="/products" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">
                 {NAV.find((n) => n.key === 'products')?.label ?? 'Scrapers'}
               </Link>
               {[AI_SDR, ...PRODUCT_COLUMNS.flatMap((c) => c.items)].map((it) => (
-                <Link key={it.name} to={it.to} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-muted hover:bg-white/[0.05] hover:text-ink">
+                <Link key={it.name} to={it.to} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold text-lime hover:bg-white/[0.05]">
                   <span className="flex items-center gap-2.5"><IconTile icon={it.icon} size={15} />{it.name}</span>
                   {it.tag && <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[it.tag]}`}>{it.tag}</span>}
                 </Link>
               ))}
-              <Link to="/#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">Pricing</Link>
-              <Link to="/roles" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">Role</Link>
+              <Link to="/#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">Pricing</Link>
+              <Link to="/roles" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">Role</Link>
               {ROLES.map((r) => (
-                <Link key={r.name} to={r.to} onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted hover:bg-white/[0.05] hover:text-ink">
+                <Link key={r.name} to={r.to} onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-semibold text-lime hover:bg-white/[0.05]">
                   <IconTile icon={r.icon} size={15} />{r.name}
                 </Link>
               ))}
               <div className="mt-4 flex flex-col gap-3 border-t border-hairline pt-5">
                 <Button as="a" href={TRIAL_URL} variant="primary" size="lg" onClick={() => setOpen(false)}>Free trial</Button>
-                <Button as="a" href={DEMO_URL} variant="ghost" size="lg" onClick={() => setOpen(false)}>Book a demo</Button>
+                <Button as="a" href={DEMO_URL} variant="mint" size="lg" onClick={() => setOpen(false)}>Book a demo</Button>
               </div>
             </div>
           </motion.div>
