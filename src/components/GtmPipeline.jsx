@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import {
   Sparkles,
   Send,
@@ -401,6 +401,12 @@ function StageCard({ stage, active, reduce }) {
 
 export default function GtmPipeline() {
   const reduce = useReducedMotion()
+  const ref = useRef(null)
+  // Gate the walk on visibility: this section sits low on the page and is 3.7
+  // screens tall, so without this its interval re-renders the whole diagram
+  // every 2.66s even while it's far off-screen.
+  const inView = useInView(ref, { margin: '160px' })
+  const live = inView && !reduce
   const [active, setActive] = useState(0)
 
   // The autoplay walk. At 1900ms the 900ms handoffs never settled before the
@@ -409,23 +415,20 @@ export default function GtmPipeline() {
   const STAGE_MS = 2660
 
   useEffect(() => {
-    if (reduce) return undefined
+    if (!live) return undefined
     const id = setInterval(() => setActive((v) => (v + 1) % (STAGES.length + 1)), STAGE_MS)
     return () => clearInterval(id)
-  }, [reduce])
+  }, [live])
 
   return (
-    <section className="relative px-6 py-20 sm:px-8 sm:py-28">
+    <section ref={ref} className="relative px-6 py-24 sm:px-8 sm:py-32">
       <div className="mx-auto max-w-3xl">
         <Reveal className="mb-10 flex flex-col items-center text-center">
-          <Eyebrow className="!border-lime/30 !bg-lime/10 !text-lime">
-            <Sparkles size={13} className="text-lime" />
-            One automated GTM pipeline
-          </Eyebrow>
-          <h2 className="mt-4 text-balance text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+          <Eyebrow icon={Sparkles}>One automated GTM pipeline</Eyebrow>
+          <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
             From scrape to send — your whole stack, connected.
           </h2>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             Coldcast sits at the centre of your pipeline: it sources, scores, enriches, personalises
             and hands finished leads straight to your sequencer and CRM.
           </p>

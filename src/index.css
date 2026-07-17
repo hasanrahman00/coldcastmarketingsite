@@ -365,30 +365,6 @@
   }
 }
 
-/* Hero glass squares — gentle blink */
-@keyframes square-blink {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-
-/* Falling rain streaks (hero) */
-@keyframes rain-fall {
-  0% {
-    transform: translateY(-120%);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(900%);
-    opacity: 0;
-  }
-}
-
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
