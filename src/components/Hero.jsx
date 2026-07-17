@@ -539,9 +539,9 @@ export default function Hero() {
         </div>
 
         {/* The "Works with the sources your pipeline already lives in" chips row
-            used to sit here. <CredibilityRow> replaced it directly below the hero
-            — it makes the same point with real logos plus the ratings and
-            zero-bans proof, so keeping both was saying it twice. */}
+            used to sit here. <TrustBar> replaced it directly below the hero — it
+            makes the same point with real logos plus the ratings and zero-bans
+            proof, so keeping both was saying it twice. */}
       </div>
     </section>
   )

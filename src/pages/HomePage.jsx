@@ -10,8 +10,8 @@ import SpeedAccuracy from '../components/SpeedAccuracy'
 import Features from '../components/Features'
 import IntentSignals from '../components/IntentSignals'
 import HowItWorks from '../components/HowItWorks'
+import StackStrip from '../components/StackStrip'
 import UseCases from '../components/UseCases'
-import CredibilityRow from '../components/CredibilityRow'
 import Pricing from '../components/Pricing'
 import FAQ from '../components/FAQ'
 import FinalCTA from '../components/FinalCTA'
@@ -34,8 +34,10 @@ export default function HomePage() {
       <Features />
       <IntentSignals />
       <HowItWorks />
+      {/* Pinned to HowItWorks on purpose: those four steps end at a file, and
+          this band says what the file opens in. */}
+      <StackStrip />
       <UseCases />
-      <CredibilityRow />
       <Pricing />
       <FAQ />
       <FinalCTA />
