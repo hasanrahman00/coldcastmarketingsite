@@ -3,6 +3,7 @@ import { useReducedMotion } from 'framer-motion'
 import { ArrowRight, Check, Database, Filter, Linkedin, Loader2, MailCheck, Rocket, Send } from 'lucide-react'
 import Avatar from './Avatar'
 import Logo from './Logo'
+import StreamCell from './StreamCell'
 import { TRIAL_URL, DEMO_URL, CUSTOMER_COUNT, SAMPLE_LEADS } from '../lib/constants'
 import { TICK_MS, useRowStream } from '../lib/rowStream'
 
@@ -84,14 +85,14 @@ const TOTAL_LEADS = 2000
 // This governs AMBIENT motion only — entrances, loops, state changes. Hover and
 // focus feedback stay fast on purpose: slowing those makes a UI feel broken
 // rather than calm.
-const RAIL_LAG_MS = 600
-const CHIP_LAG_MS = 1300
+const RAIL_LAG_MS = 900
+const CHIP_LAG_MS = 2900
 // Each value spends a beat LOADING before it resolves — a shimmering skeleton
 // in place of the text — so the card reads as a product fetching data rather
 // than a ticker flipping strings. The loading window ends exactly when the new
 // value lands. Row timing itself lives in ../lib/rowStream, shared with the
 // Live Export table so the two cards stay in step.
-const CHIP_LOAD_MS = 480
+const CHIP_LOAD_MS = 700
 const ROW_COUNT = 5
 
 // Drives the live scrape. Every tick the lead list rotates by one, so each lead
@@ -176,7 +177,7 @@ function Skeleton({ w = 'w-full', className = '' }) {
     >
       <span
         className="absolute inset-y-0 w-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.28),transparent)]"
-        style={{ animation: 'track-shimmer 1.4s linear infinite' }}
+        style={{ animation: 'track-shimmer 2.4s linear infinite' }}
       />
     </span>
   )
@@ -445,30 +446,20 @@ export default function Hero() {
                         >
                           {/* Each row resolves on its own beat (see lib/rowStream),
                               so the list fills one row after another rather than
-                              every row blinking back at once. */}
-                          <span role="cell" className="truncate font-medium text-ink">
-                            {rowReady(i) ? (
-                              <span
-                                className={`block truncate ${reduce ? '' : 'animate-[cell-in_.55s_cubic-bezier(.22,.61,.36,1)_both]'}`}
-                              >
-                                {lead.name}
-                              </span>
-                            ) : (
-                              <Skeleton w="w-[72%]" />
-                            )}
+                              every row blinking back at once. StreamCell handles
+                              the skeleton -> text cross-fade; same component the
+                              Live Export table uses. */}
+                          <span role="cell" className="font-medium text-ink">
+                            <StreamCell reduce={reduce} ready={rowReady(i)} skeleton={<Skeleton w="w-[72%]" />}>
+                              {lead.name}
+                            </StreamCell>
                           </span>
                           {/* Title stands in for the "found" detail here — it lands
                               on the email beat, the slow step of the real run. */}
-                          <span role="cell" className="truncate text-muted">
-                            {emailReady(i) ? (
-                              <span
-                                className={`block truncate ${reduce ? '' : 'animate-[cell-in_.55s_cubic-bezier(.22,.61,.36,1)_both]'}`}
-                              >
-                                {lead.title}
-                              </span>
-                            ) : (
-                              <Skeleton w="w-[88%]" />
-                            )}
+                          <span role="cell" className="text-muted">
+                            <StreamCell reduce={reduce} ready={emailReady(i)} skeleton={<Skeleton w="w-[88%]" />}>
+                              {lead.title}
+                            </StreamCell>
                           </span>
                           <span role="cell" className="justify-self-end">
                             <span

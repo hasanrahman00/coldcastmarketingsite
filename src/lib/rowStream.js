@@ -8,19 +8,24 @@ import { useEffect, useState } from 'react'
 // Per tick, a row does NOT pop in complete. It arrives in stages:
 //
 //   t=0                          every row drops to a shimmering skeleton
-//   t=420 + i*170                row i's name/title/company land
-//   t=420 + i*170 + 320          row i's EMAIL lands — always last, because
+//   t=700 + i*260                row i's name/title/company land
+//   t=700 + i*260 + 450          row i's EMAIL lands — always last, because
 //                                finding and verifying the address is the slow
 //                                part of the real pipeline. The skeleton sitting
 //                                in the email cell for an extra beat IS the
 //                                product working.
 //
-// Last email lands at 420 + 4*170 + 320 = 1420ms, comfortably inside the tick,
-// leaving the card calm for ~2.4s before it starts again.
-export const TICK_MS = 3800
-const ROW_LOAD_MS = 420
-const ROW_STAGGER_MS = 170
-const EMAIL_LAG_MS = 320
+// Last email lands at 700 + 4*260 + 450 = 2190ms, inside the 5000ms tick, so the
+// card holds its finished state for ~2.8s before starting again.
+//
+// These numbers were ~40% faster and read as a flicker: five rows resolving
+// inside 1.4s is closer to a strobe than to watching a job run. Slower makes the
+// cascade legible — you can follow a single row from skeleton to verified, which
+// is the entire point of showing it.
+export const TICK_MS = 5000
+const ROW_LOAD_MS = 700
+const ROW_STAGGER_MS = 260
+const EMAIL_LAG_MS = 450
 
 export function useRowStream(live, tick, count) {
   // Start fully resolved: the card should arrive populated, never fake-load data

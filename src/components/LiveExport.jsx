@@ -3,6 +3,7 @@ import { useInView, useReducedMotion } from 'framer-motion'
 import { Check, Loader2 } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
+import StreamCell from './StreamCell'
 import { SAMPLE_LEADS } from '../lib/constants'
 import { TICK_MS, useRowStream } from '../lib/rowStream'
 
@@ -59,22 +60,8 @@ function Skeleton({ w = 'w-full' }) {
     >
       <span
         className="absolute inset-y-0 w-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.28),transparent)]"
-        style={{ animation: 'track-shimmer 1.4s linear infinite' }}
+        style={{ animation: 'track-shimmer 2.4s linear infinite' }}
       />
-    </span>
-  )
-}
-
-// Every cell renders inside this fixed line box, whether it holds a skeleton or
-// real text. Without it the table was measurably resizing 68px on every tick —
-// a 10px skeleton bar swapping for a ~20px text line, and long titles ("Chief
-// Executive Officer") wrapping to two lines as the leads rotated. That reflow,
-// not the timing, is what made the animation feel rough. A fixed line box plus
-// truncation means the geometry never moves: only opacity changes.
-function Cell({ ready, skeleton, children }) {
-  return (
-    <span className="flex h-5 items-center">
-      {ready ? <span className="w-full truncate">{children}</span> : skeleton}
     </span>
   )
 }
@@ -101,10 +88,6 @@ export default function LiveExport() {
     lead: SAMPLE_LEADS[(tick + i) % SAMPLE_LEADS.length],
     status: STATUSES[i],
   }))
-
-  // Each cell fades in as its own row lands — no per-index delay here, because
-  // the stagger comes from the row stream itself rather than from CSS.
-  const glide = reduce ? undefined : { animation: 'cell-in .55s cubic-bezier(.22,.61,.36,1) both' }
 
   return (
     <section ref={ref} id="live-export" className="relative py-24 sm:py-32">
@@ -168,31 +151,31 @@ export default function LiveExport() {
                       }`}
                     >
                       <td className="px-4 py-0 font-semibold text-ink sm:px-5">
-                        <Cell ready={rowReady(i)} skeleton={<Skeleton w="w-[76%]" />}>
-                          <span style={glide}>{lead.name}</span>
-                        </Cell>
+                        <StreamCell reduce={reduce} ready={rowReady(i)} skeleton={<Skeleton w="w-[76%]" />}>
+                          {lead.name}
+                        </StreamCell>
                       </td>
                       <td className="max-w-[190px] px-4 py-0 text-muted sm:px-5">
-                        <Cell ready={rowReady(i)} skeleton={<Skeleton w="w-[84%]" />}>
-                          <span style={glide}>{lead.title}</span>
-                        </Cell>
+                        <StreamCell reduce={reduce} ready={rowReady(i)} skeleton={<Skeleton w="w-[84%]" />}>
+                          {lead.title}
+                        </StreamCell>
                       </td>
                       <td className="max-w-[180px] px-4 py-0 text-muted sm:px-5">
-                        <Cell ready={rowReady(i)} skeleton={<Skeleton w="w-[70%]" />}>
-                          <span style={glide}>{lead.company}</span>
-                        </Cell>
+                        <StreamCell reduce={reduce} ready={rowReady(i)} skeleton={<Skeleton w="w-[70%]" />}>
+                          {lead.company}
+                        </StreamCell>
                       </td>
                       {/* The email lands LAST — finding and verifying it is the
                           slow step, so its skeleton lingers a beat longer. */}
                       <td className="px-4 py-0 font-display text-[13px] tracking-tight text-muted sm:px-5">
-                        <Cell ready={emailReady(i)} skeleton={<Skeleton w="w-[88%]" />}>
-                          <span style={glide}>{lead.email}</span>
-                        </Cell>
+                        <StreamCell reduce={reduce} ready={emailReady(i)} skeleton={<Skeleton w="w-[88%]" />}>
+                          {lead.email}
+                        </StreamCell>
                       </td>
                       <td className="px-4 py-0 font-display text-[13px] tabular-nums tracking-tight text-muted sm:px-5">
-                        <Cell ready={emailReady(i)} skeleton={<Skeleton w="w-[72%]" />}>
-                          <span style={glide}>{lead.phone}</span>
-                        </Cell>
+                        <StreamCell reduce={reduce} ready={emailReady(i)} skeleton={<Skeleton w="w-[72%]" />}>
+                          {lead.phone}
+                        </StreamCell>
                       </td>
                       <td className="px-4 py-0 sm:px-5">
                         <span className="flex h-5 items-center">

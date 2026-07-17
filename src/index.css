@@ -305,21 +305,11 @@
   }
 }
 
-/* Table cells resolving out of their loading skeleton — a soft fade and a 4px
-   settle. Deliberately NOT the 100% slide `email-in` uses: inside a fixed-height
-   line box a full-height slide reads as a lurch, and 5 rows x 6 cells of lurch
-   is what made the tables feel rough. Only opacity + transform, so this stays on
-   the compositor. */
-@keyframes cell-in {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 4px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
+/* `cell-in` lived here — a fade-and-settle for cells resolving out of their
+   skeleton. StreamCell.jsx replaced it with a true cross-fade (both layers
+   mounted, opacity traded between them), which has no empty frame in the middle.
+   The keyframe had no remaining callers, so it went rather than sit as dead CSS
+   that looks live. */
 
 /* Hero verified chip — each new address slides up through the chip's window */
 @keyframes email-in {
