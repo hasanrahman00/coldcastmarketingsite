@@ -73,9 +73,13 @@ const ROLES = [
 
 const NAV = [
   { key: 'agent', label: 'Coldcast Agent', to: '/coldcast-agent' },
-  // Labelled "Scrapers" — the word the audience actually searches for. The route
-  // and menu key stay /products so no link, page or deep link breaks.
-  { key: 'products', label: 'Scrapers', to: '/products', menu: 'products', caret: true },
+  // Labelled "Scrapers" — the word the audience actually searches for. Clicking
+  // it scrolls to the homepage product section (#products, the "Seven tools"
+  // block) rather than routing to the standalone /products page — hovering still
+  // opens the mega-menu, and the sub-items keep deep-linking to /products/*.
+  // The /products route stays defined in App.jsx (direct URL + invalid-slug
+  // fallback), it's just no longer the top-level destination.
+  { key: 'products', label: 'Scrapers', to: '/#products', menu: 'products', caret: true },
   { key: 'pricing', label: 'Pricing', to: '/#pricing' },
   { key: 'role', label: 'Role', to: '/roles', menu: 'role', caret: true },
 ]
@@ -298,9 +302,10 @@ export default function Navbar() {
           >
             <div className="container-px flex flex-col gap-1 py-5">
               <Link to="/coldcast-agent" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">Coldcast Agent</Link>
-              {/* Label pulled from NAV so desktop and mobile can't drift apart —
-                  this was hardcoded "Products" and would have survived the rename. */}
-              <Link to="/products" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">
+              {/* Label AND target pulled from NAV so desktop and mobile can't
+                  drift apart — both now scroll to the homepage #products section
+                  rather than routing to /products. */}
+              <Link to={NAV.find((n) => n.key === 'products')?.to ?? '/#products'} onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">
                 {NAV.find((n) => n.key === 'products')?.label ?? 'Scrapers'}
               </Link>
               {[AI_SDR, ...PRODUCT_COLUMNS.flatMap((c) => c.items)].map((it) => (
