@@ -6,11 +6,9 @@ import GtmPipeline from '../components/GtmPipeline'
 import TrustBar from '../components/TrustBar'
 import VolumeBand from '../components/VolumeBand'
 import Safety from '../components/Safety'
-import StatsBand from '../components/StatsBand'
 import SpeedAccuracy from '../components/SpeedAccuracy'
 import Features from '../components/Features'
 import IntentSignals from '../components/IntentSignals'
-import Comparison from '../components/Comparison'
 import HowItWorks from '../components/HowItWorks'
 import UseCases from '../components/UseCases'
 import CredibilityRow from '../components/CredibilityRow'
@@ -32,11 +30,9 @@ export default function HomePage() {
       <GtmPipeline />
       <VolumeBand />
       <Safety />
-      <StatsBand />
       <SpeedAccuracy />
       <Features />
       <IntentSignals />
-      <Comparison />
       <HowItWorks />
       <UseCases />
       <CredibilityRow />
