@@ -39,7 +39,7 @@ function SignalGroup({ label, accentIcon: AccentIcon, signals }) {
   return (
     <div className="floating-panel relative h-full overflow-hidden p-6 sm:p-8">
       <div className="flex items-center gap-3">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-hairline bg-brand-gradient-soft text-accent">
+        <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-lime/25 bg-lime-gradient-soft text-lime">
           <AccentIcon size={20} />
         </span>
         <div>
@@ -51,7 +51,7 @@ function SignalGroup({ label, accentIcon: AccentIcon, signals }) {
       <ul className="mt-6 flex flex-col gap-5">
         {signals.map(({ icon: Icon, title, desc }) => (
           <li key={title} className="flex gap-3.5">
-            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-hairline bg-brand-gradient-soft text-accent">
+            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-lime/25 bg-lime-gradient-soft text-lime">
               <Icon size={17} />
             </span>
             <div>
@@ -70,17 +70,14 @@ export default function IntentSignals() {
     <section id="signals" className="relative overflow-hidden py-24 sm:py-32">
       {/* ambient glow */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-[18%] h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-brand-light/10 blur-[140px]" />
+        <div className="absolute left-1/2 top-[18%] h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-lime/[0.07] blur-[140px]" />
       </div>
 
       <div className="container-px relative">
         <SectionHeading
-          eyebrow={
-            <>
-              <Radar size={13} className="text-accent" />
-              Intent signals, not just contacts
-            </>
-          }
+          eyebrow="Intent signals, not just contacts"
+          eyebrowIcon={Radar}
+          eyebrowTone="amber"
           title="Every export is a list of reasons to reach out now."
           subtitle="Coldcast doesn’t just hand you contacts — it captures the company and person signals that show who’s in-market, straight from your live Sales Navigator session. Not bought from a stale third-party database."
         />
@@ -96,8 +93,8 @@ export default function IntentSignals() {
 
         {/* How to use it */}
         <Reveal delay={0.15} className="mx-auto mt-10 max-w-4xl">
-          <div className="flex flex-col items-start gap-4 rounded-2xl border border-l-4 border-hairline border-l-brand/60 bg-brand-gradient-soft p-6 shadow-card transition-shadow hover:shadow-float sm:flex-row sm:items-center sm:p-7">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-hairline bg-white/[0.05] text-accent">
+          <div className="flex flex-col items-start gap-4 rounded-2xl border border-l-4 border-hairline border-l-lime/60 bg-lime-gradient-soft p-6 shadow-card transition-shadow hover:shadow-float sm:flex-row sm:items-center sm:p-7">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-lime/25 bg-lime-gradient-soft text-lime">
               <Target size={22} />
             </span>
             <p className="text-sm leading-relaxed text-ink/90 sm:text-[0.95rem]">

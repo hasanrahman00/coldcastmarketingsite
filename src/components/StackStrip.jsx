@@ -25,14 +25,19 @@ import Reveal from './Reveal'
 // Real, recognisable tools your exported (CSV/XLSX) leads drop into. Framed as
 // "works with your stack" — NOT a customer/"trusted by" wall, which would imply
 // relationships Coldcast doesn't have.
+//
+// `color` is each brand's own SimpleIcons hex, so the logos read in full colour
+// against the graphite band. Notion's brand colour is pure black, which would
+// vanish here, so it's lifted to a light neutral — the one logo that can't wear
+// its real hex on a dark strip.
 const STACK = [
-  { icon: SiSalesforce, name: 'Salesforce' },
-  { icon: SiHubspot, name: 'HubSpot' },
-  { icon: SiZoho, name: 'Zoho CRM' },
-  { icon: SiGooglesheets, name: 'Google Sheets' },
-  { icon: SiAirtable, name: 'Airtable' },
-  { icon: SiNotion, name: 'Notion' },
-  { icon: SiZapier, name: 'Zapier' },
+  { icon: SiSalesforce, name: 'Salesforce', color: '#00A1E0' },
+  { icon: SiHubspot, name: 'HubSpot', color: '#FF7A59' },
+  { icon: SiZoho, name: 'Zoho CRM', color: '#E42527' },
+  { icon: SiGooglesheets, name: 'Google Sheets', color: '#34A853' },
+  { icon: SiAirtable, name: 'Airtable', color: '#18BFFF' },
+  { icon: SiNotion, name: 'Notion', color: '#E9E9E9' },
+  { icon: SiZapier, name: 'Zapier', color: '#FF4F00' },
 ]
 
 export default function StackStrip() {
@@ -43,13 +48,16 @@ export default function StackStrip() {
           Your enriched leads drop straight into the tools you already use
         </span>
         <div className="flex flex-wrap items-center justify-center gap-x-9 gap-y-5">
-          {STACK.map(({ icon: Icon, name }) => (
-            <span
-              key={name}
-              className="flex items-center gap-2 text-muted transition-colors duration-200 hover:text-ink"
-            >
-              <Icon className="h-6 w-6 shrink-0" aria-hidden />
-              <span className="text-sm font-medium">{name}</span>
+          {STACK.map(({ icon: Icon, name, color }) => (
+            <span key={name} className="group flex items-center gap-2">
+              {/* Full-colour brand mark (currentColor via inline style), mint
+                  label beside it. */}
+              <Icon
+                className="h-6 w-6 shrink-0 transition-transform duration-200 group-hover:scale-110"
+                style={{ color }}
+                aria-hidden
+              />
+              <span className="text-sm font-medium text-accent">{name}</span>
             </span>
           ))}
         </div>

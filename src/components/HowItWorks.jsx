@@ -1,4 +1,4 @@
-import { Puzzle, KeyRound, Rocket, Download } from 'lucide-react'
+import { Puzzle, KeyRound, Rocket, Download, Route } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 
@@ -15,6 +15,8 @@ export default function HowItWorks() {
       <div className="container-px">
         <SectionHeading
           eyebrow="How it works"
+          eyebrowIcon={Route}
+          eyebrowTone="teal"
           title="From search to spreadsheet in four steps."
           subtitle="No scripts to babysit, no proxies to configure. If you can run a Sales Navigator search, you can run Coldcast."
         />
@@ -22,9 +24,14 @@ export default function HowItWorks() {
         <ol className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map(({ icon: Icon, title, desc }, i) => (
             <Reveal as="li" key={title} delay={i * 0.12}>
-              <div className="floating-panel h-full p-6 transition-transform duration-200 hover:-translate-y-1">
+              {/* The whole card lifts and lights lime on hover — lime border + a
+                  faint lime wash — the same hover the use-case and trust cards
+                  use, so "you're pointing at this" reads the same everywhere. */}
+              <div className="floating-panel h-full p-6 transition-all duration-200 hover:-translate-y-1 hover:border-lime/40 hover:bg-lime/[0.05]">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-hairline bg-brand-gradient-soft text-accent">
+                  {/* Lime icon in a lime-soft tile — a coherent lime step marker
+                      rather than a lime glyph floating on a mint wash. */}
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-lime/25 bg-lime-gradient-soft text-lime">
                     <Icon size={22} />
                   </span>
                   <span className="font-display text-4xl font-bold tracking-tight text-white/[0.10]">
