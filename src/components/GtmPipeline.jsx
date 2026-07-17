@@ -350,6 +350,10 @@ function StageCard({ stage, active, reduce }) {
           were centred. Centring the row in place wasn't an option: the numeral
           would have had to be absolute, and "Intent & signal-based personalised
           cold copy" wraps straight into it. */}
+      {/* Split header, same idea as the nav's variant B: the NUMERAL is lime and
+          the icon + title are mint. The two accents are on their own lines here
+          rather than jammed side by side, which is what keeps it reading as a
+          decision — lime numbers the step, mint names it. */}
       <div className="relative flex flex-col items-center gap-2.5">
         {/* The step numeral — large lime display type, the section's signature */}
         <span
@@ -362,13 +366,13 @@ function StageCard({ stage, active, reduce }) {
         </span>
         <span className="flex items-center justify-center gap-2.5">
           <span
-            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border bg-lime-gradient-soft transition-colors duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
-              active ? 'border-lime/40 text-lime' : 'border-hairline text-lime/70'
+            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border bg-brand-gradient-soft transition-colors duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
+              active ? 'border-brand/40 text-accent' : 'border-hairline text-accent/70'
             }`}
           >
             <Icon size={16} />
           </span>
-          <span className="text-center font-display text-sm font-semibold text-ink">{stage.title}</span>
+          <span className="text-center font-display text-sm font-semibold text-accent">{stage.title}</span>
         </span>
       </div>
 
