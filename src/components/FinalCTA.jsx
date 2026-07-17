@@ -28,6 +28,8 @@ export default function FinalCTA() {
           <div className="mt-10 flex justify-center">
             <a
               href={TRIAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex h-16 items-center justify-center gap-2 rounded-full bg-lime-gradient px-12 text-sm font-semibold uppercase tracking-[0.1em] text-lime-ink shadow-lime-btn transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lime-btn-hover focus-visible:ring-lime"
             >
               Start free trial

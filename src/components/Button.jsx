@@ -37,8 +37,19 @@ export default function Button({
   const base =
     'group inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:cursor-not-allowed disabled:opacity-60'
 
+  // External links (absolute http/https — the app + Calendly CTAs) open in a new
+  // tab so the marketing site stays put; internal #anchor / route links are left
+  // alone. An explicit target passed in props still wins.
+  const isExternal =
+    Comp === 'a' && typeof props.href === 'string' && /^https?:\/\//.test(props.href)
+  const linkProps = isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+
   return (
-    <Comp className={`${base} ${SIZES[size]} ${VARIANTS[variant]} ${className}`} {...props}>
+    <Comp
+      className={`${base} ${SIZES[size]} ${VARIANTS[variant]} ${className}`}
+      {...linkProps}
+      {...props}
+    >
       {children}
     </Comp>
   )

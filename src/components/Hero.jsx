@@ -246,6 +246,8 @@ export default function Hero() {
             <div className="mb-8 flex flex-wrap gap-[14px]">
               <a
                 href={TRIAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-[9px] rounded-xl bg-lime-gradient px-7 py-[15px] text-[15.5px] font-semibold text-lime-ink shadow-lime-btn transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lime-btn-hover focus-visible:ring-lime"
               >
                 Start free trial
@@ -253,6 +255,8 @@ export default function Hero() {
               </a>
               <a
                 href={DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-xl border border-hairline-strong px-7 py-[15px] text-[15.5px] font-semibold text-ink transition-all duration-200 hover:-translate-y-0.5 hover:border-lime/50 hover:bg-lime/[0.06]"
               >
                 Book a demo
