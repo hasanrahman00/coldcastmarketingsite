@@ -127,37 +127,32 @@ export default function VolumeBand() {
           <div className="absolute -bottom-24 right-[-6%] h-[420px] w-[520px] rounded-full bg-brand-light/20 blur-[120px]" />
         </div>
 
-        <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          {/* Left — the claim */}
+        {/* One centred header over BOTH columns. It used to be stacked in the
+            left column above the cards, which made that column carry the
+            eyebrow + a 6→1 lockup + the h2 + six cards while the right carried
+            a list — so the two could never square up. Lifting the header out
+            leaves each column with one job and lets them share a height.
+
+            The 6→1 lockup went with it: it was a third restatement of a claim
+            the eyebrow, the h2 and the CTA all already make, and the logo grid
+            opposite proves it far better than two glyphs do. */}
+        <div className="relative flex flex-col items-center gap-4 text-center">
+          <Eyebrow>
+            <Boxes size={13} className="text-accent" />
+            One subscription
+          </Eyebrow>
+          <h2 className="max-w-3xl text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            Replace your entire GTM stack.
+          </h2>
+        </div>
+
+        {/* `items-stretch` is what actually equalises the columns — the grid
+            default, but the old `items-center` was overriding it and centring
+            each column at its natural height. */}
+        <div className="relative mt-12 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2">
+          {/* Left — what you get */}
           <div>
-            <Eyebrow>
-              <Boxes size={13} className="text-accent" />
-              One subscription
-            </Eyebrow>
-
-            <div className="relative mt-6 flex items-center gap-3 font-display text-6xl font-bold leading-none tracking-tight sm:text-7xl">
-              <motion.span
-                aria-hidden
-                className="pointer-events-none absolute right-3 top-1/2 -z-10 h-20 w-20 -translate-y-1/2 rounded-full bg-violet/40 blur-2xl"
-                animate={reduce ? {} : { opacity: [0.5, 0.95, 0.5], scale: [1, 1.18, 1] }}
-                transition={{ duration: 3.9, repeat: Infinity, ease: 'easeInOut' }}
-              />
-              <span className="text-ink/25 line-through decoration-2">6</span>
-              <ArrowRight size={40} strokeWidth={2.5} className="text-brand" />
-              <span className="bg-gradient-to-br from-brand via-violet to-brand-light bg-clip-text text-transparent">
-                1
-              </span>
-            </div>
-
-            {/* The kicker line that used to sit here ("six tools → one
-                subscription") was a verbatim transcript of the glyphs above it,
-                and the paragraph below it was the right-hand checklist written
-                out as prose. The lockup and the logo grid already say both. */}
-            <h2 className="mt-5 text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-              Replace your entire GTM stack.
-            </h2>
-
-            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="grid h-full grid-cols-1 gap-3 sm:auto-rows-fr sm:grid-cols-2">
               {POINTS.map(({ Icon, title, desc }, i) => (
                 <motion.div
                   key={title}
@@ -181,13 +176,16 @@ export default function VolumeBand() {
 
           {/* Right — what it replaces. Mint names the row, lime ticks it: the
               same split the nav submenus and the GTM pipeline steps use. */}
-          <div className="rounded-2xl border border-hairline bg-panel/60 p-6 backdrop-blur-sm sm:p-8">
+          <div className="flex h-full flex-col rounded-2xl border border-hairline bg-panel/60 p-6 backdrop-blur-sm sm:p-8">
             {/* The sub that sat under this ("Every tool one Coldcast login
                 replaces") restated the header, and the six rows below restate it
                 again with actual logos. */}
             <div className="text-sm font-semibold text-accent">Your GTM stack, unbundled</div>
 
-            <ul className="mt-5 flex flex-col">
+            {/* flex-1 so the rows take up the slack when this column is the
+                shorter of the two, keeping the CTA pinned to the bottom edge
+                instead of leaving a gap under it. */}
+            <ul className="mt-5 flex flex-1 flex-col justify-around">
               {REPLACES.map((r, i) => (
                 <motion.li
                   key={r.cat}
