@@ -43,8 +43,11 @@ const POINTS = [
   { Icon: Droplets, title: 'Waterfall enrichment', desc: 'Cascades until it finds them.' },
   { Icon: PenLine, title: 'Intent & AI copy', desc: 'Signal-led first lines.' },
   // No ban claim here. Safety.jsx hedges that exact number ("our track record —
-  // not a guarantee") and renders directly below this section, so an absolute
-  // promise would be walked back four seconds later in the same scroll.
+  // not a guarantee"), so an absolute promise on this card would contradict the
+  // page's own careful wording. Safety now renders well above this section
+  // rather than just below it, which makes the point stronger, not weaker: by
+  // the time anyone reads this card they have already been given the hedged
+  // version, so an unhedged one here would read as walking it back.
   { Icon: ShieldCheck, title: 'Account-safe scraping', desc: 'Your browser, human pace.' },
   { Icon: KeyRound, title: 'One login, one bill', desc: 'Your whole stack, one line item.' },
 ]
