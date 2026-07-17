@@ -16,6 +16,16 @@ export default function App() {
   useEffect(() => {
     Crisp.configure(CRISP_WEBSITE_ID)
     Crisp.setColorTheme('teal')
+
+    // Auto-open the chat shortly after a visitor lands — but only ONCE per
+    // browser session, so someone who closes it (or navigates around) isn't
+    // repeatedly interrupted. The 1.2s delay lets the page paint first.
+    if (!sessionStorage.getItem('cc-crisp-opened')) {
+      sessionStorage.setItem('cc-crisp-opened', '1')
+      const t = setTimeout(() => Crisp.chat.open(), 1200)
+      return () => clearTimeout(t)
+    }
+    return undefined
   }, [])
 
   return (
