@@ -12,6 +12,10 @@ export const DEMO_URL = 'https://calendly.com/coldcast/demo'
 // [PLACEHOLDER] sales / contact address for the Custom plan + footer "Contact"
 export const SALES_URL = 'mailto:hello@coldcast.io'
 
+// Crisp live-chat website ID. This is a PUBLIC client key (it ships in every
+// Crisp embed), so it's safe in the bundle — it is not a secret.
+export const CRISP_WEBSITE_ID = '71962233-1845-425d-b872-a0d6ec4c4658'
+
 // Top-nav anchor links (smooth-scroll to in-page sections)
 export const NAV_LINKS = [
   { href: '#features', label: 'Features' },
