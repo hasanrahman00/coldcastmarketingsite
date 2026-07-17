@@ -1,21 +1,24 @@
 import { motion } from 'framer-motion'
-import { ShieldCheck, ShieldAlert, Check, X } from 'lucide-react'
+import { ShieldCheck, ShieldAlert, Check, X, Cloud, KeyRound, Bot, MonitorSmartphone, Lock, Hand } from 'lucide-react'
 import Reveal from './Reveal'
 import { Eyebrow } from './SectionHeading'
 
+// Line icons, not emoji: emoji-in-tiles is the clearest "AI landing page" tell,
+// and this is the flagship teardown — every other section is deliberately
+// emoji-free.
 const THEM = [
-  { emoji: '☁️', text: 'Runs a cloud / headless browser on the vendor’s own servers' },
-  { emoji: '🔑', text: 'Asks for your LinkedIn login and stores it to sign in as you' },
-  { emoji: '🤖', text: 'Bot-speed bursts and shared cloud IPs — foreign-session fingerprints' },
+  { icon: Cloud, text: 'Runs a cloud / headless browser on the vendor’s own servers' },
+  { icon: KeyRound, text: 'Asks for your LinkedIn login and stores it to sign in as you' },
+  { icon: Bot, text: 'Bot-speed bursts and shared cloud IPs — foreign-session fingerprints' },
 ]
 
 const US = [
-  { emoji: '💻', text: 'Runs in your own browser, on your real device, session, and IP' },
-  { emoji: '🔒', text: 'Never asks for or stores your password — you stay logged in yourself' },
-  { emoji: '🖐️', text: 'Genuine human activity: natural scrolling, click-to-next, human pace' },
+  { icon: MonitorSmartphone, text: 'Runs in your own browser, on your real device, session, and IP' },
+  { icon: Lock, text: 'Never asks for or stores your password — you stay logged in yourself' },
+  { icon: Hand, text: 'Genuine human activity: natural scrolling, click-to-next, human pace' },
 ]
 
-function Row({ emoji, text, good, i }) {
+function Row({ icon: Icon, text, good, i }) {
   return (
     <motion.li
       initial={{ opacity: 0, x: good ? 12 : -12 }}
@@ -25,14 +28,21 @@ function Row({ emoji, text, good, i }) {
       className="flex items-center gap-3.5 rounded-xl p-2.5 transition-colors hover:bg-white/[0.035]"
     >
       <span
-        className={`relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[20px] leading-none ring-1 ${
-          good ? 'bg-safe/10 ring-safe/25' : 'bg-danger/10 ring-danger/25'
+        className={`relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ring-1 ${
+          good ? 'bg-safe/10 text-accent ring-safe/25' : 'bg-danger/10 text-danger ring-danger/25'
         }`}
       >
-        {emoji}
+        <Icon size={20} strokeWidth={1.9} />
+        {/* The win mark is MINT — this is a STATE section ("your account stays
+            safe"), and a verified/safe tick is exactly what mint is for. Ink on
+            the mint fill is #062119. The failure side keeps its red ✗; mint vs
+            red is the contrast that makes the good column pop, and it leaves the
+            lone lime "vs" pivot as the section's one scarce lime accent. */}
         <span
           className={`absolute -bottom-1 -right-1 flex h-[18px] w-[18px] items-center justify-center rounded-full ring-2 ring-bg2 ${
-            good ? 'bg-safe text-[#062119]' : 'bg-danger text-[#2b0f0f]'
+            good
+              ? 'bg-safe text-[#062119]'
+              : 'bg-danger text-[#2b0f0f]'
           }`}
         >
           {good ? <Check size={10} strokeWidth={4} /> : <X size={10} strokeWidth={4} />}
@@ -53,10 +63,7 @@ export default function Safety() {
       <div className="container-px relative">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <Eyebrow>
-              <ShieldCheck size={13} className="text-brand" />
-              Safe by architecture, not by promise
-            </Eyebrow>
+            <Eyebrow icon={ShieldCheck} tone="cyan">Safe by architecture, not by promise</Eyebrow>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-7 text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
@@ -76,7 +83,11 @@ export default function Safety() {
         <div className="relative mx-auto mt-14 max-w-5xl">
           {/* VS divider */}
           <div aria-hidden className="absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 lg:block">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-hairline-strong bg-bg2 text-xs font-bold uppercase tracking-[0.15em] text-muted shadow-card">
+            {/* The pivot of the whole comparison — lime so the eye lands on the
+                turn from "them" to "us". It's a neutral divider, not a state or
+                action, so lime here is pure focal pop; text-lime on bg-bg2
+                (near-black) is ~15:1. */}
+            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-lime/40 bg-bg2 text-xs font-bold uppercase tracking-[0.15em] text-lime shadow-[0_0_22px_rgba(204,255,0,0.28)]">
               vs
             </span>
           </div>
@@ -129,10 +140,13 @@ export default function Safety() {
         <Reveal delay={0.15} className="mt-10 flex justify-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-hairline-strong bg-brand-gradient-soft px-5 py-3 text-center text-sm font-semibold text-ink shadow-card">
             <ShieldCheck size={18} className="text-brand" />
-            6+ months of daily internal use
+            {/* Proof numbers are MINT — "6+ months" and "0 account bans" are
+                confirmed track-record facts, which is mint's job, not lime's. */}
+            <span>
+              <span className="font-bold text-accent">6+ months</span> of daily internal use
+            </span>
             <span className="hidden h-4 w-px bg-white/20 sm:block" />
-            <span className="text-accent">0 account bans</span>
-            <span className="text-xs font-normal text-muted">(our track record — not a guarantee)</span>
+            <span className="font-bold text-accent">0 account bans</span>
           </div>
         </Reveal>
       </div>
