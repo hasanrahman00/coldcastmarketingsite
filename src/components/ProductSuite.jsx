@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, LayoutGrid } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 
@@ -81,6 +81,7 @@ export default function ProductSuite({ showHeading = true }) {
         {showHeading && (
           <SectionHeading
             eyebrow="One platform"
+            eyebrowIcon={LayoutGrid}
             title="Seven tools. One account-safe platform."
             subtitle="Scrape, enrich, verify and reach — all from your own browser. Use any tool on its own, or run the whole pipeline end to end."
           />

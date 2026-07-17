@@ -1,19 +1,34 @@
 import Reveal from './Reveal'
 
-// Small pill used above section titles + hero.
-export function Eyebrow({ children, className = '' }) {
+// The section kicker pill. The wash + text colour VARIES per section (`tone`) so
+// the eyebrows read as a set rather than one repeated lime chip — but the icon
+// stays MINT on every one, the constant thread that ties them together. Every
+// tone is a wash (~15% over graphite), never a solid fill: a mint icon on a solid
+// accent is invisible, and the dark tint keeps both the mint glyph and the
+// coloured text legible. Pass `icon` (a lucide component); it's rendered mint.
+const EYEBROW_TONE = {
+  lime: 'border-lime/40 bg-lime/15 text-lime',
+  amber: 'border-amber/40 bg-amber/15 text-amber',
+  cyan: 'border-magenta/40 bg-magenta/15 text-magenta',
+  teal: 'border-violet/40 bg-violet/15 text-violet',
+}
+
+export function Eyebrow({ icon: Icon, tone = 'lime', children, className = '' }) {
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/15 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-accent backdrop-blur ${className}`}
+      className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-wide backdrop-blur ${EYEBROW_TONE[tone] ?? EYEBROW_TONE.lime} ${className}`}
     >
+      {Icon && <Icon size={13} strokeWidth={2} className="shrink-0 text-accent" />}
       {children}
     </span>
   )
 }
 
-// Consistent section header: optional eyebrow, big title, optional subtitle.
+// Consistent section header: optional eyebrow (+ its icon), big title, subtitle.
 export default function SectionHeading({
   eyebrow,
+  eyebrowIcon,
+  eyebrowTone = 'lime',
   title,
   subtitle,
   align = 'center',
@@ -26,7 +41,7 @@ export default function SectionHeading({
     >
       {eyebrow && (
         <Reveal>
-          <Eyebrow>{eyebrow}</Eyebrow>
+          <Eyebrow icon={eyebrowIcon} tone={eyebrowTone}>{eyebrow}</Eyebrow>
         </Reveal>
       )}
       <Reveal delay={0.05}>

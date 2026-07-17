@@ -42,12 +42,9 @@ const POINTS = [
   { Icon: MailCheck, title: 'Verified emails', desc: 'Checked as they’re found.' },
   { Icon: Droplets, title: 'Waterfall enrichment', desc: 'Cascades until it finds them.' },
   { Icon: PenLine, title: 'Intent & AI copy', desc: 'Signal-led first lines.' },
-  // No ban claim here. Safety.jsx hedges that exact number ("our track record —
-  // not a guarantee"), so an absolute promise on this card would contradict the
-  // page's own careful wording. Safety now renders well above this section
-  // rather than just below it, which makes the point stronger, not weaker: by
-  // the time anyone reads this card they have already been given the hedged
-  // version, so an unhedged one here would read as walking it back.
+  // No ban claim on this card — the Safety section owns the account-safety story
+  // a few sections up. This column stays on the data/enrichment value props so it
+  // doesn't repeat or compete with that proof.
   { Icon: ShieldCheck, title: 'Account-safe scraping', desc: 'Your browser, human pace.' },
   { Icon: KeyRound, title: 'One login, one bill', desc: 'Your whole stack, one line item.' },
 ]
@@ -140,10 +137,7 @@ export default function VolumeBand() {
             the eyebrow, the h2 and the CTA all already make, and the logo grid
             opposite proves it far better than two glyphs do. */}
         <div className="relative flex flex-col items-center gap-4 text-center">
-          <Eyebrow>
-            <Boxes size={13} className="text-accent" />
-            One subscription
-          </Eyebrow>
+          <Eyebrow icon={Boxes} tone="amber">One subscription</Eyebrow>
           <h2 className="max-w-3xl text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
             Replace your entire GTM stack.
           </h2>

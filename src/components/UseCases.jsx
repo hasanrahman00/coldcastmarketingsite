@@ -51,6 +51,8 @@ export default function UseCases({ showHeading = true }) {
         {showHeading && (
           <SectionHeading
             eyebrow="Who it’s for"
+            eyebrowIcon={Users}
+            eyebrowTone="cyan"
             title="Built for everyone who lives in Sales Navigator."
           />
         )}

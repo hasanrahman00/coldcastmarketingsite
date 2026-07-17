@@ -215,10 +215,7 @@ export default function AiSdr() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:items-stretch">
           <div>
             <Reveal>
-              <Eyebrow>
-                <Bot size={13} className="text-lime" />
-                AI SDR · new
-              </Eyebrow>
+              <Eyebrow icon={Bot} tone="teal">AI SDR · new</Eyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               {/* Leads on the keyword ("AI SDR") and names the outcome

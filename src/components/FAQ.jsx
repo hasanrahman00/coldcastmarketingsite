@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, HelpCircle } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 
@@ -108,6 +108,7 @@ export default function FAQ() {
       <div className="container-px">
         <SectionHeading
           eyebrow="FAQ"
+          eyebrowIcon={HelpCircle}
           title="Questions, answered."
           subtitle="Everything reps ask before their first export."
         />

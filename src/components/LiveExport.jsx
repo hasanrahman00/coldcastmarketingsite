@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useInView, useReducedMotion } from 'framer-motion'
-import { Check, Loader2 } from 'lucide-react'
+import { Check, Loader2, FileSpreadsheet } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import StreamCell from './StreamCell'
@@ -94,6 +94,7 @@ export default function LiveExport() {
       <div className="container-px">
         <SectionHeading
           eyebrow="Live export"
+          eyebrowIcon={FileSpreadsheet}
           title="From search URL to verified list in minutes."
           subtitle="Paste any Sales Navigator search. Coldcast scrapes at human pace inside your own browser, enriches every row through the waterfall, and triple-verifies each email before it hits your CSV."
         />
