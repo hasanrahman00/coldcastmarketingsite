@@ -281,6 +281,26 @@
   }
 }
 
+/* The "Built in" pills' Coldcast mark (VolumeBand) — a slow blink that picks out
+   the two rows Coldcast does itself, with no vendor logos to carry them.
+   Same rule as logo-blink above: rest is BRIGHT (0.9) and the pulse adds light,
+   because a mark that sits dimmed for most of its cycle reads as disabled rather
+   than alive. Scale only — logo-blink's -4px lift is tuned for 28px logos and
+   would throw a 13px mark clean out of its pill. Opacity + transform, so this
+   stays on the compositor. */
+@keyframes mark-blink {
+  0%,
+  78%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  88% {
+    opacity: 1;
+    transform: scale(1.14);
+  }
+}
+
 /* TrustBar — the faces lift in the same relay */
 @keyframes face-pulse {
   0%,
