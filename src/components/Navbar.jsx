@@ -26,11 +26,13 @@ import Logo from './Logo'
 import Button from './Button'
 import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 
+// Both pills sit in an ItemRow beside the IconTile, which is LIME now — so they
+// are lime too. They were mint back when the tile was mint; leaving them would
+// have put a mint pill 12px from a lime tile, which is the two-accents-in-one-
+// component mistake the whole system exists to avoid.
 const TAG = {
-  New: 'bg-brand/25 text-brand',
-  // Lives inside an ItemRow now (mint IconTile 12px away), so it reads mint —
-  // a lime pill beside a mint tile would put two accents in one row.
-  '−75%': 'bg-brand/25 text-brand',
+  New: 'bg-lime/15 text-lime',
+  '−75%': 'bg-lime/15 text-lime',
 }
 
 const AI_SDR = { icon: Bot, name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', to: '/coldcast-agent' }
@@ -72,15 +74,21 @@ const ROLES = [
 
 const NAV = [
   { key: 'agent', label: 'Coldcast Agent', to: '/coldcast-agent' },
-  { key: 'products', label: 'Products', to: '/products', menu: 'products', caret: true },
+  // Labelled "Scrapers" — the word the audience actually searches for. The route
+  // and menu key stay /products so no link, page or deep link breaks.
+  { key: 'products', label: 'Scrapers', to: '/products', menu: 'products', caret: true },
   { key: 'pricing', label: 'Pricing', to: '/#pricing' },
   { key: 'role', label: 'Role', to: '/roles', menu: 'role', caret: true },
 ]
 
-// Small mint tile + lucide glyph — mirrors the mock's .prod-icon.
+// Small LIME tile + lucide glyph, for both the Scrapers and Role menus.
+// Lime because a menu row is something you click — it's navigation, not status.
+// A lime WASH (not a fill) means the glyph can stay bright lime and still read:
+// bg-lime/15 over the graphite panel is dark, so text-lime lands ~11:1 on it.
+// (A solid lime fill would need #131a00 ink instead — see Logo.jsx.)
 function IconTile({ icon: Icon, size = 17 }) {
   return (
-    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-brand/20 bg-brand/15 text-accent">
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-lime/25 bg-lime/15 text-lime">
       <Icon size={size} strokeWidth={1.8} />
     </span>
   )
@@ -159,9 +167,11 @@ export default function Navbar() {
       }`}
     >
       <div className="flex items-center justify-between gap-2 px-5 py-[18px] sm:px-10">
-        <Link to="/" onClick={() => setMenu(null)} className="flex shrink-0 items-center gap-3" aria-label="Coldcast — home">
+        {/* Mark only — the wordmark moved to the hero, above the H1. The
+            aria-label still carries "Coldcast" so the link is announced by name
+            to screen readers and read as the brand by crawlers. */}
+        <Link to="/" onClick={() => setMenu(null)} className="flex shrink-0 items-center" aria-label="Coldcast — home">
           <Logo size={34} />
-          <span className="font-display text-[19px] font-bold tracking-[-0.02em] text-ink">Coldcast</span>
         </Link>
 
         {/* Center nav with sliding hover pill */}
@@ -282,7 +292,11 @@ export default function Navbar() {
           >
             <div className="container-px flex flex-col gap-1 py-5">
               <Link to="/coldcast-agent" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">Coldcast Agent</Link>
-              <Link to="/products" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">Products</Link>
+              {/* Label pulled from NAV so desktop and mobile can't drift apart —
+                  this was hardcoded "Products" and would have survived the rename. */}
+              <Link to="/products" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-white/[0.05]">
+                {NAV.find((n) => n.key === 'products')?.label ?? 'Scrapers'}
+              </Link>
               {[AI_SDR, ...PRODUCT_COLUMNS.flatMap((c) => c.items)].map((it) => (
                 <Link key={it.name} to={it.to} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-muted hover:bg-white/[0.05] hover:text-ink">
                   <span className="flex items-center gap-2.5"><IconTile icon={it.icon} size={15} />{it.name}</span>

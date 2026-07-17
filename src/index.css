@@ -138,14 +138,16 @@
     }
   }
 
-  /* Animated gradient text — slow shine sweep */
+  /* Animated gradient text — slow shine sweep. Ambient loop, so it rides the
+     site tempo: 8.4s (was 6s). Timing stays `linear` on purpose — this is a
+     continuous loop, and an ease curve would hitch at each cycle boundary. */
   .text-gradient {
     background-image: linear-gradient(100deg, #4ce8c3, #8ff2da, #4ce8c3);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: text-shine 6s linear infinite;
+    animation: text-shine 8.4s linear infinite;
   }
 
   /* Gradient lit-edge wrapper for glass cards */
@@ -257,6 +259,87 @@
   }
   to {
     transform: translateX(400%);
+  }
+}
+
+/* TrustBar — a highlight travelling the row of source logos.
+   The resting state is bright (0.88). The first version rested at 0.55, which
+   meant ~10 of the 11 logos were dimmed at any instant and the whole row read
+   washed out — the wave has to ADD light to one logo, not subtract it from ten.
+   Only opacity + transform animate, so this stays on the compositor and never
+   triggers layout or paint. */
+@keyframes logo-blink {
+  0%,
+  86%,
+  100% {
+    opacity: 0.88;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  93% {
+    opacity: 1;
+    transform: translate3d(0, -4px, 0) scale(1.07);
+  }
+}
+
+/* TrustBar — the faces lift in the same relay */
+@keyframes face-pulse {
+  0%,
+  86%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  93% {
+    transform: translate3d(0, -3px, 0) scale(1.09);
+  }
+}
+
+/* Hero dashboard — rail rows and lead rows land one after another */
+@keyframes rail-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Table cells resolving out of their loading skeleton — a soft fade and a 4px
+   settle. Deliberately NOT the 100% slide `email-in` uses: inside a fixed-height
+   line box a full-height slide reads as a lurch, and 5 rows x 6 cells of lurch
+   is what made the tables feel rough. Only opacity + transform, so this stays on
+   the compositor. */
+@keyframes cell-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 4px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Hero verified chip — each new address slides up through the chip's window */
+@keyframes email-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero verified chip — the orb pings as an address clears */
+@keyframes orb-ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(53, 224, 184, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(53, 224, 184, 0);
   }
 }
 

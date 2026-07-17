@@ -79,7 +79,7 @@ export default function VolumeBand() {
                 aria-hidden
                 className="pointer-events-none absolute right-3 top-1/2 -z-10 h-20 w-20 -translate-y-1/2 rounded-full bg-violet/40 blur-2xl"
                 animate={reduce ? {} : { opacity: [0.5, 0.95, 0.5], scale: [1, 1.18, 1] }}
-                transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
+                transition={{ duration: 3.9, repeat: Infinity, ease: 'easeInOut' }}
               />
               <span className="text-ink/25 line-through decoration-2">6</span>
               <ArrowRight size={40} strokeWidth={2.5} className="text-violet" />
@@ -106,7 +106,7 @@ export default function VolumeBand() {
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.45, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.75, delay: i * 0.12, ease: [0.22, 0.61, 0.36, 1] }}
                   className="flex h-full gap-3 rounded-xl border border-hairline bg-white/[0.03] p-3.5 transition-colors duration-300 hover:border-hairline-strong hover:bg-white/[0.06]"
                 >
                   <span className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-[19px] leading-none ring-1 ${TINT[tint]}`}>
@@ -133,7 +133,7 @@ export default function VolumeBand() {
                   initial={{ opacity: 0, x: 16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.4, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.75, delay: 0.1 + i * 0.12, ease: [0.22, 0.61, 0.36, 1] }}
                   className="flex items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-white/[0.04]"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-safe/20 text-brand ring-1 ring-safe/30">

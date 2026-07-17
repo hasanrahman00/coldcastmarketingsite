@@ -76,7 +76,7 @@ function FaqItem({ item, isOpen, onToggle, index }) {
           <span className="text-base font-semibold text-ink">{item.q}</span>
           <ChevronDown
             size={20}
-            className={`shrink-0 text-accent transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+            className={`shrink-0 text-accent transition-transform duration-[400ms] ease-[cubic-bezier(.22,.61,.36,1)] ${isOpen ? 'rotate-180' : ''}`}
           />
         </button>
       </h3>
@@ -89,7 +89,7 @@ function FaqItem({ item, isOpen, onToggle, index }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: 'easeInOut' }}
+            transition={{ duration: 0.4, ease: [0.22, 0.61, 0.36, 1] }}
             className="overflow-hidden"
           >
             <p className="px-5 pb-5 text-sm leading-relaxed text-muted sm:px-6">{item.a}</p>

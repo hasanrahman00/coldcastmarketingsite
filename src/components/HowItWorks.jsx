@@ -21,7 +21,7 @@ export default function HowItWorks() {
 
         <ol className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map(({ icon: Icon, title, desc }, i) => (
-            <Reveal as="li" key={title} delay={i * 0.1}>
+            <Reveal as="li" key={title} delay={i * 0.12}>
               <div className="floating-panel h-full p-6 transition-transform duration-200 hover:-translate-y-1">
                 <div className="flex items-center gap-3">
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-hairline bg-brand-gradient-soft text-accent">

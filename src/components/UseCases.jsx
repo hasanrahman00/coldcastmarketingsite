@@ -51,7 +51,7 @@ export default function UseCases({ showHeading = true }) {
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {CASES.map(({ icon: Icon, color, title, desc, to }, i) => (
-            <Reveal key={title} delay={(i % 2) * 0.08}>
+            <Reveal key={title} delay={(i % 2) * 0.12}>
               <Link
                 to={to}
                 className="group flex h-full flex-col rounded-2xl border border-hairline bg-panel p-7 shadow-card backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1"

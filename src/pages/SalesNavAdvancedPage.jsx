@@ -94,7 +94,7 @@ function PlanCard() {
             initial={{ opacity: 0, x: -8 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.35, delay: i * 0.07 }}
+            transition={{ duration: 0.75, delay: i * 0.12, ease: [0.22, 0.61, 0.36, 1] }}
             className="flex items-center gap-2.5 text-sm text-ink/85"
           >
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand/15 text-brand">
@@ -208,7 +208,7 @@ export default function SalesNavAdvancedPage() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.45, delay: (i % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.75, delay: (i % 4) * 0.12, ease: [0.22, 0.61, 0.36, 1] }}
               className="group rounded-2xl border border-hairline bg-white/[0.03] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/30 hover:bg-white/[0.05] hover:shadow-card"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand ring-1 ring-brand/30">
@@ -242,7 +242,7 @@ export default function SalesNavAdvancedPage() {
         <SectionHeading eyebrow="Why grab it" title="The same plan, three quarters off." />
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
           {BENEFITS.map(({ icon: Icon, title, desc }, i) => (
-            <Reveal key={title} delay={i * 0.07}>
+            <Reveal key={title} delay={i * 0.12}>
               <div className="h-full rounded-2xl border border-hairline bg-white/[0.03] p-6 shadow-card">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand ring-1 ring-brand/30">
                   <Icon size={20} />
@@ -265,7 +265,7 @@ export default function SalesNavAdvancedPage() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.45, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.75, delay: i * 0.12, ease: [0.22, 0.61, 0.36, 1] }}
               className="relative overflow-hidden rounded-2xl border border-hairline bg-white/[0.03] p-6"
             >
               <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-brand to-brand-light" />

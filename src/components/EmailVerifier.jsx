@@ -187,7 +187,7 @@ export default function EmailVerifier() {
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${result.score}%` }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
                     className={`h-full rounded-full ${v.bar}`}
                   />
                 </div>

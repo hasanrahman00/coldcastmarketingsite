@@ -21,7 +21,7 @@ function Row({ emoji, text, good, i }) {
       initial={{ opacity: 0, x: good ? 12 : -12 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.4, delay: (good ? 0.1 : 0) + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.75, delay: (good ? 0.1 : 0) + i * 0.12, ease: [0.22, 0.61, 0.36, 1] }}
       className="flex items-center gap-3.5 rounded-xl p-2.5 transition-colors hover:bg-white/[0.035]"
     >
       <span
@@ -109,7 +109,7 @@ export default function Safety() {
                   <span className="text-sm font-semibold uppercase tracking-wider text-ink">Coldcast</span>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-safe/30 bg-safe/10 px-3 py-1 text-xs font-medium text-accent">
                     <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-safe opacity-60" />
+                      <span className="absolute inline-flex h-full w-full animate-[ping_1.4s_cubic-bezier(0,0,0.2,1)_infinite] rounded-full bg-safe opacity-60" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-safe" />
                     </span>
                     Account stays safe

@@ -4,8 +4,8 @@
   "description": "Account-safe LinkedIn Sales Navigator scraper — export & enrich leads from your own browser.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f6f8ff",
-  "theme_color": "#f6f8ff",
+  "background_color": "#08090b",
+  "theme_color": "#0f1214",
   "icons": [
     {
       "src": "/favicon-192x192.png",

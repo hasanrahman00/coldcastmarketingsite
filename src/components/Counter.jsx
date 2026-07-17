@@ -24,7 +24,7 @@ export default function Counter({
     }
     const controls = animate(0, to, {
       duration,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.22, 0.61, 0.36, 1],
       onUpdate: (v) => setValue(v),
     })
     return () => controls.stop()

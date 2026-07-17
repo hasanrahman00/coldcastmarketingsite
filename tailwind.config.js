@@ -54,6 +54,9 @@ export default {
         freudian: ['Freudian', '"Space Grotesk"', 'sans-serif'],
         display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        // No `mono` override on purpose: `font-mono` falls back to Tailwind's
+        // system stack, so the site downloads exactly two faces — Space Grotesk
+        // and Inter — and nothing else.
       },
       backgroundImage: {
         // Lime button face — ACTION. The default for anything clickable.
@@ -109,7 +112,10 @@ export default {
         },
       },
       animation: {
-        shine: 'shine 6s linear infinite',
+        // Ambient shimmer — kept in step with `.text-gradient`/text-shine in
+        // index.css, which is the same sweep. `linear` is deliberate: an ease
+        // curve on a continuous loop hitches at every cycle boundary.
+        shine: 'shine 8.4s linear infinite',
         marquee: 'marquee 32s linear infinite',
         float: 'float 7s ease-in-out infinite',
         'float-slow': 'float-slow 11s ease-in-out infinite',

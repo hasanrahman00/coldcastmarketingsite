@@ -104,8 +104,16 @@ function SwirlMark({ size = 44 }) {
   )
 }
 
-// Partner logos stay neutral graphite — they are third-party brand marks.
-// Own-service nodes are graphite too, so the lime structure reads uninterrupted.
+// Partner logos keep their own brand colour — they are third-party marks and
+// must stay recognisable.
+//
+// Coldcast's OWN service nodes (Website, Email verify, Email enrich, Domain
+// enrich, Email, Phone) are MINT. They were neutral grey, which made them the
+// only dead thing in a lime section and left them fighting the graphite tile
+// they sit on (7.46:1, the section's worst). Mint is also correct by the
+// system's own rule: these are verified data services, and mint = state. The
+// lime stays on the pipeline's structure — spokes, hub, numerals — so the two
+// never compete: lime is the wiring, mint is what flows through it.
 function Node({ domain, name, icon: Icon, size = 38 }) {
   return (
     <div className="flex flex-col items-center gap-1.5 text-center" style={{ width: 64 }}>
@@ -114,7 +122,7 @@ function Node({ domain, name, icon: Icon, size = 38 }) {
       ) : (
         <span
           title={name}
-          className="flex items-center justify-center rounded-lg border border-hairline bg-panel2 text-muted"
+          className="flex items-center justify-center rounded-lg border border-brand/25 bg-brand/[0.08] text-accent"
           style={{ width: size, height: size }}
         >
           {Icon && <Icon size={Math.round(size * 0.46)} strokeWidth={1.75} />}
@@ -138,7 +146,7 @@ function Connector({ reduce, index = 0 }) {
           initial={reduce ? false : { scaleY: 0, opacity: 0 }}
           whileInView={reduce ? undefined : { scaleY: 1, opacity: 1 }}
           viewport={{ once: true, margin: '-24px' }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
         />
         {!reduce &&
           [0, 1].map((p) => (
@@ -147,11 +155,13 @@ function Connector({ reduce, index = 0 }) {
               className="absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-lime"
               style={{ boxShadow: `0 0 10px 2px rgba(204,255,0,0.75)` }}
               animate={{ top: ['-12%', '112%'], opacity: [0, 1, 1, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: 'linear', delay: index * 0.3 + p * 0.8 }}
+              // linear is load-bearing: a dot travelling a wire moves at constant
+              // speed. p * half-duration keeps the two dots exactly antiphase.
+              transition={{ duration: 2.24, repeat: Infinity, ease: 'linear', delay: index * 0.42 + p * 1.12 }}
             />
           ))}
       </div>
-      <ChevronDown size={16} className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 text-lime/50" />
+      <ChevronDown size={16} className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 text-lime/70" />
     </div>
   )
 }
@@ -187,7 +197,9 @@ function Hub({ active, reduce }) {
               style={{ filter: 'drop-shadow(0 0 2.5px rgba(204,255,0,0.95))' }}
               initial={{ cx: n.x, cy: n.y, opacity: 0 }}
               animate={{ cx: [n.x, 50], cy: [n.y, 50], opacity: [0, 1, 1, 0] }}
-              transition={{ duration: 2, repeat: Infinity, delay: i * 0.26, ease: 'easeIn' }}
+              // easeIn is the meaning here — data accelerates INTO the hub.
+              // Swapping it for the ease-out curve would reverse that.
+              transition={{ duration: 2.8, repeat: Infinity, delay: i * 0.36, ease: 'easeIn' }}
             />
           ))}
       </svg>
@@ -195,7 +207,7 @@ function Hub({ active, reduce }) {
       {/* Center — Coldcast. Lime mark on graphite; the glow marks it active. */}
       <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
         <div
-          className={`relative flex h-[84px] w-[84px] items-center justify-center rounded-full border transition-all duration-500 ${
+          className={`relative flex h-[84px] w-[84px] items-center justify-center rounded-full border transition-all duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
             active
               ? 'border-lime/60 bg-lime-gradient-soft text-lime ring-2 ring-lime/20'
               : 'border-hairline-strong bg-panel2 text-lime/70'
@@ -209,7 +221,7 @@ function Hub({ active, reduce }) {
                 ? { opacity: active ? 0.7 : 0 }
                 : { scale: active ? [1, 1.3, 1] : 1, opacity: active ? [0.5, 0.9, 0.5] : 0 }
             }
-            transition={{ duration: 2.6, repeat: !reduce && active ? Infinity : 0, ease: 'easeInOut' }}
+            transition={{ duration: 3.64, repeat: !reduce && active ? Infinity : 0, ease: 'easeInOut' }}
           />
           <SwirlMark size={44} />
         </div>
@@ -225,7 +237,7 @@ function Hub({ active, reduce }) {
           initial={{ scale: 0.4, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, margin: '-40px' }}
-          transition={{ delay: 0.1 + i * 0.07, type: 'spring', stiffness: 240, damping: 16 }}
+          transition={{ delay: 0.1 + i * 0.12, duration: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
         >
           <Node {...n} />
         </motion.div>
@@ -265,7 +277,7 @@ function MiniHub({ nodes: items, reduce, center, active }) {
               style={{ filter: 'drop-shadow(0 0 2.5px rgba(204,255,0,0.95))' }}
               initial={{ cx: n.x, cy: n.y, opacity: 0 }}
               animate={{ cx: [n.x, 50], cy: [n.y, 50], opacity: [0, 1, 1, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4, ease: 'easeIn' }}
+              transition={{ duration: 2.52, repeat: Infinity, delay: i * 0.56, ease: 'easeIn' }}
             />
           ))}
       </svg>
@@ -273,8 +285,8 @@ function MiniHub({ nodes: items, reduce, center, active }) {
       {/* Center — Coldcast, or a labelled stack-category node */}
       <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
         <div
-          className={`relative flex h-14 w-14 items-center justify-center rounded-full border transition-all duration-500 ${
-            active ? 'border-lime/60 bg-lime-gradient-soft text-lime' : 'border-hairline-strong bg-panel2 text-lime/60'
+          className={`relative flex h-14 w-14 items-center justify-center rounded-full border transition-all duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
+            active ? 'border-lime/60 bg-lime-gradient-soft text-lime' : 'border-hairline-strong bg-panel2 text-lime/70'
           }`}
         >
           <motion.span
@@ -285,7 +297,7 @@ function MiniHub({ nodes: items, reduce, center, active }) {
                 ? { opacity: active ? 0.7 : 0 }
                 : { scale: active ? [1, 1.25, 1] : 1, opacity: active ? [0.5, 0.85, 0.5] : 0 }
             }
-            transition={{ duration: 2.4, repeat: !reduce && active ? Infinity : 0, ease: 'easeInOut' }}
+            transition={{ duration: 3.36, repeat: !reduce && active ? Infinity : 0, ease: 'easeInOut' }}
           />
           {CenterIcon ? <CenterIcon size={22} strokeWidth={1.9} /> : <SwirlMark size={30} />}
         </div>
@@ -301,7 +313,7 @@ function MiniHub({ nodes: items, reduce, center, active }) {
           initial={{ scale: 0.5, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, margin: '-40px' }}
-          transition={{ delay: 0.1 + i * 0.08, type: 'spring', stiffness: 240, damping: 16 }}
+          transition={{ delay: 0.1 + i * 0.12, duration: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
         >
           <Node {...n} size={34} />
         </motion.div>
@@ -314,43 +326,49 @@ function StageCard({ stage, active, reduce }) {
   const Icon = stage.icon
   return (
     <div
-      className={`relative w-full max-w-md overflow-hidden rounded-2xl border bg-panel/80 p-5 shadow-card backdrop-blur-sm transition-all duration-500 ${
+      className={`relative w-full max-w-md overflow-hidden rounded-2xl border bg-panel/80 p-5 shadow-card backdrop-blur-sm transition-all duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
         active ? 'border-lime/25 ring-1 ring-lime/30' : 'border-hairline'
       }`}
     >
       {/* Lime hairline rule across the top — lights up on the active stage */}
       <span
         aria-hidden
-        className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-lime to-transparent transition-opacity duration-500 ${
+        className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-lime to-transparent transition-opacity duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
           active ? 'opacity-90' : 'opacity-20'
         }`}
       />
       <span
         aria-hidden
-        className={`pointer-events-none absolute -top-16 left-1/2 h-32 w-56 -translate-x-1/2 rounded-full bg-lime/10 blur-3xl transition-opacity duration-700 ${
+        className={`pointer-events-none absolute -top-16 left-1/2 h-32 w-56 -translate-x-1/2 rounded-full bg-lime/10 blur-3xl transition-opacity duration-[1200ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
           active ? 'opacity-100' : 'opacity-0'
         }`}
       />
 
-      <div className="relative flex items-start justify-between gap-3">
-        <span className="flex items-center gap-2.5 pt-1">
-          <span
-            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border bg-lime-gradient-soft transition-colors duration-500 ${
-              active ? 'border-lime/40 text-lime' : 'border-hairline text-lime/70'
-            }`}
-          >
-            <Icon size={16} />
-          </span>
-          <span className="font-display text-sm font-semibold text-ink">{stage.title}</span>
-        </span>
+      {/* Header stacks and centres: numeral, then icon + title. It used to be a
+          justify-between row — icon+title pinned left, numeral right — which is
+          why the titles read off-centre while the nodes and caption below them
+          were centred. Centring the row in place wasn't an option: the numeral
+          would have had to be absolute, and "Intent & signal-based personalised
+          cold copy" wraps straight into it. */}
+      <div className="relative flex flex-col items-center gap-2.5">
         {/* The step numeral — large lime display type, the section's signature */}
         <span
-          className={`font-display text-4xl font-bold leading-none tracking-tight tabular-nums text-lime transition-opacity duration-500 sm:text-[2.75rem] ${
+          className={`font-display text-4xl font-bold leading-none tracking-tight tabular-nums text-lime transition-opacity duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] sm:text-[2.75rem] ${
             active ? 'opacity-100' : 'opacity-40'
           }`}
           style={{ textShadow: '0 0 28px rgba(204,255,0,0.35)' }}
         >
           {stage.step}
+        </span>
+        <span className="flex items-center justify-center gap-2.5">
+          <span
+            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border bg-lime-gradient-soft transition-colors duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
+              active ? 'border-lime/40 text-lime' : 'border-hairline text-lime/70'
+            }`}
+          >
+            <Icon size={16} />
+          </span>
+          <span className="text-center font-display text-sm font-semibold text-ink">{stage.title}</span>
         </span>
       </div>
 
@@ -364,7 +382,7 @@ function StageCard({ stage, active, reduce }) {
               initial={{ scale: 0.6, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: idx * 0.08, type: 'spring', stiffness: 260, damping: 18 }}
+              transition={{ delay: idx * 0.12, duration: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
             >
               <Node {...n} />
             </motion.div>
@@ -381,9 +399,14 @@ export default function GtmPipeline() {
   const reduce = useReducedMotion()
   const [active, setActive] = useState(0)
 
+  // The autoplay walk. At 1900ms the 900ms handoffs never settled before the
+  // next stage stole the highlight, which is what made the section buzz; 2660
+  // leaves ~1.75s of dwell so each stage is actually readable while lit.
+  const STAGE_MS = 2660
+
   useEffect(() => {
     if (reduce) return undefined
-    const id = setInterval(() => setActive((v) => (v + 1) % (STAGES.length + 1)), 1900)
+    const id = setInterval(() => setActive((v) => (v + 1) % (STAGES.length + 1)), STAGE_MS)
     return () => clearInterval(id)
   }, [reduce])
 

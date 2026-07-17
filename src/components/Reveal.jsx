@@ -29,7 +29,9 @@ export default function Reveal({
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, margin: '-80px' }}
-      transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+      // Slow, smooth cubic ease-out — the same curve the hero's dashboard runs
+      // on, so every section on the page arrives with one tempo.
+      transition={{ duration: 0.95, delay, ease: [0.22, 0.61, 0.36, 1] }}
       {...props}
     >
       {children}

@@ -16,7 +16,7 @@ export default function PageHero({ eyebrow, title, subtitle, children }) {
       <motion.div
         initial={reduce ? false : { opacity: 0, y: 18 }}
         animate={reduce ? {} : { opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+        transition={{ duration: 0.95, ease: [0.22, 0.61, 0.36, 1] }}
         className="container-px relative text-center"
       >
         {eyebrow && (

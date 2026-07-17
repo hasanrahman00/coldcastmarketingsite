@@ -1,32 +1,30 @@
-// Coldcast logo: a rounded-square tile with the lime gradient containing a
-// dark "swirl" mark (6 arms, each rotated 60°). Used in nav, footer, favicon.
-// Lime = ACTION/brand mark; the glyph ink is #131a00 (lime-ink), never #062119.
-
+// Coldcast logo — the brand lockup, specified exactly by the user:
+//
+//   32x32 viewBox · lime #ccff00 tile at rx 8 · six arms sweeping out from the
+//   centre hub · stroke #0a0a0a at 2.4, round caps · no tip dots.
+//
+// The tile is the <rect> INSIDE the svg, so this component needs no wrapper
+// background. Keep it identical everywhere it appears: nav, footer, the hero
+// dashboard rail, public/favicon.svg, public/favicon-square.svg, the OG card and
+// the standalone privacy/terms pages. Change one, change all of them.
 const ARMS = [0, 60, 120, 180, 240, 300]
+const ARM = 'M16 16 C16 10.5 19 8 23.5 8'
 
 export default function Logo({ size = 36, className = '' }) {
   return (
-    <span
-      className={`inline-flex shrink-0 items-center justify-center rounded-[28%] bg-lime-gradient shadow-[0_4px_18px_rgba(204,255,0,0.35)] ${className}`}
-      style={{ width: size, height: size }}
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
       aria-hidden="true"
+      className={`shrink-0 ${className}`}
     >
-      <svg
-        viewBox="20 20 88 88"
-        width={size * 0.82}
-        height={size * 0.82}
-        fill="none"
-        role="img"
-      >
-        <g stroke="#131a00" strokeWidth="11" strokeLinecap="round" fill="none">
-          {ARMS.map((deg) => (
-            <g key={deg} transform={`rotate(${deg} 64 64)`}>
-              <path d="M64 56 C 71 46 86 48 92 60" />
-              <circle cx="92" cy="60" r="6" fill="#131a00" stroke="none" />
-            </g>
-          ))}
-        </g>
-      </svg>
-    </span>
+      <rect width="32" height="32" rx="8" fill="#ccff00" />
+      <g stroke="#0a0a0a" strokeWidth="2.4" strokeLinecap="round" fill="none">
+        {ARMS.map((deg) => (
+          <path key={deg} d={ARM} transform={deg ? `rotate(${deg} 16 16)` : undefined} />
+        ))}
+      </g>
+    </svg>
   )
 }

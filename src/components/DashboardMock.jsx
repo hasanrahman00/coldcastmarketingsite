@@ -34,7 +34,7 @@ export default function DashboardMock() {
 
   useEffect(() => {
     if (reduce) return undefined
-    const id = setInterval(() => setStep((s) => (s + 1) % (TOTAL + HOLD)), 850)
+    const id = setInterval(() => setStep((s) => (s + 1) % (TOTAL + HOLD)), 1200)
     return () => clearInterval(id)
   }, [reduce])
 
@@ -115,14 +115,14 @@ export default function DashboardMock() {
           {/* Job status */}
           <div className="mt-4 flex items-center gap-3 rounded-lg border border-hairline bg-white/[0.03] px-3 py-2.5">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+              <span className="absolute inline-flex h-full w-full animate-[ping_1.4s_cubic-bezier(0,0,0.2,1)_infinite] rounded-full bg-accent opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
             <span className="text-[11px] font-medium text-ink">Enriching emails, phones &amp; signals</span>
             <div className="ml-auto flex w-28 items-center gap-2">
               <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-accent to-brand-light transition-[width] duration-700 ease-out"
+                  className="h-full rounded-full bg-gradient-to-r from-accent to-brand-light transition-[width] duration-[1200ms] ease-out"
                   style={{ width: `${Math.max(progress, 6)}%` }}
                 />
               </div>
@@ -161,7 +161,7 @@ export default function DashboardMock() {
                           <motion.span
                             initial={{ opacity: 0, x: -4 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.35 }}
+                            transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
                             className="inline-flex items-center gap-1 text-accent"
                           >
                             <BadgeCheck size={12} className="shrink-0" />
@@ -182,14 +182,14 @@ export default function DashboardMock() {
                           <motion.span
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.35 }}
+                            transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
                             className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-amber/15 px-2 py-0.5 text-[10px] font-medium text-amber"
                           >
                             <span className="h-1.5 w-1.5 rounded-full bg-amber" />
                             {lead.signals?.[0]?.label ?? 'Verified'}
                           </motion.span>
                         ) : state === 'enriching' ? (
-                          <span className="block h-3.5 w-20 animate-pulse rounded-full bg-amber/15" />
+                          <span className="block h-3.5 w-20 animate-[pulse_2.8s_cubic-bezier(0.4,0,0.6,1)_infinite] rounded-full bg-amber/15" />
                         ) : (
                           <span className="block h-3.5 w-16 rounded-full bg-white/[0.06]" />
                         )}

@@ -45,9 +45,14 @@ export default function WaterfallEnrichment() {
   const reduce = useReducedMotion()
   const [step, setStep] = useState(0)
 
+  // Same tempo as GtmPipeline: the provider rows hand off over 900ms, so a
+  // 1300ms step left only 400ms of rest and the waterfall never stopped moving.
+  // 2600 leaves ~1.7s of dwell so each provider state is readable while lit.
+  const STEP_MS = 2600
+
   useEffect(() => {
     if (reduce) return undefined
-    const id = setInterval(() => setStep((s) => (s + 1) % CYCLE), 950)
+    const id = setInterval(() => setStep((s) => (s + 1) % CYCLE), STEP_MS)
     return () => clearInterval(id)
   }, [reduce])
 
@@ -100,7 +105,7 @@ export default function WaterfallEnrichment() {
                 return (
                   <div
                     key={p.name}
-                    className={`flex items-center gap-3 rounded-xl border px-3 py-2.5 transition-all duration-300 ${
+                    className={`flex items-center gap-3 rounded-xl border px-3 py-2.5 transition-all duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
                       state === 'hit'
                         ? 'border-safe/30 bg-safe/[0.06]'
                         : state === 'checking'
@@ -120,7 +125,7 @@ export default function WaterfallEnrichment() {
 
               {/* Validation step (the email-validator moat) */}
               <div
-                className={`mt-1 flex items-center gap-3 rounded-xl border px-3 py-2.5 transition-all duration-300 ${
+                className={`mt-1 flex items-center gap-3 rounded-xl border px-3 py-2.5 transition-all duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
                   validate === 'done'
                     ? 'border-safe/30 bg-safe/[0.06]'
                     : validate === 'checking'
@@ -145,7 +150,7 @@ export default function WaterfallEnrichment() {
                 <motion.div
                   initial={reduce ? false : { opacity: 0, y: 8 }}
                   animate={reduce ? {} : { opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
+                  transition={{ duration: 0.75, ease: [0.22, 0.61, 0.36, 1] }}
                   className="flex items-center gap-3 rounded-xl border border-safe/40 bg-safe/10 px-4 py-3 shadow-[0_8px_24px_-10px_rgba(53,224,184,0.35)]"
                 >
                   <BadgeCheck size={18} className="shrink-0 text-safe" />

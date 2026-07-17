@@ -92,7 +92,7 @@ function Hero({ data, accent, Visual }) {
                   lime rather than ringing it in mint. Alpha drops from the old mint's
                   0.40 because #ccff00 carries far more light (see FinalCTA.jsx). */}
               <motion.span aria-hidden className="absolute inset-0 -z-10 rounded-3xl bg-lime/30 blur-2xl"
-                animate={reduce ? {} : { opacity: [0.5, 0.9, 0.5], scale: [1, 1.12, 1] }} transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }} />
+                animate={reduce ? {} : { opacity: [0.5, 0.9, 0.5], scale: [1, 1.12, 1] }} transition={{ duration: 3.9, repeat: Infinity, ease: 'easeInOut' }} />
               <Logo size={64} className="!rounded-3xl" />
             </div>
           ) : (
@@ -116,7 +116,7 @@ function StepsTimeline({ how, accent }) {
       <span aria-hidden className={`absolute bottom-6 left-[27px] top-6 w-px bg-gradient-to-b ${accent.line} via-white/15 to-transparent`} />
       {how.steps.map((s, i) => (
         <motion.li key={s.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.45, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }} className="relative flex gap-5 pb-8 last:pb-0">
+          transition={{ duration: 0.75, delay: i * 0.12, ease: [0.22, 0.61, 0.36, 1] }} className="relative flex gap-5 pb-8 last:pb-0">
           <span className={`relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-2xl leading-none ring-1 ${accent.tile}`}>{s.emoji}</span>
           <div className="pt-1.5">
             <div className="flex items-center gap-2"><span className={`text-xs font-bold tabular-nums ${accent.text}`}>{String(i + 1).padStart(2, '0')}</span><h3 className="text-base font-semibold text-ink">{s.title}</h3></div>
@@ -133,7 +133,7 @@ function StepsRail({ how, accent }) {
     <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {how.steps.map((s, i) => (
         <motion.div key={s.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.45, delay: (i % 3) * 0.07, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.75, delay: (i % 3) * 0.12, ease: [0.22, 0.61, 0.36, 1] }}
           className="group relative overflow-hidden rounded-2xl border border-hairline bg-panel p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/40 hover:bg-panel2 hover:shadow-card">
           <span aria-hidden className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${accent.grad}`} />
           <div className="flex items-center justify-between">
@@ -176,7 +176,7 @@ function Features({ features, accent, variant }) {
       {variant === 'bento' ? (
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((f, i) => (
-            <Reveal as="div" key={f.title} delay={(i % 3) * 0.05} className={i === 0 ? 'sm:col-span-2 lg:row-span-2' : ''}>
+            <Reveal as="div" key={f.title} delay={(i % 3) * 0.12} className={i === 0 ? 'sm:col-span-2 lg:row-span-2' : ''}>
               <FeatureCard f={f} accent={accent} className={`h-full ${i === 0 ? 'bg-panel2' : ''}`} />
             </Reveal>
           ))}
@@ -185,7 +185,7 @@ function Features({ features, accent, variant }) {
         <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-x-10 gap-y-2 sm:grid-cols-2">
           {items.map((f, i) => (
             <motion.div key={f.title} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.4, delay: (i % 2) * 0.06 }} className="flex gap-4 border-b border-hairline py-5">
+              transition={{ duration: 0.75, delay: (i % 2) * 0.12, ease: [0.22, 0.61, 0.36, 1] }} className="flex gap-4 border-b border-hairline py-5">
               <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-xl leading-none ring-1 ${accent.tile}`}>{f.emoji}</span>
               <div><h3 className="text-sm font-semibold text-ink">{f.title}</h3><p className="mt-1 text-[13px] leading-relaxed text-muted">{f.desc}</p></div>
             </motion.div>
@@ -194,7 +194,7 @@ function Features({ features, accent, variant }) {
       ) : (
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((f, i) => (
-            <Reveal as="div" key={f.title} delay={(i % 3) * 0.06}><FeatureCard f={f} accent={accent} className="h-full" /></Reveal>
+            <Reveal as="div" key={f.title} delay={(i % 3) * 0.12}><FeatureCard f={f} accent={accent} className="h-full" /></Reveal>
           ))}
         </div>
       )}
@@ -207,7 +207,7 @@ function Stats({ stats, accent }) {
     <section className="container-px py-12">
       <div className="floating-panel mx-auto grid max-w-5xl grid-cols-2 gap-6 p-8 sm:p-10 lg:grid-cols-4">
         {stats.map((s, i) => (
-          <Reveal key={s.label} delay={i * 0.06} className="text-center">
+          <Reveal key={s.label} delay={i * 0.12} className="text-center">
             <div className={`bg-gradient-to-br ${accent.grad} bg-clip-text font-display text-4xl font-bold tracking-tight text-transparent sm:text-5xl`}>{s.value}</div>
             <div className="mt-2 text-xs font-medium uppercase tracking-wider text-muted sm:text-sm">{s.label}</div>
           </Reveal>
@@ -223,7 +223,7 @@ function Benefits({ benefits, accent }) {
       <SectionHeading eyebrow="Why Coldcast" title={benefits.heading} />
       <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
         {benefits.items.map((b, i) => (
-          <Reveal key={b.title} delay={i * 0.06}>
+          <Reveal key={b.title} delay={i * 0.12}>
             <div className="group h-full rounded-2xl border border-hairline bg-panel p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/40 hover:bg-panel2 hover:shadow-card">
               <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-xl leading-none ring-1 ${accent.tile}`}>{b.emoji}</span>
               <h3 className="mt-4 text-base font-semibold text-ink">{b.title}</h3>

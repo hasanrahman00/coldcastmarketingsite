@@ -71,7 +71,7 @@ export default function Pricing() {
 
         <div className="mt-14 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
           {PLANS.map((plan, i) => (
-            <Reveal key={plan.name} delay={i * 0.08} className="h-full">
+            <Reveal key={plan.name} delay={i * 0.12} className="h-full">
               <div
                 className={`relative flex h-full flex-col rounded-3xl p-7 transition-transform duration-200 hover:-translate-y-1 ${
                   plan.featured

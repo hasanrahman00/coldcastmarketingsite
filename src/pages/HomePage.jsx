@@ -10,8 +10,6 @@ import StatsBand from '../components/StatsBand'
 import SpeedAccuracy from '../components/SpeedAccuracy'
 import Features from '../components/Features'
 import IntentSignals from '../components/IntentSignals'
-import WaterfallEnrichment from '../components/WaterfallEnrichment'
-import OutputPreview from '../components/OutputPreview'
 import Comparison from '../components/Comparison'
 import HowItWorks from '../components/HowItWorks'
 import UseCases from '../components/UseCases'
@@ -24,19 +22,20 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      {/* Sits where the hero's own "Works with the sources your pipeline already
+          lives in" chips row used to be — it makes the same point with real
+          logos, plus the rating and the zero-bans proof, right under the fold. */}
+      <TrustBar />
       <LiveExport />
       <ProductSuite />
       <AiSdr />
       <GtmPipeline />
-      <TrustBar />
       <VolumeBand />
       <Safety />
       <StatsBand />
       <SpeedAccuracy />
       <Features />
       <IntentSignals />
-      <WaterfallEnrichment />
-      <OutputPreview />
       <Comparison />
       <HowItWorks />
       <UseCases />
