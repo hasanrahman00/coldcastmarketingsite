@@ -1,4 +1,4 @@
-# Coldcast — https://coldcast.io
+# Coldcast — https://www.coldcast.io
 # Allow all crawlers full access to the marketing site.
 User-agent: *
 Allow: /
@@ -10,4 +10,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://coldcast.io/sitemap.xml
+Sitemap: https://www.coldcast.io/sitemap.xml

@@ -1,121 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://coldcast.io/</loc>
+    <loc>https://www.coldcast.io/</loc>
     <lastmod>2026-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/products</loc>
+    <loc>https://www.coldcast.io/products</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/coldcast-agent</loc>
+    <loc>https://www.coldcast.io/coldcast-agent</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/products/sales-navigator-scraper</loc>
+    <loc>https://www.coldcast.io/products/sales-navigator-scraper</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/products/apollo-scraper</loc>
+    <loc>https://www.coldcast.io/products/apollo-scraper</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/products/zoominfo-scraper</loc>
+    <loc>https://www.coldcast.io/products/zoominfo-scraper</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/products/waterfall-enricher</loc>
+    <loc>https://www.coldcast.io/products/waterfall-enricher</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/products/email-verify</loc>
+    <loc>https://www.coldcast.io/products/email-verify</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/products/domain-enrichment</loc>
+    <loc>https://www.coldcast.io/products/domain-enrichment</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/roles</loc>
+    <loc>https://www.coldcast.io/roles</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/roles/sdrs-aes</loc>
+    <loc>https://www.coldcast.io/roles/sdrs-aes</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/roles/founders</loc>
+    <loc>https://www.coldcast.io/roles/founders</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/roles/sales-leaders</loc>
+    <loc>https://www.coldcast.io/roles/sales-leaders</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/roles/agencies</loc>
+    <loc>https://www.coldcast.io/roles/agencies</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/roles/revops</loc>
+    <loc>https://www.coldcast.io/roles/revops</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/roles/recruiters</loc>
+    <loc>https://www.coldcast.io/roles/recruiters</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/sales-nav-advanced</loc>
+    <loc>https://www.coldcast.io/sales-nav-advanced</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/tools</loc>
+    <loc>https://www.coldcast.io/tools</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/privacy/</loc>
+    <loc>https://www.coldcast.io/privacy/</loc>
     <lastmod>2026-06-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://coldcast.io/terms/</loc>
+    <loc>https://www.coldcast.io/terms/</loc>
     <lastmod>2026-06-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
