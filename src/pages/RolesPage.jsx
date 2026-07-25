@@ -1,3 +1,5 @@
+import Seo from '../components/Seo'
+import { STATIC_SEO, breadcrumbLd } from '../lib/seo'
 import PageHero from '../components/PageHero'
 import UseCases from '../components/UseCases'
 import IntentSignals from '../components/IntentSignals'
@@ -9,6 +11,11 @@ import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 export default function RolesPage() {
   return (
     <>
+      <Seo
+        path="/roles"
+        {...STATIC_SEO['/roles']}
+        jsonLd={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'By role', path: '/roles' }])}
+      />
       <PageHero
         eyebrow="By role"
         title="Built for your role in GTM."

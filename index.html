@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicons (raster + svg) — covers browser tabs, Google search results & mobile home screens -->
+    <!-- Favicons (raster + svg) â€” covers browser tabs, Google search results & mobile home screens -->
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -16,47 +16,31 @@
          a wall of #ccff00 rather than an accent. -->
     <meta name="theme-color" content="#0f1214" />
 
-    <!-- Primary SEO -->
-    <title>Coldcast — The Safest LinkedIn Sales Navigator Scraper</title>
-    <meta
-      name="description"
-      content="Coldcast — the world’s safest Sales Navigator scraper. Export LinkedIn leads in minutes, up to 20,000 a day, from your own browser. Zero account suspensions."
-    />
-    <meta
-      name="keywords"
-      content="LinkedIn Sales Navigator scraper, fastest Sales Navigator scraper, safest LinkedIn scraper, export Sales Navigator leads, Sales Navigator email finder, LinkedIn lead export, account-safe scraper, no account suspension, B2B lead enrichment, verified email finder, buying intent signals, Coldcast"
-    />
+    <!-- Primary SEO â€” per-page title/description/canonical/keywords are injected at
+         runtime by <Seo> (react-helmet-async). The tags here are GLOBAL defaults /
+         no-JS fallbacks only; the <title> is replaced per route, so do NOT add a
+         static description/canonical here or it would duplicate Helmet's. -->
+    <title>Coldcast â€” The Safest LinkedIn Sales Navigator Scraper</title>
     <meta name="author" content="Coldcast" />
     <meta name="application-name" content="Coldcast" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <link rel="canonical" href="https://www.coldcast.io/" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph â€” og:title/og:url/og:description are set per-page by <Seo>; only
+         the site-level defaults (type, name, locale, image) live here. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Coldcast" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="https://www.coldcast.io/" />
-    <meta property="og:title" content="Coldcast — The world’s safest Sales Navigator scraper" />
-    <meta
-      property="og:description"
-      content="Export Sales Navigator leads in minutes — verified emails, phones & buying signals, up to 20,000 a day, all from your own browser. 6 months in, zero account suspensions."
-    />
     <!-- [PLACEHOLDER] Replace with a real 1200x630 share image at /og-image.png -->
     <meta property="og:image" content="https://www.coldcast.io/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Coldcast — account-safe LinkedIn Sales Navigator scraper" />
+    <meta property="og:image:alt" content="Coldcast â€” account-safe LinkedIn Sales Navigator scraper" />
 
-    <!-- Twitter -->
+    <!-- Twitter â€” twitter:title/description are set per-page by <Seo>. -->
     <meta name="twitter:card" content="summary_large_image" />
     <!-- [PLACEHOLDER] add your real @handle -->
     <meta name="twitter:site" content="@coldcast" />
     <meta name="twitter:creator" content="@coldcast" />
-    <meta name="twitter:title" content="Coldcast — The world’s safest Sales Navigator scraper" />
-    <meta
-      name="twitter:description"
-      content="Export Sales Navigator leads in minutes — verified emails, phones & buying signals, up to 20,000 a day, all from your own browser. 6 months in, zero account suspensions."
-    />
     <meta name="twitter:image" content="https://www.coldcast.io/og-image.png" />
 
     <link rel="manifest" href="/site.webmanifest" />
@@ -72,7 +56,7 @@
             "name": "Coldcast",
             "url": "https://www.coldcast.io/",
             "logo": "https://www.coldcast.io/favicon.svg",
-            "description": "Coldcast is an account-safe LinkedIn Sales Navigator scraper that exports and enriches leads — verified emails, phone numbers and buying-intent signals — from your own browser."
+            "description": "Coldcast is an account-safe LinkedIn Sales Navigator scraper that exports and enriches leads â€” verified emails, phone numbers and buying-intent signals â€” from your own browser."
           },
           {
             "@type": "WebSite",
@@ -92,11 +76,11 @@
             "operatingSystem": "Google Chrome (browser extension)",
             "url": "https://www.coldcast.io/",
             "publisher": { "@id": "https://www.coldcast.io/#organization" },
-            "description": "Export leads from LinkedIn Sales Navigator with verified emails, phone numbers and buying-intent signals — up to 20,000 a day — through your own browser session, so your account stays safe. Waterfall enrichment across Lusha, SalesQL and ContactOut; clean CSV / XLSX export to your CRM or sequencer.",
+            "description": "Export leads from LinkedIn Sales Navigator with verified emails, phone numbers and buying-intent signals â€” up to 20,000 a day â€” through your own browser session, so your account stays safe. Waterfall enrichment across Lusha, SalesQL and ContactOut; clean CSV / XLSX export to your CRM or sequencer.",
             "featureList": [
               "One-click export of any Sales Navigator search",
               "Waterfall email & phone enrichment (Lusha, SalesQL, ContactOut)",
-              "Verified, validated emails — not guesses",
+              "Verified, validated emails â€” not guesses",
               "Buying-intent signals on every lead",
               "Account-safe: runs in your own browser at human pace",
               "Up to ~20,000 leads per account per day",
@@ -108,120 +92,6 @@
               "lowPrice": "0",
               "highPrice": "49",
               "offerCount": "3"
-            }
-          }
-        ]
-      }
-    </script>
-
-    <!-- Structured data: FAQ rich result (mirrors the on-page FAQ section) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Is it safe for my LinkedIn account?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes — that’s the whole point of Coldcast. It runs through your own browser session and IP, only on pages you’re already logged into, at human pace with natural scrolling and click-to-next pagination. There are no headless browsers, no API hammering, and no bot fingerprints. We’ve used it daily with internal sales teams for 6+ months with zero account bans."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How is Coldcast different from other Sales Navigator scrapers?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Three ways. Speed: a typical 2,500-lead export takes minutes, not the 30 minutes to two hours cloud scrapers need. Safety: Coldcast runs in your own browser on your own IP and session — most other scrapers spin up a cloud browser on shared IPs and ask for your LinkedIn password, which is exactly what gets accounts suspended. And data: every lead comes back already enriched with verified emails, phone numbers and buying-intent signals, where other tools hand you a raw export you still have to clean and enrich yourself."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What intent signals does Coldcast capture?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Every export doubles as a signal layer, pulled live from your own Sales Navigator session — not from a stale third-party database. On the person side: job changes and new roles, promotions, time in current role, seniority and decision-maker fit, and recent LinkedIn activity. On the company side: headcount and growth, hiring activity, industry and firmographics, and company size. We tier them honestly so you can filter for clusters and time your outreach instead of blasting a flat list."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I need Lusha, SalesQL, or ContactOut accounts?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "They’re optional. Coldcast enriches using whichever of these sources you’re already logged into — the more sources you connect, the more coverage you get on emails and phone numbers. You can also run it with just LinkedIn data if you prefer."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How accurate is the data, and how many data points do I get per lead?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Coldcast captures 30+ fields per lead — the profile and company data from Sales Navigator, plus emails and phones run through a waterfall across Lusha, SalesQL, and ContactOut in a single pass, so you export already enriched instead of cleaning up a raw CSV later. Contacts are verified, not guessed: every email passes a validation step before it lands in your file, so you can trust what you send."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How fast is Coldcast — how long does it take to export leads?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Fast. Most exports finish in minutes — a 2,500-lead list typically takes around five minutes, where other Sales Navigator scrapers can take 30 minutes to two hours for the same job. Because it runs at a natural, human pace in your own browser, you get the speed without the bot-like bursts that trip LinkedIn’s defences. You can pull up to roughly 20,000 leads per account, per day."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does “unlimited scraping” really mean unlimited?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Unlimited scraping means there’s no monthly quota and no per-export cap — connect as many accounts as you like and run as many jobs as you need. For fair use, and to protect every account from abuse, there’s a safety ceiling of roughly 20,000 leads per account, per day — which also happens to be the safe daily limit for keeping a LinkedIn account healthy. In normal day-to-day prospecting you’ll never hit it."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What formats can I export?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "CSV and XLSX. Both download as clean, de-duplicated spreadsheets — signal columns included — that drop straight into your CRM or sequencer."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does it work with regular LinkedIn or just Sales Navigator?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Coldcast is built specifically for Sales Navigator search — that’s where the structured, filterable lead data and richest signals live, and where Coldcast captures the exact search you’re viewing."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Coldcast GDPR-ready, and who owns the exported data?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Your data stays yours. Scraping runs entirely in your own browser session, so your leads never pass through our servers, and we never sell your data or ask for your LinkedIn password. We handle personal data on a compliant footing and support data-access and deletion requests — full detail lives in our Privacy Policy. One honest note: scraping LinkedIn runs against its Terms of Service no matter which tool you use; Coldcast is built to reduce account risk, not to promise something we can’t guarantee."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where does my data go?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Only to your own Coldcast workspace. Your leads are yours — we don’t sell or share your data with anyone."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Coldcast free to try?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Every account starts with a free trial — connect an account, scrape unlimited leads, and use your free enrichment credits to test the verified emails and catch-all cleaning before you pay anything. No credit card is required to start, and scraping itself stays free on every plan; you only pay to enrich and verify the contacts you choose."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I cancel anytime?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Plans are month-to-month and you can upgrade, downgrade, or cancel whenever you like."
             }
           }
         ]

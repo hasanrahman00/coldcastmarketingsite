@@ -1,3 +1,5 @@
+import Seo from '../components/Seo'
+import { STATIC_SEO, faqLd } from '../lib/seo'
 import Hero from '../components/Hero'
 import LiveExport from '../components/LiveExport'
 import ProductSuite from '../components/ProductSuite'
@@ -13,12 +15,13 @@ import HowItWorks from '../components/HowItWorks'
 import StackStrip from '../components/StackStrip'
 import UseCases from '../components/UseCases'
 import Pricing from '../components/Pricing'
-import FAQ from '../components/FAQ'
+import FAQ, { FAQS } from '../components/FAQ'
 import FinalCTA from '../components/FinalCTA'
 
 export default function HomePage() {
   return (
     <>
+      <Seo path="/" {...STATIC_SEO['/']} jsonLd={faqLd(FAQS)} />
       {/* ── HOOK ───────────────────────────────────────────────────────────
           Claim, proof it's real, then show the thing running. */}
       <Hero />

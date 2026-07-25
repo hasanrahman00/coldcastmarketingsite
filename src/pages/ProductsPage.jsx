@@ -1,3 +1,5 @@
+import Seo from '../components/Seo'
+import { STATIC_SEO, breadcrumbLd } from '../lib/seo'
 import PageHero from '../components/PageHero'
 import ProductSuite from '../components/ProductSuite'
 import AiSdr from '../components/AiSdr'
@@ -11,6 +13,11 @@ import { TRIAL_URL, DEMO_URL } from '../lib/constants'
 export default function ProductsPage() {
   return (
     <>
+      <Seo
+        path="/products"
+        {...STATIC_SEO['/products']}
+        jsonLd={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Products', path: '/products' }])}
+      />
       <PageHero
         eyebrow="Products"
         title="One platform. Seven tools."

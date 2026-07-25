@@ -4,7 +4,9 @@ import { ChevronDown, HelpCircle } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 
-const FAQS = [
+// Exported so the homepage can mirror these into FAQPage JSON-LD (see HomePage.jsx)
+// and keep the structured data in lockstep with the visible on-page FAQ.
+export const FAQS = [
   {
     q: 'Is it safe for my LinkedIn account?',
     a: 'Yes — that’s the whole point of Coldcast. It runs through your own browser session and IP, only on pages you’re already logged into, at human pace with natural scrolling and click-to-next pagination. There are no headless browsers, no API hammering, and no bot fingerprints. We’ve used it daily with internal sales teams for 6+ months with zero account bans.',

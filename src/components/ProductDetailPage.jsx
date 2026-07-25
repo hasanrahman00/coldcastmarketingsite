@@ -11,6 +11,8 @@ import { VISUALS } from './pageVisuals'
 import { PRODUCT_PAGES } from '../lib/productPages'
 import { ROLE_PAGES } from '../lib/rolePages'
 import { TRIAL_URL, DEMO_URL } from '../lib/constants'
+import Seo from './Seo'
+import { PRODUCT_SEO, ROLE_SEO, detailPath, breadcrumbLd, faqLd, softwareLd } from '../lib/seo'
 
 const PAGES = { ...PRODUCT_PAGES, ...ROLE_PAGES }
 
@@ -322,6 +324,19 @@ export default function ProductDetailPage({ slug: slugProp }) {
   const accent = ACCENT[data.color] || ACCENT.brand
   const Visual = VISUALS[slug]
 
+  // Per-page SEO: unique title/description/canonical + breadcrumb, FAQ and (for
+  // products) SoftwareApplication structured data. coldcast-agent canonicalizes to
+  // /coldcast-agent even when reached via /products/coldcast-agent.
+  const isRole = data.kind === 'role'
+  const seo = (isRole ? ROLE_SEO : PRODUCT_SEO)[slug]
+  const canonical = detailPath(slug, data.kind)
+  const crumbParent = isRole ? { name: 'By role', path: '/roles' } : { name: 'Products', path: '/products' }
+  const jsonLd = [
+    breadcrumbLd([{ name: 'Home', path: '/' }, crumbParent, { name: seo?.name || data.hero.eyebrow, path: canonical }]),
+    faqLd(data.faq),
+  ]
+  if (!isRole && seo) jsonLd.push(softwareLd({ name: seo.name, description: seo.description, path: canonical }))
+
   // Default middle-section order; pages can override with `order`.
   const order = data.order || ['how', 'stats', 'features', 'benefits', 'faq']
   const blocks = {
@@ -341,6 +356,7 @@ export default function ProductDetailPage({ slug: slugProp }) {
 
   return (
     <>
+      {seo && <Seo path={canonical} {...seo} jsonLd={jsonLd} />}
       <Hero data={data} accent={accent} Visual={Visual} />
       {order.map((k) => blocks[k]).filter(Boolean)}
       <Cta cta={data.cta} />

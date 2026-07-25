@@ -1,4 +1,6 @@
 import { ArrowRight } from 'lucide-react'
+import Seo from '../components/Seo'
+import { STATIC_SEO, breadcrumbLd } from '../lib/seo'
 import PageHero from '../components/PageHero'
 import EmailVerifier from '../components/EmailVerifier'
 import FinalCTA from '../components/FinalCTA'
@@ -14,6 +16,11 @@ const MORE_TOOLS = [
 export default function FreeToolsPage() {
   return (
     <>
+      <Seo
+        path="/tools"
+        {...STATIC_SEO['/tools']}
+        jsonLd={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Free tools', path: '/tools' }])}
+      />
       <PageHero
         eyebrow="Free tools"
         title="Free GTM tools. No login, no card."

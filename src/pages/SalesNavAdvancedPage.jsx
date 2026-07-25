@@ -5,6 +5,8 @@ import {
 } from 'lucide-react'
 import Reveal from './../components/Reveal'
 import SectionHeading, { Eyebrow } from './../components/SectionHeading'
+import Seo from '../components/Seo'
+import { STATIC_SEO, breadcrumbLd, faqLd } from '../lib/seo'
 
 // ── Email activation form ─────────────────────────────────────────────────────
 // [PLACEHOLDER] Wire `submit` to a real endpoint (Formspree / Resend / your API)
@@ -146,6 +148,17 @@ export default function SalesNavAdvancedPage() {
   const reduce = useReducedMotion()
   return (
     <>
+      <Seo
+        path="/sales-nav-advanced"
+        {...STATIC_SEO['/sales-nav-advanced']}
+        jsonLd={[
+          breadcrumbLd([
+            { name: 'Home', path: '/' },
+            { name: 'Sales Navigator Advanced', path: '/sales-nav-advanced' },
+          ]),
+          faqLd(FAQ),
+        ]}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden pb-16 pt-36 sm:pt-44">
         <div
