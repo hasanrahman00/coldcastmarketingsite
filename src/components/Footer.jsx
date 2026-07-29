@@ -61,10 +61,10 @@ export default function Footer() {
           {/* Contact + socials */}
           <div className="lg:text-right">
             <a
-              href="mailto:hello@coldcast.io"
+              href="mailto:contact@coldcast.io"
               className="inline-block text-2xl font-bold tracking-tight text-ink underline decoration-lime/35 decoration-2 underline-offset-4 transition-colors hover:text-lime hover:decoration-lime/70 sm:text-3xl"
             >
-              hello@coldcast.io
+              contact@coldcast.io
             </a>
             <div className="mt-6 flex items-center gap-3 lg:justify-end">
               {SOCIALS.map(({ label, icon: Icon, href }) => (

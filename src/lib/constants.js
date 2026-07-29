@@ -10,7 +10,7 @@ export const TRIAL_URL = `${APP_URL}/#trial`
 // [PLACEHOLDER] demo-booking link (Calendly / Cal.com) for the "Book a demo" CTA
 export const DEMO_URL = 'https://calendly.com/coldcast/demo'
 // [PLACEHOLDER] sales / contact address for the Custom plan + footer "Contact"
-export const SALES_URL = 'mailto:hello@coldcast.io'
+export const SALES_URL = 'mailto:contact@coldcast.io'
 
 // Crisp live-chat website ID. This is a PUBLIC client key (it ships in every
 // Crisp embed), so it's safe in the bundle — it is not a secret.
