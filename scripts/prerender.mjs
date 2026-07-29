@@ -1,80 +1,67 @@
-// Post-build pre-rendering. `vite build` emits a client-only SPA whose served
-// HTML is an empty <div id="root"></div> — so crawlers that don't run JS (and
-// Google on its first pass) see one identical shell for every route. This step
-// loads each route in a real headless browser (where our <Seo> effect runs for
-// real), then writes the fully-rendered HTML to dist/<route>/index.html.
+// Browserless static pre-rendering. `vite build` emits a client SPA whose served
+// HTML is an empty <div id="root"></div> with one generic <title> on every route,
+// so non-JS crawlers (and Google's first pass) see an empty shell — the root
+// cause behind "not indexed" / "duplicate titles" in the SEO audit.
+//
+// This step renders each route with React's server renderer (react-dom/server,
+// pure Node — NO headless browser, so it runs reliably in any CI including
+// Vercel) and bakes the result into dist/<route>/index.html: the server-rendered
+// body plus the per-page <head> (title, description, canonical, OG/Twitter,
+// JSON-LD) collected by <Seo> during the render.
 //
 // On Vercel the filesystem is checked before the SPA rewrite in vercel.json, so
-// these static files are served to crawlers while the rewrite stays as a fallback
-// for any non-prerendered path. The client still boots React over the HTML, so
-// interactivity is unchanged.
+// these static files are served to crawlers while the rewrite stays a fallback
+// for any non-prerendered path. The client still boots React over the HTML.
 //
-// Route list is the sitemap's <loc>s minus /privacy and /terms (those already
-// ship as real static HTML in public/, they are not React routes).
+// Routes = the sitemap's <loc>s minus /privacy and /terms (those already ship as
+// real static HTML in public/, they are not React routes).
 
-import puppeteer from 'puppeteer'
-import { preview } from 'vite'
-import { readFileSync, mkdirSync, writeFileSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const root = join(here, '..')
 const distDir = join(root, 'dist')
-const PORT = 4188
-const FALLBACK_TITLE = 'Coldcast — The Safest LinkedIn Sales Navigator Scraper'
 
-// ── Routes from the sitemap (single source of truth) ─────────────────────────
+const { render } = await import(pathToFileURL(join(root, 'dist-ssr', 'entry-server.js')).href)
+
+const template = readFileSync(join(distDir, 'index.html'), 'utf8')
+if (!template.includes('<div id="root"></div>')) {
+  console.error('✗ Prerender: could not find <div id="root"></div> in dist/index.html')
+  process.exit(1)
+}
+
 const sitemap = readFileSync(join(root, 'public', 'sitemap.xml'), 'utf8')
 const routes = [
   ...new Set(
     [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
       .map((m) => new URL(m[1].trim()).pathname)
-      .map((p) => (p === '/' ? '/' : p.replace(/\/+$/, ''))) // strip trailing slash
-      .filter((p) => !/^\/(privacy|terms)$/.test(p)), // skip the static legal pages
+      .map((p) => (p === '/' ? '/' : p.replace(/\/+$/, '')))
+      .filter((p) => !/^\/(privacy|terms)$/.test(p)),
   ),
 ]
 
-console.log(`Prerendering ${routes.length} routes…`)
-
-const server = await preview({ root, preview: { port: PORT, strictPort: true } })
-const base = `http://localhost:${PORT}`
-
-const browser = await puppeteer.launch({
-  headless: true,
-  args: ['--no-sandbox', '--disable-setuid-sandbox'],
-})
+console.log(`Prerendering ${routes.length} routes (browserless SSR)…`)
 
 let done = 0
 const warnings = []
-try {
-  for (const route of routes) {
-    const page = await browser.newPage()
-    try {
-      await page.goto(base + route, { waitUntil: 'networkidle0', timeout: 45000 })
-      // React mounted AND <Seo> has run (it sets a canonical link on every route).
-      await page.waitForFunction(
-        () =>
-          document.getElementById('root')?.children.length > 0 &&
-          !!document.querySelector('link[rel="canonical"]'),
-        { timeout: 20000 },
-      )
-      const html = await page.content()
-      const title = await page.title()
-      if (title === FALLBACK_TITLE) warnings.push(`${route} — still has the fallback title`)
+for (const route of routes) {
+  const { html, head } = render(route)
+  if (!head.title) warnings.push(`${route} — no <Seo> title collected`)
 
-      const outFile = route === '/' ? join(distDir, 'index.html') : join(distDir, route, 'index.html')
-      mkdirSync(dirname(outFile), { recursive: true })
-      writeFileSync(outFile, html, 'utf8')
-      console.log(`  ✓ ${route.padEnd(36)} ${title}`)
-      done++
-    } finally {
-      await page.close()
-    }
+  let page = template
+  if (head.title) {
+    page = page.replace(/<title>[\s\S]*?<\/title>/, `<title>${head.title.replace(/</g, '&lt;')}</title>`)
   }
-} finally {
-  await browser.close()
-  await server.httpServer.close()
+  page = page.replace('</head>', `    ${head.tags}\n  </head>`)
+  page = page.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+
+  const outFile = route === '/' ? join(distDir, 'index.html') : join(distDir, route, 'index.html')
+  mkdirSync(dirname(outFile), { recursive: true })
+  writeFileSync(outFile, page, 'utf8')
+  console.log(`  ✓ ${route.padEnd(36)} ${head.title || '(no title)'}`)
+  done++
 }
 
 if (warnings.length) {
@@ -82,8 +69,7 @@ if (warnings.length) {
   warnings.forEach((w) => console.warn('  ' + w))
 }
 if (done !== routes.length) {
-  console.error(`\n✗ Prerender incomplete: ${done}/${routes.length} routes`)
+  console.error(`\n✗ Prerender incomplete: ${done}/${routes.length}`)
   process.exit(1)
 }
 console.log(`\n✓ Prerendered ${done}/${routes.length} routes into dist/`)
-process.exit(0)

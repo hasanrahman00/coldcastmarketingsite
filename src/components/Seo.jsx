@@ -1,23 +1,30 @@
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
+import { HeadCollectorContext } from '../lib/headCollector'
 
 const SITE = 'https://www.coldcast.io'
 
-// Dependency-free per-route <head> manager (a tiny react-helmet replacement).
+// Per-route <head> manager with two paths from one source of truth:
+//   • SSR (build): registers the computed tags on the HeadCollector so
+//     scripts/prerender.mjs can bake them into the static HTML.
+//   • Client: imperatively upserts the meta/link tags and swaps the JSON-LD on
+//     each route change (a tiny, dependency-free react-helmet replacement).
 // index.html holds the GLOBAL defaults (og:type/site_name/image, twitter:card,
-// favicons, org/website JSON-LD); this upserts the PER-PAGE bits so every route
-// gets a unique title, description, canonical, OG/Twitter title+description,
-// keywords, and structured data. Google renders client JS, so it sees these.
-//
-// We upsert (never duplicate) the meta/link tags, and fully own the JSON-LD we
-// inject — tagged data-seo-ld and swapped out on every route change — so product
-// and role pages never inherit the homepage's FAQ schema.
+// favicons, Organization/WebSite/SoftwareApplication JSON-LD); this owns the
+// per-page bits so every route gets a UNIQUE title/description/canonical/OG/
+// keywords + structured data.
 export default function Seo({ title, description, path = '/', keywords, ogTitle, ogDescription, jsonLd }) {
   const clean = path === '/' ? '/' : '/' + String(path).replace(/^\/+|\/+$/g, '')
   const url = SITE + clean
   const ogT = ogTitle || title
   const ogD = ogDescription || description
-  const ld = JSON.stringify((jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []).filter(Boolean))
+  const blocks = (jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []).filter(Boolean)
 
+  // SSR: hand the prerenderer this route's head (exactly one <Seo> per route).
+  const collector = useContext(HeadCollectorContext)
+  if (collector) collector.tags = { title, description, keywords, url, ogT, ogD, jsonLd: blocks }
+
+  // Client: apply on mount + whenever the route's head changes.
+  const ld = JSON.stringify(blocks)
   useEffect(() => {
     if (title) document.title = title
     upsertMeta('name', 'description', description)
