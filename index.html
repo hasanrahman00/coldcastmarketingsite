@@ -17,9 +17,10 @@
     <meta name="theme-color" content="#0f1214" />
 
     <!-- Primary SEO â€” per-page title/description/canonical/keywords are injected at
-         runtime by <Seo> (react-helmet-async). The tags here are GLOBAL defaults /
-         no-JS fallbacks only; the <title> is replaced per route, so do NOT add a
-         static description/canonical here or it would duplicate Helmet's. -->
+         runtime by the Seo component (src/components/Seo.jsx) and baked into the
+         static HTML at build time by scripts/prerender.mjs. The tags here are GLOBAL
+         defaults / no-JS fallbacks only; the page title is replaced per route, so do
+         NOT add a static description or canonical here or it would duplicate Seo's. -->
     <title>Coldcast â€” The Safest LinkedIn Sales Navigator Scraper</title>
     <meta name="author" content="Coldcast" />
     <meta name="application-name" content="Coldcast" />
