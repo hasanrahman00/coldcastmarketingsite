@@ -12,7 +12,7 @@ const SITE = 'https://www.coldcast.io'
 // favicons, Organization/WebSite/SoftwareApplication JSON-LD); this owns the
 // per-page bits so every route gets a UNIQUE title/description/canonical/OG/
 // keywords + structured data.
-export default function Seo({ title, description, path = '/', keywords, ogTitle, ogDescription, jsonLd }) {
+export default function Seo({ title, description, path = '/', keywords, ogTitle, ogDescription, image, jsonLd }) {
   const clean = path === '/' ? '/' : '/' + String(path).replace(/^\/+|\/+$/g, '')
   const url = SITE + clean
   const ogT = ogTitle || title
@@ -20,8 +20,10 @@ export default function Seo({ title, description, path = '/', keywords, ogTitle,
   const blocks = (jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []).filter(Boolean)
 
   // SSR: hand the prerenderer this route's head (exactly one <Seo> per route).
+  const img = image ? (image.startsWith('http') ? image : SITE + image) : null
+
   const collector = useContext(HeadCollectorContext)
-  if (collector) collector.tags = { title, description, keywords, url, ogT, ogD, jsonLd: blocks }
+  if (collector) collector.tags = { title, description, keywords, url, ogT, ogD, image: img, jsonLd: blocks }
 
   // Client: apply on mount + whenever the route's head changes.
   const ld = JSON.stringify(blocks)
@@ -35,6 +37,8 @@ export default function Seo({ title, description, path = '/', keywords, ogTitle,
     upsertMeta('property', 'og:description', ogD)
     upsertMeta('name', 'twitter:title', ogT)
     upsertMeta('name', 'twitter:description', ogD)
+    upsertMeta('property', 'og:image', img)
+    upsertMeta('name', 'twitter:image', img)
 
     document.head.querySelectorAll('script[data-seo-ld]').forEach((s) => s.remove())
     JSON.parse(ld).forEach((block) => {
@@ -45,7 +49,7 @@ export default function Seo({ title, description, path = '/', keywords, ogTitle,
       document.head.appendChild(s)
     })
     return () => document.head.querySelectorAll('script[data-seo-ld]').forEach((s) => s.remove())
-  }, [title, description, keywords, url, ogT, ogD, ld])
+  }, [title, description, keywords, url, ogT, ogD, img, ld])
 
   return null
 }

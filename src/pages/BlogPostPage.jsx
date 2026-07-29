@@ -73,8 +73,9 @@ export default function BlogPostPage() {
         keywords={post.keywords}
         ogTitle={post.title}
         ogDescription={post.metaDescription}
+        image={post.image?.src}
         jsonLd={[
-          articleLd({ title: post.title, description: post.metaDescription, path, datePublished: post.datePublished, dateModified: post.dateModified }),
+          articleLd({ title: post.title, description: post.metaDescription, path, datePublished: post.datePublished, dateModified: post.dateModified, image: post.image?.src }),
           breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }, { name: post.title, path }]),
           faqLd(post.faq),
         ]}
@@ -115,6 +116,25 @@ export default function BlogPostPage() {
             </Reveal>
           </div>
         </header>
+
+        {/* Hero image — a real, crawlable <img> so Google Images can index the brand. */}
+        {post.image && (
+          <div className="container-px pt-8">
+            <figure className="mx-auto max-w-3xl">
+              <img
+                src={post.image.src}
+                alt={post.image.alt}
+                width={post.image.width}
+                height={post.image.height}
+                loading="eager"
+                className="w-full rounded-2xl border border-hairline"
+              />
+              {post.image.caption && (
+                <figcaption className="mt-3 text-center text-[13px] text-faint">{post.image.caption}</figcaption>
+              )}
+            </figure>
+          </div>
+        )}
 
         {/* Body */}
         <div className="container-px pb-16 pt-8">

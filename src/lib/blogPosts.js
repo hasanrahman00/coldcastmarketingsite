@@ -23,6 +23,13 @@ export const BLOG_POSTS = [
     datePublished: '2026-07-29',
     dateModified: '2026-07-29',
     readMinutes: 7,
+    image: {
+      src: '/images/coldcast-b2b-lead-list-builder.png',
+      width: 1400,
+      height: 560,
+      alt: 'Coldcast — the account-safe LinkedIn Sales Navigator scraper for building and exporting enriched B2B lead lists',
+      caption: 'Coldcast runs in your own browser session, so LinkedIn only ever sees you browsing.',
+    },
     excerpt:
       'LinkedIn restricts thousands of accounts a week for automation. Here is what actually triggers a ban — and the seven rules that keep your Sales Navigator account safe while you export leads.',
     sections: [
@@ -106,6 +113,13 @@ export const BLOG_POSTS = [
     datePublished: '2026-07-29',
     dateModified: '2026-07-29',
     readMinutes: 6,
+    image: {
+      src: '/images/coldcast-sales-navigator-scraper-app.png',
+      width: 1280,
+      height: 800,
+      alt: 'Coldcast app exporting enriched LinkedIn Sales Navigator leads to CSV and XLSX with verified business emails',
+      caption: 'Capture prospects as you browse, enrich with verified emails, export to CSV/XLSX in one click.',
+    },
     excerpt:
       'LinkedIn gives you world-class search filters and then no export button. Here are the four ways teams actually get Sales Navigator leads into a spreadsheet — and how to do it without risking your account.',
     sections: [

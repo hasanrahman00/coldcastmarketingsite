@@ -39,6 +39,8 @@ function buildHead(t) {
   if (t.ogD) p.push(`<meta property="og:description" content="${esc(t.ogD)}" />`)
   if (t.ogT) p.push(`<meta name="twitter:title" content="${esc(t.ogT)}" />`)
   if (t.ogD) p.push(`<meta name="twitter:description" content="${esc(t.ogD)}" />`)
+  if (t.image) p.push(`<meta property="og:image" content="${esc(t.image)}" />`)
+  if (t.image) p.push(`<meta name="twitter:image" content="${esc(t.image)}" />`)
   // Marked data-seo-ld so the client <Seo> swaps these in place on boot instead
   // of appending a second copy (the global @graph in index.html stays untouched).
   t.jsonLd.forEach((b) => p.push(`<script type="application/ld+json" data-seo-ld>${ld(b)}</script>`))

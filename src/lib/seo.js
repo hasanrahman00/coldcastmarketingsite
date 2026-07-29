@@ -257,7 +257,7 @@ export function faqLd(faq) {
   }
 }
 
-export function articleLd({ title, description, path, datePublished, dateModified }) {
+export function articleLd({ title, description, path, datePublished, dateModified, image }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -265,7 +265,7 @@ export function articleLd({ title, description, path, datePublished, dateModifie
     description,
     url: abs(path),
     mainEntityOfPage: { '@type': 'WebPage', '@id': abs(path) },
-    image: SITE + '/og-image.png',
+    image: image ? SITE + image : SITE + '/og-image.png',
     datePublished,
     dateModified: dateModified || datePublished,
     author: { '@type': 'Organization', name: 'Coldcast', url: SITE + '/' },

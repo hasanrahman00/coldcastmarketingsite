@@ -51,6 +51,13 @@ for (const route of routes) {
   if (!head.title) warnings.push(`${route} — no <Seo> title collected`)
 
   let page = template
+  // If this route declares its own og:image, drop the template's global
+  // og:image/twitter:image — social scrapers take the FIRST tag they see.
+  if (head.tags.includes('og:image')) {
+    page = page
+      .replace(/^\s*<meta property="og:image"[^>]*>\s*\n?/m, '')
+      .replace(/^\s*<meta name="twitter:image"[^>]*>\s*\n?/m, '')
+  }
   if (head.title) {
     page = page.replace(/<title>[\s\S]*?<\/title>/, `<title>${head.title.replace(/</g, '&lt;')}</title>`)
   }
