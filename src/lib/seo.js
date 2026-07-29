@@ -28,6 +28,7 @@ export const STATIC_SEO = {
     ogTitle: 'One platform. Seven GTM tools.',
     ogDescription:
       'Scrape, enrich, verify and reach in one account-safe platform. Use a single tool or chain all seven into a full GTM pipeline that runs in your own browser.',
+    image: '/images/coldcast-sales-navigator-scraper-app.png',
   },
   '/roles': {
     title: 'Sales Navigator by Role — SDR to Agency | Coldcast',
@@ -38,6 +39,7 @@ export const STATIC_SEO = {
     ogTitle: 'Built for your role in GTM',
     ogDescription:
       "Whether you're a solo SDR or a lead-gen agency, Coldcast turns Sales Navigator searches into clean, enriched, ready-to-send lists — account-safe.",
+    image: '/images/coldcast-b2b-lead-list-builder.png',
   },
   '/tools': {
     title: 'Free Email Verifier & GTM Tools | Coldcast',
@@ -221,6 +223,16 @@ export const ROLE_SEO = {
       'Find and verify candidate emails and direct dials from LinkedIn at scale — without risking your account or paying per-credit data prices.',
   },
 }
+
+// Section-level social share cards (og:image / twitter:image). Home and anything
+// unspecified keep the global 1200×630 og-image.png in index.html; product and
+// role pages get their own branded card. Any entry can override `image` above.
+Object.values(PRODUCT_SEO).forEach((e) => {
+  if (!e.image) e.image = '/images/coldcast-sales-navigator-scraper-app.png'
+})
+Object.values(ROLE_SEO).forEach((e) => {
+  if (!e.image) e.image = '/images/coldcast-b2b-lead-list-builder.png'
+})
 
 // Canonical path for a product/role detail slug. coldcast-agent has its own
 // top-level route; every other product lives under /products/, roles under /roles/.
