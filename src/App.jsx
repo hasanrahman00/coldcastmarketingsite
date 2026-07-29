@@ -8,6 +8,7 @@ import FreeToolsPage from './pages/FreeToolsPage'
 import SalesNavAdvancedPage from './pages/SalesNavAdvancedPage'
 import BlogIndexPage from './pages/BlogIndexPage'
 import BlogPostPage from './pages/BlogPostPage'
+import NotFound from './pages/NotFound'
 import ProductDetailPage from './components/ProductDetailPage'
 import { CRISP_WEBSITE_ID } from './lib/constants'
 
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/blog" element={<BlogIndexPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/sales-nav-advanced" element={<SalesNavAdvancedPage />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   )
