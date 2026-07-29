@@ -8,6 +8,7 @@ const TOOLS = [
   { emoji: '💧', label: 'Waterfall Enricher', to: '/products/waterfall-enricher' },
   { emoji: '✅', label: 'Email Verify', to: '/products/email-verify' },
   { emoji: '🤖', label: 'Coldcast Agent', to: '/coldcast-agent' },
+  { emoji: '📖', label: 'Blog & Guides', to: '/blog' },
 ]
 
 const SOCIALS = [
@@ -79,6 +80,7 @@ export default function Footer() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-5 text-[13px] text-faint lg:justify-end">
+              <Link to="/blog" className="transition-colors hover:text-lime">Blog</Link>
               <a href="/privacy/" className="transition-colors hover:text-lime">Privacy Policy</a>
               <a href="/terms/" className="transition-colors hover:text-lime">Terms</a>
             </div>

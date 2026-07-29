@@ -49,6 +49,16 @@ export const STATIC_SEO = {
     ogDescription:
       'Verify emails, find work emails and enrich domains free in your browser — no login, no card. Bulk, automated versions live inside the Coldcast app.',
   },
+  '/blog': {
+    title: 'Blog: Account-Safe Lead Gen Guides | Coldcast',
+    description:
+      'Guides on scraping Sales Navigator safely, exporting leads, waterfall enrichment and email deliverability — from the team behind the safest LinkedIn scraper.',
+    keywords:
+      'linkedin scraping guides, sales navigator export guide, account-safe scraping, waterfall enrichment guide, cold outreach data, lead generation blog',
+    ogTitle: 'The Coldcast Blog — Account-Safe Lead Gen',
+    ogDescription:
+      'Practical guides on Sales Navigator scraping, lead exports, enrichment and deliverability — written by the team behind the safest LinkedIn scraper.',
+  },
   '/sales-nav-advanced': {
     title: 'Sales Navigator Advanced — $25/month | Coldcast',
     description:
@@ -244,6 +254,27 @@ export function faqLd(faq) {
       name: f.q,
       acceptedAnswer: { '@type': 'Answer', text: f.a },
     })),
+  }
+}
+
+export function articleLd({ title, description, path, datePublished, dateModified }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    url: abs(path),
+    mainEntityOfPage: { '@type': 'WebPage', '@id': abs(path) },
+    image: SITE + '/og-image.png',
+    datePublished,
+    dateModified: dateModified || datePublished,
+    author: { '@type': 'Organization', name: 'Coldcast', url: SITE + '/' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Coldcast',
+      url: SITE + '/',
+      logo: { '@type': 'ImageObject', url: SITE + '/favicon-512x512.png' },
+    },
   }
 }
 
