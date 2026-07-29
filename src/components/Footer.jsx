@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Twitter, Linkedin, Github, ArrowRight } from 'lucide-react'
+import { Linkedin, Youtube, ArrowRight } from 'lucide-react'
 import Logo from './Logo'
 
 // Tool quick-links shown as pills in the footer.
@@ -11,10 +11,10 @@ const TOOLS = [
   { emoji: '📖', label: 'Blog & Guides', to: '/blog' },
 ]
 
+// Only live profiles here — X (Twitter) and Instagram to be added later.
 const SOCIALS = [
-  { label: 'Coldcast on X', icon: Twitter, href: '#' },
-  { label: 'Coldcast on LinkedIn', icon: Linkedin, href: '#' },
-  { label: 'Coldcast on GitHub', icon: Github, href: '#' },
+  { label: 'Coldcast on LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/coldcast-io/' },
+  { label: 'Coldcast on YouTube', icon: Youtube, href: 'https://www.youtube.com/@coldcastio' },
 ]
 
 export default function Footer() {
@@ -72,6 +72,8 @@ export default function Footer() {
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-panel text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-lime/40 hover:bg-lime/[0.06] hover:text-lime"
                 >
