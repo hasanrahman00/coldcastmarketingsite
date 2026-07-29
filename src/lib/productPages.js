@@ -17,7 +17,7 @@ export const PRODUCT_PAGES = {
     order: ['visual', 'how', 'features', 'stats', 'benefits', 'faq'],
     hero: {
       eyebrow: 'Coldcast Agent',
-      title: 'Upload your list. Your AI agent runs the whole play.',
+      title: 'Upload your list — your AI outbound agent runs the whole play.',
       subtitle:
         'Coldcast Agent works your target accounts completely hands-off — extracting, scoring, enriching, writing and pushing live sequences while you do nothing.',
       badges: ['Fully hands-off', 'AI-scored ICP', 'Sequences auto-pushed'],
@@ -68,6 +68,7 @@ export const PRODUCT_PAGES = {
       { q: 'Where do the finished sequences go?', a: 'Straight into your cold-outbound platform (Instantly, Smartlead and more) or your CRM, ready to send.' },
       { q: 'Is it account-safe?', a: 'Yes — all scraping runs in your own browser at human pace, never a bot in someone’s cloud.' },
       { q: 'Which AI models does it use?', a: 'Claude and DeepSeek for ICP scoring and copywriting, so the reasoning and the writing are genuinely good.' },
+      { q: 'Is Coldcast Agent an AI SDR?', a: 'Yes — Coldcast Agent is an AI SDR that runs the full outbound play: it researches each account, ICP-scores it, finds and enriches the right contact, writes a personalised 3-step sequence, and pushes it to your sender — hands-off.' },
     ],
     cta: {
       title: 'Let the agent run your outbound.',
@@ -97,7 +98,7 @@ export const PRODUCT_PAGES = {
     },
     hero: {
       eyebrow: 'Sales Navigator Scraper',
-      title: 'Export 20,000 Sales Nav leads a day — at zero ban risk.',
+      title: 'The safest Sales Navigator scraper — export 20,000 leads a day at zero ban risk.',
       subtitle:
         'Coldcast scrapes LinkedIn Sales Navigator from your own browser session and proxy, so every request looks 100% human. Enriched, scored and ready to send.',
       badges: ['0 account bans', '10,000 leads / hour', 'No code — just an extension'],
@@ -115,7 +116,7 @@ export const PRODUCT_PAGES = {
       ],
     },
     features: {
-      heading: 'Built to scrape at scale — safely.',
+      heading: 'Built to scrape Sales Navigator at scale — safely.',
       subtitle: 'Volume and account safety, in the same tool.',
       items: [
         { emoji: '🛡️', title: '0 ban risk', desc: 'Runs on your real browser session and proxy, so LinkedIn only ever sees a human.' },
@@ -146,6 +147,8 @@ export const PRODUCT_PAGES = {
       { q: 'How fast is it?', a: 'Up to 10,000 leads an hour and 20,000 a day, under normal account standing.' },
       { q: 'Do I get emails and phones?', a: 'Yes — waterfall enrichment runs as you scrape, adding verified emails and direct dials.' },
       { q: 'Can I scrape companies, not just people?', a: 'Yes — company-level Sales Navigator searches are supported too.' },
+      { q: 'Is Coldcast a Sales Navigator scraper Chrome extension?', a: 'Yes — Coldcast is a Chrome extension that scrapes LinkedIn Sales Navigator from your own browser session. Install it, sign in to your own LinkedIn, paste a search URL and export.' },
+      { q: 'How do I export Sales Navigator leads to CSV or Excel?', a: 'Paste your Sales Navigator search URL into Coldcast, run the export, and download a clean CSV or XLSX — enriched with verified emails and phones, de-duplicated and ready for your CRM or sequencer.' },
     ],
     cta: {
       title: 'Export your next 20,000 leads — safely.',
@@ -164,7 +167,7 @@ export const PRODUCT_PAGES = {
     featuresVariant: 'list',
     order: ['how', 'features', 'comparison', 'stats', 'benefits', 'faq'],
     comparison: {
-      heading: 'Why export through Coldcast.',
+      heading: 'No more Apollo export limits.',
       rows: [
         { label: 'Data freshness', them: 'Stale cache', us: 'Real-time' },
         { label: 'Export limits', them: 'Page-by-page', us: 'Whole list' },
@@ -174,7 +177,7 @@ export const PRODUCT_PAGES = {
     },
     hero: {
       eyebrow: 'Apollo Scraper',
-      title: 'Pull whole Apollo lists — fresh, verified and a third of the price.',
+      title: 'Apollo scraper: export whole Apollo.io lists — fresh, verified, a third of the price.',
       subtitle:
         'Export any Apollo search in minutes. Coldcast re-verifies every contact in real time and fills the gaps with its own waterfall enrichment — at 3x lower cost.',
       badges: ['Real-time fresh data', 'Catch-all verified', '3x more affordable'],
@@ -222,6 +225,8 @@ export const PRODUCT_PAGES = {
       { q: 'Is it really cheaper?', a: 'Yes — roughly 3x more affordable than equivalent per-credit pricing.' },
       { q: 'Do you clean catch-all emails?', a: 'Yes — catch-alls are tested and the risky ones removed before you send.' },
       { q: 'Can I export whole lists?', a: 'Yes — no page-by-page caps. Pull the entire search at once.' },
+      { q: 'What is the Apollo export limit, and how do I get past it?', a: 'Apollo caps exports page-by-page. Coldcast pulls the entire Apollo search at once — no per-page caps — and re-verifies every contact live as it exports.' },
+      { q: 'How do I export Apollo leads to CSV?', a: 'Open your Apollo search, start the Coldcast export, and download a clean CSV or XLSX — re-verified in real time and catch-all cleaned.' },
     ],
     cta: {
       title: 'Export Apollo — fresh, clean and cheaper.',
@@ -250,7 +255,7 @@ export const PRODUCT_PAGES = {
     },
     hero: {
       eyebrow: 'ZoomInfo Scraper',
-      title: 'Export ZoomInfo company & contact data — fresh and verified.',
+      title: 'ZoomInfo scraper: export company & contact data — fresh and verified.',
       subtitle:
         'Pull ZoomInfo firmographics and contacts in minutes. Coldcast re-verifies every record in real time and enriches with its own waterfall — at 3x lower cost.',
       badges: ['Real-time fresh data', 'Catch-all verified', '3x more affordable'],
@@ -298,6 +303,7 @@ export const PRODUCT_PAGES = {
       { q: 'Is the data fresh?', a: 'Every record is re-verified in real time, so you’re not relying on a stale snapshot.' },
       { q: 'How much cheaper is it?', a: 'Around 3x more affordable than enterprise per-seat pricing — with no long contract.' },
       { q: 'Are emails verified?', a: 'Yes — waterfall enrichment plus catch-all cleaning produces send-ready addresses.' },
+      { q: 'How do I export ZoomInfo data without an annual contract?', a: 'Coldcast scrapes ZoomInfo company and contact data on demand — no enterprise seat and no annual lock-in — re-verifying every record in real time.' },
     ],
     cta: {
       title: 'Export ZoomInfo — fresh and affordable.',
@@ -317,7 +323,7 @@ export const PRODUCT_PAGES = {
     order: ['how', 'stats', 'features', 'benefits', 'faq'],
     hero: {
       eyebrow: 'Waterfall Enricher',
-      title: 'Verified emails & direct dials — accuracy you won’t find anywhere else.',
+      title: 'Waterfall enrichment: verified emails & direct dials you won’t find anywhere else.',
       subtitle:
         'Upload a name and domain; Coldcast cascades across every provider, cleans the catch-alls, and only charges you for results that come back 99% valid.',
       badges: ['99%-valid only', 'Pay per valid email', 'Catch-alls cleaned'],
@@ -335,7 +341,7 @@ export const PRODUCT_PAGES = {
       ],
     },
     features: {
-      heading: 'Enrichment that’s actually accurate — and affordable.',
+      heading: 'Waterfall enrichment that’s actually accurate — and affordable.',
       subtitle: 'Match rates the big tools can’t touch, at a price that undercuts them.',
       items: [
         { emoji: '💧', title: 'True waterfall', desc: 'Cascades multiple providers for the maximum possible match rate.' },
@@ -366,6 +372,7 @@ export const PRODUCT_PAGES = {
       { q: 'Do you clean catch-all emails?', a: 'Yes — every catch-all is tested, and the risky ones are filtered out.' },
       { q: 'How accurate is it really?', a: 'The waterfall cascade plus catch-all cleaning produces match accuracy most teams simply can’t get anywhere else.' },
       { q: 'Does it connect to my CRM?', a: 'Yes — push enriched contacts straight into your CRM or cold-outbound tool.' },
+      { q: 'What is waterfall enrichment?', a: 'Waterfall enrichment queries multiple data providers in sequence for each contact, moving to the next source only when one doesn’t return a verified result. Cascading providers this way finds a valid email or direct dial for far more of your list than any single provider can.' },
     ],
     cta: {
       title: 'Enrich your list — pay only for what’s valid.',
@@ -395,7 +402,7 @@ export const PRODUCT_PAGES = {
     },
     hero: {
       eyebrow: 'Email Verify',
-      title: 'Verify every email before you send — catch-alls included.',
+      title: 'Email verification: verify every address before you send — catch-alls included.',
       subtitle:
         'Real-time MX and SMTP checks clean your whole list, separate the risky catch-alls, and protect your sender reputation — at 3x lower cost than the big verifiers.',
       badges: ['Real-time MX + SMTP', 'Catch-all detection', '3x more affordable'],
@@ -442,6 +449,7 @@ export const PRODUCT_PAGES = {
       { q: 'Do you detect catch-all domains?', a: 'Yes — catch-alls are flagged and separated so you can decide whether to send.' },
       { q: 'Can I verify in bulk?', a: 'Yes — upload a whole list and get a cleaned, segmented file back.' },
       { q: 'Is there a free way to try it?', a: 'Yes — try the free single-email verifier on our Free Tools page first.' },
+      { q: 'Can I use it as a bulk email verifier for scraped or purchased lists?', a: 'Yes — upload any list, scraped, purchased or exported, and Coldcast runs live MX and SMTP checks on every address, flags catch-alls, and returns a clean, segmented, send-safe file.' },
     ],
     cta: {
       title: 'Clean your list before you send.',
@@ -461,7 +469,7 @@ export const PRODUCT_PAGES = {
     order: ['how', 'features', 'stats', 'benefits', 'faq'],
     hero: {
       eyebrow: 'Domain Enrichment',
-      title: 'Turn any domain into firmographics, tech and contacts.',
+      title: 'Domain enrichment: turn any domain into firmographics, tech & contacts.',
       subtitle:
         'Give Coldcast a domain; get back fresh company data, technographics and verified contacts — enriched with waterfall and catch-all-cleaned, at 3x lower cost.',
       badges: ['Real-time fresh data', 'Verified contacts', '3x more affordable'],
@@ -509,6 +517,7 @@ export const PRODUCT_PAGES = {
       { q: 'Are the contacts verified?', a: 'Yes — waterfall enrichment plus catch-all cleaning means send-ready emails.' },
       { q: 'Is the data fresh?', a: 'Everything is pulled in real time, so you’re not relying on a stale database.' },
       { q: 'How affordable is it?', a: 'Around 3x cheaper than the big data providers, with no contract.' },
+      { q: 'How does domain-to-company enrichment work?', a: 'Give Coldcast a domain and it returns that company’s firmographics (industry, size, location), its tech stack, and verified contacts at the company — waterfall-enriched and catch-all cleaned.' },
     ],
     cta: {
       title: 'Turn a list of domains into pipeline.',
