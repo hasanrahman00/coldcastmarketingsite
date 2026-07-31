@@ -1,6 +1,6 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Chrome } from 'lucide-react'
 import Reveal from './Reveal'
-import { TRIAL_URL } from '../lib/constants'
+import { TRIAL_URL, CHROME_STORE_URL } from '../lib/constants'
 
 // Ports the mock's `.final` treatment: a graphite panel sitting on the frame,
 // hairline border, and a soft bloom spilling in from above the top edge.
@@ -25,7 +25,7 @@ export default function FinalCTA() {
           <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
             Export, enrich and verify your next thousand leads — account-safe, from your own browser.
           </p>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
               href={TRIAL_URL}
               target="_blank"
@@ -34,6 +34,15 @@ export default function FinalCTA() {
             >
               Start free trial
               <ArrowRight size={17} className="transition-transform group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href={CHROME_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex h-16 items-center justify-center gap-2 rounded-full border border-hairline-strong px-10 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-all duration-200 hover:-translate-y-0.5 hover:border-lime/50 hover:bg-lime/[0.06] focus-visible:ring-lime"
+            >
+              <Chrome size={17} className="text-lime" />
+              Get the Chrome extension
             </a>
           </div>
           <div className="mt-6 text-[13px] font-medium text-faint">

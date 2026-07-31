@@ -7,6 +7,12 @@ export const APP_URL = 'https://app.coldcast.io'
 // Self-serve free-trial page — lives on the dashboard app (app.coldcast.io/#trial).
 // This is where every primary "Free trial" CTA points.
 export const TRIAL_URL = `${APP_URL}/#trial`
+// [SET ME] Chrome Web Store listing URL once the extension is published, e.g.
+// https://chromewebstore.google.com/detail/<slug>/<id>. Until then it points to
+// the app's trial flow (sign up → install the extension). Swapping this to the
+// real listing URL turns every "Get the Chrome extension" CTA into a backlink
+// that helps the listing rank (per the CWS listing plan).
+export const CHROME_STORE_URL = `${APP_URL}/#trial`
 // [PLACEHOLDER] demo-booking link (Calendly / Cal.com) for the "Book a demo" CTA
 export const DEMO_URL = 'https://calendly.com/coldcast/demo'
 // [PLACEHOLDER] sales / contact address for the Custom plan + footer "Contact"

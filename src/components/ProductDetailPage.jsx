@@ -10,7 +10,7 @@ import EmailVerifier from './EmailVerifier'
 import { VISUALS } from './pageVisuals'
 import { PRODUCT_PAGES } from '../lib/productPages'
 import { ROLE_PAGES } from '../lib/rolePages'
-import { TRIAL_URL, DEMO_URL } from '../lib/constants'
+import { TRIAL_URL, DEMO_URL, CHROME_STORE_URL } from '../lib/constants'
 import Seo from './Seo'
 import { PRODUCT_SEO, ROLE_SEO, detailPath, breadcrumbLd, faqLd, softwareLd } from '../lib/seo'
 
@@ -43,6 +43,7 @@ function CtaRow({ center }) {
         <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
       </Button>
       <Button as="a" href={DEMO_URL} variant="outline-light" size="lg">Book a demo</Button>
+      <Button as="a" href={CHROME_STORE_URL} variant="outline-light" size="lg">Get the Chrome extension</Button>
     </div>
   )
 }
