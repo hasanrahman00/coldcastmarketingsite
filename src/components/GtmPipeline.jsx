@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import {
   Sparkles,
   Send,
-  ChevronDown,
+  MonitorSmartphone,
   Brain,
   PenLine,
   Database,
@@ -81,9 +81,20 @@ const STAGES = [
   },
 ]
 
+// Stage 01 rendered as a first-class card (it used to sit bare, with no card
+// behind it). `bigHub` draws the full Coldcast + sources hub.
+const STAGE_01 = {
+  step: '01',
+  title: 'GTM prospecting',
+  icon: MonitorSmartphone,
+  caption: 'In your own browser, at human pace — LinkedIn, Apollo & ZoomInfo plus Coldcast’s own website, email & domain enrichment.',
+  bigHub: true,
+}
+const ALL_STAGES = [STAGE_01, ...STAGES]
+
 // Lime is the section's single accent. Raw hex only where SVG/box-shadow needs
 // a literal — #ccff00 is `lime`, kept in one place so it never drifts.
-const LIME = '#ccff00'
+const LIME = '#0a0a0a'
 
 const ARMS = [0, 60, 120, 180, 240, 300]
 
@@ -135,37 +146,6 @@ function Node({ domain, name, icon: Icon, size = 38 }) {
   )
 }
 
-// Thin lime stroke between stages — draws itself on scroll-into-view.
-function Connector({ reduce, index = 0 }) {
-  return (
-    <div className="relative flex h-14 w-px items-stretch justify-center">
-      <div className="relative h-full w-px overflow-hidden">
-        <motion.span
-          aria-hidden
-          className="absolute inset-0 origin-top bg-gradient-to-b from-lime/70 via-lime/25 to-lime/70"
-          initial={reduce ? false : { scaleY: 0, opacity: 0 }}
-          whileInView={reduce ? undefined : { scaleY: 1, opacity: 1 }}
-          viewport={{ once: true, margin: '-24px' }}
-          transition={{ duration: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
-        />
-        {!reduce &&
-          [0, 1].map((p) => (
-            <motion.span
-              key={p}
-              className="absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-lime"
-              style={{ boxShadow: `0 0 10px 2px rgba(204,255,0,0.75)` }}
-              animate={{ top: ['-12%', '112%'], opacity: [0, 1, 1, 0] }}
-              // linear is load-bearing: a dot travelling a wire moves at constant
-              // speed. p * half-duration keeps the two dots exactly antiphase.
-              transition={{ duration: 2.24, repeat: Infinity, ease: 'linear', delay: index * 0.42 + p * 1.12 }}
-            />
-          ))}
-      </div>
-      <ChevronDown size={16} className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 text-lime/70" />
-    </div>
-  )
-}
-
 function Hub({ active, reduce }) {
   const N = SOURCES.length
   const nodes = SOURCES.map((s, i) => {
@@ -173,7 +153,7 @@ function Hub({ active, reduce }) {
     return { ...s, x: 50 + 38 * Math.cos(a), y: 50 + 38 * Math.sin(a) }
   })
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[380px]">
+    <div className="relative mx-auto aspect-square w-full max-w-[320px]">
       <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
         <defs>
           {/* Radiates from the hub outward, so every spoke reads identically. */}
@@ -194,7 +174,7 @@ function Hub({ active, reduce }) {
               key={`p${i}`}
               r="1.3"
               fill={LIME}
-              style={{ filter: 'drop-shadow(0 0 2.5px rgba(204,255,0,0.95))' }}
+              style={{ filter: 'drop-shadow(0 0 2.5px rgba(0,0,0,0.95))' }}
               initial={{ cx: n.x, cy: n.y, opacity: 0 }}
               animate={{ cx: [n.x, 50], cy: [n.y, 50], opacity: [0, 1, 1, 0] }}
               // easeIn is the meaning here — data accelerates INTO the hub.
@@ -274,7 +254,7 @@ function MiniHub({ nodes: items, reduce, center, active }) {
               key={`mp${i}`}
               r="1.5"
               fill={LIME}
-              style={{ filter: 'drop-shadow(0 0 2.5px rgba(204,255,0,0.95))' }}
+              style={{ filter: 'drop-shadow(0 0 2.5px rgba(0,0,0,0.95))' }}
               initial={{ cx: n.x, cy: n.y, opacity: 0 }}
               animate={{ cx: [n.x, 50], cy: [n.y, 50], opacity: [0, 1, 1, 0] }}
               transition={{ duration: 2.52, repeat: Infinity, delay: i * 0.56, ease: 'easeIn' }}
@@ -322,62 +302,44 @@ function MiniHub({ nodes: items, reduce, center, active }) {
   )
 }
 
-function StageCard({ stage, active, reduce }) {
+// Each pipeline stage is a scroll-stacking card: it pins near the top and the
+// next stage slides up and stacks over it (the classic "stacking cards" effect).
+// `index` sets the incremental sticky offset + paint order; the card is opaque so
+// it cleanly covers the one behind. `bigHub` renders the full stage-01 hub.
+function StageCard({ stage, index, reduce }) {
   const Icon = stage.icon
+  const ref = useRef(null)
+  // Lit while the card is the one in focus (near the middle of the viewport).
+  const active = useInView(ref, { margin: '-42% 0px -42% 0px' })
   return (
     <div
-      className={`relative w-full max-w-md overflow-hidden rounded-2xl border bg-panel/80 p-5 shadow-card backdrop-blur-sm transition-all duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
-        active ? 'border-lime/25 ring-1 ring-lime/30' : 'border-hairline'
-      }`}
+      ref={ref}
+      className={`sticky mx-auto flex min-h-[440px] w-full max-w-lg flex-col justify-center overflow-hidden rounded-[18px] border bg-panel p-6 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.35)] transition-colors duration-500 sm:p-8 ${
+        active ? 'border-hairline-strong' : 'border-hairline'
+      } ${index === 0 ? '' : 'mt-6'}`}
+      style={{ top: `${84 + index * 16}px`, zIndex: index + 1 }}
     >
-      {/* Lime hairline rule across the top — lights up on the active stage */}
-      <span
-        aria-hidden
-        className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-lime to-transparent transition-opacity duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
-          active ? 'opacity-90' : 'opacity-20'
-        }`}
-      />
-      <span
-        aria-hidden
-        className={`pointer-events-none absolute -top-16 left-1/2 h-32 w-56 -translate-x-1/2 rounded-full bg-lime/10 blur-3xl transition-opacity duration-[1200ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
-          active ? 'opacity-100' : 'opacity-0'
-        }`}
-      />
-
-      {/* Header stacks and centres: numeral, then icon + title. It used to be a
-          justify-between row — icon+title pinned left, numeral right — which is
-          why the titles read off-centre while the nodes and caption below them
-          were centred. Centring the row in place wasn't an option: the numeral
-          would have had to be absolute, and "Intent & signal-based personalised
-          cold copy" wraps straight into it. */}
-      {/* Split header, same idea as the nav's variant B: the NUMERAL is lime and
-          the icon + title are mint. The two accents are on their own lines here
-          rather than jammed side by side, which is what keeps it reading as a
-          decision — lime numbers the step, mint names it. */}
+      {/* Header — lime step numeral, then icon + title */}
       <div className="relative flex flex-col items-center gap-2.5">
-        {/* The step numeral — large lime display type, the section's signature */}
         <span
-          className={`font-display text-4xl font-bold leading-none tracking-tight tabular-nums text-lime transition-opacity duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] sm:text-[2.75rem] ${
-            active ? 'opacity-100' : 'opacity-40'
+          className={`font-display text-4xl font-bold leading-none tracking-tight tabular-nums text-lime transition-opacity duration-500 sm:text-[2.75rem] ${
+            active ? 'opacity-100' : 'opacity-45'
           }`}
-          style={{ textShadow: '0 0 28px rgba(204,255,0,0.35)' }}
         >
           {stage.step}
         </span>
         <span className="flex items-center justify-center gap-2.5">
-          <span
-            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border bg-brand-gradient-soft transition-colors duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
-              active ? 'border-brand/40 text-accent' : 'border-hairline text-accent/70'
-            }`}
-          >
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-hairline bg-panel2 text-ink">
             <Icon size={16} />
           </span>
-          <span className="text-center font-display text-sm font-semibold text-accent">{stage.title}</span>
+          <span className="text-center font-display text-sm font-semibold text-ink">{stage.title}</span>
         </span>
       </div>
 
       <div className="relative mt-4 flex flex-wrap items-start justify-center gap-x-4 gap-y-3">
-        {stage.hub ? (
+        {stage.bigHub ? (
+          <Hub active={active} reduce={reduce} />
+        ) : stage.hub ? (
           <MiniHub nodes={stage.nodes} center={stage.center} reduce={reduce} active={active} />
         ) : (
           stage.nodes.map((n, idx) => (
@@ -401,68 +363,30 @@ function StageCard({ stage, active, reduce }) {
 
 export default function GtmPipeline() {
   const reduce = useReducedMotion()
-  const ref = useRef(null)
-  // Gate the walk on visibility: this section sits low on the page and is 3.7
-  // screens tall, so without this its interval re-renders the whole diagram
-  // every 2.66s even while it's far off-screen.
-  const inView = useInView(ref, { margin: '160px' })
-  const live = inView && !reduce
-  const [active, setActive] = useState(0)
-
-  // The autoplay walk. At 1900ms the 900ms handoffs never settled before the
-  // next stage stole the highlight, which is what made the section buzz; 2660
-  // leaves ~1.75s of dwell so each stage is actually readable while lit.
-  const STAGE_MS = 2660
-
-  useEffect(() => {
-    if (!live) return undefined
-    const id = setInterval(() => setActive((v) => (v + 1) % (STAGES.length + 1)), STAGE_MS)
-    return () => clearInterval(id)
-  }, [live])
 
   return (
-    <section ref={ref} className="relative px-6 py-24 sm:px-8 sm:py-32">
+    <section className="relative px-6 py-24 sm:px-8 sm:py-32">
       <div className="mx-auto max-w-3xl">
-        <Reveal className="mb-10 flex flex-col items-center text-center">
+        <Reveal className="mb-12 flex flex-col items-center text-center">
           <Eyebrow icon={Sparkles}>One automated GTM pipeline</Eyebrow>
           <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-            From scrape to send — your whole stack, connected.
+            Coldcast GTM Stack
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-            Coldcast sits at the centre of your pipeline: it sources, scores, enriches, personalises
-            and hands finished leads straight to your sequencer and CRM.
+            From scrape to send — your whole stack, connected. Coldcast sits at the centre of your
+            pipeline: it sources, scores, enriches, personalises and hands finished leads straight to
+            your sequencer and CRM.
           </p>
-          <span aria-hidden className="mt-6 h-px w-24 bg-gradient-to-r from-transparent via-lime to-transparent" />
         </Reveal>
 
-        <Reveal delay={0.1}>
-          <div className="relative overflow-hidden rounded-[2rem] border border-hairline bg-bg2/60 px-4 py-10 shadow-card backdrop-blur-md sm:px-8">
-            <div aria-hidden className="pointer-events-none absolute inset-0">
-              <div className="absolute left-1/2 top-0 h-48 w-72 -translate-x-1/2 rounded-full bg-lime/10 blur-[90px]" />
-              <div className="absolute left-1/2 top-1/2 h-40 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/[0.06] blur-[90px]" />
-              <div className="absolute bottom-0 left-1/2 h-48 w-72 -translate-x-1/2 rounded-full bg-lime/[0.08] blur-[90px]" />
-              <span className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-lime/70 to-transparent" />
-              <span className="absolute inset-x-10 bottom-0 h-px bg-gradient-to-r from-transparent via-lime/25 to-transparent" />
-            </div>
-
-            <div className="relative flex flex-col items-center">
-              {/* Hub — Coldcast + sources */}
-              <Hub active={active === 0} reduce={reduce} />
-              <p className="-mt-2 mb-1 max-w-xs text-center text-xs leading-relaxed text-muted">
-                <span className="font-display text-sm font-bold tabular-nums text-lime">01</span> · GTM prospecting in your own browser, at human pace.
-              </p>
-
-              <Connector reduce={reduce} index={0} />
-
-              {STAGES.map((stage, i) => (
-                <div key={stage.step} className="contents">
-                  <StageCard stage={stage} active={active === i + 1} reduce={reduce} />
-                  {i < STAGES.length - 1 && <Connector reduce={reduce} index={i + 1} />}
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
+        {/* Scroll-stacking cards — each stage pins, the next slides up over it.
+            The cards are direct siblings so `position: sticky` can carry them the
+            full height of this container; a per-card wrapper would trap each one. */}
+        <div className="relative">
+          {ALL_STAGES.map((stage, i) => (
+            <StageCard key={stage.step} stage={stage} index={i} reduce={reduce} />
+          ))}
+        </div>
       </div>
     </section>
   )

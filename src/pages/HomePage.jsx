@@ -1,18 +1,13 @@
 import Seo from '../components/Seo'
 import { STATIC_SEO, faqLd } from '../lib/seo'
 import Hero from '../components/Hero'
-import LiveExport from '../components/LiveExport'
 import ProductSuite from '../components/ProductSuite'
 import AiSdr from '../components/AiSdr'
 import GtmPipeline from '../components/GtmPipeline'
 import TrustBar from '../components/TrustBar'
-import VolumeBand from '../components/VolumeBand'
-import Safety from '../components/Safety'
-import SpeedAccuracy from '../components/SpeedAccuracy'
+import FeatureHighlights from '../components/FeatureHighlights'
 import Features from '../components/Features'
-import IntentSignals from '../components/IntentSignals'
 import HowItWorks from '../components/HowItWorks'
-import StackStrip from '../components/StackStrip'
 import UseCases from '../components/UseCases'
 import Pricing from '../components/Pricing'
 import FAQ, { FAQS } from '../components/FAQ'
@@ -29,24 +24,18 @@ export default function HomePage() {
           lives in" chips row used to be — it makes the same point with real
           logos, plus the rating and the zero-bans proof, right under the fold. */}
       <TrustBar />
-      <LiveExport />
 
-      {/* ── ANSWER THE FEAR ─────────────────────────────────────────────────
-          The hero claims "world's safest Sales Navigator scraper" and TrustBar
-          re-asserts zero bans — then the evidence used to sit nine screens down.
-          The claim was made three times before it was ever substantiated.
+      {/* ── ANSWER THE FEAR + THE VALUE ─────────────────────────────────────
+          Combines the old Safety teardown ("runs in your browser, not a cloud
+          bot") and SpeedAccuracy ("faster / higher match / lower cost") into one
+          Features block, right after TrustBar re-asserts zero bans — so the ban
+          question and the value case are both answered near the top. */}
+      <FeatureHighlights />
 
-          Safety is not a compliance badge; it's a competitor teardown ("Safe by
-          architecture, not by promise" — their cloud browser and stored password
-          vs your own session). That's the #1 reason anyone buys this instead of
-          Evaboot or PhantomBuster, so it answers the ban question immediately.
-
-          SpeedAccuracy must stay directly BEHIND Safety, never in front: its
-          table's "Account safety · shared cloud IPs vs your own IP & session" row
-          is a one-line recap of the case Safety just made. Ahead of it, that row
-          is a naked assertion. Fear #1 then fear #2, in the order they arrive. */}
-      <Safety />
-      <SpeedAccuracy />
+      {/* The seven-tool suite sits right after Features — it names each scraper /
+          enricher the value case just promised, so "seven tools" reads as proof of
+          the platform claim rather than a cold feature dump. */}
+      <ProductSuite />
 
       {/* ── ORIENT ──────────────────────────────────────────────────────────
           Cheapest section on the page (0.8 screens) and it was buried at 69%
@@ -54,9 +43,6 @@ export default function HomePage() {
           proxies to configure — if you can run a Sales Navigator search, you can
           run Coldcast" is what makes "it runs in your browser, as you" legible. */}
       <HowItWorks />
-      {/* Pinned to HowItWorks on purpose: those four steps end at a file, and
-          this band says what the file opens in. Travels with it, always. */}
-      <StackStrip />
 
       {/* ── CAPABILITY ──────────────────────────────────────────────────────
           Everything from here argues to a reader who has already been told the
@@ -68,9 +54,7 @@ export default function HomePage() {
           screen 4.5 before they had a reason to care. It rewards the already
           convinced, so it now sits where the already convinced are. Moving this
           one section is what buys the depth for everything above it. */}
-      <ProductSuite />
       <Features />
-      <IntentSignals />
       <AiSdr />
       <GtmPipeline />
 
@@ -85,7 +69,6 @@ export default function HomePage() {
           href="#pricing". It used to sit at screen 8.2 pointing at 16.5 — a
           scroll-to-nowhere. Now the handoff is real. */}
       <UseCases />
-      <VolumeBand />
       <Pricing />
       <FAQ />
       <FinalCTA />

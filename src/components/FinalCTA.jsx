@@ -9,7 +9,7 @@ import { TRIAL_URL, CHROME_STORE_URL } from '../lib/constants'
 // itself stays graphite; lime here is only a thin edge and a glow. Alpha is
 // well under the old mint's 0.16 because #ccff00 carries far more light.
 const CTA_GLOW =
-  'radial-gradient(600px 300px at 50% -80px, rgba(204,255,0,0.10), transparent 70%)'
+  'radial-gradient(600px 300px at 50% -80px, rgba(0,0,0,0.10), transparent 70%)'
 
 export default function FinalCTA() {
   return (

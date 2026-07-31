@@ -4,13 +4,13 @@ import { motion, useReducedMotion } from 'framer-motion'
 export default function PageHero({ eyebrow, title, subtitle, children }) {
   const reduce = useReducedMotion()
   return (
-    <section className="relative overflow-hidden pb-10 pt-36 sm:pb-14 sm:pt-44" style={{ backgroundColor: '#0f1214' }}>
+    <section className="relative overflow-hidden pb-10 pt-36 sm:pb-14 sm:pt-44" style={{ backgroundColor: '#ffffff' }}>
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
         style={{
           backgroundImage:
-            'radial-gradient(100% 80% at 50% -20%, rgba(53,224,184,0.16), transparent 60%), radial-gradient(70% 60% at 85% 0%, rgba(34,211,238,0.12), transparent 55%), linear-gradient(180deg, #121517, #0f1214)',
+            'radial-gradient(100% 80% at 50% -20%, rgba(0,0,0,0.03), transparent 60%), linear-gradient(180deg, #ffffff, #fafafa)',
         }}
       />
       <motion.div

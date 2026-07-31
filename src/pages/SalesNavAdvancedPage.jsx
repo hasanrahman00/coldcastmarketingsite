@@ -106,7 +106,7 @@ function PlanCard() {
           </motion.li>
         ))}
       </ul>
-      <div className="relative mt-6 rounded-xl bg-brand-gradient px-4 py-2.5 text-center text-sm font-semibold text-[#062119]">
+      <div className="relative mt-6 rounded-xl bg-brand-gradient px-4 py-2.5 text-center text-sm font-semibold text-white">
         Activate with just your email
       </div>
     </div>
@@ -164,7 +164,7 @@ export default function SalesNavAdvancedPage() {
         <div
           aria-hidden
           className="absolute inset-0 -z-10"
-          style={{ backgroundImage: 'radial-gradient(95% 75% at 50% -10%, rgba(53,224,184,0.16), transparent 60%), radial-gradient(60% 50% at 85% 0%, rgba(34,211,238,0.10), transparent 55%), linear-gradient(180deg,#0f1214,#08090b)' }}
+          style={{ backgroundImage: 'radial-gradient(95% 75% at 50% -10%, rgba(0,0,0,0.03), transparent 60%), linear-gradient(180deg,#ffffff,#fafafa)' }}
         />
         <div className="container-px relative grid items-center gap-12 lg:grid-cols-2">
           <div>

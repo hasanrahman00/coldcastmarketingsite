@@ -71,7 +71,7 @@ export default function TrustBar() {
 
           <div className="flex flex-col items-center gap-3">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Enriches from the sources you already use
+              Works with the tools you already use
             </span>
             <ul className="flex max-w-3xl flex-wrap items-center justify-center gap-3.5">
               {ENRICHMENT_SOURCES.map((source, i) => (
@@ -79,7 +79,7 @@ export default function TrustBar() {
                   key={source.name}
                   style={{ animation: ripple(i, ENRICHMENT_SOURCES.length, LOGO_CYCLE, 'logo-blink') }}
                 >
-                  <BrandLogo domain={source.domain} name={source.name} size={40} />
+                  <BrandLogo name={source.name} logo={source.logo} size={40} />
                   <span className="sr-only">{source.name}</span>
                 </li>
               ))}

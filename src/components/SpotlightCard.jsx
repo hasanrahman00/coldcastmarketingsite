@@ -5,7 +5,7 @@ import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
 export default function SpotlightCard({
   children,
   className = '',
-  glow = 'rgba(53,224,184,0.16)',
+  glow = 'rgba(0,0,0,0.16)',
   spanClass = '',
 }) {
   const x = useMotionValue(-200)

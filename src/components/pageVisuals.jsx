@@ -44,7 +44,7 @@ function AgentFlow({ accent }) {
           </li>
         ))}
       </ul>
-      <div className={`relative mt-4 flex items-center justify-between rounded-xl bg-gradient-to-r ${accent.grad} px-4 py-2.5 text-[#062119]`}>
+      <div className={`relative mt-4 flex items-center justify-between rounded-xl bg-gradient-to-r ${accent.grad} px-4 py-2.5 text-white`}>
         <span className="text-sm font-semibold">3-step sequence ready</span>
         <Send size={15} />
       </div>
@@ -167,10 +167,10 @@ function Cascade({ accent }) {
           </div>
         ))}
       </div>
-      <motion.div className={`relative mt-4 flex items-center justify-between rounded-xl bg-gradient-to-r ${accent.grad} px-4 py-2.5 text-[#062119]`}
+      <motion.div className={`relative mt-4 flex items-center justify-between rounded-xl bg-gradient-to-r ${accent.grad} px-4 py-2.5 text-white`}
         initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.75, delay: 0.6, ease: [0.22, 0.61, 0.36, 1] }}>
         <span className="inline-flex items-center gap-2 text-sm font-semibold"><Mail size={15} /> jane@acme.com</span>
-        <span className="rounded-full bg-[#062119]/15 px-2 py-0.5 text-[11px] font-bold">99% valid</span>
+        <span className="rounded-full bg-white/20 px-2 py-0.5 text-[11px] font-bold">99% valid</span>
       </motion.div>
     </Card>
   )

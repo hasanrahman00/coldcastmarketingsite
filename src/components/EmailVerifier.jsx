@@ -121,7 +121,7 @@ export default function EmailVerifier() {
     <section className="container-px relative py-14 sm:py-20">
       <div className="floating-panel mx-auto max-w-3xl p-6 sm:p-9">
         <div className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-gradient text-[#062119] shadow-brand-btn">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-brand-btn">
             <MailCheck size={20} />
           </span>
           <div>

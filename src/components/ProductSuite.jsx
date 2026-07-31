@@ -99,15 +99,15 @@ export default function ProductSuite({ showHeading = true }) {
                 className="group relative flex h-full flex-col rounded-2xl border border-hairline bg-panel p-6 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-lime hover:bg-lime hover:shadow-float"
               >
                 <div className="flex items-center justify-between">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-lime/15 text-lime ring-1 ring-lime/30 transition-colors duration-200 group-hover:bg-[#0a0a0a]/10 group-hover:text-[#0a0a0a] group-hover:ring-[#0a0a0a]/25">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-lime/15 text-lime ring-1 ring-lime/30 transition-colors duration-200 group-hover:bg-white/15 group-hover:text-white group-hover:ring-white/25">
                     <Icon paths={art} />
                   </span>
-                  <ArrowRight size={16} className="text-faint opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-[#0a0a0a] group-hover:opacity-100" />
+                  <ArrowRight size={16} className="text-faint opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-white group-hover:opacity-100" />
                 </div>
-                <h3 className="mt-5 font-display text-base font-semibold tracking-tight text-ink transition-colors duration-200 group-hover:text-[#0a0a0a]">
+                <h3 className="mt-5 font-display text-base font-semibold tracking-tight text-ink transition-colors duration-200 group-hover:text-white">
                   {name}
                 </h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted transition-colors duration-200 group-hover:text-[#0a0a0a]">
+                <p className="mt-1.5 text-sm leading-relaxed text-muted transition-colors duration-200 group-hover:text-white">
                   {desc}
                 </p>
               </Link>
@@ -128,27 +128,27 @@ export default function ProductSuite({ showHeading = true }) {
                 aria-hidden
                 className="pointer-events-none absolute -right-16 -top-24 h-56 w-56 rounded-full bg-lime/10 blur-3xl transition-opacity duration-300 group-hover:opacity-0"
               />
-              <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-lime/15 text-lime ring-1 ring-lime/30 transition-colors duration-200 group-hover:bg-[#0a0a0a]/10 group-hover:text-[#0a0a0a] group-hover:ring-[#0a0a0a]/25">
+              <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-lime/15 text-lime ring-1 ring-lime/30 transition-colors duration-200 group-hover:bg-white/15 group-hover:text-white group-hover:ring-white/25">
                 <Icon paths={ART.aiSdr} />
               </span>
               <div className="relative flex-1">
                 <div className="flex items-center gap-2.5">
-                  <h3 className="font-display text-lg font-semibold tracking-tight text-ink transition-colors duration-200 group-hover:text-[#0a0a0a]">
+                  <h3 className="font-display text-lg font-semibold tracking-tight text-ink transition-colors duration-200 group-hover:text-white">
                     AI SDR
                   </h3>
                   {/* Inverts: lime wash on graphite becomes a graphite pill on lime. */}
                   <span
-                    className={`rounded-full px-2 py-0.5 text-[11px] font-semibold transition-colors duration-200 group-hover:bg-[#0a0a0a] group-hover:text-lime group-hover:ring-transparent ${TAG.New}`}
+                    className={`rounded-full px-2 py-0.5 text-[11px] font-semibold transition-colors duration-200 group-hover:bg-white group-hover:text-[#0a0a0a] group-hover:ring-transparent ${TAG.New}`}
                   >
                     New
                   </span>
                 </div>
-                <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-muted transition-colors duration-200 group-hover:text-[#0a0a0a]">
+                <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-muted transition-colors duration-200 group-hover:text-white">
                   Writes personalised emails, follows up, and books meetings off your enriched list —
                   on autopilot, 24/7.
                 </p>
               </div>
-              <span className="relative inline-flex items-center gap-1.5 self-start text-sm font-medium text-lime transition-colors duration-200 group-hover:text-[#0a0a0a] sm:self-center">
+              <span className="relative inline-flex items-center gap-1.5 self-start text-sm font-medium text-lime transition-colors duration-200 group-hover:text-white sm:self-center">
                 Meet your AI SDR
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
               </span>

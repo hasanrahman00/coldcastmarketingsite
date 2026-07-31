@@ -28,19 +28,67 @@ export const NAV_LINKS = [
 ]
 
 // Enrichment sources shown in the trust bar (logo + domain for BrandLogo)
+// `logo` points at a SELF-HOSTED file under /public/logos (same-origin → crawlable
+// and index-safe, unlike the old third-party logo fetch that Search Console
+// flagged as blocked resources). Add a source's real SVG/PNG to public/logos and
+// set its `logo` path here to swap the monogram tile for the actual mark.
+// [TODO] Original logos for the niche B2B tools aren't in any open icon set and
+// Clearbit's logo API is dead — drop their real files in public/logos to finish.
 export const ENRICHMENT_SOURCES = [
-  { name: 'LinkedIn', domain: 'linkedin.com' },
-  { name: 'Apollo', domain: 'apollo.io' },
-  { name: 'ZoomInfo', domain: 'zoominfo.com' },
-  { name: 'Lusha', domain: 'lusha.com' },
-  { name: 'ContactOut', domain: 'contactout.com' },
-  { name: 'SalesQL', domain: 'salesql.com' },
-  { name: 'RocketReach', domain: 'rocketreach.co' },
-  { name: 'Hunter', domain: 'hunter.io' },
-  { name: 'Crunchbase', domain: 'crunchbase.com' },
-  { name: 'Seamless.ai', domain: 'seamless.ai' },
-  { name: 'Cognism', domain: 'cognism.com' },
+  { name: 'LinkedIn', domain: 'linkedin.com', logo: '/logos/linkedin.png' },
+  { name: 'Apollo', domain: 'apollo.io', logo: '/logos/apollo.png' },
+  { name: 'ZoomInfo', domain: 'zoominfo.com', logo: '/logos/zoominfo.png' },
+  { name: 'Lusha', domain: 'lusha.com', logo: '/logos/lusha.png' },
+  { name: 'ContactOut', domain: 'contactout.com', logo: '/logos/contactout.png' },
+  { name: 'SalesQL', domain: 'salesql.com', logo: '/logos/salesql.png' },
+  { name: 'RocketReach', domain: 'rocketreach.co', logo: '/logos/rocketreach.png' },
+  { name: 'Hunter', domain: 'hunter.io', logo: '/logos/hunter.png' },
+  { name: 'Crunchbase', domain: 'crunchbase.com', logo: '/logos/crunchbase.png' },
+  { name: 'Seamless.ai', domain: 'seamless.ai', logo: '/logos/seamless.png' },
+  { name: 'Cognism', domain: 'cognism.com', logo: '/logos/cognism.jpg' },
+  // Export destinations — where enriched leads land (merged in from the old
+  // StackStrip section so there's a single "works with your stack" logo wall).
+  { name: 'Salesforce', domain: 'salesforce.com', logo: '/logos/salesforce.png' },
+  { name: 'HubSpot', domain: 'hubspot.com', logo: '/logos/hubspot.png' },
+  { name: 'Zoho CRM', domain: 'zoho.com', logo: '/logos/zoho.png' },
+  { name: 'Google Sheets', domain: 'sheets.google.com', logo: '/logos/googlesheets.png' },
+  { name: 'Airtable', domain: 'airtable.com', logo: '/logos/airtable.png' },
+  { name: 'Notion', domain: 'notion.so', logo: '/logos/notion.png' },
+  { name: 'Zapier', domain: 'zapier.com', logo: '/logos/zapier.png' },
 ]
+
+// Every self-hosted brand logo, keyed by domain. BrandLogo resolves against this
+// whenever a call site passes a `domain` (GtmPipeline, VolumeBand,
+// WaterfallEnrichment, Features) instead of an explicit `logo` path, so every
+// brand mark on the site renders as its real, full-colour logo — all same-origin
+// under /public/logos, so they stay index-safe.
+export const LOGO_BY_DOMAIN = {
+  'linkedin.com': '/logos/linkedin.png',
+  'apollo.io': '/logos/apollo.png',
+  'zoominfo.com': '/logos/zoominfo.png',
+  'lusha.com': '/logos/lusha.png',
+  'contactout.com': '/logos/contactout.png',
+  'salesql.com': '/logos/salesql.png',
+  'rocketreach.co': '/logos/rocketreach.png',
+  'hunter.io': '/logos/hunter.png',
+  'crunchbase.com': '/logos/crunchbase.png',
+  'seamless.ai': '/logos/seamless.png',
+  'cognism.com': '/logos/cognism.jpg',
+  'salesforce.com': '/logos/salesforce.png',
+  'hubspot.com': '/logos/hubspot.png',
+  'zoho.com': '/logos/zoho.png',
+  'sheets.google.com': '/logos/googlesheets.png',
+  'airtable.com': '/logos/airtable.png',
+  'notion.so': '/logos/notion.png',
+  'zapier.com': '/logos/zapier.png',
+  'anthropic.com': '/logos/anthropic.png',
+  'openai.com': '/logos/openai.png',
+  'deepseek.com': '/logos/deepseek.png',
+  'lemlist.com': '/logos/lemlist.png',
+  'smartlead.ai': '/logos/smartlead.png',
+  'instantly.ai': '/logos/instantly.png',
+  'reachinbox.ai': '/logos/reachinbox.png',
+}
 
 // Social-proof customer count shown in the trust bar + hero eyebrow.
 // [PLACEHOLDER] keep this a real, substantiated figure before launch.

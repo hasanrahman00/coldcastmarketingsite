@@ -72,7 +72,7 @@ function CheckChip({ done, reduce }) {
     <span
       className={`relative flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition-all duration-[600ms] ease-[cubic-bezier(.22,.61,.36,1)] ${
         done
-          ? 'bg-lime-gradient shadow-[0_0_14px_rgba(204,255,0,0.45)]'
+          ? 'bg-lime-gradient shadow-[0_0_14px_rgba(0,0,0,0.45)]'
           : 'bg-lime/10 ring-1 ring-inset ring-lime/30'
       }`}
     >

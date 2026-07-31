@@ -105,7 +105,7 @@ export default function DashboardMock() {
                 <TrendingUp size={12} className="text-brand" />
                 <Counter to={18932} className="font-semibold text-ink" /> exported today
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-lg bg-brand-gradient px-2.5 py-1.5 text-[11px] font-semibold text-[#062119]">
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-brand-gradient px-2.5 py-1.5 text-[11px] font-semibold text-white">
                 <Download size={12} />
                 Export
               </span>

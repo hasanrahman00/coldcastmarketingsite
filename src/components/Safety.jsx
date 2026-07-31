@@ -41,7 +41,7 @@ function Row({ icon: Icon, text, good, i }) {
         <span
           className={`absolute -bottom-1 -right-1 flex h-[18px] w-[18px] items-center justify-center rounded-full ring-2 ring-bg2 ${
             good
-              ? 'bg-safe text-[#062119]'
+              ? 'bg-safe text-white'
               : 'bg-danger text-[#2b0f0f]'
           }`}
         >
@@ -87,7 +87,7 @@ export default function Safety() {
                 turn from "them" to "us". It's a neutral divider, not a state or
                 action, so lime here is pure focal pop; text-lime on bg-bg2
                 (near-black) is ~15:1. */}
-            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-lime/40 bg-bg2 text-xs font-bold uppercase tracking-[0.15em] text-lime shadow-[0_0_22px_rgba(204,255,0,0.28)]">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-lime/40 bg-bg2 text-xs font-bold uppercase tracking-[0.15em] text-lime shadow-[0_0_22px_rgba(0,0,0,0.28)]">
               vs
             </span>
           </div>

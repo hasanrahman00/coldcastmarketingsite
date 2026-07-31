@@ -77,7 +77,7 @@ function PlanCard({ plan }) {
     <div
       className={`relative flex h-full flex-col rounded-3xl p-8 transition-transform duration-200 hover:-translate-y-1 ${
         plan.featured
-          ? 'bg-panel2 shadow-[0_30px_90px_-40px_rgba(204,255,0,0.35),0_20px_60px_-30px_rgba(0,0,0,0.6)] backdrop-blur-sm'
+          ? 'bg-panel2 shadow-[0_30px_90px_-40px_rgba(0,0,0,0.35),0_20px_60px_-30px_rgba(0,0,0,0.6)] backdrop-blur-sm'
           : 'border border-hairline bg-panel shadow-card backdrop-blur-sm'
       }`}
     >

@@ -17,12 +17,12 @@ import { PRODUCT_SEO, ROLE_SEO, detailPath, breadcrumbLd, faqLd, softwareLd } fr
 const PAGES = { ...PRODUCT_PAGES, ...ROLE_PAGES }
 
 const ACCENT = {
-  brand: { tile: 'bg-brand/15 ring-brand/30', text: 'text-brand', dot: 'bg-brand', line: 'from-brand', grad: 'from-brand to-brand-light', glow: 'rgba(53,224,184,0.18)' },
-  violet: { tile: 'bg-violet/15 ring-violet/30', text: 'text-violet', dot: 'bg-violet', line: 'from-violet', grad: 'from-violet to-magenta', glow: 'rgba(45,212,191,0.18)' },
-  cyan: { tile: 'bg-accent/15 ring-accent/30', text: 'text-accent', dot: 'bg-accent', line: 'from-accent', grad: 'from-accent to-brand-light', glow: 'rgba(34,211,238,0.16)' },
-  safe: { tile: 'bg-safe/15 ring-safe/30', text: 'text-safe', dot: 'bg-safe', line: 'from-safe', grad: 'from-safe to-accent', glow: 'rgba(53,224,184,0.16)' },
-  amber: { tile: 'bg-amber/15 ring-amber/30', text: 'text-amber', dot: 'bg-amber', line: 'from-amber', grad: 'from-amber to-magenta', glow: 'rgba(232,194,88,0.16)' },
-  magenta: { tile: 'bg-magenta/15 ring-magenta/30', text: 'text-magenta', dot: 'bg-magenta', line: 'from-magenta', grad: 'from-magenta to-violet', glow: 'rgba(34,211,238,0.16)' },
+  brand: { tile: 'bg-brand/15 ring-brand/30', text: 'text-brand', dot: 'bg-brand', line: 'from-brand', grad: 'from-brand to-brand-light', glow: 'rgba(0,0,0,0.18)' },
+  violet: { tile: 'bg-violet/15 ring-violet/30', text: 'text-violet', dot: 'bg-violet', line: 'from-violet', grad: 'from-violet to-magenta', glow: 'rgba(0,0,0,0.18)' },
+  cyan: { tile: 'bg-accent/15 ring-accent/30', text: 'text-accent', dot: 'bg-accent', line: 'from-accent', grad: 'from-accent to-brand-light', glow: 'rgba(0,0,0,0.16)' },
+  safe: { tile: 'bg-safe/15 ring-safe/30', text: 'text-safe', dot: 'bg-safe', line: 'from-safe', grad: 'from-safe to-accent', glow: 'rgba(0,0,0,0.16)' },
+  amber: { tile: 'bg-amber/15 ring-amber/30', text: 'text-amber', dot: 'bg-amber', line: 'from-amber', grad: 'from-amber to-magenta', glow: 'rgba(0,0,0,0.16)' },
+  magenta: { tile: 'bg-magenta/15 ring-magenta/30', text: 'text-magenta', dot: 'bg-magenta', line: 'from-magenta', grad: 'from-magenta to-violet', glow: 'rgba(0,0,0,0.16)' },
 }
 
 function HeroBg({ accent }) {
@@ -30,7 +30,7 @@ function HeroBg({ accent }) {
     <div
       aria-hidden
       className="absolute inset-0 -z-10"
-      style={{ backgroundImage: `radial-gradient(95% 75% at 50% -10%, ${accent.glow}, transparent 60%), radial-gradient(60% 50% at 85% 0%, rgba(34,211,238,0.10), transparent 55%), linear-gradient(180deg,#121517,#0f1214)` }}
+      style={{ backgroundImage: `radial-gradient(95% 75% at 50% -10%, rgba(0,0,0,0.03), transparent 60%), linear-gradient(180deg,#ffffff,#fafafa)` }}
     />
   )
 }

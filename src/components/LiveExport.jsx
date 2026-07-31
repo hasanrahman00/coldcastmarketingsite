@@ -43,7 +43,7 @@ function StatusPill({ status, reduce }) {
 
   // MINT — confirmed. Ink on a mint fill is #062119, never white.
   return (
-    <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold tracking-wider text-[#062119]">
+    <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold tracking-wider text-white">
       <Check size={11} strokeWidth={3.2} className="shrink-0" />
       VERIFIED
     </span>
@@ -106,7 +106,7 @@ export default function LiveExport() {
               <div className="flex items-center gap-3 text-sm font-semibold text-ink">
                 {/* LIME — the job is running */}
                 <span
-                  className={`h-2 w-2 shrink-0 rounded-full bg-lime shadow-[0_0_10px_rgba(204,255,0,0.8)] ${
+                  className={`h-2 w-2 shrink-0 rounded-full bg-lime shadow-[0_0_10px_rgba(0,0,0,0.8)] ${
                     live ? 'animate-[pulse_2.8s_cubic-bezier(0.4,0,0.6,1)_infinite]' : ''
                   }`}
                 />

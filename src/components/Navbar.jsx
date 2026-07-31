@@ -173,11 +173,11 @@ export default function Navbar() {
       }`}
     >
       <div className="flex items-center justify-between gap-2 px-5 py-[18px] sm:px-10">
-        {/* Mark only — the wordmark moved to the hero, above the H1. The
-            aria-label still carries "Coldcast" so the link is announced by name
-            to screen readers and read as the brand by crawlers. */}
-        <Link to="/" onClick={() => setMenu(null)} className="flex shrink-0 items-center" aria-label="Coldcast — home">
-          <Logo size={34} />
+        {/* Logo mark + wordmark lockup — the lime mark beside the Coldcast name,
+            like Mindcase's "◇ mindcase". */}
+        <Link to="/" onClick={() => setMenu(null)} className="flex shrink-0 items-center gap-2.5" aria-label="Coldcast — home">
+          <Logo size={32} />
+          <span className="font-display text-[19px] font-bold lowercase tracking-tight text-ink">Coldcast</span>
         </Link>
 
         {/* Center nav with sliding hover pill */}

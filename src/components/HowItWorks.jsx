@@ -34,7 +34,7 @@ export default function HowItWorks() {
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-lime/25 bg-lime-gradient-soft text-lime">
                     <Icon size={22} />
                   </span>
-                  <span className="font-display text-4xl font-bold tracking-tight text-white/[0.10]">
+                  <span className="font-display text-4xl font-bold tracking-tight text-ink/[0.10]">
                     {i + 1}
                   </span>
                 </div>

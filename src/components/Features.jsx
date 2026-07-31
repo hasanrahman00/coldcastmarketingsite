@@ -9,7 +9,7 @@ import BrandLogo from './BrandLogo'
 // Every tile is lime now — the icons are the section's accent, and the bento
 // gets its variety from card SIZE, not colour. One faint lime bloom per card
 // keeps the surfaces alive without turning into six flat lime fills.
-const LIME_GLOW = 'rgba(204,255,0,0.16)'
+const LIME_GLOW = 'rgba(0,0,0,0.16)'
 
 function TileIcon({ icon: Icon }) {
   return (
@@ -194,7 +194,7 @@ export default function Features() {
     <section id="features" className="relative py-24 sm:py-32">
       <div className="container-px">
         <SectionHeading
-          eyebrow="Features"
+          eyebrow="Everything included"
           eyebrowIcon={Layers}
           eyebrowTone="cyan"
           title="Everything you need to build a clean, signal-rich list."
