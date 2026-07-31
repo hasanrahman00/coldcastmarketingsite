@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Twitter, Linkedin, Youtube } from 'lucide-react'
+import { Linkedin, Youtube } from 'lucide-react'
 import Logo from './Logo'
 
 // Footer link columns. Anchor text = the destination page's target keyword
@@ -22,9 +22,11 @@ const COMPARE = [
   { label: 'Export Sales Nav to CSV', to: '/blog/export-sales-navigator-leads-to-csv' },
 ]
 
+// Only live, confirmed profiles — X (Twitter) and Instagram get added once the
+// real handles exist. Do NOT guess handles here: these URLs also feed the
+// Organization sameAs entity links.
 const SOCIALS = [
-  { label: 'Coldcast on X', icon: Twitter, href: 'https://twitter.com/coldcast' },
-  { label: 'Coldcast on LinkedIn', icon: Linkedin, href: '#' },
+  { label: 'Coldcast on LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/coldcast-io/' },
   { label: 'Coldcast on YouTube', icon: Youtube, href: 'https://www.youtube.com/@coldcastio' },
 ]
 
