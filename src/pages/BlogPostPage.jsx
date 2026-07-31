@@ -53,40 +53,9 @@ function Block({ block }) {
       </ul>
     )
   }
-  // Comparison table — scrolls horizontally on narrow screens so the page body
-  // never overflows. Column 1 = feature, column 2 = Coldcast (lime), rest neutral.
-  if (block.table) {
-    return (
-      <div className="mt-6 overflow-x-auto rounded-2xl border border-hairline">
-        <table className="w-full border-collapse text-left text-[14px]">
-          <thead>
-            <tr className="bg-panel2">
-              {block.table.headers.map((h, i) => (
-                <th key={i} className={`p-4 font-bold ${i === 1 ? 'text-lime' : 'text-ink'}`}>
-                  <Inline text={h} />
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {block.table.rows.map((row, r) => (
-              <tr key={r} className="border-t border-hairline">
-                {row.map((cell, c) => (
-                  <td key={c} className={`p-4 align-top ${c === 0 ? 'font-semibold text-ink' : 'text-muted'}`}>
-                    <Inline text={cell} />
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    )
-  }
-  // In-body figure (crawlable <img> with descriptive alt).
   if (block.image) {
     return (
-      <figure className="mt-8">
+      <figure className="mt-6">
         <img
           src={block.image.src}
           alt={block.image.alt}
@@ -99,6 +68,35 @@ function Block({ block }) {
           <figcaption className="mt-3 text-center text-[13px] text-faint">{block.image.caption}</figcaption>
         )}
       </figure>
+    )
+  }
+  if (block.table) {
+    const [head, ...rows] = block.table
+    return (
+      <div className="mt-6 overflow-x-auto rounded-2xl border border-hairline">
+        <table className="w-full text-left text-[14.5px]">
+          <thead>
+            <tr className="border-b border-hairline bg-white/[0.03]">
+              {head.map((cell, i) => (
+                <th key={i} className="px-4 py-3 font-bold text-ink">
+                  <Inline text={cell} />
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, ri) => (
+              <tr key={ri} className="border-b border-hairline last:border-0">
+                {row.map((cell, ci) => (
+                  <td key={ci} className={`px-4 py-3 ${ci === 0 ? 'font-semibold text-ink' : 'text-muted'}`}>
+                    <Inline text={cell} />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     )
   }
   return null
@@ -187,9 +185,6 @@ export default function BlogPostPage() {
         {/* Body */}
         <div className="container-px pb-16 pt-8">
           <div className="mx-auto max-w-3xl">
-            {post.intro?.map((block, i) => (
-              <Block key={`intro-${i}`} block={block} />
-            ))}
             {post.sections.map((section) => (
               <section key={section.h2} className="mt-10 first:mt-0">
                 <h2 className="text-balance text-xl font-bold tracking-tight text-ink sm:text-2xl">{section.h2}</h2>

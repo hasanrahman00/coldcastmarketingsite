@@ -12,87 +12,274 @@
 
 export const BLOG_POSTS = [
   {
-    slug: 'evaboot-alternative',
-    tag: 'Comparison',
-    title: 'The Evaboot Alternative Built for Account Safety',
-    metaTitle: 'Evaboot Alternative: Safer Sales Nav Scraping | Coldcast',
+    slug: 'coldcast-vs-scrupp',
+    tag: 'Compare',
+    title: 'Coldcast vs Scrupp: Which Sales Navigator Scraper Should You Use in 2026?',
+    metaTitle: 'Coldcast vs Scrupp: Which Sales Nav Scraper Wins in 2026?',
     metaDescription:
-      'Looking for an Evaboot alternative? Coldcast exports Sales Navigator leads with zero ban risk, waterfall enrichment and verified emails built in. Try it free.',
+      'Coldcast vs Scrupp compared: account safety, waterfall enrichment, email accuracy and pricing. See why teams pick a cloud-safe scraper over a Chrome extension.',
     keywords:
-      'evaboot alternative, evaboot vs coldcast, sales navigator scraper, account-safe linkedin scraper, waterfall enrichment, export sales navigator leads',
-    datePublished: '2026-07-30',
-    dateModified: '2026-07-30',
-    readMinutes: 7,
+      'coldcast vs scrupp, scrupp alternative, scrupp review, sales navigator scraper comparison, account-safe linkedin scraper, waterfall enrichment',
+    datePublished: '2026-07-31',
+    dateModified: '2026-07-31',
+    readMinutes: 8,
     image: {
-      src: '/images/blog/coldcast-vs-evaboot-hero.png',
+      src: '/images/blog/coldcast-vs-scrupp-hero.png',
       width: 1200,
       height: 630,
-      alt: 'Coldcast vs Evaboot — the Evaboot alternative with browser-session scraping, waterfall enrichment, phone numbers and AI lead scoring',
-      caption: 'Coldcast is the Evaboot alternative built for teams that refuse to gamble with their LinkedIn accounts.',
+      alt: 'Coldcast vs Scrupp — LinkedIn Sales Navigator scraper comparison',
+      caption: 'Coldcast vs Scrupp at a glance — the full comparison is below.',
     },
     excerpt:
-      'Evaboot made Sales Navigator exports simple. If you’re weighing alternatives, it usually comes down to credit costs, single-source emails, missing phone numbers, or account safety — here’s an honest, verified comparison.',
-    intro: [
-      'Coldcast is the Evaboot alternative for teams that refuse to gamble with their LinkedIn accounts. It runs on your real browser session and IP, scrapes at a human pace, and enriches every lead through a [waterfall of providers](/products/waterfall-enricher) — so you export more verified emails per list without tripping LinkedIn’s detection systems.',
-    ],
+      'Scrupp is a capable Chrome-extension Sales Navigator scraper with clean exports and built-in email verification. Coldcast takes a different approach to the same job — and the difference comes down to one question: what happens to your LinkedIn account?',
     sections: [
       {
-        h2: 'Why people look for an Evaboot alternative',
+        h2: 'The short version',
         blocks: [
-          'Evaboot is a solid, well-known Chrome extension, and for basic exports it does the job. From public reviews and its own pricing page, the reasons teams switch tend to fall into four buckets:',
-          '**1. Credit costs stack up.** Evaboot starts at $9/month for 100 credits, and a lead that comes with a verified email costs 2 credits — so a 2,000-lead list with emails is 4,000 credits a month, several tiers up the pricing ladder. If you run continuous outbound, the effective cost per enriched lead matters more than the entry price.',
-          '**2. Single-source email finding.** Evaboot finds and verifies emails with its own built-in finder. No single provider covers every industry, geography and seniority — [waterfall enrichment](/products/waterfall-enricher), which queries multiple providers in sequence until one returns a valid email, consistently finds more contacts on the same list. Evaboot doesn’t offer it; Coldcast runs it on every export by default.',
-          '**3. No phone numbers.** Evaboot’s plans cover lead export, email finding and email verification — there’s no mobile-number enrichment. If your sequences include cold calling, you’ll need a second tool. Coldcast’s waterfall enrichment adds phone numbers during the same export pass.',
-          '**4. Safety is a spectrum, not a checkbox.** Every scraper claims to be safe; the mechanics matter. Tools that log into your account from cloud servers or datacenter IPs create exactly the session anomalies LinkedIn looks for. Coldcast runs inside your own browser, on your own session and IP, at human speed — to LinkedIn, your activity looks like you, because it is you.',
+          'Scrupp is a solid, affordable Chrome extension for exporting Sales Navigator searches with verified emails. Coldcast is built for teams that can’t afford to lose a LinkedIn account: it scrapes without running risky automation inside your logged-in browser session, then layers [waterfall enrichment](/products/waterfall-enricher) across multiple data providers and verifies every email before you export.',
+          'If account safety and email coverage are your priorities, Coldcast is the stronger pick. If you want the cheapest possible entry point and accept some account risk, Scrupp’s free tier is a reasonable place to start.',
+        ],
+      },
+      {
+        h2: 'How each tool works',
+        blocks: [
+          '**Scrupp: a Chrome extension inside your session.** Scrupp runs as a Chrome extension in your own logged-in browser. You run a Sales Navigator search, hit export, and the extension reads profile data from the pages at browsing speed, verifying emails via SMTP along the way. It exports up to 2,500 leads per search with 15+ data columns to CSV, Excel or CRM integrations. That architecture is simple and fast — but the scraping happens under your LinkedIn identity, in your session, from your browser fingerprint, which is the single biggest source of Sales Navigator account restrictions.',
+          '**Coldcast: account-safe scraping by design.** Coldcast’s [Sales Navigator scraper](/products/sales-navigator-scraper) is engineered to extract search results without the high-risk automation patterns that get accounts flagged — no bulk profile-by-profile crawling from your own session at machine speed.',
+          {
+            image: {
+              src: '/images/blog/coldcast-vs-scrupp-pipeline.png',
+              width: 1200,
+              height: 630,
+              alt: 'How Coldcast’s account-safe scraping and waterfall enrichment pipeline works — scrape, enrich, verify, export',
+              caption: 'Coldcast’s pipeline: scrape safely, waterfall-enrich, verify, then export a send-ready CSV.',
+            },
+          },
+          'From there the pipeline goes further than a scraper: exported leads flow into Coldcast’s [waterfall enricher](/products/waterfall-enricher), which queries multiple providers in sequence until it finds a valid email — instead of relying on a single source. Every address then passes through [email verification](/products/email-verify) before it reaches your CSV, so bounces are caught before they hurt your sender reputation, not after.',
+        ],
+      },
+      {
+        h2: 'Coldcast vs Scrupp: feature comparison',
+        blocks: [
+          {
+            table: [
+              ['', 'Coldcast', 'Scrupp'],
+              ['Architecture', 'Account-safe scraping, cloud pipeline', 'Chrome extension in your logged-in session'],
+              ['Account risk profile', 'Designed to minimise flag-risk patterns', 'Session-based automation; category-typical suspension risk'],
+              ['Email finding', 'Waterfall across multiple providers', 'Single built-in finder (~65% find rate, per Scrupp)'],
+              ['Email verification', 'Built in, every email verified pre-export', 'SMTP check during export'],
+              ['Beyond Sales Navigator', 'Apollo scraper, ZoomInfo scraper, domain enrichment', 'Sales Navigator only'],
+              ['Export', 'Clean, deduplicated CSV', 'CSV / Excel, CRM integrations, dedupe'],
+              ['Entry price', 'Free trial, then usage-based', 'Free tier (100 leads/mo); paid from $29/mo'],
+            ],
+          },
+          'Scrupp details verified against scrupp.com in July 2026. If anything has changed, tell us and we’ll correct it.',
+        ],
+      },
+      {
+        h2: 'Where Scrupp is strong',
+        blocks: [
+          'Credit where due. Scrupp’s pricing is transparent and cheap to start: a permanent free tier of 100 verified leads a month with no credit card, then roughly $29/month for 1,000 leads and $99/month for 5,000. Its export workflow is quick, its CRM integrations are broad, and it offers an API. For a solo founder doing small-volume prospecting who understands the risk trade-off of extension scraping, it does the job.',
+        ],
+      },
+      {
+        h2: 'Where Coldcast pulls ahead',
+        blocks: [
+          '**1. Your account doesn’t do the dirty work.** The failure mode with extension scrapers isn’t the tool breaking — it’s LinkedIn restricting you. A Sales Navigator seat costs real money, and a restricted account stalls your entire outbound motion. Coldcast’s architecture exists so scraping activity doesn’t look like bot behaviour on your account.',
+          '**2. Waterfall enrichment beats a single email source.** Scrupp reports finding verified emails for roughly 65% of leads with its single finder. A waterfall approach — trying provider after provider until one hits — is how the highest find rates in the industry are achieved. Coldcast builds the waterfall into the same flow as the scrape, so you’re not stitching two tools together.',
+          '**3. One stack, more sources.** Sales Navigator isn’t the only pond. Coldcast also ships an [Apollo scraper](/products/apollo-scraper) and a [ZoomInfo scraper](/products/zoominfo-scraper), plus [domain enrichment](/products/domain-enrichment) for account-based workflows — all feeding the same enrichment and verification pipeline. Scrupp extracts from Sales Navigator only.',
+          '**4. Verified means verified.** Sending to unverified emails burns domains. Coldcast verifies every email before export as a first-class step — the same engine behind our standalone [email verifier](/products/email-verify) — so the list you download is the list you can safely send to.',
+        ],
+      },
+      {
+        h2: 'Which should you choose?',
+        blocks: [
+          '**Choose Scrupp if** you’re a solo operator or small team on a tight budget, your volumes are low, you only prospect from Sales Navigator, and you’re comfortable running automation inside your own LinkedIn session.',
+          '**Choose Coldcast if** your LinkedIn account (or your clients’ accounts, if you’re an agency) is something you can’t afford to lose, you want higher email coverage than a single-source finder delivers, you also pull leads from Apollo or ZoomInfo, and you want scraping, waterfall enrichment and verification in one pipeline instead of three subscriptions.',
+          'For agencies especially, the calculus is lopsided: one restricted client account costs more in trust and revenue than a year of tooling. See how teams use Coldcast on our [roles pages](/roles), or read our [Evaboot comparison](/blog/coldcast-vs-evaboot) for another head-to-head.',
+        ],
+      },
+    ],
+    faq: [
+      { q: 'Is Scrupp safe for my LinkedIn account?', a: 'Scrupp runs as a Chrome extension inside your logged-in LinkedIn session, so the scraping activity is tied to your account, browser and IP. It throttles to normal browsing speed, which reduces risk, but session-based automation carries inherent suspension risk. Coldcast was designed specifically to avoid this pattern with account-safe scraping.' },
+      { q: 'Is Coldcast just a scraper like Scrupp?', a: 'No. Scraping is the first step of Coldcast’s pipeline. Exported leads go through waterfall enrichment across multiple providers and full email verification before you download them. Scrupp covers scraping plus a single-source email finder.' },
+      { q: 'How do the email find rates compare?', a: 'Scrupp states a roughly 65% verified email find rate from its built-in finder. Coldcast uses waterfall enrichment — querying multiple providers in sequence — the industry-standard method for pushing find rates meaningfully higher than any single source.' },
+      { q: 'Can either tool scrape Apollo or ZoomInfo?', a: 'Scrupp extracts from LinkedIn Sales Navigator only. Coldcast supports Sales Navigator, Apollo and ZoomInfo scraping, plus domain enrichment for company lists.' },
+      { q: 'How much does each tool cost?', a: 'Scrupp offers a free tier (100 verified leads/month), then about $29/month for 1,000 leads and $99/month for 5,000. Coldcast is free to start with a trial, then usage-based — no sales call required.' },
+      { q: 'Can I export Sales Navigator leads to CSV with Coldcast?', a: 'Yes — clean, deduplicated, verification-flagged CSV built for cold outreach tools and CRMs.' },
+    ],
+  },
+  {
+    slug: 'coldcast-vs-evaboot',
+    tag: 'Compare',
+    title: 'Coldcast vs Evaboot: Which Sales Navigator Scraper Should You Trust in 2026?',
+    metaTitle: 'Coldcast vs Evaboot: Which Sales Nav Scraper Wins? (2026)',
+    metaDescription:
+      'Coldcast vs Evaboot compared: account safety, email find rates, waterfall enrichment, pricing and CRM workflows — so you pick the right Sales Nav scraper.',
+    keywords:
+      'coldcast vs evaboot, evaboot vs coldcast, evaboot review, evaboot pricing, sales navigator scraper comparison, waterfall enrichment',
+    datePublished: '2026-07-31',
+    dateModified: '2026-07-31',
+    readMinutes: 8,
+    image: {
+      src: '/images/blog/coldcast-vs-evaboot-compare-hero.png',
+      width: 1200,
+      height: 630,
+      alt: 'Coldcast vs Evaboot — which Sales Navigator scraper should you trust in 2026',
+      caption: 'Coldcast vs Evaboot — the head-to-head comparison is below.',
+    },
+    excerpt:
+      'Coldcast and Evaboot both turn Sales Navigator searches into clean lead lists, but they take different approaches to account safety, enrichment depth and what happens to your data after export. Here is the head-to-head.',
+    sections: [
+      {
+        h2: 'The short answer',
+        blocks: [
+          'Evaboot is a well-known Chrome extension that exports and cleans Sales Navigator searches and finds work emails from a single source. It’s simple and affordable to start with.',
+          'Coldcast is built around a different premise: scraping should be account-safe first, and a single email source is never enough. Coldcast pairs human-like, rate-controlled extraction with [waterfall enrichment](/products/waterfall-enricher) across multiple data providers and built-in [email verification](/products/email-verify) — so you get more valid emails per 1,000 leads, with less risk to the LinkedIn account doing the exporting.',
+          'If you export a few hundred leads occasionally and only need emails, Evaboot will do the job. If outbound is your pipeline engine and a restricted LinkedIn account or a burned sending domain is unacceptable, Coldcast is the safer, more complete system.',
         ],
       },
       {
         h2: 'Coldcast vs Evaboot at a glance',
         blocks: [
           {
-            table: {
-              headers: ['', 'Coldcast', 'Evaboot'],
-              rows: [
-                ['How it runs', 'Your own browser session + IP', 'Chrome extension, own pacing'],
-                ['Ban-risk architecture', 'Human-paced, real session — zero bans to date', 'Imposes an automatic daily export limit'],
-                ['Email finding', 'Waterfall across multiple providers', 'Single built-in finder'],
-                ['Email verification', 'Included on every found email', 'Included (0.5 credit each)'],
-                ['Phone numbers', 'Included via waterfall enrichment', 'Not offered'],
-                ['AI lead scoring', 'Yes — buying signals + fit scoring', 'No'],
-                ['Company (account) search', 'Yes', 'Yes'],
-                ['Speed', 'Up to 10,000 leads/hour, 20,000/day', 'Export-dependent'],
-                ['1 lead + verified email', 'Included in your credits', '2 credits'],
-                ['Entry pricing', 'Free trial, then pay-as-you-go', 'From $9/mo for 100 credits'],
-                ['Seats', 'Multi-account on agency plans', 'Unlimited seats, all plans'],
-              ],
+            table: [
+              ['', 'Coldcast', 'Evaboot'],
+              ['Core job', 'Account-safe scraping + enrichment + verification', 'Sales Nav export + data cleaning + email finding'],
+              ['Account safety', 'Human-like pacing, rate limits tuned to stay under LinkedIn’s radar', 'Chrome-extension export; safety depends on your own volume discipline'],
+              ['Email finding', 'Waterfall across multiple providers', 'Single-source email finder'],
+              ['Email verification', 'Built in, applied before you download', 'Flags undeliverable addresses'],
+              ['Phone numbers', 'Available via waterfall enrichment', 'Not offered'],
+              ['Beyond Sales Navigator', 'Apollo & ZoomInfo scraping, domain enrichment', 'Sales Navigator only'],
+              ['Automation', 'Coldcast Agent for hands-off list building', 'Manual, search-by-search exports'],
+              ['Entry price', 'Free trial, then usage-based', 'From ~$9/mo (credit-based)'],
+            ],
+          },
+        ],
+      },
+      {
+        h2: 'Where Evaboot is genuinely good',
+        blocks: [
+          '**Data cleaning.** Sales Navigator results are notoriously noisy — Evaboot’s filtering removes a large share of results that don’t actually match your criteria, and independent reviews consistently praise this.',
+          '**Simplicity.** It’s a Chrome extension: install, run a search, click export. There’s very little to learn.',
+          '**Low entry price.** Paid plans start around $9/month on a credit model, easy to justify for light usage.',
+        ],
+      },
+      {
+        h2: 'Where the two tools diverge',
+        blocks: [
+          '**1. Account safety is a feature, not a footnote.** Every Sales Navigator scraper operates in territory LinkedIn actively polices — request velocity, viewing patterns and volume anomalies — and the penalty for tripping it lands on your account, not your vendor’s. Coldcast’s [Sales Navigator scraper](/products/sales-navigator-scraper) mimics human browsing, throttles against LinkedIn’s practical limits, and keeps your account’s behaviour inside normal bounds. That’s why Coldcast positions itself as the safest Sales Navigator scraper — safety is the architecture, not a setting.',
+          '**2. One email source vs a waterfall.** Third-party testing has reported Evaboot find rates in the 55–65% range, lower for SMB contacts. Coldcast runs [waterfall enrichment](/products/waterfall-enricher): each lead is checked against multiple providers in sequence until a valid, verified email (and optionally a phone) is found. If one provider finds 60%, cascading three or four pushes coverage meaningfully higher on the same list.',
+          {
+            image: {
+              src: '/images/blog/coldcast-vs-evaboot-waterfall-diagram.png',
+              width: 1200,
+              height: 630,
+              alt: 'How Coldcast’s waterfall enrichment cascades a lead through multiple email providers and verification before export',
+              caption: 'Single-source finders stop at provider 1. Waterfall keeps going until a verified email comes back.',
             },
           },
-          'Evaboot details verified against evaboot.com’s live pricing page on July 30, 2026. If anything has changed, [tell us](mailto:contact@coldcast.io) and we’ll correct it.',
+          '**3. Verification before your CRM ever sees the list.** A lead list is only as good as its bounce rate. Coldcast applies [email verification](/products/email-verify) as part of the pipeline, so what you download is already deliverability-checked — protecting the sending domains your outbound depends on. Evaboot flags undeliverables it detects, but a single-pass check on a single source leaves more risk in the list.',
+          '**4. Phones, other databases and automation.** Evaboot is deliberately narrow: Sales Navigator in, emails out. Coldcast also scrapes [Apollo](/products/apollo-scraper) and [ZoomInfo](/products/zoominfo-scraper), enriches from a domain list, and runs recurring, hands-off builds through the [Coldcast Agent](/coldcast-agent). If your prospecting spans more than one database, that consolidation replaces two or three subscriptions.',
+        ],
+      },
+      {
+        h2: 'Pricing: read the fine print on credits',
+        blocks: [
+          'Both tools are credit-based and both require your own Sales Navigator subscription (roughly $100/month from LinkedIn), so the real cost of either stack starts there.',
+          'Evaboot’s entry price is low, but note two things: a lead with a found and verified email consumes more than one credit, and a lower find rate means paying to export leads you can’t actually email. At higher volumes, per-lead economics matter more than the headline price. For a fair comparison, price both tools per valid, verified email delivered on the same 1,000-lead list — that’s the number that predicts pipeline.',
+        ],
+      },
+      {
+        h2: 'Which should you choose?',
+        blocks: [
+          '**Choose Evaboot if** you export occasionally, your targets are mostly enterprise contacts (where single-source find rates are strongest), you don’t need phone numbers, and you’re comfortable managing your own export volumes.',
+          '**Choose Coldcast if** outbound is a core channel and you can’t risk your LinkedIn account; you want the highest email coverage per list via waterfall enrichment; you need verified emails (and phones) in your CRM without a second tool; or you prospect beyond Sales Navigator. See how [teams in different roles](/roles) use Coldcast, or read our guide to [Evaboot alternatives](/blog/evaboot-alternative).',
+        ],
+      },
+    ],
+    faq: [
+      { q: 'Is Coldcast safer than Evaboot for my LinkedIn account?', a: 'Coldcast is built account-safety-first: it paces extraction to mimic human browsing and enforces limits designed to keep your account under LinkedIn’s detection thresholds. Evaboot can be used safely at modest volumes, but managing risk is largely up to the user.' },
+      { q: 'Does Evaboot find phone numbers?', a: 'No. Evaboot returns work emails only. Coldcast can return phone numbers through its waterfall enrichment step.' },
+      { q: 'Do I need LinkedIn Sales Navigator for both tools?', a: 'Yes. Both Coldcast and Evaboot export data from Sales Navigator searches, so an active Sales Navigator subscription is required either way.' },
+      { q: 'What is waterfall enrichment and why does it beat a single email finder?', a: 'Waterfall enrichment checks each lead against multiple data providers in sequence until a valid email is found, instead of relying on one source. Because providers have different coverage, cascading them raises the share of leads you can actually contact — typically well above single-source find rates.' },
+      { q: 'Can I switch from Evaboot to Coldcast easily?', a: 'Yes. Both tools work on top of your existing Sales Navigator searches, so there’s no data migration — point Coldcast at the same saved searches and re-enrich past exports to recover emails Evaboot couldn’t find.' },
+    ],
+  },
+  {
+    slug: 'evaboot-alternative',
+    tag: 'Compare',
+    title: 'The Evaboot Alternative Built for Account Safety',
+    metaTitle: 'Evaboot Alternative: Safer Sales Nav Scraping | Coldcast',
+    metaDescription:
+      'Looking for an Evaboot alternative? Coldcast exports Sales Navigator leads with zero ban risk, waterfall enrichment and verified emails built in. Try it free.',
+    keywords:
+      'evaboot alternative, evaboot vs coldcast, sales navigator scraper comparison, evaboot pricing, waterfall enrichment, linkedin scraper with phone numbers',
+    datePublished: '2026-07-29',
+    dateModified: '2026-07-29',
+    readMinutes: 8,
+    image: {
+      src: '/images/blog/coldcast-vs-evaboot-hero.png',
+      width: 1200,
+      height: 630,
+      alt: 'Coldcast vs Evaboot comparison — Coldcast Evaboot alternative with browser-session scraping, waterfall enrichment, phone numbers and AI lead scoring',
+      caption: 'Coldcast vs Evaboot at a glance — the full comparison table is below.',
+    },
+    excerpt:
+      'Evaboot made Sales Navigator exports simple. But if credits stack up, single-source email finding misses too many contacts, or account safety keeps you up at night — here is the honest comparison.',
+    sections: [
+      {
+        h2: 'Why people look for an Evaboot alternative',
+        blocks: [
+          'Evaboot is a solid, well-known Chrome extension, and for basic exports it does the job. From public reviews and our own testing, the reasons users switch tend to fall into four buckets.',
+          '**1. Credit costs stack up fast.** Evaboot\'s pricing starts at $9/month for 100 credits. One credit gets you one exported lead — but a lead *with* a found and verified email costs two credits. A 2,000-lead list with emails means 4,000 credits a month, several tiers up the pricing ladder. If you run continuous outbound, the effective cost per enriched lead matters more than the entry price.',
+          '**2. Single-source email finding.** Evaboot finds emails with its own built-in finder. That is fine when it hits, but no single provider covers every industry, geography and seniority level. [Waterfall enrichment](/products/waterfall-enricher) — querying multiple data providers in sequence until one returns a valid email — typically produces 30–50% more verified emails on the same list. Evaboot does not offer it; Coldcast runs it on every export by default.',
+          '**3. No phone numbers.** Evaboot\'s plans cover export, email finding and verification. If your sequences include cold calling, you need a second tool for numbers. Coldcast\'s waterfall adds direct dials during the same export pass.',
+          '**4. Safety is a spectrum, not a checkbox.** Every scraper claims to be safe — the mechanics matter. Coldcast runs inside your own browser, on your own session and IP, at human speed. To LinkedIn, your activity looks like you — because it is you. That architecture is why Coldcast maintains a record of zero account bans, as we explain in [our account-safety guide](/blog/scrape-sales-navigator-without-getting-banned).',
+        ],
+      },
+      {
+        h2: 'Coldcast vs Evaboot at a glance',
+        blocks: [
+          {
+            table: [
+              ['', 'Coldcast', 'Evaboot'],
+              ['How it runs', 'Your own browser session + IP', 'Chrome extension, own infrastructure'],
+              ['Ban-risk architecture', 'Human-paced, real session — zero bans to date', 'Generally regarded as safe'],
+              ['Email finding', 'Waterfall across multiple providers', 'Single built-in finder'],
+              ['Email verification', 'Included on every found email', 'Included (0.5 credit per verification)'],
+              ['Phone numbers', 'Included via waterfall enrichment', 'Not offered'],
+              ['AI lead scoring', 'Yes — buying signals + fit scoring', 'No'],
+              ['Company-level searches', 'Yes', 'Yes'],
+              ['Speed', 'Up to 10,000 leads/hour, 20,000/day', 'Export-dependent'],
+              ['Entry pricing', 'Free trial, then pay-as-you-go credits', 'From $9/mo for 100 credits'],
+              ['Seats', 'Multi-account support on agency plans', 'Unlimited seats on all plans'],
+            ],
+          },
+          '*Evaboot details verified against evaboot.com\'s live pricing page in July 2026. If anything has changed, tell us and we\'ll correct it.*',
         ],
       },
       {
         h2: 'What makes Coldcast different',
         blocks: [
-          '**Account safety as the core design decision.** Coldcast was built backwards from one constraint: your LinkedIn account must survive. A banned account costs you your network, your Sales Navigator subscription and your sending-domain warmup — far more than any scraper subscription. Everything else is designed within that constraint: human-paced extraction, your real session, your real IP, no stored passwords.',
-          '**Waterfall enrichment, built in — not bolted on.**',
+          '**Account safety as the core design decision.** Coldcast was built backwards from one constraint: your LinkedIn account must survive. A banned account costs you your network, your Sales Navigator subscription, and often your sending domain\'s warm-up work — far more than any scraper subscription. Everything else is designed within that constraint: human-paced extraction from [your own browser session](/products/sales-navigator-scraper), your real IP, no stored passwords.',
+          '**Waterfall enrichment built in — not bolted on.** Most Evaboot workflows look like: export → upload the misses to a second email finder → upload to a verifier → merge spreadsheets. Coldcast collapses that into one pass — each lead runs through multiple providers until a verified address comes back, then through [real-time verification](/products/email-verify), then phone lookup. One file, ready for your sequencer.',
           {
             image: {
               src: '/images/blog/waterfall-enrichment-diagram.png',
               width: 1200,
               height: 630,
               alt: 'How waterfall enrichment works — Coldcast queries multiple email providers in sequence until a verified email and phone number come back',
-              caption: 'Waterfall enrichment cascades independent providers until a verified email and phone number come back.',
+              caption: 'Single-source finders stop at provider 1. Waterfall keeps going until a verified email comes back.',
             },
           },
-          'A typical Evaboot workflow is: export from Evaboot → upload the misses to a second email finder → upload the results to a verifier → merge spreadsheets. Coldcast collapses that into one pass. During export, each lead runs through multiple email providers until a verified address comes back, then through [real-time verification](/products/email-verify), then phone lookup. You download one send-ready file.',
-          '**AI lead scoring on every export.** Coldcast scores each lead with AI (Claude and DeepSeek under the hood), surfacing buying signals you can drop straight into a first line — a ranked list instead of 2,000 undifferentiated rows. That’s the idea behind [Coldcast Agent](/coldcast-agent).',
-          '**Five-minute setup.** Install the Chrome extension, sign in to LinkedIn (Coldcast never stores your password), paste your [Sales Navigator search URL](/products/sales-navigator-scraper), and start the export. No proxies to configure, no cloud accounts to connect.',
+          '**AI lead scoring on every export.** Coldcast scores each lead and surfaces buying signals you can drop straight into a first line. Instead of 2,000 undifferentiated rows, you get a ranked list — start where conversion is most likely.',
+          '**Five-minute setup.** Install the Chrome extension, sign in to LinkedIn (Coldcast never stores your password), paste your Sales Navigator search URL, and start the export. No proxies, no cloud accounts.',
         ],
       },
       {
         h2: 'Who should stay on Evaboot?',
         blocks: [
-          'Honesty cuts both ways. Evaboot is a reasonable fit if you export small lists occasionally, don’t need phone numbers, and its single email finder covers your market well — its data-cleaning is genuinely good, and unlimited seats at every tier is generous for teams that export rarely but broadly. If that’s you, you may not need to switch. If you run outbound every week and your email hit-rate or account safety keeps you up at night, that’s the gap Coldcast was built to close.',
+          'Honesty cuts both ways. Evaboot is a reasonable fit if you export small lists occasionally, don\'t need phone numbers, and its single email finder covers your market well — its data cleaning is genuinely good, and unlimited seats at every tier is generous for teams that export rarely but broadly. If that\'s you, you may not need to switch. If you run outbound every week and your email hit rate or account safety keeps you up at night, that\'s the gap Coldcast was built to close.',
         ],
       },
       {
@@ -101,34 +288,35 @@ export const BLOG_POSTS = [
           {
             list: [
               '**Install the Coldcast Chrome extension** and sign in — your Sales Navigator subscription works as-is.',
-              '**Re-run your saved searches.** Paste each Sales Navigator search URL into Coldcast; there’s nothing to migrate.',
+              '**Re-run your saved Sales Navigator searches.** Paste each search URL into Coldcast; there is nothing to migrate.',
               '**Compare the output.** Run the same list you last exported from Evaboot and compare verified-email coverage — the free trial exists precisely for this test.',
-              '**Point the CSV at your stack.** Coldcast exports CSV/XLSX that drops into Clay, HubSpot, Salesforce or any sequencer. Also scraping [Apollo](/products/apollo-scraper) or [ZoomInfo](/products/zoominfo-scraper)? Same export, same file.',
+              '**Point the CSV at your existing stack.** Coldcast exports CSV/XLSX that drops into Clay, HubSpot, Salesforce, or any sequencer.',
             ],
           },
+          'Also scraping other databases? Coldcast covers [Apollo](/products/apollo-scraper) and [ZoomInfo](/products/zoominfo-scraper) exports with the same enrichment pipeline.',
         ],
       },
     ],
     faq: [
       {
         q: 'Is Coldcast really safer than Evaboot?',
-        a: 'Both are safer than cloud-based bots. The difference is architectural: Coldcast operates entirely inside your own browser session on your own IP at human speed, so there is no separate login, no datacenter IP and no automation fingerprint for LinkedIn to detect. Coldcast has recorded zero account bans to date.',
+        a: 'Both tools are safer than cloud-based bots. The difference is architectural: Coldcast operates entirely inside your own browser session on your own IP at human speed, so there is no separate login, no datacenter IP, and no automation fingerprint for LinkedIn to detect. Coldcast has recorded zero account bans.',
       },
       {
         q: 'Does Coldcast find more emails than Evaboot?',
-        a: 'Typically yes, because Coldcast uses waterfall enrichment — querying multiple email providers in sequence — while Evaboot uses a single built-in finder. Cascading providers returns a verified email for more of your list. Run your last Evaboot export through Coldcast’s free trial and compare.',
+        a: 'Typically yes, because Coldcast uses waterfall enrichment — querying multiple email providers in sequence — while Evaboot uses a single built-in finder. Waterfall approaches usually return 30–50% more verified emails on the same list. Run your last Evaboot export through Coldcast\'s free trial and compare.',
       },
       {
         q: 'Can I get phone numbers with Coldcast?',
-        a: 'Yes. Coldcast’s waterfall enrichment adds phone numbers alongside verified emails during the same export pass. Evaboot does not currently offer phone-number enrichment.',
+        a: 'Yes. Coldcast\'s waterfall enrichment adds phone numbers alongside verified emails during the same export. Evaboot does not currently offer phone number enrichment.',
       },
       {
         q: 'Do I need my own proxies or any technical setup?',
-        a: 'No. Coldcast runs in your browser through a Chrome extension. Setup takes about five minutes and requires no proxies, no cookies to paste and no technical configuration. Your LinkedIn password is never stored.',
+        a: 'No. Coldcast runs in your browser through a Chrome extension. Setup takes about five minutes and requires no proxies, no cookies to paste, and no technical configuration. Your LinkedIn password is never stored.',
       },
       {
         q: 'How fast can Coldcast export Sales Navigator leads?',
-        a: 'Up to 10,000 leads per hour and 20,000 per day, while still pacing each action like a human session. The speed limits exist to protect your account, not to upsell you.',
+        a: 'Up to 10,000 leads per hour and 20,000 per day, while still pacing each action like a human session. Speed limits exist to protect your account.',
       },
       {
         q: 'Does Coldcast work with company (account) searches?',

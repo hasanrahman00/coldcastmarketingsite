@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Linkedin, Youtube } from 'lucide-react'
+import { Twitter, Linkedin, Youtube } from 'lucide-react'
 import Logo from './Logo'
 
-// All internal links are real, server-rendered <Link>/<a> elements (crawlable in
-// the prerendered HTML) with keyword-led anchor text — footer anchors are sitewide
-// signals, so they carry the destination page's target keyword, not a nickname.
+// Footer link columns. Anchor text = the destination page's target keyword
+// (sitewide internal-link signal), so "Waterfall Enrichment" not "Waterfall
+// Enricher". These render server-side via prerender, so crawlers see them.
 const PRODUCTS = [
   { label: 'Sales Navigator Scraper', to: '/products/sales-navigator-scraper' },
   { label: 'Apollo Scraper', to: '/products/apollo-scraper' },
@@ -15,112 +15,96 @@ const PRODUCTS = [
   { label: 'Coldcast Agent', to: '/coldcast-agent' },
 ]
 
-// Grows as each vs / alternative page ships.
-const COMPARE = [{ label: 'Evaboot Alternative', to: '/blog/evaboot-alternative' }]
-
-const RESOURCES = [
-  { label: 'Blog & Guides', to: '/blog' },
-  { label: 'Sales Navigator Advanced', to: '/sales-nav-advanced' },
+// Grows as vs/alternative pages ship.
+const COMPARE = [
+  { label: 'Evaboot Alternative', to: '/blog/evaboot-alternative' },
+  { label: 'Scrape Sales Nav Safely', to: '/blog/scrape-sales-navigator-without-getting-banned' },
+  { label: 'Export Sales Nav to CSV', to: '/blog/export-sales-navigator-leads-to-csv' },
 ]
 
-// Only live profiles — X (Twitter) and Instagram to be added later.
 const SOCIALS = [
-  { label: 'Coldcast on LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/coldcast-io/' },
+  { label: 'Coldcast on X', icon: Twitter, href: 'https://twitter.com/coldcast' },
+  { label: 'Coldcast on LinkedIn', icon: Linkedin, href: '#' },
   { label: 'Coldcast on YouTube', icon: Youtube, href: 'https://www.youtube.com/@coldcastio' },
 ]
 
-const colHeading = 'text-[11.5px] font-bold uppercase tracking-[0.12em] text-faint'
-const linkCls = 'text-sm text-muted transition-colors hover:text-lime'
+const colClass = 'block text-sm text-muted transition-colors hover:text-lime'
 
 export default function Footer() {
   return (
     // Last child of the app frame — rounds its own bottom corners to match.
     <footer className="relative overflow-hidden rounded-b-[24px] border-t border-hairline bg-bg2">
       <div className="container-px py-14 sm:py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr]">
-          {/* Brand + keyword-rich description + contact + socials */}
+        <nav aria-label="Footer" className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
+          {/* Brand */}
           <div>
             <Link to="/" className="inline-flex items-center gap-3" aria-label="Coldcast — home">
               <Logo size={44} />
               <span className="font-display text-2xl font-bold tracking-tight text-ink">Coldcast</span>
             </Link>
-            {/* Real crawlable sitewide copy carrying the primary keyword clusters —
-                not an image, not a thin tagline. */}
-            <p className="mt-5 max-w-[340px] text-sm leading-relaxed text-faint">
-              Coldcast is the safest LinkedIn Sales Navigator scraper. Export Sales Navigator leads to CSV with
-              waterfall enrichment, verified emails and phone numbers — at zero ban risk, from your own browser.
+            {/* Keyword-rich, crawlable sitewide description (real <p>, not an image). */}
+            <p className="mt-5 max-w-[300px] text-sm leading-relaxed text-faint">
+              Coldcast is the safest LinkedIn Sales Navigator scraper. Export Sales Navigator leads to
+              CSV with waterfall enrichment, verified emails and phone numbers — zero ban risk.
             </p>
+            <p className="mt-8 text-[13px] text-faint">© 2026 Coldcast. All rights reserved.</p>
+          </div>
+
+          {/* Products */}
+          <div>
+            <div className="text-[11.5px] font-bold uppercase tracking-[0.12em] text-faint">Products</div>
+            <div className="mt-5 flex flex-col gap-3">
+              {PRODUCTS.map((l) => (
+                <Link key={l.to} to={l.to} className={colClass}>
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Compare & guides */}
+          <div>
+            <div className="text-[11.5px] font-bold uppercase tracking-[0.12em] text-faint">Compare &amp; Guides</div>
+            <div className="mt-5 flex flex-col gap-3">
+              {COMPARE.map((l) => (
+                <Link key={l.to} to={l.to} className={colClass}>
+                  {l.label}
+                </Link>
+              ))}
+              <Link to="/blog" className={colClass}>
+                All guides →
+              </Link>
+            </div>
+          </div>
+
+          {/* Contact + socials */}
+          <div className="lg:text-right">
             <a
               href="mailto:contact@coldcast.io"
-              className="mt-6 inline-block text-lg font-bold tracking-tight text-ink underline decoration-lime/35 decoration-2 underline-offset-4 transition-colors hover:text-lime hover:decoration-lime/70"
+              className="inline-block text-2xl font-bold tracking-tight text-ink underline decoration-lime/35 decoration-2 underline-offset-4 transition-colors hover:text-lime hover:decoration-lime/70 sm:text-3xl"
             >
               contact@coldcast.io
             </a>
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-6 flex items-center gap-3 lg:justify-end">
               {SOCIALS.map(({ label, icon: Icon, href }) => (
                 <a
                   key={label}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   aria-label={label}
+                  {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}
                   className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-panel text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-lime/40 hover:bg-lime/[0.06] hover:text-lime"
                 >
                   <Icon size={17} />
                 </a>
               ))}
             </div>
-            <p className="mt-8 text-[13px] text-faint">© 2026 Coldcast. All rights reserved.</p>
+            <div className="mt-8 flex flex-wrap gap-5 text-[13px] text-faint lg:justify-end">
+              <Link to="/blog" className="transition-colors hover:text-lime">Blog</Link>
+              <a href="/privacy/" className="transition-colors hover:text-lime">Privacy Policy</a>
+              <a href="/terms/" className="transition-colors hover:text-lime">Terms</a>
+            </div>
           </div>
-
-          {/* Products — every tool linked with keyword anchor text */}
-          <nav aria-label="Products">
-            <h3 className={colHeading}>Products</h3>
-            <ul className="mt-5 flex flex-col gap-3">
-              {PRODUCTS.map((p) => (
-                <li key={p.to}>
-                  <Link to={p.to} className={linkCls}>
-                    {p.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Compare + Resources */}
-          <div className="flex flex-col gap-10">
-            <nav aria-label="Compare">
-              <h3 className={colHeading}>Compare</h3>
-              <ul className="mt-5 flex flex-col gap-3">
-                {COMPARE.map((p) => (
-                  <li key={p.to}>
-                    <Link to={p.to} className={linkCls}>
-                      {p.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <nav aria-label="Resources">
-              <h3 className={colHeading}>Resources</h3>
-              <ul className="mt-5 flex flex-col gap-3">
-                {RESOURCES.map((p) => (
-                  <li key={p.to}>
-                    <Link to={p.to} className={linkCls}>
-                      {p.label}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <a href="/privacy/" className={linkCls}>Privacy Policy</a>
-                </li>
-                <li>
-                  <a href="/terms/" className={linkCls}>Terms</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+        </nav>
       </div>
     </footer>
   )
