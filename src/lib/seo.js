@@ -10,7 +10,7 @@ const abs = (p) => SITE + (p === '/' ? '/' : '/' + String(p).replace(/^\/+|\/+$/
 // ── Static pages (keyed by pathname) ─────────────────────────────────────────
 export const STATIC_SEO = {
   '/': {
-    title: 'Sales Navigator Scraper — Account-Safe | Coldcast',
+    title: 'LinkedIn Sales Navigator Scraper — Account-Safe | Coldcast',
     description:
       'The account-safe LinkedIn Sales Navigator scraper — export leads with verified emails, phones and buying signals from your own browser. No bans. Try it free.',
     keywords:
@@ -88,7 +88,7 @@ export const PRODUCT_SEO = {
   },
   'sales-navigator-scraper': {
     name: 'Sales Navigator Scraper',
-    title: 'Sales Navigator Scraper: 20k Leads/Day | Coldcast',
+    title: 'LinkedIn Sales Navigator Scraper: 20k Leads/Day | Coldcast',
     description:
       'Scrape LinkedIn Sales Navigator from your own browser: 20,000 leads a day at zero ban risk, enriched and AI-scored as you export. Start free today.',
     keywords:

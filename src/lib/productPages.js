@@ -98,7 +98,7 @@ export const PRODUCT_PAGES = {
     },
     hero: {
       eyebrow: 'Sales Navigator Scraper',
-      title: 'The safest Sales Navigator scraper — export 20,000 leads a day at zero ban risk.',
+      title: 'The safest LinkedIn Sales Navigator scraper — export 20,000 leads a day at zero ban risk.',
       subtitle:
         'Coldcast scrapes LinkedIn Sales Navigator from your own browser session and proxy, so every request looks 100% human. Enriched, scored and ready to send.',
       badges: ['0 account bans', '10,000 leads / hour', 'No code — just an extension'],
