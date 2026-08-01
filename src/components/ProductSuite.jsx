@@ -82,7 +82,7 @@ export default function ProductSuite({ showHeading = true }) {
           <SectionHeading
             eyebrow="One platform"
             eyebrowIcon={LayoutGrid}
-            title="Seven tools. One account-safe platform."
+            title="One account-safe LinkedIn scraper toolkit — seven tools."
             subtitle="Scrape, enrich, verify and reach — all from your own browser. Use any tool on its own, or run the whole pipeline end to end."
           />
         )}

@@ -17,7 +17,7 @@ export default function HowItWorks() {
           eyebrow="How it works"
           eyebrowIcon={Route}
           eyebrowTone="teal"
-          title="From Sales Navigator search to CSV in four steps."
+          title="How to scrape LinkedIn Sales Navigator in four steps."
           subtitle="Install the Coldcast Chrome extension, run your Sales Navigator search, and export to CSV — no scripts to babysit, no proxies to configure."
         />
 

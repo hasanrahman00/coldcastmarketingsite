@@ -8,12 +8,28 @@ import SectionHeading from './SectionHeading'
 // and keep the structured data in lockstep with the visible on-page FAQ.
 export const FAQS = [
   {
-    q: 'Is it safe for my LinkedIn account?',
-    a: 'Yes — that’s the whole point of Coldcast. It runs through your own browser session and IP, only on pages you’re already logged into, at human pace with natural scrolling and click-to-next pagination. There are no headless browsers, no API hammering, and no bot fingerprints. We’ve used it daily with internal sales teams for 6+ months with zero account bans.',
+    q: 'Is scraping LinkedIn Sales Navigator safe for my account?',
+    a: 'Yes — that’s the whole point of Coldcast. Your Sales Navigator scraping runs through your own browser session and IP, only on pages you’re already logged into, at human pace with natural scrolling and click-to-next pagination. There are no headless browsers, no API hammering, and no bot fingerprints. We’ve used it daily with internal sales teams for 6+ months with zero account bans.',
   },
   {
-    q: 'How is Coldcast different from other Sales Navigator scrapers?',
-    a: 'Three ways. Speed: a typical 2,500-lead export takes minutes, not the 30 minutes to two hours cloud scrapers need. Safety: Coldcast runs in your own browser on your own IP and session — most other scrapers spin up a cloud browser on shared IPs and ask for your LinkedIn password, which is exactly what gets accounts suspended. And data: every lead comes back already enriched with verified emails, phone numbers and buying-intent signals, where other tools hand you a raw export you still have to clean and enrich yourself.',
+    q: 'What makes Coldcast different from other LinkedIn scraper tools?',
+    a: 'Three ways. Speed: a typical 2,500-lead export takes minutes, not the 30 minutes to two hours cloud scrapers need. Safety: Coldcast runs in your own browser on your own IP and session — most other LinkedIn scraper tools spin up a cloud browser on shared IPs and ask for your LinkedIn password, which is exactly what gets accounts suspended. And data: every lead comes back already enriched with verified emails, phone numbers and buying-intent signals, where other tools hand you a raw export you still have to clean and enrich yourself.',
+  },
+  {
+    q: 'How do I scrape LinkedIn Sales Navigator?',
+    a: 'Run any Sales Navigator search, open the Coldcast Chrome extension, and click Export. Coldcast scrapes the results at a safe, human pace, enriches each lead with verified emails and phone numbers, and delivers a clean CSV — no scripts, proxies, or cookies to configure.',
+  },
+  {
+    q: 'Can I scrape LinkedIn profiles without Sales Navigator?',
+    a: 'Coldcast is built specifically for LinkedIn Sales Navigator search — that’s where the structured, filterable lead data and richest signals live, and where Coldcast captures the exact search you’re viewing. If you can run a Sales Navigator search, you can scrape and enrich it in a click.',
+  },
+  {
+    q: 'Does Coldcast scrape LinkedIn company pages?',
+    a: 'Every lead comes with its company’s data — domain, headcount, industry and buying-intent signals — enriched automatically, so you get company-level detail without scraping company pages separately. Domain Enrichment fills in deeper firmographics from any company domain.',
+  },
+  {
+    q: 'Is Coldcast a LinkedIn data scraping service or a self-serve tool?',
+    a: 'Coldcast is a self-serve tool — you keep full control of your account, your searches and your data, which is safer than handing your login to an outsourced scraping service. Lead-gen agencies use Coldcast to run LinkedIn data scraping for their own clients, at their own pace.',
   },
   {
     q: 'What intent signals does Coldcast capture?',
@@ -28,7 +44,7 @@ export const FAQS = [
     a: 'Coldcast captures 30+ fields per lead — the profile and company data from Sales Navigator, plus emails and phones run through a waterfall across Lusha, SalesQL, and ContactOut in a single pass, so you export already enriched instead of cleaning up a raw CSV later. Contacts are verified, not guessed: every email passes a validation step before it lands in your file, so you can trust what you send.',
   },
   {
-    q: 'How fast is Coldcast — how long does it take to export leads?',
+    q: 'How fast is Coldcast — how long does it take to export leads to CSV?',
     a: 'Fast. Most exports finish in minutes — a 2,500-lead list typically takes around five minutes, where other Sales Navigator scrapers can take 30 minutes to two hours for the same job. Because it runs at a natural, human pace in your own browser, you get the speed without the bot-like bursts that trip LinkedIn’s defences. You can pull up to roughly 20,000 leads per account, per day.',
   },
   {
@@ -53,7 +69,7 @@ export const FAQS = [
   },
   {
     q: 'Is Coldcast free to try?',
-    a: 'Yes. Every account starts with a free trial — connect an account, scrape unlimited leads, and use your free enrichment credits to test the verified emails and catch-all cleaning before you pay anything. No credit card is required to start, and scraping itself stays free on every plan; you only pay to enrich and verify the contacts you choose.',
+    a: 'Yes — Coldcast is a free Sales Navigator scraper for your first leads. Every account starts with a free trial — connect an account, scrape unlimited leads, and use your free enrichment credits to test the verified emails and catch-all cleaning before you pay anything. No credit card is required to start, and scraping itself stays free on every plan; you only pay to enrich and verify the contacts you choose.',
   },
   {
     q: 'Can I cancel anytime?',

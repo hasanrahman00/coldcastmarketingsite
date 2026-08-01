@@ -281,8 +281,8 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-[600px] text-[17.5px] leading-[1.6] text-muted">
-            <strong className="font-semibold text-ink">Coldcast</strong> replaces your whole GTM stack —
-            scrape Sales Navigator, Apollo &amp; ZoomInfo at zero ban risk, pull triple-verified emails
+            <strong className="font-semibold text-ink">Coldcast</strong> is the LinkedIn scraper tool that
+            replaces your whole GTM stack — scrape Sales Navigator, Apollo &amp; ZoomInfo at zero ban risk, pull triple-verified emails
             &amp; phone numbers, and let the AI SDR run your outreach.
           </p>
 
