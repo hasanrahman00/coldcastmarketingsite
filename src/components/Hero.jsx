@@ -266,17 +266,18 @@ export default function Hero() {
             Premium account-safe scraping
           </span>
 
-          {/* "Coldcast.io" sits INSIDE the h1 as a brand line over the title, so
-              the H1 carries brand + keyword together for SEO. */}
+          {/* Brand line sits ABOVE the H1 (not inside it) so the heading is a
+              single clean keyword phrase; the brand lives in the title tag +
+              Organization schema. */}
+          <div className="mb-4 text-[15px] font-bold uppercase leading-none tracking-[0.2em] text-lime">
+            Coldcast.io
+          </div>
           <h1 className="font-display text-[clamp(2.25rem,5.6vw,4rem)] font-bold leading-[1.04] tracking-[-0.035em] text-ink">
-            <span className="mb-4 block text-[15px] font-bold uppercase leading-none tracking-[0.2em] text-lime">
-              Coldcast.io
-            </span>{' '}
             The world&rsquo;s{' '}
             <span className="bg-[linear-gradient(100deg,#1a1a1a,#737373)] bg-clip-text text-transparent">
               safest
             </span>{' '}
-            Sales Navigator scraper.
+            LinkedIn Sales Navigator scraper.
           </h1>
 
           <p className="mt-6 max-w-[600px] text-[17.5px] leading-[1.6] text-muted">

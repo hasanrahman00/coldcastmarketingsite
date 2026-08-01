@@ -17,8 +17,8 @@ export default function HowItWorks() {
           eyebrow="How it works"
           eyebrowIcon={Route}
           eyebrowTone="teal"
-          title="From search to spreadsheet in four steps."
-          subtitle="No scripts to babysit, no proxies to configure. If you can run a Sales Navigator search, you can run Coldcast."
+          title="From Sales Navigator search to CSV in four steps."
+          subtitle="Install the Coldcast Chrome extension, run your Sales Navigator search, and export to CSV — no scripts to babysit, no proxies to configure."
         />
 
         <ol className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

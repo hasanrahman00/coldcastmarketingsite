@@ -145,7 +145,7 @@ export default function Pricing() {
           eyebrow="Pricing"
           eyebrowIcon={Tag}
           eyebrowTone="teal"
-          title="Pay only for what you enrich — scraping is always free."
+          title="A free LinkedIn Sales Navigator scraper — pay only for what you enrich."
           subtitle="Scrape LinkedIn Sales Navigator, Apollo and ZoomInfo free in your own browser. You only pay to enrich and verify the contacts you actually want — no subscription, no seats, no lock-in."
         />
 

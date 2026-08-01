@@ -111,8 +111,8 @@ export default function FAQ() {
         <SectionHeading
           eyebrow="FAQ"
           eyebrowIcon={HelpCircle}
-          title="Questions, answered."
-          subtitle="Everything reps ask before their first export."
+          title="Your Sales Navigator scraper questions, answered."
+          subtitle="Everything reps ask before their first LinkedIn Sales Navigator export."
         />
 
         <Reveal delay={0.1} className="mx-auto mt-14 flex max-w-3xl flex-col gap-4">
