@@ -13,8 +13,8 @@ const CTA_GLOW =
 
 export default function FinalCTA() {
   return (
-    <section className="container-px py-24 sm:py-32">
-      <Reveal className="relative overflow-hidden rounded-[24px] border border-lime/25 bg-panel px-6 py-20 text-center sm:px-12 sm:py-24">
+    <section className="container-px py-16 sm:py-20">
+      <Reveal className="relative overflow-hidden rounded-[24px] border border-lime/25 bg-panel px-6 py-12 text-center sm:px-12 sm:py-16">
         {/* lime bloom off the top edge */}
         <div aria-hidden className="pointer-events-none absolute inset-0" style={{ backgroundImage: CTA_GLOW }} />
 
@@ -25,7 +25,7 @@ export default function FinalCTA() {
           <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
             Export, enrich and verify your next thousand leads — account-safe, from your own browser.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href={TRIAL_URL}
               target="_blank"

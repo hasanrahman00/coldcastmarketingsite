@@ -186,8 +186,8 @@ export default function SampleDownloads() {
   const [open, setOpen] = useState(null)
 
   return (
-    <section id="sample-data" className="container-px py-24 sm:py-32">
-      <Reveal className="relative overflow-hidden rounded-[24px] border border-lime/25 bg-panel px-6 py-20 text-center sm:px-12 sm:py-24">
+    <section id="sample-data" className="container-px py-16 sm:py-20">
+      <Reveal className="relative overflow-hidden rounded-[24px] border border-lime/25 bg-panel px-6 py-12 text-center sm:px-12 sm:py-16">
         <div aria-hidden className="pointer-events-none absolute inset-0" style={{ backgroundImage: SAMPLE_GLOW }} />
 
         <div className="relative">
@@ -204,7 +204,7 @@ export default function SampleDownloads() {
             Navigator lead data, with and without buying-intent signals. Download either when you’re ready.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <button
               type="button"
               onClick={() => setOpen(SAMPLES[0])}
