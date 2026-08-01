@@ -343,6 +343,29 @@
   }
 }
 
+/* Hero console demo cursor — glides between hotspots (Export CSV, a rail
+   product, a lead row), holding at each so the press + ring land while parked.
+   left/top are % of the console, so the path tracks the layout at any width. */
+@keyframes demo-cursor {
+  0% { left: 52%; top: 60%; }
+  16% { left: 90%; top: 13%; }
+  22% { left: 90%; top: 13%; }
+  44% { left: 11%; top: 33%; }
+  50% { left: 11%; top: 33%; }
+  72% { left: 46%; top: 46%; }
+  78% { left: 46%; top: 46%; }
+  100% { left: 52%; top: 60%; }
+}
+@keyframes demo-cursor-press {
+  0%, 16%, 44%, 72%, 100% { transform: scale(1); }
+  20%, 48%, 76% { transform: scale(0.82); }
+}
+@keyframes demo-cursor-ring {
+  0%, 15%, 43%, 71% { transform: scale(0.2); opacity: 0; }
+  20%, 48%, 76% { transform: scale(1); opacity: 0.55; }
+  27%, 55%, 83% { transform: scale(1.8); opacity: 0; }
+}
+
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {

@@ -1,4 +1,4 @@
-import { Tag, Search, Rocket, Building2, Link2, Droplets, Globe, Bot } from 'lucide-react'
+import { Tag, Search, Rocket, Building2, Link2, Droplets, Globe, Bot, Check } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import Button from './Button'
@@ -112,7 +112,7 @@ function PlanCard({ plan }) {
 
         {/* Transparent per-unit enrichment terms — the lime figures pop as the
             thing worth comparing. */}
-        <div className="mt-7 rounded-2xl border border-hairline bg-white/[0.02] p-5">
+        <div className="mt-7 rounded-2xl border border-hairline bg-black/[0.02] p-5">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
             {plan.usageLabel}
           </p>
@@ -145,11 +145,20 @@ export default function Pricing() {
           eyebrow="Pricing"
           eyebrowIcon={Tag}
           eyebrowTone="teal"
-          title="Start free. Scale when you need to."
-          subtitle="Scrape every source free in your own browser — you only pay to enrich and verify the contacts you actually want."
+          title="Pay only for what you enrich — scraping is always free."
+          subtitle="Scrape LinkedIn Sales Navigator, Apollo and ZoomInfo free in your own browser. You only pay to enrich and verify the contacts you actually want — no subscription, no seats, no lock-in."
         />
 
-        <div className="mx-auto mt-14 grid max-w-6xl grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
+        <Reveal delay={0.08} className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] font-medium text-muted">
+          {['No credit card to start', 'No subscription', 'Account-safe', 'Cancel anytime'].map((t) => (
+            <span key={t} className="inline-flex items-center gap-1.5">
+              <Check size={14} strokeWidth={2.5} className="text-ink" />
+              {t}
+            </span>
+          ))}
+        </Reveal>
+
+        <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
           {PLANS.map((plan, i) => (
             <Reveal key={plan.name} delay={i * 0.1} className="h-full">
               <PlanCard plan={plan} />
@@ -164,16 +173,17 @@ export default function Pricing() {
             <p className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
               Every plan includes all seven tools
             </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5">
+            <div className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
               {TOOLS.map(({ name, icon: Icon }) => (
                 <span
                   key={name}
-                  className="inline-flex items-center gap-2.5 rounded-xl border border-hairline bg-white/[0.03] px-3.5 py-2.5 transition-colors duration-200 hover:border-lime/30 hover:bg-lime/[0.04]"
+                  className="inline-flex items-center gap-2.5 rounded-xl border border-hairline bg-black/[0.015] px-4 py-3 transition-colors duration-200 hover:-translate-y-px hover:border-ink/25 hover:bg-black/[0.035]"
                 >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-lime/25 bg-lime-gradient-soft text-lime">
-                    <Icon size={13} />
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-hairline bg-panel2 text-ink">
+                    <Icon size={14} strokeWidth={1.9} />
                   </span>
-                  <span className="text-sm font-medium text-ink/90">{name}</span>
+                  <span className="text-[13.5px] font-medium leading-tight text-ink">{name}</span>
+                  <Check size={14} strokeWidth={2.5} className="ml-auto shrink-0 text-ink/35" />
                 </span>
               ))}
             </div>

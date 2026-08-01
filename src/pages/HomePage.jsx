@@ -10,6 +10,7 @@ import Features from '../components/Features'
 import HowItWorks from '../components/HowItWorks'
 import UseCases from '../components/UseCases'
 import Pricing from '../components/Pricing'
+import SampleDownloads from '../components/SampleDownloads'
 import FAQ, { FAQS } from '../components/FAQ'
 import FinalCTA from '../components/FinalCTA'
 
@@ -37,12 +38,10 @@ export default function HomePage() {
           the platform claim rather than a cold feature dump. */}
       <ProductSuite />
 
-      {/* ── ORIENT ──────────────────────────────────────────────────────────
-          Cheapest section on the page (0.8 screens) and it was buried at 69%
-          depth. It also does setup work for everything above and below: "no
-          proxies to configure — if you can run a Sales Navigator search, you can
-          run Coldcast" is what makes "it runs in your browser, as you" legible. */}
-      <HowItWorks />
+      {/* Pricing follows the seven-tool suite: the reader has just seen the whole
+          toolkit, so "every plan includes all seven tools" lands with the platform
+          value fresh — and #pricing is reachable high on the page. */}
+      <Pricing />
 
       {/* ── CAPABILITY ──────────────────────────────────────────────────────
           Everything from here argues to a reader who has already been told the
@@ -69,9 +68,17 @@ export default function HomePage() {
           href="#pricing". It used to sit at screen 8.2 pointing at 16.5 — a
           scroll-to-nowhere. Now the handoff is real. */}
       <UseCases />
-      <Pricing />
-      <FAQ />
+      {/* How it works sits near the bottom, right before the final CTA — once the
+          reader is convinced, the four steps show how simple starting is, then hand
+          straight to "start your next list". */}
+      <HowItWorks />
       <FinalCTA />
+      {/* Free sample CSVs — lets a still-hesitant reader see the exact export
+          (with and without buying-intent signals) before they sign up. */}
+      <SampleDownloads />
+      {/* FAQ sits last, right above the footer — it catches the reader who scrolled
+          past the final CTA still weighing objections before their first export. */}
+      <FAQ />
     </>
   )
 }

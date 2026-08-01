@@ -180,6 +180,39 @@ const FLOAT_DOTS = [
   { left: '37%', top: '54%', size: 3, anim: 'float-slow 11s ease-in-out infinite', delay: '4s' },
 ]
 
+// A looping demo cursor that glides across the console — to Export CSV, a rail
+// product, then a lead row — pressing at each stop, so the mock reads as "someone
+// is using it right now". Positions are % of the console so it tracks any width.
+// Motion-gated: nothing renders under prefers-reduced-motion.
+function DemoCursor({ reduce }) {
+  if (reduce) return null
+  // CSS-driven (not framer): framer can't reliably keyframe left/top between
+  // percentages. The path + press + ring keyframes live in index.css.
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute z-20 hidden sm:block"
+      style={{ left: '52%', top: '60%', animation: 'demo-cursor 9.5s ease-in-out infinite' }}
+    >
+      {/* click ripple — pulses at each stop */}
+      <span
+        className="absolute -left-2 -top-2 h-5 w-5 rounded-full border border-ink/50"
+        style={{ animation: 'demo-cursor-ring 9.5s ease-out infinite' }}
+      />
+      {/* cursor arrow — dark fill, white outline so it reads on the light UI */}
+      <svg
+        width="19"
+        height="19"
+        viewBox="0 0 24 24"
+        className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+        style={{ animation: 'demo-cursor-press 9.5s ease-in-out infinite' }}
+      >
+        <path d="M5 3l14 7-6 2-2 6-6-15z" fill="#111111" stroke="#ffffff" strokeWidth="1.4" strokeLinejoin="round" />
+      </svg>
+    </div>
+  )
+}
+
 export default function Hero() {
   const reduce = useReducedMotion()
 
@@ -447,6 +480,7 @@ export default function Hero() {
             </div>
             </div>
           </div>
+          <DemoCursor reduce={reduce} />
         </div>
 
         {/* The source-chips row lived here; <TrustBar> below the hero makes the
