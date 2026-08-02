@@ -10,7 +10,7 @@ export const TRIAL_URL = `${APP_URL}/#trial`
 // Live Chrome Web Store listing. Every "Get the Chrome extension" CTA links here,
 // which also gives the listing crawlable backlinks from our pages. (Share/utm
 // params intentionally stripped — this is the clean canonical listing URL.)
-export const CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/bljolejpindiokpikdpalhofcbiphfoi'
+export const CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/bljolejpindiokpikdpalhofcbiphfoi?utm_source=coldcast.io&utm_medium=cta'
 // [PLACEHOLDER] demo-booking link (Calendly / Cal.com) for the "Book a demo" CTA
 export const DEMO_URL = 'https://calendly.com/coldcast/demo'
 // [PLACEHOLDER] sales / contact address for the Custom plan + footer "Contact"
