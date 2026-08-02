@@ -24,7 +24,7 @@ const CASES = [
     icon: Briefcase,
     title: 'Lead-gen agencies & freelancers',
     to: '/roles/agencies',
-    desc: 'Clean, CRM-ready lists for every client, without paying for a stack of data tools.',
+    desc: 'Run LinkedIn data scraping services for every client — clean, CRM-ready lists, without risking their accounts.',
   },
   {
     icon: Rocket,
