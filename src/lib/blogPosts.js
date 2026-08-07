@@ -66,7 +66,7 @@ export const BLOG_POSTS = [
         ],
       },
       {
-        h2: 'The 8 techniques that do the heavy lifting',
+        h2: 'The 13 techniques that do the heavy lifting',
         blocks: [
           '**1. Advanced filters, layered.** The power is in combining: seniority + function + headcount + geography narrows a billion profiles to a few thousand best-fits. Start broad, add one filter at a time, and watch the result count — a good outbound search usually lands between 500 and 2,500 results (more on why 2,500 matters below).',
           '**2. Boolean search in the keyword and title fields.** Quotes for exact phrases, AND / OR / NOT for logic, parentheses for grouping: `("VP Sales" OR "Head of Sales" OR "Sales Director") NOT (assistant OR intern)`. Put title logic in the *Current job title* filter, not the general keyword box — the keyword box searches the entire profile and drags in false positives from skills and old roles.',
@@ -76,6 +76,49 @@ export const BLOG_POSTS = [
           '**6. Lead lists + alerts.** Save leads to lists and Sales Navigator alerts you on job changes, posts and company news. A lead posting about a problem you solve is the single best cold-outreach trigger there is — reference it and reply rates multiply.',
           '**7. Exclude noise.** Save your customers and competitors to account lists, then use the "exclude list" workflow (Blacklist) in searches so reps never prospect existing customers or a competitor\'s employees.',
           '**8. Hunt Open Profiles.** Members with Open Profile can be InMailed for free without burning credits. Filter and prioritize them when you have no email — free InMails at scale is an underrated channel.',
+          '**9. Filter by LinkedIn Groups.** Group membership is a self-declared interest signal: someone in three RevOps communities cares about RevOps. Search within relevant groups to find people pre-qualified by their own curiosity — and mention the shared group in your opener.',
+          '**10. Track job-change champions.** Filter your saved customer contacts by "changed jobs in the past 90 days." A happy user who just landed at a new company is the warmest deal that exists: they already know the product, and they need a win in their first quarter. This one filter quietly produces the highest close-rate list in outbound.',
+          '**11. TeamLink for warm paths (Advanced).** TeamLink shows which prospects your teammates are connected to. A warm intro converts several times better than any cold channel — check for a path before you write a cold line.',
+          '**12. Smart Links as engagement bait (Advanced).** Package a case study or one-pager as a Smart Link and you see exactly who opened it, when, and for how long. Every open is a timing signal worth a same-day follow-up.',
+          '**13. Upload your own account CSV (Advanced).** Have a target-account list from your CRM or a conference? Upload the CSV and Sales Navigator matches it to company pages — then every lead filter runs against *your* accounts instead of LinkedIn\'s guesses.',
+        ],
+      },
+      {
+        h2: 'Boolean patterns worth stealing',
+        blocks: [
+          'Paste these shapes into the *Current job title* filter and adapt the words — the structure is what matters:',
+          {
+            table: [
+              ['Goal', 'Pattern'],
+              ['Catch every title variant', '"VP Sales" OR "VP of Sales" OR "Vice President Sales" OR "Sales VP"'],
+              ['Senior only, no juniors', '(sales OR revenue) AND (VP OR head OR director) NOT (assistant OR associate OR intern)'],
+              ['Founders who still sell', 'founder OR co-founder OR CEO NOT ("assistant to" OR advisor)'],
+              ['Function, any seniority', 'marketing NOT (sales OR "business development")'],
+              ['Two roles in one search', '("Head of Growth" OR "Growth Lead") OR ("Demand Gen" AND (manager OR head))'],
+            ],
+          },
+          'Three rules keep Boolean honest: quotes around multi-word phrases, CAPITALS for operators, and parentheses around every OR-group before you mix in AND/NOT. And always test the negative space — run the search once with your NOT terms removed to see what you were about to exclude.',
+        ],
+      },
+      {
+        h2: 'A weekly operating cadence that compounds',
+        blocks: [
+          {
+            list: [
+              '**Monday — harvest.** Open your saved-search alerts: every new profile matching your ICP from last week, pre-filtered. Save the good ones to this month\'s lead list.',
+              '**Tuesday — triggers.** Work the alert feed: job changes, funding news, prospect posts. Each one is a first line that writes itself.',
+              '**Wednesday — export + enrich.** Push the week\'s list through [an account-safe export](/products/sales-navigator-scraper) so verified emails and phones land in your sequencer while the trigger is still fresh.',
+              '**Thursday — multithread.** For accounts already in sequence, add the second and third contact (budget owner, end user) so deals stop dying with one champion.',
+              '**Friday — prune.** Kill saved searches that returned junk, tighten filters that drifted, and log reply rates by search so next month\'s targeting is data, not vibes.',
+            ],
+          },
+          'One hour a day on this loop beats eight hours of Sunday-night list building — because every list arrives fresh, triggered, and already enriched.',
+        ],
+      },
+      {
+        h2: 'Bonus: Sales Navigator for recruiting',
+        blocks: [
+          'The same machinery sources candidates: title + seniority + geography filters find them, "changed jobs" *excludes* people who just started somewhere (they won\'t move), Open Profiles take free InMails, and [candidate contact enrichment](/roles/recruiters) turns a shortlist into reachable emails and numbers. Recruiters at agencies often run Sales Navigator instead of LinkedIn Recruiter at a fraction of the seat price — Recruiter only becomes necessary for collaborative pipelines and its projects/ATS workflow.',
         ],
       },
       {
@@ -198,6 +241,15 @@ export const BLOG_POSTS = [
       {
         h2: 'Verification: safe, catch-all, and unfound',
         blocks: [
+          {
+            image: {
+              src: '/images/blog/email-verification-buckets-safe-catchall-unfound.png',
+              width: 1200,
+              height: 630,
+              alt: 'Email verification buckets for Sales Navigator exports — safe deliverable emails, risky catch-all domains, and unfound leads with fallback channels',
+              caption: 'Every found email lands in one of three buckets — and each bucket gets a different playbook.',
+            },
+          },
           'Every found email lands in one of three buckets, and treating them the same is how sender reputations die:',
           {
             list: [
@@ -207,6 +259,39 @@ export const BLOG_POSTS = [
             ],
           },
           'Also remember decay: B2B emails go stale at roughly 2–3% per month as people change jobs. A list enriched in January is measurably worse by June — verify at send time, not just at export time.',
+        ],
+      },
+      {
+        h2: 'Choosing an email finder: the checklist that matters',
+        blocks: [
+          'Every tool\'s landing page claims the best hit rate. Ignore the claims and compare on structure:',
+          {
+            table: [
+              ['What to compare', 'Why it decides your results'],
+              ['Sources: single database vs waterfall', 'Waterfall across providers typically finds 30–50% more — no single database covers every market'],
+              ['Verification: built-in vs bolt-on', 'Unverified "found" emails are just guesses; you want live MX/SMTP checks before delivery'],
+              ['Catch-all handling', 'Tools that dump catch-alls into your "valid" column inflate hit rates and your bounce rate'],
+              ['Pricing: per attempt vs per valid hit', 'Per-attempt pricing charges you for misses; pay-per-valid aligns cost with results'],
+              ['Phone numbers in the same pass', 'A second tool for direct dials doubles cost and spreadsheet surgery'],
+              ['Where extraction runs', 'Cloud tools that replay your session risk the LinkedIn account feeding the whole pipeline'],
+            ],
+          },
+          'The honest test costs nothing: take the same 200-lead search, run it through two tools\' free tiers, and compare verified-email counts and bounce rates after a small send. Ten minutes of testing beats any comparison page — including ours.',
+        ],
+      },
+      {
+        h2: 'After the emails: deliverability decides everything',
+        blocks: [
+          'A verified list sent badly still lands in spam. The email step doesn\'t end at enrichment:',
+          {
+            list: [
+              '**Authenticate your domain** — SPF, DKIM and DMARC records are table stakes; without them, mailbox providers distrust you before reading a word.',
+              '**Warm up before volume** — new inboxes need 2–4 weeks of gradually increasing sends; cold-starting at 500/day torches the domain.',
+              '**Send from a separate domain** — outbound runs on a cousin domain (getcoldcast.com style), never your main company domain, so experiments can\'t hurt the mothership.',
+              '**Watch the 2% line** — keep bounce rates under ~2%; above it, providers start filtering everything. This is exactly why verified-at-export beats verified-never.',
+              '**Segment catch-alls out** — send them from a secondary warmed inbox at lower volume, and promote them to the main sequence only after a reply or open proves the mailbox is real.',
+            ],
+          },
         ],
       },
       {
@@ -492,6 +577,36 @@ export const BLOG_POSTS = [
               '**2,500 results per search.** Sales Navigator displays at most 100 pages of 25 results no matter how many profiles match. Slice bigger audiences by geography, headcount or industry into sub-2,500 segments and export each.',
               '**Daily pace matters more than any hard number.** Extraction speed should match an established account\'s normal behavior — Coldcast paces every action like a human session and supports up to 20,000 leads/day safely. New accounts should ramp up gradually.',
               '**25 lead lists of 1,000** is the cap on native lists — another reason exports beat trying to manage pipeline inside LinkedIn.',
+            ],
+          },
+          {
+            image: {
+              src: '/images/blog/sales-navigator-2500-limit-search-slicing.png',
+              width: 1200,
+              height: 630,
+              alt: 'How to beat the Sales Navigator 2,500 result limit — slice one oversized search into sub-2,500 segments by geography and headcount, export each segment',
+              caption: 'One 9,400-result search shows only 2,500 profiles. Three sliced searches capture all of them.',
+            },
+          },
+          'Slicing sounds tedious; it isn\'t. Pick one high-cardinality filter — headcount bands or regions work best — and duplicate the search once per band. Three to five segments cover almost any market, each lands under the cap, and the segment label itself becomes useful metadata in your CRM ("EU · 51-200" tells a rep the context before the first call).',
+        ],
+      },
+      {
+        h2: 'Exporting account lists (companies), not just leads',
+        blocks: [
+          'Lead exports get the attention, but account exports run ABM. A Sales Navigator *account* search — filtered by headcount, industry, growth or funding Spotlights — exports the company-level view: name, domain, headcount, industry, and the firmographics enrichment adds. Two plays make it valuable: **domain-first enrichment**, where the exported domains feed [domain enrichment](/products/domain-enrichment) to return technographics and verified decision-maker contacts per company; and **the two-step ABM export** — export accounts first, pick the best 100 by fit, then run a lead search filtered to those accounts and export the 2–4 buyers per company. You get a multithreaded contact map instead of a flat list.',
+        ],
+      },
+      {
+        h2: 'Excel cleanup recipes for exported lists',
+        blocks: [
+          'Coldcast exports arrive clean (no "LinkedIn Member" rows, normalized names), but every workflow has its own last mile. The four recipes that cover most of it:',
+          {
+            list: [
+              '**Dedupe against your CRM:** paste your CRM\'s email column on a second sheet, then flag matches with =IF(COUNTIF(Sheet2!A:A, C2)>0, "IN CRM", "NEW") and filter to NEW before importing.',
+              '**Split full names when a tool needs them separate:** =TEXTBEFORE(A2, " ") and =TEXTAFTER(A2, " ") (or Data → Text to Columns on older Excel).',
+              '**Standardize company suffixes:** =TRIM(SUBSTITUTE(SUBSTITUTE(B2, " Inc.", ""), " Ltd", "")) keeps "Acme" and "Acme Inc." from becoming two accounts.',
+              '**Build the suppression check into the sheet:** a SUPPRESS tab with customer + competitor domains, then =IF(COUNTIF(SUPPRESS!A:A, TEXTAFTER(C2,"@"))>0, "SKIP", "OK") — nobody cold-emails a customer again.',
             ],
           },
         ],
