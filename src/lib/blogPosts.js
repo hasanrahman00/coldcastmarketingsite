@@ -24,7 +24,7 @@ export const BLOG_POSTS = [
     dateModified: '2026-08-09',
     readMinutes: 9,
     image: {
-      src: '/images/blog/is-linkedin-scraping-legal-hero.png',
+      src: '/images/blog/is-linkedin-scraping-legal-hero.svg',
       width: 1200,
       height: 630,
       alt: 'Is LinkedIn scraping legal — timeline of hiQ v. LinkedIn and Proxycurl rulings on a dark legal-themed graphic',
@@ -46,7 +46,7 @@ export const BLOG_POSTS = [
         blocks: [
           {
             image: {
-              src: '/images/blog/linkedin-scraping-risk-layers.png',
+              src: '/images/blog/linkedin-scraping-risk-layers.svg',
               width: 1200,
               height: 630,
               alt: 'Diagram of the three layers of LinkedIn scraping risk: criminal law (CFAA), civil contract claims, and platform account enforcement',
