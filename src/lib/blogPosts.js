@@ -15,95 +15,119 @@ export const BLOG_POSTS = [
     slug: 'is-linkedin-scraping-legal',
     tag: 'Legal',
     title: 'Is LinkedIn Scraping Legal? What the Law Actually Says in 2026',
-    metaTitle: 'Is LinkedIn Scraping Legal? 2026 Laws, Cases & Rules',
+    metaTitle: 'Is LinkedIn Scraping Legal? What the Law Says (2026)',
     metaDescription:
-      'Is LinkedIn scraping legal in 2026? What hiQ v. LinkedIn and the Proxycurl lawsuit really decided, how GDPR applies, and how to export leads without risk.',
+      'Is LinkedIn scraping legal? What hiQ v. LinkedIn, GDPR, and LinkedIn’s terms actually say — plus how to export Sales Navigator leads without risking your account.',
     keywords:
-      'is linkedin scraping legal, linkedin scraping law, hiq v linkedin, van buren cfaa, proxycurl lawsuit, gdpr b2b prospecting, sales navigator scraping legal, cfaa scraping',
+      'is linkedin scraping legal, linkedin scraping law, hiq v linkedin, van buren cfaa, meta v bright data, gdpr b2b prospecting, ccpa cold email, sales navigator scraping legal',
     datePublished: '2026-08-09',
-    dateModified: '2026-08-09',
+    dateModified: '2026-08-12',
     readMinutes: 9,
     image: {
       src: '/images/blog/is-linkedin-scraping-legal-hero.svg',
       width: 1200,
       height: 630,
-      alt: 'Is LinkedIn scraping legal — timeline of hiQ v. LinkedIn and Proxycurl rulings on a dark legal-themed graphic',
-      caption: 'The short answer isn’t yes or no — it’s three different layers of risk. Timeline below.',
+      alt: 'Is LinkedIn scraping legal — the 2026 verdict: criminal law says not a crime, LinkedIn’s terms drive account risk, GDPR/CCPA make B2B outreach compliant',
+      caption: 'The 2026 verdict at a glance — criminal, contract and privacy law each answer a different question.',
     },
     excerpt:
-      'In the US, scraping data you can lawfully see on LinkedIn isn’t a crime — hiQ v. LinkedIn settled that. But it breaches LinkedIn’s User Agreement, GDPR adds a lawful-basis layer, and the risk that actually touches a sales rep is account restriction. Here’s each layer, plainly.',
+      'Scraping public LinkedIn data isn’t a crime, and no salesperson has been prosecuted for exporting Sales Navigator leads. But “not a crime” isn’t the whole story: criminal law, LinkedIn’s terms, and privacy law each answer a different question. Here’s where you actually stand.',
     sections: [
       {
         h2: 'The short answer',
         blocks: [
-          'In the United States, scraping data you can lawfully see on LinkedIn is not a crime — courts settled that in *hiQ Labs v. LinkedIn*. But it almost certainly violates LinkedIn’s User Agreement, which is a contract, and LinkedIn has become far more aggressive about enforcing that contract in civil court. In Europe, the GDPR adds a second layer: even publicly visible profile data is personal data, and you need a lawful basis to process it.',
-          'So the honest answer isn’t “yes” or “no.” LinkedIn scraping lives in three different layers of risk — criminal law, civil law, and platform enforcement — and they have very different consequences. This guide walks through each one, what the major cases actually decided, and how sales teams export Sales Navigator leads in practice without putting their accounts or their companies at risk.',
-          '*This article is general information, not legal advice. If you’re building a business on scraped data, talk to a lawyer.*',
+          'Scraping publicly available LinkedIn data is **not a crime**, and no salesperson has ever been prosecuted for exporting Sales Navigator leads. But “not a crime” isn’t the whole story. LinkedIn scraping sits at the intersection of three different kinds of rules — criminal law, LinkedIn’s terms of service, and privacy regulations like GDPR — and each one answers a different question.',
+          'This guide walks through all three, in plain English, so you know exactly where you stand before you export your next lead list. (The usual caveat: this is general information, not legal advice — if you have a specific compliance question, talk to a lawyer.)',
         ],
       },
       {
-        h2: 'The three layers of LinkedIn scraping risk',
+        h2: 'The three questions people actually mean by “is it legal?”',
         blocks: [
           {
             image: {
               src: '/images/blog/linkedin-scraping-risk-layers.svg',
               width: 1200,
               height: 630,
-              alt: 'Diagram of the three layers of LinkedIn scraping risk: criminal law (CFAA), civil contract claims, and platform account enforcement',
-              caption: 'Three separate questions people lump into one word, “legal.” Only Layer 3 touches the average sales rep.',
+              alt: 'The three layers of LinkedIn scraping risk — criminal law (no risk), LinkedIn’s terms of service (the real daily risk), and privacy law (manageable)',
+              caption: 'Three separate questions people lump into one word. Only the middle one — LinkedIn’s terms — is a daily risk.',
             },
           },
-          'Most confusion about scraping legality comes from mixing up three separate questions.',
-          '**Layer 1 — Criminal law.** Is scraping a federal crime under the Computer Fraud and Abuse Act (CFAA)? For data you can lawfully access, the answer after *hiQ* and *Van Buren* is no. This is the layer that made headlines, and it’s the one where scrapers won.',
-          '**Layer 2 — Civil claims.** Can LinkedIn sue you for breach of contract, fraud, or unfair competition? Yes — and this is where LinkedIn now fights, and wins. The *hiQ* litigation ended with a court finding that hiQ breached LinkedIn’s User Agreement, and the 2025 Proxycurl case showed LinkedIn is willing to pursue scraping *companies* on contract and related claims.',
-          '**Layer 3 — Platform enforcement.** Can LinkedIn restrict or ban your account? Absolutely, and this is the only layer that touches the average sales rep. LinkedIn’s detection targets abnormal behaviour: too many profile views per day, robotic viewing patterns, automated tools that click and load pages for you, and data-center IP addresses. For 99% of people asking “is LinkedIn scraping legal,” the practical question is really “will I lose my account” — and that depends entirely on *how* the scraping is done.',
+          'When someone asks whether LinkedIn scraping is legal, they’re usually asking one of three things:',
+          {
+            list: [
+              '**Will I get in trouble with the law?** (criminal and civil liability)',
+              '**Will LinkedIn ban my account?** (terms of service)',
+              '**Can I lawfully use the data for outreach?** (GDPR, CCPA and privacy law)',
+            ],
+          },
+          'These have different answers, and conflating them is where most of the fear-mongering comes from. Let’s take them in order.',
         ],
       },
       {
-        h2: 'hiQ v. LinkedIn: the case everyone cites (and mostly misreads)',
+        h2: 'Question 1: Is scraping LinkedIn a crime? (hiQ v. LinkedIn)',
         blocks: [
-          '*hiQ Labs v. LinkedIn* is the landmark US scraping case, and it’s usually summarised as “courts said scraping is legal.” The full story is more useful than the summary.',
-          '**2019 — the Ninth Circuit sides with hiQ.** hiQ Labs scraped public LinkedIn profiles to build HR analytics products. When LinkedIn sent a cease-and-desist, hiQ sued — and in September 2019 the Ninth Circuit upheld a preliminary injunction in hiQ’s favour, reasoning that accessing *publicly available* data likely doesn’t violate the CFAA, the federal anti-hacking statute.',
-          '**2021 — the Supreme Court and Van Buren.** LinkedIn appealed, and the Supreme Court vacated the ruling in light of *Van Buren v. United States*, which narrowed the CFAA to a “gates-up-or-down” test: the law targets access to systems you’re not entitled to enter, not misuse of data you can lawfully see.',
-          '**2022 — reaffirmed, then hiQ loses anyway.** On remand, the Ninth Circuit reaffirmed in April 2022 that scraping public data likely doesn’t violate the CFAA. But in November 2022, the district court ruled that hiQ had *breached LinkedIn’s User Agreement* — a straightforward contract claim — and the parties settled. hiQ, by then, was effectively out of business.',
-          'The real lesson of *hiQ* isn’t “scraping is legal.” It’s that the CFAA won’t make scraping criminal, but LinkedIn’s Terms of Service remain an enforceable contract — and litigation can outlast the company being sued.',
+          'The landmark case here is **hiQ Labs v. LinkedIn**, which ran from 2017 to 2022 and shaped how US courts think about web scraping. hiQ was an analytics startup that scraped public LinkedIn profiles. LinkedIn argued the scraping violated the **Computer Fraud and Abuse Act (CFAA)** — the US federal anti-hacking statute — and hiQ sued; the case went up to the Ninth Circuit twice.',
+          '**What the courts decided.** The Ninth Circuit ruled (2019, reaffirmed 2022) that scraping publicly accessible data does not violate the CFAA: the statute targets accessing computers “without authorization,” and data open to the public doesn’t require authorization in the first place — you can’t “hack” a page anyone can view. The Supreme Court’s decision in **Van Buren v. United States (2021)** reinforced this “gates-up-or-down” reading. But hiQ still lost the war: in late 2022 the case ended with a settlement and consent judgment after the district court found hiQ had **breached LinkedIn’s User Agreement** — a contract claim, not a hacking claim.',
+          '**What that means for you.** Scraping public LinkedIn data is not a criminal act in the US. The real exposure is **contractual**: when you log in, you accept a User Agreement that prohibits automated data collection, and LinkedIn can enforce it — primarily by restricting the account that breaks it. Notably, in **Meta v. Bright Data (2024)**, a court found that logged-*out* scraping of public data didn’t even breach the platform’s terms, underlining that the contract question turns on the account, not the scraping itself. For a sales team, LinkedIn’s realistic enforcement isn’t a lawsuit — you’re not a venture-funded data reseller — it’s account restriction.',
         ],
       },
       {
-        h2: 'Proxycurl (2025): LinkedIn’s playbook today',
+        h2: 'Question 2: Will LinkedIn ban my account?',
         blocks: [
-          'In January 2025, LinkedIn sued Proxycurl — then one of the largest LinkedIn data API providers — along with its Singapore parent company Nubela and its founders personally, in the Northern District of California (Case No. 3:25-cv-00828). The complaint stacked six claims: breach of contract, fraud, CFAA violations, California unfair competition, trademark dilution, and misappropriation. Proxycurl settled and wound its LinkedIn data products down.',
-          'Two things in that case matter for anyone in lead generation. First, LinkedIn’s User Agreement (Section 8.2) prohibits using data obtained “directly or through third parties (such as search tools or data aggregators or brokers)” — language aimed not just at scrapers but at *resellers of scraped data*. Second, LinkedIn targets companies that scrape and resell LinkedIn data at industrial scale as a product. That’s a fundamentally different activity from a sales team exporting its own Sales Navigator search results into a CSV for outreach.',
+          'LinkedIn’s User Agreement (Section 8.2) prohibits using bots or other automated methods to copy data from the service. Violating it isn’t illegal — breaching a website’s terms is a contract issue — but LinkedIn’s remedy is swift and practical: **warnings, temporary restrictions and permanent bans.** This is where scraping tools differ enormously, and it’s the risk that should drive your choice of tool:',
+          {
+            list: [
+              '**Browser-automation tools and cloud phantoms** pilot your LinkedIn session at machine speed — visiting hundreds of profiles an hour, clicking in perfect rhythm. LinkedIn’s detection is built to spot exactly this, and detection means your account (and your Sales Navigator subscription) takes the hit.',
+              '**Chrome extensions that inject code into LinkedIn’s pages** are detectable too — LinkedIn can see modified page structures and abnormal request patterns from your session.',
+              '**Account-safe scrapers** stay within human-like rate limits, avoid injecting anything detectable into your session, and throttle extraction to mimic normal Sales Navigator usage.',
+            ],
+          },
+          'This is the design philosophy behind [Coldcast’s Sales Navigator scraper](/products/sales-navigator-scraper): the scraping problem isn’t “can you get the data” — any tool can — it’s “can you get the data without LinkedIn noticing anything unusual about your account.” For the operational detail, we’ve written a full guide on [how to scrape Sales Navigator without getting banned](/blog/scrape-sales-navigator-without-getting-banned).',
         ],
       },
       {
-        h2: 'What about GDPR and privacy laws?',
+        h2: 'Question 3: Can you lawfully use scraped data for outreach? (GDPR & CCPA)',
         blocks: [
-          'If your prospects are in the EU or UK, US case law is only half the picture. Under the GDPR, publicly visible profile data is still **personal data**, and “it was public” is not a lawful basis by itself. In practice, B2B prospecting teams rely on **legitimate interest** (Article 6(1)(f)) — workable for business contact data used for relevant B2B outreach, provided you can pass a balancing test and honour your obligations: tell people where their data came from when you contact them (Article 14), make opting out easy, delete on request, don’t hoard data you’re not using, and never process sensitive categories of data. California’s CCPA/CPRA adds similar transparency and deletion obligations for California residents.',
-          'None of this makes scraping-based prospecting illegal in Europe — cold B2B outreach on legitimate-interest grounds is standard practice — but it does make *how you store, use, and honour objections to* the data a compliance question in its own right.',
+          'Even though collecting public data isn’t a crime, the moment you process **personal data** — names, job titles, work emails — privacy law applies. This is the layer most scraping guides skip, and the one with real regulatory teeth in Europe.',
+          '**GDPR (EU/UK prospects).** GDPR applies wherever your prospects are in the EU or UK, regardless of where your company sits — and it does **not** prohibit B2B prospecting. Cold outreach to business contacts can rest on the **legitimate interest** basis (Article 6(1)(f)), provided you handle the data responsibly: use business data for business purposes; tell people where you got their data (Article 14 — in practice a line in your first email noting you found them on LinkedIn); honour opt-outs immediately and suppress deleted contacts rather than re-enriching them; and don’t hoard data beyond a genuine prospecting purpose.',
+          '**CCPA (California prospects).** California’s CCPA/CPRA is lighter-touch for B2B: the core obligations are disclosure and honouring deletion/opt-out requests. Respond to those promptly and ordinary B2B prospecting is workable.',
+          '**Where verification fits.** Regulators care about **data quality** too — GDPR’s accuracy principle means you shouldn’t be emailing stale addresses. Running exports through [email verification](/products/email-verify) and [waterfall enrichment](/products/waterfall-enricher) isn’t just deliverability hygiene; it keeps your outreach list accurate, current and defensible.',
         ],
       },
       {
-        h2: 'What this means if you use Sales Navigator',
+        h2: 'So what’s actually risky? A practical hierarchy',
         blocks: [
-          'Here’s the practical translation for a sales team paying for Sales Navigator. You are a licensed, logged-in user viewing data LinkedIn shows you as part of a product you pay for. Exporting the leads you can already see — name, title, company, profile URL — into a spreadsheet for your own prospecting is a Terms of Service issue, not a criminal one. Nobody has ever faced criminal charges for exporting their own lead lists, and LinkedIn’s civil lawsuits target data resellers, not end users. The realistic risk you carry is **account restriction** — and that risk is driven almost entirely by detection: how fast you scrape, from what IP, with what behaviour, in what pattern.',
-          'That’s why account safety, not legal theory, is the thing to optimise. A few rules cover most of it: keep daily volumes inside human-plausible limits instead of hammering thousands of profiles an hour; avoid tools that automate at machine speed or inject scripted actions into LinkedIn pages, which LinkedIn can detect directly; work from your own logged-in session and residential IP rather than a data-center one or a replayed cookie; scrape only what’s visible in your own licensed seat; and enrich emails from sources *outside* LinkedIn (waterfall enrichment against public web and database sources) rather than pulling contact details LinkedIn doesn’t display. We’ve written a full guide on this: [how to scrape Sales Navigator without getting banned](/blog/scrape-sales-navigator-without-getting-banned).',
+          'Putting the three layers together, here’s how the risk actually stacks up for a typical sales team:',
+          {
+            list: [
+              '**No realistic risk:** criminal prosecution for exporting public B2B lead data. The CFAA question was settled by *hiQ* and *Van Buren*.',
+              '**Low, manageable risk:** privacy-law issues — if you follow the B2B outreach practices above (relevance, transparency, opt-outs, accuracy).',
+              '**The real risk:** **losing your LinkedIn account** because your tool scraped in a way LinkedIn detects. This is the one that happens every day, and the one entirely within your control through tool choice.',
+            ],
+          },
+          'In other words: the question isn’t so much “is LinkedIn scraping legal?” as “is my scraper safe?”',
         ],
       },
       {
-        h2: 'Where Coldcast stands',
+        h2: 'How Coldcast approaches this',
         blocks: [
-          'Coldcast was built around exactly this reading of the landscape: the law is manageable, the ToS risk sits with data resellers, and the account risk sits with you — so the product’s job is to make that account risk as close to zero as possible. [Coldcast’s Sales Navigator scraper](/products/sales-navigator-scraper) runs in your own browser and your own logged-in session, reading the results you’re already licensed to see at human pace — no data-center IPs, no session cookie handed to a cloud server, no automated blasting that trips LinkedIn’s thresholds. Emails come from [waterfall enrichment](/products/waterfall-enricher) across external data sources — not from LinkedIn itself — and pass through [built-in verification](/products/email-verify) so you’re not burning your sender domain on guesses.',
-          'If you’re comparing approaches, our [Evaboot alternative breakdown](/blog/evaboot-alternative) covers how different export tools handle safety, and the [step-by-step CSV export guide](/blog/export-sales-navigator-leads-to-csv) shows the full workflow.',
+          'Coldcast was built as the safest way to get leads out of Sales Navigator, and that design maps directly onto the three layers above:',
+          {
+            list: [
+              '**Public-data extraction at human-like rates** keeps your account clear of LinkedIn’s automation detection — no injected code, no machine-speed profile visits.',
+              '**[Waterfall enrichment](/products/waterfall-enricher)** finds work emails from multiple providers, and **[email verification](/products/email-verify)** confirms them before you send — so your list stays accurate and GDPR-defensible.',
+              '**Clean CSV export** means you control the data: easy to honour deletion requests, easy to document where a contact came from. See our walkthrough on [exporting Sales Navigator leads to CSV](/blog/export-sales-navigator-leads-to-csv).',
+            ],
+          },
         ],
       },
     ],
     faq: [
-      { q: 'Is scraping LinkedIn a crime?', a: 'No — not in the US for data you can lawfully access. hiQ v. LinkedIn and the Supreme Court’s Van Buren decision established that the CFAA targets breaking into systems, not collecting data you’re allowed to see. Scraping remains a breach of LinkedIn’s User Agreement, which is a civil (contract) matter.' },
-      { q: 'Can LinkedIn sue me for scraping?', a: 'LinkedIn’s lawsuits (hiQ, Proxycurl, and others) have targeted companies scraping at massive scale to resell LinkedIn data as a product. There’s no known case of LinkedIn suing an individual sales professional for exporting their own Sales Navigator leads. The realistic consequence for individuals is account restriction, not litigation.' },
-      { q: 'Is scraping LinkedIn legal under GDPR?', a: 'GDPR doesn’t ban collecting publicly available B2B data, but it regulates it: you need a lawful basis (usually legitimate interest for B2B prospecting), you must tell contacts where their data came from, honour opt-outs and deletion requests, and avoid sensitive data. Compliance depends on how you use and manage the data, not just how you got it.' },
-      { q: 'Will I get banned from LinkedIn for using a scraper?', a: 'It depends on the tool’s detection profile. Tools that automate actions or inject scripts into LinkedIn pages, or that scrape at inhuman speed or from data-center IPs, get accounts flagged. Tools that read your own licensed view at human-plausible volumes, from your own session and IP, carry far lower risk. See our account-safety guide for specifics.' },
-      { q: 'Can I use scraped LinkedIn data for cold email?', a: 'Emailing scraped profile data is the wrong model — LinkedIn doesn’t show most emails anyway. The standard compliant workflow is: export the lead list (name, company, title), then find emails via enrichment providers that source from outside LinkedIn, verify them, and run outreach that complies with GDPR/PECR (EU/UK) or CAN-SPAM (US) rules for B2B contact.' },
+      { q: 'Is scraping LinkedIn a criminal offense?', a: 'No. US courts held in hiQ v. LinkedIn that scraping publicly accessible data does not violate the Computer Fraud and Abuse Act. There is no criminal statute against collecting public profile data, in the US or the EU. The risks are contractual (LinkedIn’s terms) and regulatory (privacy-law compliance) — not criminal.' },
+      { q: 'Can LinkedIn sue me for scraping?', a: 'Technically LinkedIn can bring a breach-of-contract claim against users who violate its User Agreement, as it did against hiQ Labs. In practice, LinkedIn litigates against large-scale commercial data resellers, not individual sales professionals. For normal users, LinkedIn’s enforcement is account restriction, not lawsuits.' },
+      { q: 'Is it legal to scrape emails from LinkedIn?', a: 'Most scraping tools, including Coldcast, don’t take emails from LinkedIn itself — they enrich scraped names and companies through third-party databases to find work emails. Using business contact data for relevant B2B outreach is lawful under GDPR’s legitimate-interest basis, provided you disclose your data source, keep data accurate, and honour opt-outs.' },
+      { q: 'Does GDPR ban cold outreach to scraped leads?', a: 'No. GDPR regulates how you process personal data; it doesn’t prohibit B2B prospecting. Cold email to business contacts can rely on legitimate interest if the pitch is relevant to the recipient’s role, you tell them where you got their data, and you honour opt-outs immediately. Some EU countries layer additional e-privacy rules on top, so check local rules for your key markets.' },
+      { q: 'What’s the safest way to export Sales Navigator leads?', a: 'Use a tool that extracts at human-like rates without injecting detectable code into your LinkedIn session, then enrich and verify emails outside LinkedIn. Coldcast’s Sales Navigator scraper was built around exactly this account-safety principle — the difference between tools that get data and tools that get data while keeping your account alive.' },
     ],
   },
   {
