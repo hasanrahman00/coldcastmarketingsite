@@ -97,6 +97,28 @@ export const PRODUCT_SEO = {
     ogDescription:
       'Export Sales Nav leads from your own browser session. 20,000/day, enriched and scored, no code — just paste a search URL.',
   },
+  'linkedin-post-scraper': {
+    name: 'LinkedIn Post Scraper',
+    title: 'LinkedIn Post Scraper: Reactions & Comments | Coldcast',
+    description:
+      'Scrape everyone who reacted, commented on or reposted any LinkedIn post — enriched with verified emails, from your own browser at zero ban risk. Try it free.',
+    keywords:
+      'linkedin post scraper, linkedin post engagement scraper, scrape linkedin comments, scrape post reactions, linkedin reactions scraper, warm outbound leads',
+    ogTitle: 'LinkedIn Post Scraper — Export Every Engager, Enriched',
+    ogDescription:
+      'Paste a post URL and export every reactor, commenter and reposter with verified emails — account-safe, from your own browser.',
+  },
+  'sales-navigator-account-scraper': {
+    name: 'Sales Nav Account Scraper',
+    title: 'Sales Navigator Account Scraper: Company Export | Coldcast',
+    description:
+      'Export whole company lists from a LinkedIn Sales Navigator account search — firmographics and resolved domains per account, account-safe. Start free today.',
+    keywords:
+      'sales navigator account scraper, sales navigator company scraper, export sales nav accounts, account based marketing list, company search export, firmographics scraper',
+    ogTitle: 'Sales Nav Account Scraper — Export Company Lists, Safely',
+    ogDescription:
+      'Turn a Sales Navigator account search into a clean company list with domains and firmographics — from your own browser, zero ban risk.',
+  },
   'apollo-scraper': {
     name: 'Apollo Scraper',
     title: 'Apollo Scraper: Fresh, Verified Exports | Coldcast',

@@ -3,6 +3,11 @@
 @import '@fontsource/space-mono/400.css';
 @import '@fontsource/space-mono/400-italic.css';
 @import '@fontsource/space-mono/700.css';
+/* Plus Jakarta Sans — used ONLY for the top nav + its dropdowns + the wordmark
+   (a clean sans against the Space Mono body), per the requested nav restyle. */
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
 
 @tailwind base;
 @tailwind components;

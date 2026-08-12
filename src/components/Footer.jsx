@@ -13,6 +13,7 @@ const PRODUCTS = [
   { label: 'Email Verification', to: '/products/email-verify' },
   { label: 'Domain Enrichment', to: '/products/domain-enrichment' },
   { label: 'Coldcast Agent', to: '/coldcast-agent' },
+  { label: 'Free Tools', to: '/tools' },
 ]
 
 // Grows as vs/alternative pages ship.
@@ -42,7 +43,7 @@ export default function Footer() {
           <div>
             <Link to="/" className="inline-flex items-center gap-3" aria-label="Coldcast — home">
               <Logo size={44} />
-              <span className="font-display text-2xl font-bold tracking-tight text-ink">Coldcast</span>
+              <span className="font-jakarta text-2xl font-bold tracking-tight text-[#111827]">Coldcast</span>
             </Link>
             {/* Keyword-rich, crawlable sitewide description (real <p>, not an image). */}
             <p className="mt-5 max-w-[300px] text-sm leading-relaxed text-faint">

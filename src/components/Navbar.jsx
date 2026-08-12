@@ -6,21 +6,13 @@ import {
   X,
   ChevronDown,
   ArrowRight,
-  Bot,
   ShieldCheck,
-  Search,
   Rocket,
-  Building2,
-  Droplets,
-  MailCheck,
-  Globe,
   Target,
   TrendingUp,
   Briefcase,
   Settings2,
   UserSearch,
-  Wrench,
-  BadgePercent,
 } from 'lucide-react'
 import Logo from './Logo'
 import Button from './Button'
@@ -34,32 +26,21 @@ const TAG = {
   '−75%': 'bg-brand/15 text-accent',
 }
 
-const AI_SDR = { icon: Bot, name: 'AI SDR', desc: 'Autonomous outreach, 24/7', tag: 'New', to: '/coldcast-agent' }
-
-const PRODUCT_COLUMNS = [
-  {
-    heading: 'Scrape',
-    items: [
-      { icon: Search, name: 'Sales Nav Scraper', desc: 'Export any Sales Navigator search', to: '/products/sales-navigator-scraper' },
-      { icon: Rocket, name: 'Apollo Scraper', desc: 'Pull lists from Apollo', to: '/products/apollo-scraper' },
-      { icon: Building2, name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo data', to: '/products/zoominfo-scraper' },
-    ],
-  },
-  {
-    heading: 'Enrich & verify',
-    items: [
-      { icon: Droplets, name: 'Waterfall Enricher', desc: 'Verified emails & phones', to: '/products/waterfall-enricher' },
-      { icon: MailCheck, name: 'Email Verify', desc: 'Validate before you send', to: '/products/email-verify' },
-      { icon: Globe, name: 'Domain Enrichment', desc: 'Company data from a domain', to: '/products/domain-enrichment' },
-    ],
-  },
-  {
-    heading: 'More',
-    items: [
-      { icon: Wrench, name: 'Free Tools', desc: 'Free email verifier & more', to: '/tools' },
-      { icon: BadgePercent, name: 'Sales Nav Advanced', desc: 'Sales Nav power search — $25/mo', tag: '−75%', to: '/sales-nav-advanced' },
-    ],
-  },
+// Scrapers mega-menu — a clean 2-column grid of colourful emoji tiles (the look
+// the user asked for, à la GrowthToolkit). ⚠ The emoji are a DELIBERATE,
+// user-requested exception to the "lime logo is the only colour" rule: colour
+// here lives only in the emoji + their soft pastel tiles, to make the menu pop
+// and read at a glance. `tile` is the pastel square behind each emoji.
+const SCRAPERS = [
+  { emoji: '🔍', tile: '#eef1fe', name: 'Sales Nav Scraper', desc: 'Export any Sales Navigator lead search', to: '/products/sales-navigator-scraper' },
+  { emoji: '🏦', tile: '#f2ecfe', name: 'Sales Nav Account Scraper', desc: 'Export company lists from account search', to: '/products/sales-navigator-account-scraper' },
+  { emoji: '💬', tile: '#e7f1ff', name: 'LinkedIn Post Scraper', desc: 'Scrape reactors & commenters from any post', to: '/products/linkedin-post-scraper' },
+  { emoji: '🚀', tile: '#f3ecff', name: 'Apollo Scraper', desc: 'Pull whole lists straight from Apollo', to: '/products/apollo-scraper' },
+  { emoji: '🏢', tile: '#e6f7f3', name: 'ZoomInfo Scraper', desc: 'Export ZoomInfo company & contact data', to: '/products/zoominfo-scraper' },
+  { emoji: '💧', tile: '#e7f3ff', name: 'Waterfall Enricher', desc: 'Verified emails & direct-dial phones', to: '/products/waterfall-enricher' },
+  { emoji: '✅', tile: '#e9f8ee', name: 'Email Verify', desc: 'Validate every address before you send', to: '/products/email-verify' },
+  { emoji: '🌐', tile: '#e8f0fe', name: 'Domain Enrichment', desc: 'Company data from just a domain', to: '/products/domain-enrichment' },
+  { emoji: '🏷️', tile: '#fdeef0', name: 'Sales Nav Advanced', desc: 'Sales Nav power search — $25/mo', tag: '−75%', to: '/sales-nav-advanced' },
 ]
 
 const ROLES = [
@@ -104,8 +85,38 @@ function ItemRow({ icon, name, desc, tag, to, onClick }) {
       </span>
       <span className="min-w-0">
         <span className="flex items-center gap-2">
-          {/* Variant B: LIME label against the MINT icon tile. */}
-          <span className="text-sm font-semibold text-lime">{name}</span>
+          <span className="text-sm font-semibold text-[#111827]">{name}</span>
+          {tag && <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[tag]}`}>{tag}</span>}
+        </span>
+        <span className="mt-0.5 block text-xs leading-snug text-muted">{desc}</span>
+      </span>
+    </Link>
+  )
+}
+
+// Colourful emoji in a soft pastel square — the Scrapers-menu icon.
+function EmojiTile({ emoji, tile }) {
+  return (
+    <span
+      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] text-[18px] leading-none"
+      style={{ backgroundColor: tile }}
+      aria-hidden
+    >
+      {emoji}
+    </span>
+  )
+}
+
+// Scrapers-menu row: emoji tile + INK title (dark, high-contrast, like the
+// reference) + muted one-liner. hover:bg-black wash so it actually shows on the
+// light panel (the old bg-white wash was invisible on #fafafa).
+function ProductRow({ emoji, tile, name, desc, tag, to, onClick }) {
+  return (
+    <Link to={to} onClick={onClick} className="group/item flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-black/[0.04]">
+      <span className="mt-0.5"><EmojiTile emoji={emoji} tile={tile} /></span>
+      <span className="min-w-0">
+        <span className="flex items-center gap-2">
+          <span className="text-sm font-semibold text-[#111827] transition-colors group-hover/item:text-lime">{name}</span>
           {tag && <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[tag]}`}>{tag}</span>}
         </span>
         <span className="mt-0.5 block text-xs leading-snug text-muted">{desc}</span>
@@ -123,8 +134,9 @@ const panelV = {
 // Top-level nav links are MINT at rest, brightening to the light mint on hover.
 // The hover pill (bg-white/[0.06]) still carries most of the feedback, so the
 // colour shift stays subtle rather than fighting the lime Free trial button.
+// Nav restyle: Plus Jakarta Sans 400, 14px / 20px line-height, colour #111827.
 const linkCls =
-  'relative z-10 flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-brand transition-colors hover:text-accent'
+  'relative z-10 flex items-center gap-1 rounded-full px-3.5 py-2 font-jakarta text-[14px] font-normal leading-5 text-[#111827] transition-colors'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -177,7 +189,7 @@ export default function Navbar() {
             like Mindcase's "◇ mindcase". */}
         <Link to="/" onClick={() => setMenu(null)} className="flex shrink-0 items-center gap-2.5" aria-label="Coldcast — home">
           <Logo size={32} />
-          <span className="font-display text-[19px] font-bold lowercase tracking-tight text-ink">Coldcast</span>
+          <span className="font-jakarta text-[19px] font-bold lowercase tracking-tight text-[#111827]">Coldcast</span>
         </Link>
 
         {/* Center nav with sliding hover pill */}
@@ -233,31 +245,13 @@ export default function Navbar() {
             // Products carries a third column now, so it gets a wider shell; the
             // role panel keeps its original width. Both stay clamped to the viewport.
             className={`absolute inset-x-0 top-full mx-auto hidden px-4 lg:block ${
-              menu === 'products' ? 'w-[min(76rem,calc(100vw-2rem))]' : 'w-[min(60rem,calc(100vw-2rem))]'
+              menu === 'products' ? 'w-[min(48rem,calc(100vw-2rem))]' : 'w-[min(60rem,calc(100vw-2rem))]'
             }`}
           >
-            <div className="overflow-hidden rounded-2xl border border-hairline-strong bg-panel shadow-card">
+            <div className="overflow-hidden rounded-2xl border border-hairline-strong bg-panel font-jakarta shadow-card">
               {menu === 'products' && (
-                <div className="grid grid-cols-[2.7fr_1fr]">
-                  <div className="grid grid-cols-3 gap-x-4 p-7">
-                    {PRODUCT_COLUMNS.map((col) => (
-                      <div key={col.heading}>
-                        {/* Variant B: column headings ride with the lime labels. */}
-                        <p className="px-2.5 pb-2 text-xs font-semibold uppercase tracking-wider text-lime">{col.heading}</p>
-                        <div className="flex flex-col gap-1">
-                          {col.items.map((it) => (<ItemRow key={it.name} {...it} onClick={() => setMenu(null)} />))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex flex-col justify-between border-l border-hairline bg-inset p-6">
-                    <div>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/15 px-2.5 py-1 text-[11px] font-semibold text-accent"><Bot size={12} /> New</span>
-                      <h4 className="mt-3 text-base font-semibold text-ink">Meet your AI SDR</h4>
-                      <p className="mt-1.5 text-sm leading-relaxed text-muted">Let an autonomous rep write, send and follow up off your enriched lists.</p>
-                    </div>
-                    <Link to="/#ai-sdr" onClick={() => setMenu(null)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand transition-colors hover:text-ink">See how it works <ArrowRight size={15} /></Link>
-                  </div>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-0.5 p-6">
+                  {SCRAPERS.map((it) => (<ProductRow key={it.name} {...it} onClick={() => setMenu(null)} />))}
                 </div>
               )}
 
@@ -300,7 +294,7 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="absolute inset-x-0 top-full max-h-[calc(100dvh-7rem)] overflow-y-auto border-b border-hairline-strong bg-panel shadow-card lg:hidden"
           >
-            <div className="container-px flex flex-col gap-1 py-5">
+            <div className="container-px flex flex-col gap-1 py-5 font-jakarta">
               <Link to="/coldcast-agent" onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">Coldcast Agent</Link>
               {/* Label AND target pulled from NAV so desktop and mobile can't
                   drift apart — both now scroll to the homepage #products section
@@ -308,16 +302,16 @@ export default function Navbar() {
               <Link to={NAV.find((n) => n.key === 'products')?.to ?? '/#products'} onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">
                 {NAV.find((n) => n.key === 'products')?.label ?? 'Scrapers'}
               </Link>
-              {[AI_SDR, ...PRODUCT_COLUMNS.flatMap((c) => c.items)].map((it) => (
-                <Link key={it.name} to={it.to} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold text-lime hover:bg-white/[0.05]">
-                  <span className="flex items-center gap-2.5"><IconTile icon={it.icon} size={15} />{it.name}</span>
+              {SCRAPERS.map((it) => (
+                <Link key={it.name} to={it.to} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold text-ink hover:bg-black/[0.04]">
+                  <span className="flex items-center gap-2.5"><EmojiTile emoji={it.emoji} tile={it.tile} />{it.name}</span>
                   {it.tag && <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${TAG[it.tag]}`}>{it.tag}</span>}
                 </Link>
               ))}
               <Link to="/#pricing" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">Pricing</Link>
               <Link to="/roles" onClick={() => setOpen(false)} className="mt-2 rounded-lg px-3 py-3 text-base font-medium text-brand hover:bg-white/[0.05]">Role</Link>
               {ROLES.map((r) => (
-                <Link key={r.name} to={r.to} onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-semibold text-lime hover:bg-white/[0.05]">
+                <Link key={r.name} to={r.to} onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-semibold text-[#111827] hover:bg-black/[0.04]">
                   <IconTile icon={r.icon} size={15} />{r.name}
                 </Link>
               ))}

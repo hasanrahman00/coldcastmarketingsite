@@ -5,6 +5,164 @@
 //   stats[], benefits{heading,items[]}, faq[], cta{title,subtitle} }
 
 export const PRODUCT_PAGES = {
+  // ──────────────────────── LinkedIn Post Scraper ───────────────────────────
+  'linkedin-post-scraper': {
+    slug: 'linkedin-post-scraper',
+    kind: 'product',
+    emoji: '💬',
+    color: 'brand',
+    heroVariant: 'centered',
+    howVariant: 'rail',
+    featuresVariant: 'grid',
+    order: ['how', 'stats', 'features', 'comparison', 'benefits', 'faq'],
+    comparison: {
+      heading: 'A warm audience beats a cold one.',
+      rows: [
+        { label: 'Who you reach', them: 'Cold ICP guesses', us: 'People who just engaged' },
+        { label: 'Signal', them: 'None', us: 'Reacted / commented / reposted' },
+        { label: 'Emails', them: 'Separate tool', us: 'Verified, built in' },
+        { label: 'Account risk', them: 'Cloud bot', us: 'Your browser, 0 bans' },
+        { label: 'Setup', them: 'Proxies & code', us: 'Paste the post URL' },
+      ],
+    },
+    hero: {
+      eyebrow: 'LinkedIn Post Scraper',
+      title: 'Scrape everyone who engaged with a LinkedIn post — reactions, comments and reposts.',
+      subtitle:
+        'Paste any LinkedIn or Sales Navigator post URL and Coldcast exports every reactor, commenter and reposter, enriched with verified emails — from your own browser, at zero ban risk.',
+      badges: ['0 account bans', 'Reactors + commenters + reposters', 'Verified emails built in'],
+    },
+    how: {
+      heading: 'From a post URL to a warm, enriched list — in minutes.',
+      subtitle: 'The people who engaged already raised their hand. Turn them into pipeline.',
+      steps: [
+        { emoji: '🧩', title: 'Install the extension', desc: 'Add the Coldcast Chrome extension in one click and sign in to your own LinkedIn.' },
+        { emoji: '🔗', title: 'Paste the post URL', desc: 'Any public LinkedIn or Sales Navigator post — yours, a competitor’s, or a viral thread.' },
+        { emoji: '🎚️', title: 'Pick the engagement', desc: 'Reactions, comments, reposts — or all three. Coldcast dedupes across them for you.' },
+        { emoji: '▶️', title: 'Hit start', desc: 'Coldcast collects every engager at a smooth, human pace — no bot, no ban risk.' },
+        { emoji: '💧', title: 'Enrich automatically', desc: 'Waterfall enrichment adds verified emails and direct dials as it exports.' },
+        { emoji: '⬇️', title: 'Export the list', desc: 'Download a clean CSV/XLSX or push straight into your sequencer.' },
+      ],
+    },
+    features: {
+      heading: 'Turn engagement into an outreach list.',
+      subtitle: 'The warmest audience on LinkedIn is the one that just interacted with a post.',
+      items: [
+        { emoji: '👍', title: 'Every reactor', desc: 'Capture all reactions — like, celebrate, support, love, insightful and funny.' },
+        { emoji: '💬', title: 'Every commenter', desc: 'Pull everyone who commented, plus the comment text for instant personalisation.' },
+        { emoji: '🔁', title: 'Every reposter', desc: 'Reposters amplified you publicly — the strongest signal of all.' },
+        { emoji: '🧹', title: 'Deduped across signals', desc: 'Someone who liked and commented shows once, with every signal flagged.' },
+        { emoji: '💧', title: 'Verified emails built in', desc: 'Waterfall enrichment finds and verifies work emails on the same pass.' },
+        { emoji: '🛡️', title: 'Account-safe', desc: 'Runs in your own browser session at human pace — LinkedIn only sees you.' },
+      ],
+    },
+    stats: [
+      { value: '3', label: 'engagement types' },
+      { value: '70–85%', label: 'email match' },
+      { value: '0', label: 'account bans' },
+      { value: '1', label: 'post URL to start' },
+    ],
+    benefits: {
+      heading: 'Why post engagers convert better.',
+      items: [
+        { emoji: '🔥', title: 'Warm, not cold', desc: 'They just engaged with the topic — your opener writes itself.' },
+        { emoji: '🎯', title: 'Built-in relevance', desc: 'Interest is proven, so replies and positive sentiment run higher.' },
+        { emoji: '⚡', title: 'Fast to fire', desc: 'A viral post becomes a ready-to-send list in a single sitting.' },
+      ],
+    },
+    faq: [
+      { q: 'Whose posts can I scrape?', a: 'Any public LinkedIn post — your own, a competitor’s, an influencer’s or a viral thread. Paste the post URL and Coldcast pulls its engagers.' },
+      { q: 'Does it get comments and reposts too, not just likes?', a: 'Yes. Coldcast captures reactions, comments (with the comment text) and reposts, and dedupes anyone who did more than one.' },
+      { q: 'Are emails included?', a: 'Yes — waterfall enrichment finds and verifies work emails as it exports, so you get a send-ready list, not just names.' },
+      { q: 'Is it safe for my account?', a: 'Yes. Extraction runs in your own browser session at human pace — there is no cloud bot and no datacenter IP, which is why Coldcast records zero account bans.' },
+      { q: 'Do I need Sales Navigator?', a: 'No. The post scraper works on standard LinkedIn posts; Sales Navigator is optional. You do need to be signed in to your own LinkedIn.' },
+      { q: 'Can I export to CSV?', a: 'Yes — clean, deduplicated, verification-flagged CSV or XLSX, or push straight into your outreach tool.' },
+    ],
+    cta: {
+      title: 'Turn your next post into pipeline.',
+      subtitle: 'Paste a post URL and export every engager, enriched and ready to send.',
+    },
+  },
+
+  // ─────────────────────── Sales Nav Account Scraper ────────────────────────
+  'sales-navigator-account-scraper': {
+    slug: 'sales-navigator-account-scraper',
+    kind: 'product',
+    emoji: '🏦',
+    color: 'brand',
+    heroVariant: 'centered',
+    howVariant: 'rail',
+    featuresVariant: 'grid',
+    order: ['how', 'stats', 'features', 'comparison', 'benefits', 'faq'],
+    comparison: {
+      heading: 'Account search, exported the safe way.',
+      rows: [
+        { label: 'Search type', them: 'People only', us: 'Company / account search' },
+        { label: 'Where it runs', them: 'Cloud bot', us: 'Your browser' },
+        { label: 'Firmographics', them: 'Separate tool', us: 'Enriched on export' },
+        { label: 'Domains', them: 'Missing', us: 'Resolved per account' },
+        { label: 'Account risk', them: 'High', us: 'Zero' },
+      ],
+    },
+    hero: {
+      eyebrow: 'Sales Nav Account Scraper',
+      title: 'Export whole company lists from a Sales Navigator account search.',
+      subtitle:
+        'Point Coldcast at any Sales Navigator account (company) search and export every company with firmographics and a resolved domain — account-safe, from your own browser, ready to enrich into contacts.',
+      badges: ['0 account bans', 'Firmographics + domains', 'Feeds people & email enrichment'],
+    },
+    how: {
+      heading: 'Company search → clean account list, in minutes.',
+      subtitle: 'Build target-account lists for ABM without copy-pasting company pages.',
+      steps: [
+        { emoji: '🧩', title: 'Install the extension', desc: 'Add the Coldcast Chrome extension and sign in to your own LinkedIn.' },
+        { emoji: '🏢', title: 'Build an account search', desc: 'Use Sales Navigator’s company filters — headcount, industry, geography, growth.' },
+        { emoji: '📋', title: 'Paste the search URL', desc: 'Copy your account-search URL into Coldcast — no proxies, no code.' },
+        { emoji: '▶️', title: 'Hit start', desc: 'Coldcast exports every account at a smooth, human pace, zero ban risk.' },
+        { emoji: '🌐', title: 'Enrich firmographics & domains', desc: 'Company size, industry and a resolved website domain attach to each row.' },
+        { emoji: '⬇️', title: 'Export or hand off', desc: 'Download a clean CSV, or feed it into domain enrichment to find contacts.' },
+      ],
+    },
+    features: {
+      heading: 'Built for account-based targeting.',
+      subtitle: 'Turn a company search into a structured, enrich-ready account list.',
+      items: [
+        { emoji: '🏦', title: 'Company-level export', desc: 'Export account (company) searches, not just people — the ABM starting point.' },
+        { emoji: '🌐', title: 'Domains resolved', desc: 'Every account gets its real website domain, ready for enrichment.' },
+        { emoji: '📊', title: 'Firmographics attached', desc: 'Headcount, industry, HQ and more, pulled onto every row.' },
+        { emoji: '🔗', title: 'Feeds the people scraper', desc: 'Hand the account list to Coldcast to find and verify the right contacts.' },
+        { emoji: '🛡️', title: 'Account-safe', desc: 'Runs in your own browser at human pace — no cloud bot, zero bans.' },
+        { emoji: '⚡', title: 'Whole lists at once', desc: 'Export the full account search in one sitting instead of page by page.' },
+      ],
+    },
+    stats: [
+      { value: '20,000', label: 'accounts / day' },
+      { value: '100%', label: 'domains resolved' },
+      { value: '0', label: 'account bans' },
+      { value: '1', label: 'search URL to start' },
+    ],
+    benefits: {
+      heading: 'Why teams start ABM with account search.',
+      items: [
+        { emoji: '🎯', title: 'Target the company first', desc: 'Lock the account list, then find the right people inside each one.' },
+        { emoji: '🧭', title: 'Clean firmographics', desc: 'Domains and company data ready for routing, scoring and enrichment.' },
+        { emoji: '🛡️', title: 'No account risk', desc: 'Human-paced extraction in your own session keeps your seat safe.' },
+      ],
+    },
+    faq: [
+      { q: 'How is this different from the Sales Nav lead scraper?', a: 'The lead scraper exports people from a lead search. This exports companies from a Sales Navigator account (company) search — the account list you build ABM on.' },
+      { q: 'Do I get each company’s website?', a: 'Yes. Coldcast resolves a real website domain for every account, so the list is ready for domain enrichment and contact finding.' },
+      { q: 'Can I then find contacts at those companies?', a: 'Yes — hand the account list to Coldcast’s domain enrichment or people scraping to pull and verify the right decision-makers.' },
+      { q: 'Is it account-safe?', a: 'Yes. Extraction runs in your own browser session at human pace — no cloud bot, no datacenter IP, zero recorded bans.' },
+      { q: 'How many accounts can I export?', a: 'Up to roughly 20,000 a day at a human pace, so a full account-search list exports in one sitting.' },
+      { q: 'What format is the export?', a: 'Clean CSV/XLSX with firmographics and domains per account, ready for your CRM or enrichment pipeline.' },
+    ],
+    cta: {
+      title: 'Build your target-account list, safely.',
+      subtitle: 'Export a whole Sales Navigator account search with domains and firmographics in minutes.',
+    },
+  },
+
   // ───────────────────────────── Coldcast Agent ─────────────────────────────
   'coldcast-agent': {
     slug: 'coldcast-agent',

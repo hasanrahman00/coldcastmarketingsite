@@ -25,6 +25,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.coldcast.io/products/sales-navigator-account-scraper</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.coldcast.io/products/linkedin-post-scraper</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.coldcast.io/products/apollo-scraper</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>

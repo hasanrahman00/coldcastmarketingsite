@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.1.0",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
     "@fontsource/space-grotesk": "^5.2.10",
     "@fontsource/space-mono": "^5.3.0",
     "crisp-sdk-web": "^1.2.0",

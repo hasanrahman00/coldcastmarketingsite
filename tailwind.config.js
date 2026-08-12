@@ -50,6 +50,8 @@ export default {
         display: ['"Space Mono"', 'ui-monospace', 'monospace'],
         sans: ['"Space Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
         mono: ['"Space Mono"', 'ui-monospace', 'monospace'],
+        // Clean sans reserved for the top nav, its dropdowns and the wordmark.
+        jakarta: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       borderRadius: {
         // Sharp corners (0px) on every card/button/input/chip — the Mindcase
