@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#0d1014"/>
+  <circle cx="1090" cy="150" r="220" fill="#ffffff" fill-opacity="0.02"/>
+
+  <!-- left column -->
+  <text x="80" y="150" fill="#c3f53c" font-size="21" font-weight="700" font-family="'DejaVu Sans Mono', monospace" letter-spacing="5">COLDCAST GUIDE</text>
+  <text x="80" y="224" fill="#ffffff" font-size="58" font-weight="800">What Is Waterfall</text>
+  <text x="80" y="292" fill="#ffffff" font-size="58" font-weight="800">Enrichment?</text>
+  <text x="80" y="356" fill="#8b93a0" font-size="23">Cascade through 15+ data providers until every</text>
+  <text x="80" y="388" fill="#8b93a0" font-size="23">lead has a verified email — pay only for results.</text>
+  <rect x="80" y="440" width="422" height="56" rx="28" fill="#c3f53c"/>
+  <text x="291" y="476" fill="#0d1014" font-size="26" font-weight="800" text-anchor="middle">40–70% → 80%+ match rate</text>
+  <text x="80" y="592" fill="#7f8894" font-size="19">coldcast.io — the account-safe lead pipeline</text>
+
+  <!-- provider cascade -->
+  <g stroke="#c3f53c" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M750 190 V266 H770"/>
+    <path d="M820 297 V376 H840"/>
+    <path d="M890 407 V492 H910"/>
+  </g>
+  <!-- Provider 1 -->
+  <rect x="700" y="128" width="226" height="62" rx="12" fill="#151a20" stroke="#2a313b"/>
+  <text x="718" y="160" fill="#ffffff" font-size="21" font-weight="700">Provider 1</text>
+  <text x="718" y="181" fill="#8b93a0" font-size="15">miss ↓</text>
+  <!-- Provider 2 -->
+  <rect x="770" y="235" width="226" height="62" rx="12" fill="#151a20" stroke="#2a313b"/>
+  <text x="788" y="267" fill="#ffffff" font-size="21" font-weight="700">Provider 2</text>
+  <text x="788" y="288" fill="#8b93a0" font-size="15">miss ↓</text>
+  <!-- Provider 3 -->
+  <rect x="840" y="345" width="226" height="62" rx="12" fill="#151a20" stroke="#2a313b"/>
+  <text x="858" y="377" fill="#ffffff" font-size="21" font-weight="700">Provider 3</text>
+  <text x="858" y="398" fill="#8b93a0" font-size="15">match ↓</text>
+  <!-- Verified -->
+  <rect x="910" y="455" width="230" height="76" rx="14" fill="#c3f53c"/>
+  <text x="930" y="491" fill="#0d1014" font-size="21" font-weight="800">✓ Verified</text>
+  <text x="930" y="514" fill="#0d1014" font-size="15" font-weight="600">email found</text>
+</svg>

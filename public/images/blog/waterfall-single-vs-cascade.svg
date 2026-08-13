@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#0d1014"/>
+
+  <!-- header -->
+  <text x="600" y="72" fill="#ffffff" font-size="42" font-weight="800" text-anchor="middle">Single Provider vs. Waterfall Enrichment</text>
+  <text x="600" y="108" fill="#8b93a0" font-size="22" text-anchor="middle">Verified emails found on the same 1,000-lead list</text>
+
+  <!-- Single Provider card -->
+  <rect x="90" y="165" width="480" height="372" rx="18" fill="#141922" stroke="#2a313b"/>
+  <text x="330" y="228" fill="#ffffff" font-size="27" font-weight="800" text-anchor="middle">Single Provider</text>
+  <rect x="150" y="278" width="360" height="30" rx="15" fill="#242b34"/>
+  <rect x="150" y="278" width="200" height="30" rx="15" fill="#9aa3ad"/>
+  <text x="330" y="360" fill="#8b93a0" font-size="52" font-weight="800" text-anchor="middle">~55%</text>
+  <text x="330" y="402" fill="#8b93a0" font-size="19" text-anchor="middle">550 emails found</text>
+  <text x="330" y="428" fill="#8b93a0" font-size="19" text-anchor="middle">450 leads wasted</text>
+  <text x="330" y="492" fill="#6b7480" font-size="18" text-anchor="middle">One database, one blind spot</text>
+
+  <!-- Waterfall card (highlighted) -->
+  <rect x="630" y="165" width="480" height="372" rx="18" fill="#141922" stroke="#c3f53c" stroke-width="2"/>
+  <text x="870" y="228" fill="#c3f53c" font-size="27" font-weight="800" text-anchor="middle">Waterfall (15+ Providers)</text>
+  <rect x="690" y="278" width="360" height="30" rx="15" fill="#242b34"/>
+  <rect x="690" y="278" width="290" height="30" rx="15" fill="#c3f53c"/>
+  <text x="870" y="360" fill="#c3f53c" font-size="52" font-weight="800" text-anchor="middle">80%+</text>
+  <text x="870" y="402" fill="#ffffff" font-size="19" text-anchor="middle">800+ verified emails</text>
+  <text x="870" y="428" fill="#ffffff" font-size="19" text-anchor="middle">Credits spent only on results</text>
+  <text x="870" y="492" fill="#6b7480" font-size="18" text-anchor="middle">Each provider fills the last one’s gaps</text>
+
+  <!-- footer -->
+  <text x="600" y="592" fill="#7f8894" font-size="19" text-anchor="middle">coldcast.io/products/waterfall-enricher — scrape safely, enrich fully, verify everything</text>
+</svg>
