@@ -12,6 +12,119 @@
 
 export const BLOG_POSTS = [
   {
+    slug: 'wiza-alternative',
+    tag: 'Compare',
+    title: 'The Best Wiza Alternative for Account-Safe Sales Navigator Scraping',
+    metaTitle: 'Best Wiza Alternative for Sales Nav Scraping (2026)',
+    metaDescription:
+      'Why teams switch from Wiza to Coldcast: account-safe Sales Navigator scraping, waterfall enrichment and verified emails without credit-based per-seat pricing.',
+    keywords:
+      'wiza alternative, wiza vs coldcast, wiza review, wiza pricing, sales navigator scraper, account-safe linkedin scraper, waterfall enrichment',
+    datePublished: '2026-08-12',
+    dateModified: '2026-08-12',
+    readMinutes: 8,
+    image: {
+      src: '/images/blog/wiza-alternative-hero.svg',
+      width: 1200,
+      height: 630,
+      alt: 'Coldcast vs Wiza — the account-safe Wiza alternative for Sales Navigator scraping, compared on safety, enrichment, export ceiling and pricing',
+      caption: 'Coldcast vs Wiza at a glance — the full comparison is below.',
+    },
+    excerpt:
+      'Wiza is a capable Sales Navigator revealer with strong verification — but at volume the credit math, the 30,000-leads-a-year cap on “unlimited,” and running every bulk export through your own account start to bite. Here’s the account-safe, waterfall-enriched alternative.',
+    sections: [
+      {
+        h2: 'Why teams look for a Wiza alternative',
+        blocks: [
+          'Wiza is one of the better-known ways to pull leads out of LinkedIn Sales Navigator, and credit where it’s due: its email verification is strong, and the Chrome extension makes revealing a contact’s email feel effortless. But if you’re reading this, something isn’t working for you — maybe it’s the credit math, maybe it’s the export caps hiding behind the word “unlimited,” or maybe it’s the quiet worry that every bulk export runs through *your* LinkedIn account.',
+          'That last one is the reason most teams end up here. Here’s why people leave Wiza, how Coldcast compares feature by feature, and — because no tool is right for everyone — the cases where Wiza is still a fine choice.',
+          '**1. Machine-speed extraction puts your LinkedIn account on the line.** Wiza works through a Chrome extension layered on your LinkedIn or Sales Navigator session, and it’s built for fast reveals. That’s convenient — but bulk-exporting at speed means a lot of profile activity tied directly to your logged-in account, the same account LinkedIn monitors for automation patterns. A restricted Sales Navigator seat is expensive in both dollars and lost pipeline. Coldcast runs in your own browser too, but the other way around: account safety first. Its [Sales Navigator scraper](/products/sales-navigator-scraper) throttles extraction to human-plausible limits — hard caps you can’t blow past — so your account never behaves like a bot. For the full breakdown of what gets accounts flagged, see [how to scrape Sales Navigator without getting banned](/blog/scrape-sales-navigator-without-getting-banned).',
+          '**2. The credit math adds up fast.** Wiza’s pricing looks reasonable until you model a real month. The Starter plan ($49/mo) includes 100 email credits and 100 phone credits — beyond that you pay roughly $0.15 per extra email and $0.35 per extra phone number. The unlimited-email plans run $83–$99/mo per user (annual vs monthly), and adding phone numbers pushes that to $166–$199/mo. For a three-person SDR pod on the Team plan, you’re at $399/mo minimum. Users also report that credits can be consumed even when a lookup doesn’t return a usable, verified contact — which stings when you’re paying per reveal.',
+          '**3. “Unlimited” comes with a 30,000-row asterisk.** Wiza’s unlimited plans cap exports at 30,000 leads per year. That’s plenty for a solo founder; it’s a quarter’s worth of list-building for an outbound team running serious volume. If your workflow is “build big filtered lists in Sales Navigator, export, enrich, verify, load into sequencer,” you’ll feel that ceiling.',
+          '**4. Single-provider enrichment leaves emails on the table.** Wiza finds and verifies contact data using its own engine and database. It’s good — but any single source has coverage gaps. Waterfall enrichment, which cascades each contact through multiple data providers until one returns a valid result, consistently finds 20–40% more valid emails than any one provider alone. Coldcast’s [waterfall enricher](/products/waterfall-enricher) does this natively, so a miss from one source isn’t a miss for your list. New to the concept? Here’s [what waterfall enrichment is and how it works](/blog/what-is-waterfall-enrichment).',
+          '**5. Per-seat pricing for what should be usage-based.** Wiza is licensed per rep, so teams end up buying a seat for everyone who touches lead gen. Coldcast prices by usage and workflow, not per head — one pay-as-you-go account can feed the whole team, which is usually cheaper and easier to manage than per-seat licenses.',
+        ],
+      },
+      {
+        h2: 'What Coldcast does differently',
+        blocks: [
+          'Coldcast is a Sales Navigator scraping and enrichment platform built around one promise: **your LinkedIn account stays safe.** Concretely, that means:',
+          {
+            image: {
+              src: '/images/blog/wiza-alternative-risk-diagram.svg',
+              width: 1200,
+              height: 630,
+              alt: 'An unthrottled scraper bulk-exports at machine speed and risks account restriction, while Coldcast paces extraction to human-plausible limits and keeps the account intact',
+              caption: 'The risk isn’t the browser — it’s unbounded activity. Coldcast caps the pace and enriches downstream.',
+            },
+          },
+          {
+            list: [
+              '**Account-safe extraction.** Scraping behaviour is throttled and shaped to stay within human-plausible activity patterns, rather than blasting through lists at machine speed. This is the core design constraint of the whole product — not a settings toggle.',
+              '**Clean exports by default.** Names, titles, companies and profile data come out deduplicated and formatted, ready for [CSV export to Excel or your CRM](/blog/export-sales-navigator-leads-to-csv) — no post-export cleanup pass.',
+              '**Waterfall enrichment built in.** Every scraped lead can cascade through multiple email providers automatically, instead of relying on a single database.',
+              '**Verification included.** Coldcast [verifies emails](/products/email-verify) before you ever send, protecting your sender reputation and keeping bounce rates low.',
+              '**Beyond Sales Navigator.** When your ICP lives elsewhere, Coldcast also covers [Apollo](/products/apollo-scraper) and [ZoomInfo](/products/zoominfo-scraper) extraction, plus [domain enrichment](/products/domain-enrichment) — one pipeline instead of four tools.',
+            ],
+          },
+        ],
+      },
+      {
+        h2: 'Coldcast vs Wiza at a glance',
+        blocks: [
+          {
+            table: [
+              ['', 'Coldcast', 'Wiza'],
+              ['Extraction pace', 'Throttled to human-plausible limits', 'Reveals at your chosen speed'],
+              ['Account safety', 'Core design principle', 'Depends on your volume and LinkedIn’s tolerance'],
+              ['Enrichment', 'Multi-provider waterfall enrichment', 'Single-engine lookup'],
+              ['Email verification', 'Included in the pipeline', 'Included (strong — Wiza’s best feature)'],
+              ['Phone numbers', 'Via waterfall providers', 'Extra cost ($0.35 each) below the top plan'],
+              ['Export ceiling', 'Built for volume list-building', '30,000 leads/year on unlimited plans'],
+              ['Pricing model', 'Workflow / usage-based, not per-reveal credits', 'Credits on lower tiers; $83–$199/user/mo above; Team from $399/mo'],
+              ['Other sources', 'Apollo, ZoomInfo, domain enrichment', 'LinkedIn-centric, plus its own contact database'],
+            ],
+          },
+          '*Wiza pricing verified August 2026 from public pricing pages and reviews; check wiza.co for current figures.*',
+        ],
+      },
+      {
+        h2: 'Where Wiza still makes sense',
+        blocks: [
+          'Honesty matters more than winning a comparison table. Wiza is a solid pick if:',
+          {
+            list: [
+              '**You reveal contacts one at a time.** For a rep who looks up a handful of prospects a day directly on a profile page, the extension workflow is genuinely convenient — and the free plan (20 emails/month) may be all you need.',
+              '**You want its standalone database.** Wiza has built an 850M+ contact database you can search without touching LinkedIn at all.',
+              '**Verification accuracy is your only criterion.** Wiza’s real-time verification is a genuine strength — it re-checks each email at reveal, with vendor-claimed ~99% deliverability (independent tests land closer to 90–95%).',
+            ],
+          },
+          'If your usage looks like that, stay put. If your usage looks like *volume list-building from Sales Navigator*, the account-risk and export-cap problems compound with scale — and that’s the job Coldcast was built for.',
+        ],
+      },
+      {
+        h2: 'Switching from Wiza to Coldcast',
+        blocks: [
+          {
+            list: [
+              '**Export your existing lists from Wiza** as CSV so you keep everything you’ve paid for.',
+              '**Connect Coldcast to Sales Navigator** and re-run your saved searches — pull volumes stay inside safe limits automatically, which matters more the bigger your lists get. (If you use Advanced filters, see [Sales Navigator Advanced](/sales-nav-advanced).)',
+              '**Turn on waterfall enrichment and verification** so every lead comes out with a deliverable, verified email — then load straight into your sequencer or CRM.',
+            ],
+          },
+          'Most teams are fully migrated in an afternoon, because there’s no extension to license per seat and no credit budget to allocate.',
+        ],
+      },
+    ],
+    faq: [
+      { q: 'Is Wiza safe for my LinkedIn account?', a: 'Wiza operates through a Chrome extension on your logged-in LinkedIn session, so bulk activity is attributable to your account. Moderate use is generally tolerated, but high-volume exporting through any extension carries restriction risk. Coldcast runs in your browser too, but throttles extraction to human-plausible limits by design to stay clear of that risk. Worried about the legal side too? Read [Is LinkedIn scraping legal?](/blog/is-linkedin-scraping-legal)' },
+      { q: 'What’s the main difference between Coldcast and Wiza?', a: 'Pacing, enrichment and pricing. Wiza is an extension-based revealer with a single lookup engine and credit/seat pricing. Coldcast paces extraction to human-plausible limits, cascades multi-provider waterfall enrichment with verification built in, and prices by usage — designed for volume list-building without per-reveal credits.' },
+      { q: 'Does Coldcast verify emails like Wiza does?', a: 'Yes. Every email found through Coldcast’s waterfall can be verified before export, keeping bounce rates low. The difference is coverage: cascading across multiple providers finds valid emails Wiza’s single engine misses.' },
+      { q: 'Can Coldcast export leads to CSV or my CRM?', a: 'Yes — deduplicated, cleanly formatted CSV/Excel exports are the default, ready for HubSpot, Salesforce, Clay or any sequencer. See the full guide to [exporting Sales Navigator leads to CSV](/blog/export-sales-navigator-leads-to-csv).' },
+      { q: 'How much does Wiza cost in 2026?', a: 'Free (20 emails/mo), Starter at $49/mo (100 email + 100 phone credits), unlimited-email plans at $83–$99/user/mo, email + phone at $166–$199/user/mo, and Team from $399/mo (3-seat minimum). Unlimited plans cap exports at 30,000 leads/year.' },
+    ],
+  },
+  {
     slug: 'what-is-waterfall-enrichment',
     tag: 'Guide',
     title: 'What Is Waterfall Enrichment? The Complete 2026 Guide',

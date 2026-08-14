@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#0d1014"/>
+
+  <text x="80" y="76" fill="#ffffff" font-size="42" font-weight="800">Where the account risk lives</text>
+  <text x="80" y="112" fill="#8b93a0" font-size="22">Machine-speed extraction vs. Coldcast’s account-safe pipeline</text>
+
+  <!-- LEFT: unthrottled scraper -->
+  <rect x="80" y="150" width="490" height="400" rx="18" fill="#141922" stroke="#232a33"/>
+  <text x="112" y="204" fill="#e6e9ee" font-size="24" font-weight="800">Unthrottled scraper</text>
+  <rect x="112" y="228" width="426" height="66" rx="10" fill="#1a2029" stroke="#2a313b"/>
+  <text x="130" y="258" fill="#e6e9ee" font-size="20" font-weight="700">Your LinkedIn session</text>
+  <text x="130" y="280" fill="#8b93a0" font-size="15">logged in, in your browser</text>
+  <g stroke="#6b7480" fill="#6b7480"><line x1="325" y1="300" x2="325" y2="336" stroke-width="2.5"/><polygon points="319,330 331,330 325,340"/></g>
+  <rect x="112" y="344" width="426" height="66" rx="10" fill="#1a2029" stroke="#2a313b"/>
+  <text x="130" y="374" fill="#e6e9ee" font-size="20" font-weight="700">Bulk export at machine speed</text>
+  <text x="130" y="396" fill="#8b93a0" font-size="15">every action tied to your account</text>
+  <g stroke="#6b7480" fill="#6b7480"><line x1="325" y1="416" x2="325" y2="452" stroke-width="2.5"/><polygon points="319,446 331,446 325,456"/></g>
+  <rect x="112" y="460" width="426" height="66" rx="10" fill="#241416" stroke="#f26d6d"/>
+  <text x="130" y="490" fill="#f26d6d" font-size="20" font-weight="800">Flag &amp; restriction risk</text>
+  <text x="130" y="512" fill="#c98a8a" font-size="15">automation patterns detected</text>
+
+  <!-- RIGHT: Coldcast pipeline -->
+  <rect x="630" y="150" width="490" height="400" rx="18" fill="#141922" stroke="#c3f53c"/>
+  <text x="662" y="204" fill="#c3f53c" font-size="24" font-weight="800">Coldcast pipeline</text>
+  <rect x="662" y="228" width="426" height="66" rx="10" fill="#1a2029" stroke="#2a313b"/>
+  <text x="680" y="258" fill="#e6e9ee" font-size="20" font-weight="700">Account-safe extraction</text>
+  <text x="680" y="280" fill="#8b93a0" font-size="15">human-plausible activity limits</text>
+  <g stroke="#c3f53c" fill="#c3f53c"><line x1="875" y1="300" x2="875" y2="336" stroke-width="2.5"/><polygon points="869,330 881,330 875,340"/></g>
+  <rect x="662" y="344" width="426" height="66" rx="10" fill="#1a2029" stroke="#2a313b"/>
+  <text x="680" y="374" fill="#e6e9ee" font-size="20" font-weight="700">Waterfall enrichment + verify</text>
+  <text x="680" y="396" fill="#8b93a0" font-size="15">multiple providers, verified emails</text>
+  <g stroke="#c3f53c" fill="#c3f53c"><line x1="875" y1="416" x2="875" y2="452" stroke-width="2.5"/><polygon points="869,446 881,446 875,456"/></g>
+  <rect x="662" y="460" width="426" height="66" rx="10" fill="#1b220f" stroke="#c3f53c"/>
+  <text x="680" y="490" fill="#c3f53c" font-size="20" font-weight="800">Clean CSV — account intact</text>
+  <text x="680" y="512" fill="#8b93a0" font-size="15">deduped, verified, CRM-ready</text>
+
+  <text x="80" y="598" fill="#7f8894" font-size="19">coldcast.io</text>
+</svg>
