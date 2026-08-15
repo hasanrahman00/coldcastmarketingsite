@@ -96,7 +96,7 @@ export default function LiveExport() {
           eyebrow="Live export"
           eyebrowIcon={FileSpreadsheet}
           title="From search URL to verified list in minutes."
-          subtitle="Paste any Sales Navigator search. Coldcast scrapes at human pace inside your own browser, enriches every row through the waterfall, and triple-verifies each email before it hits your CSV."
+          subtitle="Paste any Sales Navigator search. Coldcast scrapes at human pace in your own logged-in session, enriches every row through the waterfall, and triple-verifies each email before it hits your CSV."
         />
 
         <Reveal delay={0.1} className="mt-14">

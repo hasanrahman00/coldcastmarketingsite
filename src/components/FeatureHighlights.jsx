@@ -2,7 +2,7 @@ import { Sparkles, ShieldCheck, Zap, Target, Wallet } from 'lucide-react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 
-// Merges the old Safety ("runs in your browser, not a cloud bot") and
+// Merges the old Safety ("your own session at human pace, not a machine-speed bot") and
 // SpeedAccuracy ("faster / higher match / lower cost") sections into one Features
 // block. Each card leads with a keyword-forward <h3> for SEO; the four claims are
 // the same substantiated ones the two source sections carried.
@@ -12,12 +12,12 @@ const FEATURES = [
   {
     icon: ShieldCheck,
     title: 'Account-safe LinkedIn scraping',
-    desc: 'Runs in your own browser, on your real device, session and IP — never a cloud bot that asks for your password. 6+ months of daily use, zero account bans.',
+    desc: 'Runs your own logged-in LinkedIn session in a secure, isolated cloud browser — human-paced with hard limits, never storing your password. 6+ months of daily use, zero account bans.',
   },
   {
     icon: Zap,
     title: 'Faster Sales Navigator exports',
-    desc: 'Export a 2,500-lead search in about five minutes, and up to ~20,000 leads a day — a fraction of the time cloud scrapers take to hand you the same list.',
+    desc: 'Export a 2,500-lead search in about five minutes, and up to ~20,000 leads a day — a fraction of the time other Sales Navigator scrapers take to hand you the same list.',
   },
   {
     icon: Target,
@@ -54,7 +54,7 @@ export default function FeatureHighlights() {
           eyebrowIcon={Sparkles}
           eyebrowTone="cyan"
           title="The account-safe LinkedIn Sales Navigator scraper — faster exports, higher match rates, lower cost."
-          subtitle="Coldcast is the LinkedIn Sales Navigator scraper that runs in your own browser like a human, so your account stays safe — while exporting more verified leads, faster and cheaper than cloud-based scrapers."
+          subtitle="Coldcast is the LinkedIn Sales Navigator scraper that runs your own logged-in session at human pace with hard limits, so your account stays safe — while exporting more verified leads, faster and cheaper than machine-speed scrapers."
         />
 
         {/* 3 across on the first row; the 4th centres under them (lg:col-start-2). */}

@@ -10,9 +10,9 @@ const ROWS = [
     others: 'A few hundred to a couple thousand, then throttled',
   },
   {
-    feature: 'Where it runs',
-    coldcast: 'Your own browser, device, session & IP',
-    others: 'A cloud / headless browser on the vendor’s servers',
+    feature: 'How it runs',
+    coldcast: 'Your real logged-in session, human-paced with hard limits',
+    others: 'Machine-speed bursts, no limits, generic bot fingerprint',
   },
   {
     feature: 'Account / ban risk',

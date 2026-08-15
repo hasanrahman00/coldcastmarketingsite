@@ -23,7 +23,7 @@ export const ROLE_PAGES = {
       subtitle: 'From a search to a sequence, without the manual steps in between.',
       steps: [
         { emoji: '🎯', title: 'Define your ICP', desc: 'Build a Sales Navigator or Apollo search of exactly the buyers you want.' },
-        { emoji: '⚡', title: 'Export at scale', desc: 'Pull thousands of leads in an hour — account-safe, from your own browser.' },
+        { emoji: '⚡', title: 'Export at scale', desc: 'Pull thousands of leads in an hour — account-safe, on your own logged-in session.' },
         { emoji: '💧', title: 'Enrich & verify', desc: 'Verified emails and direct dials are added automatically, ready to send.' },
         { emoji: '✍️', title: 'Personalise instantly', desc: 'Signal-based first lines are written for every contact, not copy-pasted.' },
         { emoji: '🚀', title: 'Push to your sequencer', desc: 'Send straight into Instantly, Smartlead or your CRM and start booking.' },
@@ -34,7 +34,7 @@ export const ROLE_PAGES = {
       subtitle: 'The full outbound motion, minus the manual work.',
       items: [
         { emoji: '🧰', title: 'A pipeline, not a CSV', desc: 'Scrape, enrich, verify and personalise in one pass.' },
-        { emoji: '🛡️', title: 'Account-safe', desc: 'Runs in your own browser at human pace — no risk to your LinkedIn.' },
+        { emoji: '🛡️', title: 'Account-safe', desc: 'Runs your own logged-in session at human pace, with hard limits — no risk to your LinkedIn.' },
         { emoji: '🧠', title: 'AI lead scoring', desc: 'Work the best-fit accounts first, not whoever’s at the top of the list.' },
         { emoji: '✍️', title: 'Signal-based copy', desc: 'Open every email with a real, specific reason to reply.' },
         { emoji: '⚡', title: 'Fast', desc: 'A full campaign’s worth of leads in a single sitting.' },
@@ -56,7 +56,7 @@ export const ROLE_PAGES = {
       ],
     },
     faq: [
-      { q: 'Will this get my LinkedIn flagged?', a: 'No — Coldcast runs in your own browser at human pace, the opposite of the cloud bots that get accounts suspended.' },
+      { q: 'Will this get my LinkedIn flagged?', a: 'No — Coldcast runs your own logged-in session in a secure cloud browser at human pace, with hard limits. It never stores your password or blasts profiles at machine speed — the things that actually get accounts suspended.' },
       { q: 'Do I still write the emails?', a: 'You don’t have to. Coldcast writes a signal-based first line and a 3-step sequence for every contact — edit if you like.' },
       { q: 'Does it fit my existing tools?', a: 'Yes — push enriched, verified leads straight into your sequencer and CRM.' },
     ],
@@ -100,7 +100,7 @@ export const ROLE_PAGES = {
         { emoji: '🤖', title: 'Hands-off agent', desc: 'Outbound that runs itself while you ship product.' },
         { emoji: '💸', title: 'Affordable', desc: 'One subscription replaces a stack of pricey tools.' },
         { emoji: '🧰', title: 'All-in-one', desc: 'Scrape, enrich, verify and send from a single login.' },
-        { emoji: '🛡️', title: 'Account-safe', desc: 'No risk to your LinkedIn — runs in your own browser.' },
+        { emoji: '🛡️', title: 'Account-safe', desc: 'No risk to your LinkedIn — runs your own logged-in session at human pace, with hard limits.' },
         { emoji: '⚡', title: 'Live in minutes', desc: 'No technical setup; install and go.' },
         { emoji: '🎯', title: 'ICP-scored', desc: 'Spend your limited time only on real fits.' },
       ],
@@ -120,7 +120,7 @@ export const ROLE_PAGES = {
       ],
     },
     faq: [
-      { q: 'I’m not technical — can I run this?', a: 'Yes. Install the extension, connect your profile, and the agent does the rest. No code, no proxies.' },
+      { q: 'I’m not technical — can I run this?', a: 'Yes. Sign in, connect your LinkedIn account, and the agent does the rest. No code, no local install.' },
       { q: 'Do I need to hire an SDR?', a: 'No — the Coldcast Agent handles research, enrichment and copywriting that an SDR would normally do.' },
       { q: 'Is it affordable for an early-stage team?', a: 'Yes — one subscription replaces a whole stack and starts on a free trial.' },
     ],
@@ -151,7 +151,7 @@ export const ROLE_PAGES = {
       subtitle: 'One safe, repeatable motion every rep can follow.',
       steps: [
         { emoji: '🎯', title: 'Set the ICP', desc: 'Define the searches and scoring that match your best customers.' },
-        { emoji: '🛡️', title: 'Roll out safely', desc: 'Every rep scrapes from their own browser — no shared cloud, no bans.' },
+        { emoji: '🛡️', title: 'Roll out safely', desc: 'Every rep runs their own logged-in session at human pace, with hard limits — no bans.' },
         { emoji: '💧', title: 'Enrich & verify', desc: 'The team works from the same clean, validated contact data.' },
         { emoji: '🧠', title: 'Score & prioritise', desc: 'AI scoring keeps reps focused on the highest-fit accounts.' },
         { emoji: '📈', title: 'Push to the CRM', desc: 'Consistent, enriched records flow into your pipeline and reporting.' },
@@ -161,7 +161,7 @@ export const ROLE_PAGES = {
       heading: 'Volume and control, finally on the same team.',
       subtitle: 'Predictable pipeline without the account-risk headaches.',
       items: [
-        { emoji: '🛡️', title: 'Account safety', desc: 'No foreign cloud bots — nothing that gets your reps suspended.' },
+        { emoji: '🛡️', title: 'Account safety', desc: 'No machine-speed automation or stored passwords — nothing that gets your reps suspended.' },
         { emoji: '🎯', title: 'Data quality', desc: 'Verified, catch-all-cleaned contacts the whole team can rely on.' },
         { emoji: '🧠', title: 'AI lead scoring', desc: 'Direct effort at the accounts most likely to close.' },
         { emoji: '🚀', title: 'Faster ramp', desc: 'New reps are productive on day one with a guided motion.' },
@@ -184,7 +184,7 @@ export const ROLE_PAGES = {
       ],
     },
     faq: [
-      { q: 'Is it safe to roll out across a whole team?', a: 'Yes — each rep runs in their own browser session and proxy, so there’s no shared cloud footprint to get flagged.' },
+      { q: 'Is it safe to roll out across a whole team?', a: 'Yes — each rep runs their own logged-in session, human-paced and hard-capped, so nothing looks like machine-speed automation to get flagged.' },
       { q: 'Will the data be consistent across reps?', a: 'Yes — everyone works from the same enrichment, verification and scoring, so quality is uniform.' },
       { q: 'Does it fit our CRM and reporting?', a: 'Yes — clean, enriched records sync into your CRM so your pipeline data stays trustworthy.' },
     ],
@@ -250,7 +250,7 @@ export const ROLE_PAGES = {
     faq: [
       { q: 'Can I manage multiple clients?', a: 'Yes — run every client’s searches, enrichment and exports from one platform.' },
       { q: 'How does it protect my margin?', a: 'Data and enrichment cost roughly 3x less than the big tools, so more of each retainer is profit.' },
-      { q: 'Is it safe for client accounts?', a: 'Yes — scraping runs in-browser at human pace, so client LinkedIn accounts stay safe.' },
+      { q: 'Is it safe for client accounts?', a: 'Yes — each client’s own logged-in session runs at human pace, with hard limits, so their LinkedIn accounts stay safe.' },
     ],
     cta: {
       title: 'Deliver better leads for less.',
@@ -343,7 +343,7 @@ export const ROLE_PAGES = {
       subtitle: 'Source, verify and reach — in one safe workflow.',
       steps: [
         { emoji: '🔎', title: 'Search your talent pool', desc: 'Build a Sales Navigator search for the roles and skills you need.' },
-        { emoji: '⚡', title: 'Export candidates', desc: 'Pull large candidate lists, account-safe, from your own browser.' },
+        { emoji: '⚡', title: 'Export candidates', desc: 'Pull large candidate lists, account-safe, on your own logged-in session.' },
         { emoji: '💧', title: 'Enrich & verify', desc: 'Add verified personal and work emails plus direct dials.' },
         { emoji: '✍️', title: 'Personalise outreach', desc: 'Signal-based first lines lift candidate reply rates.' },
         { emoji: '🔌', title: 'Sync to your ATS', desc: 'Push candidates straight into your ATS or CRM.' },
@@ -355,7 +355,7 @@ export const ROLE_PAGES = {
       items: [
         { emoji: '🔎', title: 'Candidate sourcing', desc: 'Export talent from LinkedIn Sales Navigator at scale.' },
         { emoji: '💧', title: 'Verified contact info', desc: 'Personal and work emails plus direct dials, validated.' },
-        { emoji: '🛡️', title: 'Account-safe', desc: 'Runs in your own browser — no risk to your LinkedIn.' },
+        { emoji: '🛡️', title: 'Account-safe', desc: 'Runs your own logged-in session at human pace — no risk to your LinkedIn.' },
         { emoji: '⚡', title: 'Fast', desc: 'Thousands of candidate contacts in an hour.' },
         { emoji: '✍️', title: 'Signal-based outreach', desc: 'Personalised first lines that get candidates to respond.' },
         { emoji: '🔌', title: 'ATS / CRM sync', desc: 'Drop sourced candidates into the tools you already use.' },
@@ -377,7 +377,7 @@ export const ROLE_PAGES = {
     },
     faq: [
       { q: 'Do I get personal or work emails?', a: 'Both where available — waterfall enrichment finds and verifies the best contact for each candidate.' },
-      { q: 'Is my LinkedIn at risk?', a: 'No — sourcing runs in your own browser at human pace, so your account stays safe.' },
+      { q: 'Is my LinkedIn at risk?', a: 'No — sourcing runs your own logged-in session at human pace, with hard limits, so your account stays safe.' },
       { q: 'Can I push candidates to my ATS?', a: 'Yes — export or sync sourced, verified candidates straight into your ATS or CRM.' },
     ],
     cta: {

@@ -19,7 +19,7 @@ const ROWS = [
   { icon: Target, feature: 'Email & phone match rate', others: '30 – 50%', cold: '70 – 85%', win: true },
   { icon: Gauge, feature: 'Speed limit', others: 'Throttled after a few hundred', cold: 'Up to ~20,000 / day' },
   { icon: Sparkles, feature: 'Data cleaning', others: 'Manual cleanup', cold: 'Auto de-dupe + email validation' },
-  { icon: ShieldCheck, feature: 'Account safety', others: 'Shared cloud IPs', cold: 'Your own IP & session' },
+  { icon: ShieldCheck, feature: 'Account safety', others: 'Machine-speed bursts, no limits', cold: 'Your real session, human pace' },
   { icon: Filter, feature: 'Lead filtering', others: 'Sales Navigator filters only', cold: '+ buying-intent scoring' },
   { icon: Wallet, feature: 'Price to export 2,500 leads', others: '$25 – $50', cold: '$0 — scraping is free', win: true },
   { icon: Headset, feature: 'Live customer support', others: false, cold: true, bool: true },

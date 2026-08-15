@@ -87,7 +87,7 @@ const STAGE_01 = {
   step: '01',
   title: 'GTM prospecting',
   icon: MonitorSmartphone,
-  caption: 'In your own browser, at human pace — LinkedIn, Apollo & ZoomInfo plus Coldcast’s own website, email & domain enrichment.',
+  caption: 'In your own logged-in session, at human pace — LinkedIn, Apollo & ZoomInfo plus Coldcast’s own website, email & domain enrichment.',
   bigHub: true,
 }
 const ALL_STAGES = [STAGE_01, ...STAGES]

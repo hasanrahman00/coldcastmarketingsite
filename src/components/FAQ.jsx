@@ -9,11 +9,11 @@ import SectionHeading from './SectionHeading'
 export const FAQS = [
   {
     q: 'Is scraping LinkedIn Sales Navigator safe for my account?',
-    a: 'Yes — that’s the whole point of Coldcast. Your Sales Navigator scraping runs through your own browser session and IP, only on pages you’re already logged into, at human pace with natural scrolling and click-to-next pagination. There are no headless browsers, no API hammering, and no bot fingerprints. We’ve used it daily with internal sales teams for 6+ months with zero account bans.',
+    a: 'Yes — that’s the whole point of Coldcast. Your Sales Navigator scraping runs your own logged-in session in a secure, isolated cloud browser, only on pages you’re already logged into, at human pace with natural scrolling and click-to-next pagination, and hard limits on volume. There’s no stored password, no machine-speed bursts and no bot-like fingerprint. We’ve used it daily with internal sales teams for 6+ months with zero account bans.',
   },
   {
     q: 'What makes Coldcast different from other LinkedIn scraper tools?',
-    a: 'Three ways. Speed: a typical 2,500-lead export takes minutes, not the 30 minutes to two hours cloud scrapers need. Safety: Coldcast runs in your own browser on your own IP and session — most other LinkedIn scraper tools spin up a cloud browser on shared IPs and ask for your LinkedIn password, which is exactly what gets accounts suspended. And data: every lead comes back already enriched with verified emails, phone numbers and buying-intent signals, where other tools hand you a raw export you still have to clean and enrich yourself.',
+    a: 'Three ways. Speed: a typical 2,500-lead export takes minutes, not the 30 minutes to two hours many other scrapers need. Safety: Coldcast runs your own logged-in session in a secure cloud browser at human pace with hard limits — most other tools store your LinkedIn password or replay your cookie, then burst through profiles at machine speed, which is exactly what gets accounts suspended. And data: every lead comes back already enriched with verified emails, phone numbers and buying-intent signals, where other tools hand you a raw export you still have to clean and enrich yourself.',
   },
   {
     q: 'How do I scrape LinkedIn Sales Navigator?',
@@ -45,7 +45,7 @@ export const FAQS = [
   },
   {
     q: 'How fast is Coldcast — how long does it take to export leads to CSV?',
-    a: 'Fast. Most exports finish in minutes — a 2,500-lead list typically takes around five minutes, where other Sales Navigator scrapers can take 30 minutes to two hours for the same job. Because it runs at a natural, human pace in your own browser, you get the speed without the bot-like bursts that trip LinkedIn’s defences. You can pull up to roughly 20,000 leads per account, per day.',
+    a: 'Fast. Most exports finish in minutes — a 2,500-lead list typically takes around five minutes, where other Sales Navigator scrapers can take 30 minutes to two hours for the same job. Because it runs your own session at a natural, human pace with hard limits, you get the speed without the bot-like bursts that trip LinkedIn’s defences. You can pull up to roughly 20,000 leads per account, per day.',
   },
   {
     q: 'Does “unlimited scraping” really mean unlimited?',
@@ -61,7 +61,7 @@ export const FAQS = [
   },
   {
     q: 'Is Coldcast GDPR-ready, and who owns the exported data?',
-    a: 'Your data stays yours. Scraping runs entirely in your own browser session, so your leads never pass through our servers, and we never sell your data or ask for your LinkedIn password. We handle personal data on a compliant footing and support data-access and deletion requests — full detail lives in our Privacy Policy. One honest note: scraping LinkedIn runs against its Terms of Service no matter which tool you use. Coldcast is built to reduce account risk — your own session, human pace, no headless bots, no API hammering — not to promise something we can’t guarantee.',
+    a: 'Your data stays yours. You keep full ownership of every lead you export, we never sell your data, and we never ask for or store your LinkedIn password. We handle personal data on a compliant footing and support data-access and deletion requests — full detail lives in our Privacy Policy. One honest note: scraping LinkedIn runs against its Terms of Service no matter which tool you use. Coldcast is built to reduce account risk — your own session, human pace, hard limits, no password-storing or machine-speed bursts — not to promise something we can’t guarantee.',
   },
   {
     q: 'Where does my data go?',

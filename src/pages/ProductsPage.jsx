@@ -21,7 +21,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Products"
         title="One platform. Seven tools."
-        subtitle="Scrape, enrich, verify and reach — every tool runs account-safe, in your own browser. Use one, or chain them into a full pipeline."
+        subtitle="Scrape, enrich, verify and reach — every tool runs account-safe on your own logged-in session, human-paced and hard-capped in a secure cloud browser. Use one, or chain them into a full pipeline."
       >
         <Button as="a" href={TRIAL_URL} variant="primary" size="lg">
           Start free trial

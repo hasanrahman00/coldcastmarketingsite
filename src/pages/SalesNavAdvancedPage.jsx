@@ -140,7 +140,7 @@ const FAQ = [
   { q: 'Is this the real Sales Navigator Advanced?', a: 'Yes — the full Advanced plan with every feature, on your own LinkedIn account. Nothing is stripped out.' },
   { q: 'How do I activate it?', a: 'Enter your email, open the activation link we send you, and click it. Advanced switches on for your account within minutes.' },
   { q: 'How is it 75% cheaper?', a: 'Through our partner program we secure Advanced seats in volume and pass the savings straight on to you — so you pay $25/month instead of $99+.' },
-  { q: 'Is my LinkedIn account safe?', a: 'It’s a standard upgrade on your own account. And when you pair it with Coldcast, your scraping runs in your own browser at human pace — never a cloud bot.' },
+  { q: 'Is my LinkedIn account safe?', a: 'It’s a standard upgrade on your own account. And when you pair it with Coldcast, your scraping runs on your own logged-in session at human pace, with hard limits — never machine-speed bursts, never a stored password.' },
   { q: 'Can I cancel?', a: 'Yes — it’s billed monthly and you can cancel anytime.' },
 ]
 

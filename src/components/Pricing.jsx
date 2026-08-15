@@ -25,7 +25,7 @@ const PLANS = [
     tagline: 'Full access for one day — no card required.',
     volume: '1,000',
     volumeUnit: 'leads / day',
-    volumeNote: 'Scraping included — free, in your own browser',
+    volumeNote: 'Scraping included — free, in a secure cloud browser',
     // The lime figures are the ones a buyer actually compares between plans.
     usageLabel: 'Included free',
     usage: [
@@ -42,7 +42,7 @@ const PLANS = [
     tagline: 'Scrape free. Pay only for the contacts you enrich.',
     volume: '20,000',
     volumeUnit: 'leads / day',
-    volumeNote: 'Scraping included — free, in your own browser',
+    volumeNote: 'Scraping included — free, in a secure cloud browser',
     usageLabel: 'Enrichment — usage-based, no subscription',
     usage: [
       { rate: '$0.003', unit: 'per waterfall verified email' },
@@ -146,7 +146,7 @@ export default function Pricing() {
           eyebrowIcon={Tag}
           eyebrowTone="teal"
           title="A free LinkedIn Sales Navigator scraper — pay only for what you enrich."
-          subtitle="Scrape LinkedIn Sales Navigator, Apollo and ZoomInfo free in your own browser. You only pay to enrich and verify the contacts you actually want — no subscription, no seats, no lock-in."
+          subtitle="Scrape LinkedIn Sales Navigator, Apollo and ZoomInfo free in a secure cloud browser. You only pay to enrich and verify the contacts you actually want — no subscription, no seats, no lock-in."
         />
 
         <Reveal delay={0.08} className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] font-medium text-muted">
@@ -191,7 +191,7 @@ export default function Pricing() {
         </Reveal>
 
         <p className="mt-8 text-center text-sm text-muted">
-          Every plan runs account-safe in your own browser and exports clean CSV / XLSX. No subscription,
+          Every plan runs account-safe in a secure cloud browser and exports clean CSV / XLSX. No subscription,
           no lock-in.
         </p>
       </div>

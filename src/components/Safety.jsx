@@ -7,15 +7,15 @@ import { Eyebrow } from './SectionHeading'
 // and this is the flagship teardown — every other section is deliberately
 // emoji-free.
 const THEM = [
-  { icon: Cloud, text: 'Runs a cloud / headless browser on the vendor’s own servers' },
-  { icon: KeyRound, text: 'Asks for your LinkedIn login and stores it to sign in as you' },
-  { icon: Bot, text: 'Bot-speed bursts and shared cloud IPs — foreign-session fingerprints' },
+  { icon: KeyRound, text: 'Stores your password or replays your cookie to sign in as you' },
+  { icon: Bot, text: 'Blasts through profiles at machine speed — bot-like bursts, no limits' },
+  { icon: ShieldAlert, text: 'A generic automation fingerprint LinkedIn is built to detect' },
 ]
 
 const US = [
-  { icon: MonitorSmartphone, text: 'Runs in your own browser, on your real device, session, and IP' },
+  { icon: Cloud, text: 'Runs your own logged-in session in a secure cloud browser — nothing on your machine' },
   { icon: Lock, text: 'Never asks for or stores your password — you stay logged in yourself' },
-  { icon: Hand, text: 'Genuine human activity: natural scrolling, click-to-next, human pace' },
+  { icon: Hand, text: 'Genuine human pace with hard limits: natural rhythm, never bot-speed' },
 ]
 
 function Row({ icon: Icon, text, good, i }) {
@@ -67,14 +67,14 @@ export default function Safety() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-7 text-balance text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
-              It runs in your browser, as you — not a bot in someone’s cloud.
+              Runs your own session, at human pace — not a bot blasting your account.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-              Most scrapers spin up a cloud browser on their servers and ask for your LinkedIn login
-              to act as you — exactly the foreign-session, robotic pattern LinkedIn flags. Coldcast
-              does the opposite.
+              Most scrapers store your password or replay your cookie, then blast through profiles at
+              machine speed — exactly the robotic pattern LinkedIn flags. Coldcast runs your own
+              logged-in session in a secure cloud browser, paced like a human and hard-capped.
             </p>
           </Reveal>
         </div>

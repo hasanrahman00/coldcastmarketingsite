@@ -12,12 +12,12 @@ export const STATIC_SEO = {
   '/': {
     title: 'LinkedIn Sales Navigator Scraper — Account-Safe | Coldcast',
     description:
-      'The account-safe LinkedIn Sales Navigator scraper — export leads with verified emails, phones and buying signals from your own browser. No bans. Try it free.',
+      'The account-safe LinkedIn Sales Navigator scraper — export leads with verified emails, phones and buying signals from your own logged-in session, human-paced in a secure cloud browser. No bans. Try it free.',
     keywords:
       'Sales Navigator scraper, LinkedIn Sales Navigator scraper, account-safe LinkedIn scraper, export Sales Navigator leads, triple-verified emails, buying intent signals, lead enrichment',
     ogTitle: "The world's safest Sales Navigator scraper",
     ogDescription:
-      'Scrape Sales Navigator, Apollo and ZoomInfo at zero ban risk — from your own browser, at human pace. Pull triple-verified emails, phones and buying signals.',
+      'Scrape Sales Navigator, Apollo and ZoomInfo at zero ban risk — your own session, human pace, hard limits. Pull triple-verified emails, phones and buying signals.',
   },
   '/products': {
     title: 'Lead Gen Tools: Scrape, Enrich, Verify | Coldcast',
@@ -27,7 +27,7 @@ export const STATIC_SEO = {
       'lead generation platform, Sales Navigator enrichment tools, waterfall enrichment, email verifier, AI SDR, lead scraper suite, GTM tools',
     ogTitle: 'One platform. Seven GTM tools.',
     ogDescription:
-      'Scrape, enrich, verify and reach in one account-safe platform. Use a single tool or chain all seven into a full GTM pipeline that runs in your own browser.',
+      'Scrape, enrich, verify and reach in one account-safe platform. Use a single tool or chain all seven into a full GTM pipeline that runs your own logged-in session at human pace.',
     image: '/images/coldcast-sales-navigator-scraper-app.png',
   },
   '/roles': {
@@ -90,23 +90,23 @@ export const PRODUCT_SEO = {
     name: 'Sales Navigator Scraper',
     title: 'LinkedIn Sales Navigator Scraper: 20k Leads/Day | Coldcast',
     description:
-      'Scrape LinkedIn Sales Navigator from your own browser: 20,000 leads a day at zero ban risk, enriched and AI-scored as you export. Start free today.',
+      'Scrape LinkedIn Sales Navigator from your own logged-in session, human-paced in a secure cloud browser: 20,000 leads a day at zero ban risk, enriched and AI-scored as you export. Start free today.',
     keywords:
       'Sales Navigator scraper, LinkedIn Sales Navigator export, account-safe LinkedIn scraper, export Sales Nav leads, no ban risk, lead enrichment',
     ogTitle: 'Sales Navigator Scraper — 20,000 Leads/Day, Zero Ban Risk',
     ogDescription:
-      'Export Sales Nav leads from your own browser session. 20,000/day, enriched and scored, no code — just paste a search URL.',
+      'Export Sales Nav leads from your own logged-in session, human-paced in a secure cloud browser. 20,000/day, enriched and scored, no code — just paste a search URL.',
   },
   'linkedin-post-scraper': {
     name: 'LinkedIn Post Scraper',
     title: 'LinkedIn Post Scraper: Reactions & Comments | Coldcast',
     description:
-      'Scrape everyone who reacted, commented on or reposted any LinkedIn post — enriched with verified emails, from your own browser at zero ban risk. Try it free.',
+      'Scrape everyone who reacted, commented on or reposted any LinkedIn post — enriched with verified emails, from your own logged-in session at human pace, zero ban risk. Try it free.',
     keywords:
       'linkedin post scraper, linkedin post engagement scraper, scrape linkedin comments, scrape post reactions, linkedin reactions scraper, warm outbound leads',
     ogTitle: 'LinkedIn Post Scraper — Export Every Engager, Enriched',
     ogDescription:
-      'Paste a post URL and export every reactor, commenter and reposter with verified emails — account-safe, from your own browser.',
+      'Paste a post URL and export every reactor, commenter and reposter with verified emails — account-safe, from your own logged-in session, human-paced in a secure cloud browser.',
   },
   'sales-navigator-account-scraper': {
     name: 'Sales Nav Account Scraper',
@@ -117,7 +117,7 @@ export const PRODUCT_SEO = {
       'sales navigator account scraper, sales navigator company scraper, export sales nav accounts, account based marketing list, company search export, firmographics scraper',
     ogTitle: 'Sales Nav Account Scraper — Export Company Lists, Safely',
     ogDescription:
-      'Turn a Sales Navigator account search into a clean company list with domains and firmographics — from your own browser, zero ban risk.',
+      'Turn a Sales Navigator account search into a clean company list with domains and firmographics — from your own logged-in session, human-paced with hard limits, zero ban risk.',
   },
   'apollo-scraper': {
     name: 'Apollo Scraper',

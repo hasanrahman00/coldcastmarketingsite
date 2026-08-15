@@ -23,7 +23,7 @@ export default function FinalCTA() {
             Let&rsquo;s start with your next list.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
-            Export, enrich and verify your next thousand leads — account-safe, from your own browser.
+            Export, enrich and verify your next thousand leads — account-safe, from your own logged-in session.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a

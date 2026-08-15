@@ -38,12 +38,13 @@ export default function HomePage() {
           The claim was made three times before it was ever substantiated.
 
           Safety is not a compliance badge; it's a competitor teardown ("Safe by
-          architecture, not by promise" — their cloud browser and stored password
-          vs your own session). That's the #1 reason anyone buys this instead of
+          architecture, not by promise" — their stored password and machine-speed
+          bursts vs your own logged-in session, human-paced and hard-capped in a
+          secure cloud browser). That's the #1 reason anyone buys this instead of
           Evaboot or PhantomBuster, so it answers the ban question immediately.
 
           SpeedAccuracy must stay directly BEHIND Safety, never in front: its
-          table's "Account safety · shared cloud IPs vs your own IP & session" row
+          table's "Account safety · machine-speed automation vs your own human-paced session" row
           is a one-line recap of the case Safety just made. Ahead of it, that row
           is a naked assertion. Fear #1 then fear #2, in the order they arrive. */}
       <Safety />
@@ -53,7 +54,7 @@ export default function HomePage() {
           Cheapest section on the page (0.8 screens) and it was buried at 69%
           depth. It also does setup work for everything above and below: "no
           proxies to configure — if you can run a Sales Navigator search, you can
-          run Coldcast" is what makes "it runs in your browser, as you" legible. */}
+          run Coldcast" is what makes "it runs your own logged-in session, as you" legible. */}
       <HowItWorks />
       {/* Pinned to HowItWorks on purpose: those four steps end at a file, and
           this band says what the file opens in. Travels with it, always. */}

@@ -45,7 +45,7 @@ const POINTS = [
   // No ban claim on this card — the Safety section owns the account-safety story
   // a few sections up. This column stays on the data/enrichment value props so it
   // doesn't repeat or compete with that proof.
-  { Icon: ShieldCheck, title: 'Account-safe scraping', desc: 'Your browser, human pace.' },
+  { Icon: ShieldCheck, title: 'Account-safe scraping', desc: 'Your real session, human pace.' },
   { Icon: KeyRound, title: 'One login, one bill', desc: 'Your whole stack, one line item.' },
 ]
 
