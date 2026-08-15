@@ -1,39 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
-  <rect width="1200" height="630" fill="#0d1014"/>
-  <circle cx="1120" cy="150" r="210" fill="#ffffff" fill-opacity="0.02"/>
-  <circle cx="90" cy="560" r="180" fill="#ffffff" fill-opacity="0.02"/>
+  <rect width="1200" height="630" fill="#0d1116"/>
+  <circle cx="1080" cy="150" r="230" fill="#ffffff" fill-opacity="0.02"/>
+  <circle cx="120" cy="560" r="170" fill="#ffffff" fill-opacity="0.02"/>
 
-  <text x="80" y="96" fill="#c3f53c" font-size="20" font-weight="700" font-family="'DejaVu Sans Mono', monospace" letter-spacing="5">WIZA ALTERNATIVE</text>
-  <text x="80" y="160" fill="#ffffff" font-size="50" font-weight="800">The account-safe way to scrape</text>
-  <text x="80" y="216" fill="#ffffff" font-size="50" font-weight="800">Sales Navigator</text>
+  <text x="80" y="94" fill="#c3f53c" font-size="20" font-weight="700" font-family="'DejaVu Sans Mono', monospace" letter-spacing="5">COLDCAST · COMPARISON</text>
+  <text x="80" y="158" fill="#ffffff" font-size="54" font-weight="800">The Account-Safe</text>
+  <text x="80" y="218" fill="#ffffff" font-size="54" font-weight="800">Wiza Alternative</text>
+  <text x="80" y="272" fill="#8b93a0" font-size="24">Sales Navigator scraping without the credit meter</text>
 
-  <!-- comparison table -->
-  <rect x="80" y="262" width="1040" height="296" rx="16" fill="#12161d"/>
-  <text x="480" y="322" fill="#c3f53c" font-size="24" font-weight="800">Coldcast</text>
-  <text x="820" y="322" fill="#8b93a0" font-size="24" font-weight="800">Wiza</text>
-  <line x1="112" y1="344" x2="1088" y2="344" stroke="#232a33"/>
-
-  <g font-size="20">
-    <!-- Account safety -->
-    <text x="112" y="382" fill="#e6e9ee">Account safety</text>
-    <text x="480" y="382" fill="#c3f53c">Core design principle</text>
-    <text x="820" y="382" fill="#8b93a0">Depends on your volume</text>
-    <line x1="112" y1="406" x2="1088" y2="406" stroke="#1e242c"/>
-    <!-- Enrichment -->
-    <text x="112" y="430" fill="#e6e9ee">Enrichment</text>
-    <text x="480" y="430" fill="#c3f53c">Multi-provider waterfall</text>
-    <text x="820" y="430" fill="#8b93a0">Single engine</text>
-    <line x1="112" y1="454" x2="1088" y2="454" stroke="#1e242c"/>
-    <!-- Export ceiling -->
-    <text x="112" y="478" fill="#e6e9ee">Export ceiling</text>
-    <text x="480" y="478" fill="#c3f53c">Built for volume</text>
-    <text x="820" y="478" fill="#8b93a0">30,000 leads / year</text>
-    <line x1="112" y1="502" x2="1088" y2="502" stroke="#1e242c"/>
-    <!-- Pricing model -->
-    <text x="112" y="526" fill="#e6e9ee">Pricing model</text>
-    <text x="480" y="526" fill="#c3f53c">Workflow-based</text>
-    <text x="820" y="526" fill="#8b93a0">Credits + per seat</text>
+  <!-- Coldcast card -->
+  <rect x="80" y="322" width="500" height="250" rx="16" fill="#141922" stroke="#c3f53c" stroke-width="2"/>
+  <text x="112" y="378" fill="#c3f53c" font-size="30" font-weight="800">Coldcast</text>
+  <g font-size="21" fill="#e6e9ee">
+    <text x="112" y="428"><tspan fill="#c3f53c">✓</tspan>  Cloud-based, account-safe design</text>
+    <text x="112" y="466"><tspan fill="#c3f53c">✓</tspan>  Waterfall enrichment, multi-provider</text>
+    <text x="112" y="504"><tspan fill="#c3f53c">✓</tspan>  No expiring credits</text>
+    <text x="112" y="542"><tspan fill="#c3f53c">✓</tspan>  LinkedIn + Apollo + ZoomInfo</text>
   </g>
 
-  <text x="80" y="600" fill="#7f8894" font-size="19">coldcast.io — the safest LinkedIn Sales Navigator scraper</text>
+  <!-- Wiza card -->
+  <rect x="620" y="322" width="500" height="250" rx="16" fill="#141922" stroke="#232a33"/>
+  <text x="652" y="378" fill="#8b93a0" font-size="30" font-weight="800">Wiza</text>
+  <g font-size="21" fill="#8b93a0">
+    <text x="652" y="428">–  Chrome extension in your session</text>
+    <text x="652" y="466">–  Single-source email lookup</text>
+    <text x="652" y="504">–  Credits don’t roll over</text>
+    <text x="652" y="542">–  “Unlimited” = annual + fair-use cap</text>
+  </g>
 </svg>
