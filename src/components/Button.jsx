@@ -8,10 +8,10 @@ const SIZES = {
 }
 
 const VARIANTS = {
-  // Lime ACTION face — text/icons must be the lime ink (#131a00), never white
-  // and never the dark green #062119, which goes muddy on lime.
+  // Orange ACTION face (apolloscraper reference) with pure-black label per the
+  // "orange button, black font" direction. Orange is #ff4f00; hover darkens.
   primary:
-    'bg-lime-gradient text-lime-ink shadow-lime-btn hover:-translate-y-0.5 hover:brightness-105 hover:shadow-lime-btn-hover',
+    'bg-orange text-[#111111] shadow-[0_10px_28px_-10px_rgba(255,79,0,0.55)] hover:-translate-y-0.5 hover:bg-orange-dark',
   // Mint face — the secondary CTA beside a lime primary. Ink here is #062119,
   // NOT lime's #131a00: each fill has its own ink, and swapping them muddies.
   mint:

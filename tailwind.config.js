@@ -14,10 +14,10 @@ export default {
         panel: '#fafafa',
         panel2: '#f5f5f5',
         inset: '#f5f5f5',
-        // Text
-        ink: '#1a1a1a',
-        muted: '#525252',
-        faint: '#737373',
+        // Text — pure-black primary + darker greys so copy stays clearly visible.
+        ink: '#111111',
+        muted: '#3d3d3d',
+        faint: '#5c5c5c',
         // Accents — all collapsed to the mono ramp. `brand`/`safe` were mint
         // (STATE), `lime` was acid (ACTION); both now read as black/graphite so
         // buttons go solid black and accent text goes near-black.
@@ -39,19 +39,23 @@ export default {
         amber: '#a16207', // intent / warning — kept as the one muted status hue
         safe: '#171717', // safety → near-black
         danger: '#dc2626', // "others" / X marks — kept red for status legibility
+        // Reference accents (apolloscraper.coldcast.io look) — the deliberate
+        // place colour returns to the UI: orange CTAs + a yellow highlight.
+        orange: { DEFAULT: '#ff4f00', dark: '#e64700' },
+        sun: '#ffd400',
         // Hairline borders — light gray on white
         hairline: '#e5e5e5',
         'hairline-strong': '#d4d4d4',
       },
       fontFamily: {
-        // Space Mono everywhere — the single Mindcase face. Only 400/700 ship,
-        // so 500/600 utilities fall to the nearest weight (browser-synthesised).
-        freudian: ['"Space Mono"', 'ui-monospace', 'monospace'],
-        display: ['"Space Mono"', 'ui-monospace', 'monospace'],
-        sans: ['"Space Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        // Manrope — the primary site face (matches apolloscraper.coldcast.io).
+        // `mono` stays Space Mono for the small eyebrow labels only.
+        freudian: ['Manrope', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        display: ['Manrope', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'sans-serif'],
         mono: ['"Space Mono"', 'ui-monospace', 'monospace'],
-        // Clean sans reserved for the top nav, its dropdowns and the wordmark.
-        jakarta: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        // Legacy nav utility name — now also Manrope so the whole site is one family.
+        jakarta: ['Manrope', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'sans-serif'],
       },
       borderRadius: {
         // Sharp corners (0px) on every card/button/input/chip — the Mindcase
