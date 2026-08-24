@@ -32,7 +32,7 @@ const PLANS = [
     price: 'Free',
     priceUnit: 'for 1 day',
     tagline: 'Full access for a day — no card required.',
-    metric: '1,000 leads / day',
+    metric: '100 leads / day',
     metricNote: 'All 7 scrapers · secure cloud browser',
     listLabel: 'Included free',
     list: ['50 email-enrichment credits', '50 email-verify credits', 'Every scraper unlocked'],

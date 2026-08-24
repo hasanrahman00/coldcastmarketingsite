@@ -1,30 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
   <rect width="1200" height="630" fill="#0d1116"/>
-  <circle cx="1080" cy="150" r="230" fill="#ffffff" fill-opacity="0.02"/>
-  <circle cx="120" cy="560" r="170" fill="#ffffff" fill-opacity="0.02"/>
+  <circle cx="1120" cy="140" r="210" fill="#ffffff" fill-opacity="0.02"/>
+  <circle cx="1030" cy="360" r="120" fill="#ffffff" fill-opacity="0.02"/>
 
-  <text x="80" y="94" fill="#c3f53c" font-size="20" font-weight="700" font-family="'DejaVu Sans Mono', monospace" letter-spacing="5">COLDCAST · COMPARISON</text>
-  <text x="80" y="158" fill="#ffffff" font-size="54" font-weight="800">The Account-Safe</text>
-  <text x="80" y="218" fill="#ffffff" font-size="54" font-weight="800">Wiza Alternative</text>
-  <text x="80" y="272" fill="#8b93a0" font-size="24">Sales Navigator scraping without the credit meter</text>
+  <text x="80" y="98" fill="#c3f53c" font-size="20" font-weight="700" font-family="'DejaVu Sans Mono', monospace" letter-spacing="5">WIZA ALTERNATIVE · 2026</text>
+  <text x="80" y="164" fill="#ffffff" font-size="54" font-weight="800">The account-safe way to</text>
+  <text x="80" y="226" font-size="54" font-weight="800"><tspan fill="#ffffff">export Sales Navigator </tspan><tspan fill="#c3f53c">leads</tspan></text>
 
   <!-- Coldcast card -->
-  <rect x="80" y="322" width="500" height="250" rx="16" fill="#141922" stroke="#c3f53c" stroke-width="2"/>
-  <text x="112" y="378" fill="#c3f53c" font-size="30" font-weight="800">Coldcast</text>
+  <rect x="80" y="300" width="500" height="252" rx="16" fill="#141922" stroke="#c3f53c" stroke-width="2"/>
+  <text x="112" y="356" fill="#c3f53c" font-size="30" font-weight="800">Coldcast</text>
   <g font-size="21" fill="#e6e9ee">
-    <text x="112" y="428"><tspan fill="#c3f53c">✓</tspan>  Cloud-based, account-safe design</text>
-    <text x="112" y="466"><tspan fill="#c3f53c">✓</tspan>  Waterfall enrichment, multi-provider</text>
-    <text x="112" y="504"><tspan fill="#c3f53c">✓</tspan>  No expiring credits</text>
-    <text x="112" y="542"><tspan fill="#c3f53c">✓</tspan>  LinkedIn + Apollo + ZoomInfo</text>
+    <text x="112" y="406"><tspan fill="#c3f53c">✓</tspan>  Human-like pacing, auto-throttle</text>
+    <text x="112" y="446"><tspan fill="#c3f53c">✓</tspan>  Waterfall enrichment, multi-source</text>
+    <text x="112" y="486"><tspan fill="#c3f53c">✓</tspan>  Built-in email verification</text>
+    <text x="112" y="526"><tspan fill="#c3f53c">✓</tspan>  Sales Nav + Apollo + ZoomInfo</text>
   </g>
 
   <!-- Wiza card -->
-  <rect x="620" y="322" width="500" height="250" rx="16" fill="#141922" stroke="#232a33"/>
-  <text x="652" y="378" fill="#8b93a0" font-size="30" font-weight="800">Wiza</text>
+  <rect x="620" y="300" width="500" height="252" rx="16" fill="#141922" stroke="#232a33"/>
+  <text x="652" y="356" fill="#8b93a0" font-size="30" font-weight="800">Wiza</text>
   <g font-size="21" fill="#8b93a0">
-    <text x="652" y="428">–  Chrome extension in your session</text>
-    <text x="652" y="466">–  Single-source email lookup</text>
-    <text x="652" y="504">–  Credits don’t roll over</text>
-    <text x="652" y="542">–  “Unlimited” = annual + fair-use cap</text>
+    <text x="652" y="406">—  No documented rate-limit safeguards</text>
+    <text x="652" y="446">—  Single enrichment engine</text>
+    <text x="652" y="486">—  2,500 exports/mo cap on top plans</text>
+    <text x="652" y="526">—  $0.35 per phone overage</text>
   </g>
+
+  <text x="80" y="600" fill="#7f8894" font-size="19">coldcast.io — the safest LinkedIn Sales Navigator scraper</text>
 </svg>
