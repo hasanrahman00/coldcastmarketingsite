@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
-import HomePage from './pages/HomePage'
+import CloneLayout from './components/clone/CloneLayout'
+import CloneHome from './pages/clone/CloneHome'
+import ClonePricing from './pages/clone/ClonePricing'
 import ProductsPage from './pages/ProductsPage'
 import RolesPage from './pages/RolesPage'
 import FreeToolsPage from './pages/FreeToolsPage'
@@ -36,8 +38,13 @@ export default function App() {
 
   return (
     <Routes>
+      {/* Enrich-style clone pages (own header/footer + stone/indigo theme). */}
+      <Route element={<CloneLayout />}>
+        <Route path="/" element={<CloneHome />} />
+        <Route path="/pricing" element={<ClonePricing />} />
+      </Route>
+
       <Route element={<Layout />}>
-        <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:slug" element={<ProductDetailPage />} />
         <Route path="/coldcast-agent" element={<ProductDetailPage slug="coldcast-agent" />} />

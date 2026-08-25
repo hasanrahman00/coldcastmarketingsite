@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Grain from './Grain'
-import Navbar from './Navbar'
-import Footer from './Footer'
-import AnnouncementBar from './AnnouncementBar'
+import CloneHeader from './clone/CloneHeader'
+import CloneFooter from './clone/CloneFooter'
 
 // On navigation: jump to the hash target if present, else scroll to top.
+// getElementById (not querySelector) so a malformed fragment can't throw.
 function ScrollManager() {
   const { pathname, hash } = useLocation()
   useEffect(() => {
     if (hash) {
-      const el = document.querySelector(hash)
+      const el = document.getElementById(hash.slice(1))
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' })
         return
@@ -22,14 +22,6 @@ function ScrollManager() {
 }
 
 export default function Layout() {
-  const [showBar, setShowBar] = useState(() => {
-    try { return localStorage.getItem('cc_bar_dismissed') !== '1' } catch { return true }
-  })
-  const dismissBar = () => {
-    setShowBar(false)
-    try { localStorage.setItem('cc_bar_dismissed', '1') } catch { /* ignore */ }
-  }
-
   return (
     <>
       <a
@@ -49,16 +41,16 @@ export default function Layout() {
         <div className="orb orb-c" />
       </div>
 
-      {/* The whole site is one graphite card floating on the backdrop.
-          No overflow-hidden here — it would break the sticky navbar; the
-          nav and footer round their own outer corners to match the frame. */}
+      {/* Legacy pages keep their own body styling but wear the new clone chrome
+          (header + footer) so navigation is consistent site-wide. Header and
+          footer are each wrapped in a bare `.cc` so the scoped clone styles apply
+          WITHOUT the base resets reaching the legacy page body in <main>. */}
       <div className="app-frame">
-        {showBar && <AnnouncementBar onClose={dismissBar} />}
-        <Navbar />
+        <div className="cc"><CloneHeader /></div>
         <main id="main">
           <Outlet />
         </main>
-        <Footer />
+        <div className="cc"><CloneFooter /></div>
       </div>
     </>
   )
