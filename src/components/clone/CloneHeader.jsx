@@ -210,7 +210,6 @@ export default function CloneHeader() {
           {renderMenu(MENUS[0])}
           <Link to="/pricing" className="lnk" onClick={closeAll}>Pricing</Link>
           {MENUS.slice(1).map(renderMenu)}
-          <Link to="/blog" className="lnk" onClick={closeAll}>Docs ↗</Link>
         </nav>
         <div className="navr">
           <a href={APP_URL} className="btn ghost sm">Log in</a>

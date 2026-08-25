@@ -14,7 +14,11 @@ export default function CloneFooter() {
             Coldcast
           </Link>
           <p>Lead scraping, enrichment and verification for cold email teams.</p>
-          <div className="badges"><i></i><i></i><i></i></div>
+          <div className="badges">
+            <img src="/images/badges/ccpa.svg" alt="CCPA compliant" width="40" height="47" loading="lazy" />
+            <img src="/images/badges/gdpr.svg" alt="GDPR compliant" width="40" height="47" loading="lazy" />
+            <img src="/images/badges/soc2.svg" alt="SOC 2 Type II compliant" width="40" height="47" loading="lazy" />
+          </div>
         </div>
 
         <div>

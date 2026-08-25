@@ -286,9 +286,8 @@ body.cc-body { background: #FAFAF9; overflow-x: hidden; }
 .cc .foot h5 { font-family: var(--body); font-size: 13px; font-weight: 600; margin-bottom: 14px; color: var(--ink); }
 .cc .foot a { display: block; color: var(--ink-3); padding: 4px 0; }
 .cc .foot a:hover { color: var(--indigo); }
-.cc .badges { display: flex; gap: 8px; margin-top: 16px; }
-.cc .badges i { width: 28px; height: 32px; background: var(--ink); clip-path: polygon(50% 0, 100% 15%, 100% 60%, 50% 100%, 0 60%, 0 15%); display: block; }
-.cc .badges i:nth-child(2) { background: var(--indigo); }
+.cc .badges { display: flex; gap: 10px; margin-top: 16px; align-items: center; }
+.cc .badges img { height: 46px; width: auto; display: block; }
 .cc .foot-bottom { border-top: 1px solid var(--line); padding: 22px 40px; display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-3); gap: 16px; flex-wrap: wrap; }
 
 /* ===== Pricing page — hero pill ===== */
