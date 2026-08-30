@@ -140,12 +140,12 @@ const FAQS = [
   },
   {
     q: 'How does pricing work?',
-    a: 'One $49/month scraping plan with 600,000 credits (20,000 a day) across every scraper. Enrichment and verification use separate credit packs that never expire: $30 per 10,000 enrichment credits (1 per found email, 3 per domain) and $10 per 10,000 verification credits. Rows with no email found are free.',
+    a: 'Everything is pay-as-you-go credit packs that never expire: scraping is $3 per 10,000 credits (1 per Sales Nav/Apollo/ZoomInfo row), enrichment $30 per 10,000 (1 per found email, 3 per domain), and verification $10 per 10,000. Rows with no email found are free, and there is no subscription.',
     link: { to: '/pricing', label: 'Full pricing →' },
   },
   {
-    q: 'What does "unlimited scraping" mean?',
-    a: 'Scraping never uses credits. Pro allows up to 20,000 leads per day, a ceiling chosen to keep your LinkedIn account inside safe limits.',
+    q: 'How much does scraping cost, and is there a daily limit?',
+    a: 'Scraping credits are $3 per 10,000 — 1 credit per Sales Nav, Apollo or ZoomInfo row (2 for accounts/search, 10 for post engagers and uploaded URLs). A 20,000-row daily cap keeps your LinkedIn account inside safe limits.',
   },
   {
     q: 'How accurate are the emails?',
@@ -173,7 +173,7 @@ export default function CloneHome() {
       <Seo
         path="/"
         title="Coldcast: Find High-Intent Warm Leads. Scrape, Enrich, Verify in One Workbench. Zero Bans."
-        description="Coldcast is the B2B lead data platform for cold email. Scrape Sales Navigator, Apollo and ZoomInfo from your own session, enrich every lead through a 10-provider email waterfall, verify, and export. Free scraping, $49/mo, zero bans."
+        description="Coldcast is the B2B lead data platform for cold email. Scrape Sales Navigator, Apollo and ZoomInfo from your own session, enrich every lead through a 10-provider email waterfall, verify, and export. Scraping from $3 per 10,000 credits, pay-per-email enrichment, zero bans."
         keywords="sales navigator scraper, b2b data platform, email enrichment, email verification, apollo scraper, zoominfo scraper, linkedin lead scraper, waterfall enrichment, cold email lead generation"
         jsonLd={faqLd}
       />
@@ -303,12 +303,13 @@ export default function CloneHome() {
             <span className="k">query</span>       "VP Sales · SaaS · 51–200 · US"<br />
             <span className="k">session</span>     yours (no password stored)<br />
             <span className="k">pace</span>        human · daily cap 20,000<br />
+            <span className="k">scrape</span>      2,500 credits · $3 / 10,000<br />
             <span className="k">enrich</span>      waterfall · 10 providers · pay per hit<br />
             <span className="k">verify</span>      syntax + mx + smtp + catch-all<br />
             <br />
             <span className="c"># preview</span><br />
             leads       2,500<br />
-            cost        <span className="g">$0.00 scrape</span> + ~$57 enrich<br />
+            cost        <span className="g">~$0.75 scrape</span> + ~$57 enrich<br />
             eta         ~5 min<br />
             bans        <span className="g">0 (6+ months of daily use)</span>
           </div>
@@ -382,7 +383,7 @@ export default function CloneHome() {
           ))}
         </div>
         <div className="trust-cta">
-          <div><b>Simple pricing.</b> One $49 scraping plan plus credit packs that never expire.</div>
+          <div><b>Simple pricing.</b> Pay-as-you-go credit packs that never expire — scraping from $3 per 10,000.</div>
           <Link to="/pricing" className="btn" style={{ width: 'auto' }}>See pricing →</Link>
         </div>
       </section>

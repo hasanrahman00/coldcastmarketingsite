@@ -15,7 +15,7 @@ function PricingPlans() {
       <div className="switch-row">
         <div className="seg" role="tablist" aria-label="Pricing type">
           <button id="cc-tab-scrape" className={panel === 'scrape' ? 'on' : ''} role="tab" aria-selected={panel === 'scrape'} aria-controls="cc-panel-scrape" onClick={() => setPanel('scrape')}>
-            Scraping plans <small>Monthly</small>
+            Scraping credits <small>Never expire</small>
           </button>
           <button id="cc-tab-enrich" className={panel === 'enrich' ? 'on' : ''} role="tab" aria-selected={panel === 'enrich'} aria-controls="cc-panel-enrich" onClick={() => setPanel('enrich')}>
             Verify &amp; Enrichment credits <small>Never expire</small>
@@ -47,11 +47,11 @@ function PricingPlans() {
           </div>
 
           <div className="plan pop">
-            <h3 className="tier">Pro <em>Most popular</em></h3>
-            <div className="price">$49<small> / month</small></div>
-            <div className="credits">600,000 scraping credits / month <span>· 20,000 per day</span></div>
-            <span className="per">$0.00008 per lead row</span>
-            <a href={TRIAL_URL} className="btn">Choose plan</a>
+            <h3 className="tier">Scraping credits <em>Most popular</em></h3>
+            <div className="price">$3<small> / 10,000</small></div>
+            <div className="credits">Pay-as-you-go scraping credits <span>· never expire</span></div>
+            <span className="per">$0.0003 per credit · from $0.30 / 1,000 rows</span>
+            <a href={TRIAL_URL} className="btn">Buy credits</a>
             <hr />
             <p className="incl">What’s included:</p>
             <ul>
@@ -59,25 +59,25 @@ function PricingPlans() {
               <li>Sales Nav Accounts, LinkedIn Search &amp; Services URLs · 2 credits per row</li>
               <li>LinkedIn post comments &amp; reactors · 10 credits per row</li>
               <li>Upload LinkedIn URLs (profile enrich) · 10 credits per row</li>
-              <li>Daily cap keeps your LinkedIn account safe · 0 bans in 6+ months</li>
+              <li>20,000-row daily cap keeps your LinkedIn account safe · 0 bans in 6+ months</li>
               <li>AI SDR, buying signals, CSV / Sheets / CRM export</li>
               <li>Scraping never uses enrichment credits</li>
             </ul>
-            <div className="math">600,000 credits = up to <b>600,000</b> Sales Nav / Apollo / ZoomInfo rows, or <b>300,000</b> account &amp; search rows, or <b>60,000</b> post engagers or uploaded LinkedIn URLs per month.</div>
+            <div className="math">10,000 scraping credits = up to <b>10,000</b> Sales Nav / Apollo / ZoomInfo rows, or <b>5,000</b> account &amp; search rows, or <b>1,000</b> post engagers or uploaded LinkedIn URLs.</div>
           </div>
 
           <div className="plan">
             <h3 className="tier">Agency</h3>
             <div className="price" style={{ fontSize: 30, paddingTop: 6 }}>Custom</div>
-            <div className="selectbox"><span>1,000,000+ credits / month</span><span>⌄</span></div>
+            <div className="selectbox"><span>1,000,000+ credits</span><span>⌄</span></div>
             <a href={DEMO_URL} className="btn outline">Talk to us</a>
             <hr />
             <p className="incl">What’s included:</p>
             <ul>
-              <li>Everything in Pro</li>
+              <li>Everything in Scraping credits</li>
               <li>Unlimited seats, per-client workspaces</li>
-              <li>Custom daily and monthly caps</li>
-              <li>Discounted enrichment credit rates</li>
+              <li>Custom daily caps</li>
+              <li>Discounted per-credit rate</li>
               <li>Priority support &amp; onboarding</li>
             </ul>
           </div>
@@ -170,23 +170,23 @@ function Calculator() {
   const ec = found * 1 + num('d1') * 3
   const vc = num('v1')
 
-  let plan = 'Pro · $49', planCost = 49, note = ''
-  if (sc === 0) { plan = 'None needed'; planCost = 0 }
-  if (sc > 600000) { plan = 'Agency · custom'; note = 'You need more than 600,000 scraping credits a month, so the total below excludes scraping. ' }
-
-  const ePacks = Math.ceil(ec / 10000), vPacks = Math.ceil(vc / 10000)
-  const packCost = ePacks * 30 + vPacks * 10
-  const total = (sc > 600000 ? 0 : planCost) + packCost
+  // Everything is 10,000-credit packs: scraping $3, enrichment $30, verify $10.
+  const sPacks = Math.ceil(sc / 10000)
+  const ePacks = Math.ceil(ec / 10000)
+  const vPacks = Math.ceil(vc / 10000)
+  const total = sPacks * 3 + ePacks * 30 + vPacks * 10
   const packs =
-    ((ePacks ? `${ePacks} × Enrichment ($30)` : '') +
-      (ePacks && vPacks ? ' + ' : '') +
-      (vPacks ? `${vPacks} × Verify ($10)` : '')) || '—'
+    [
+      sPacks ? `${sPacks} × Scraping ($3)` : '',
+      ePacks ? `${ePacks} × Enrichment ($30)` : '',
+      vPacks ? `${vPacks} × Verify ($10)` : '',
+    ].filter(Boolean).join(' + ') || '—'
 
   return (
     <section className="sec calc">
       <div className="center">
         <span className="label">Calculator</span>
-        <h2 style={{ marginTop: 12 }}>Estimate your monthly cost</h2>
+        <h2 style={{ marginTop: 12 }}>Estimate your cost</h2>
         <p className="lead" style={{ fontSize: 16, marginTop: 8 }}>Type your volumes. The maths uses the credit rules above.</p>
       </div>
       <div className="calc-box">
@@ -211,14 +211,13 @@ function Calculator() {
           <input id="calc-v1" type="number" min="0" value={v.v1} onChange={set('v1')} />
         </div>
         <div className="calc-out">
-          <div className="row"><span>Scraping credits used</span><b>{CCY(sc)} / 600,000</b></div>
-          <div className="row"><span>Scraping plan</span><b>{plan}</b></div>
+          <div className="row"><span>Scraping credits used</span><b>{CCY(sc)}</b></div>
           <div className="row"><span>Emails found (≈)</span><b>{CCY(found)}</b></div>
           <div className="row"><span>Enrichment credits (1 × email + 3 × domain)</span><b>{CCY(ec)}</b></div>
           <div className="row"><span>Verify credits (1 × each)</span><b>{CCY(vc)}</b></div>
           <div className="row"><span>Credit packs</span><b>{packs}</b></div>
-          <div className="tot"><span>Estimated monthly total</span><b>${CCY(total)}</b></div>
-          <p className="note">{note}Packs are 10,000 credits each; leftover credits never expire.</p>
+          <div className="tot"><span>Estimated total</span><b>${CCY(total)}</b></div>
+          <p className="note">All packs are 10,000 credits each; leftover credits never expire.</p>
         </div>
       </div>
     </section>
@@ -243,11 +242,11 @@ const USAGE = [
   ['WF', 'Waterfall email enrichment', <><b>1 credit</b> per row where an email is found · misses are free</>, 'e', 'Enrichment credits'],
   ['DM', 'Domain enrichment', <><b>3 credits</b> per domain: firmographics, funding, tech stack, hiring</>, 'e', 'Enrichment credits'],
   ['EV', 'Email verification', <><b>1 credit</b> per email · catch-all clean · $0.001 each</>, 'v', 'Verify credits'],
-  ['AI', 'AI SDR first lines', <><b>0 credits</b> · personalised openers from buying signals, included on Pro</>, '', 'Included'],
+  ['AI', 'AI SDR first lines', <><b>0 credits</b> · personalised openers from buying signals, included free</>, '', 'Included'],
 ]
 
 const CMP = [
-  ['Coldcast', '$0.08 (1,000 of 600k credits)', <>≈ $4.00 ($3 find + $1 verify)<span className="save">up to 90% less</span></>, ['yes', 'Yes'], ['yes', 'Yes (enrich packs)'], true],
+  ['Coldcast', '$0.30 (1,000 credits @ $3/10k)', <>≈ $4.00 ($3 find + $1 verify)<span className="save">up to 90% less</span></>, ['yes', 'Yes'], ['yes', 'Yes (all packs)'], true],
   ['Evaboot', '≈ $19.60', 'Included, unverified extras', ['no', 'Extension'], ['no', 'No']],
   ['Phantombuster', '≈ $28.00', 'Separate tool', ['no', 'Their servers'], ['no', 'No']],
   ['Apollo export credits', 'n/a', '≈ $24.83', ['no', 'Database'], ['no', 'No']],
@@ -258,7 +257,7 @@ const CMP = [
 const FAQS = [
   {
     q: 'How are scraping credits deducted?',
-    a: '1 credit per row for Sales Navigator leads, Apollo and ZoomInfo. 2 credits per row for Sales Nav Accounts, LinkedIn Search and Services URLs. 10 credits per row for LinkedIn post comments and reactors, and for LinkedIn URLs you upload. Pro includes 600,000 credits a month with a 20,000 daily cap across all scrapers.',
+    a: '1 credit per row for Sales Navigator leads, Apollo and ZoomInfo. 2 credits per row for Sales Nav Accounts, LinkedIn Search and Services URLs. 10 credits per row for LinkedIn post comments and reactors, and for LinkedIn URLs you upload. Scraping credits are $3 per 10,000, never expire, and a 20,000-row daily cap keeps your account safe.',
   },
   {
     q: 'How are verification and enrichment credits deducted?',
@@ -270,19 +269,19 @@ const FAQS = [
   },
   {
     q: 'Do credits roll over or expire?',
-    a: 'Scraping credits reset every month. Verify and Enrichment credit packs never expire.',
+    a: 'None of them expire. Scraping, verify and enrichment credits are all one-time packs that stay in your account until you use them.',
   },
   {
-    q: 'Can I buy enrichment credits without a scraping plan?',
-    a: 'Yes. Upload your own CSV of LinkedIn URLs or emails and use the Verify and Enrichment packs on their own.',
+    q: 'Do I need a subscription?',
+    a: 'No. Everything is pay-as-you-go: buy scraping ($3 per 10,000), verify ($10 per 10,000) or enrichment ($30 per 10,000) credits in any amount and use them whenever. No monthly commitment.',
   },
   {
-    q: 'What if I need more than 600,000 rows a month?',
-    a: 'The Agency plan has custom monthly and daily caps, unlimited seats and discounted enrichment rates. Book a call and we’ll size it.',
+    q: 'What if I scrape at high volume?',
+    a: 'The Agency plan has discounted per-credit rates, custom daily caps, unlimited seats and per-client workspaces. Book a call and we’ll size it.',
   },
   {
-    q: 'Can I cancel any time?',
-    a: 'Yes. Pro is month to month; cancel from Billing and you keep access until the end of the period. Unused enrichment credits stay in your account.',
+    q: 'Is there anything to cancel?',
+    a: 'No subscription, so nothing to cancel. Credits are one-time purchases that never expire — you only pay when you buy more.',
   },
 ]
 
@@ -297,8 +296,8 @@ export default function ClonePricing() {
     <>
       <Seo
         path="/pricing"
-        title="Coldcast Pricing: $49/mo Scraping + Pay-Per-Email Enrichment & Verification"
-        description="Coldcast pricing. Scraping plan: $49/month for 600,000 credits (20,000/day) across Sales Navigator, Apollo, ZoomInfo and LinkedIn. Verify credits $10 per 10,000. Waterfall Email & Domain Enrichment $30 per 10,000 credits. Rows with no email found cost nothing."
+        title="Coldcast Pricing: Scraping from $3 per 10,000 Credits + Pay-Per-Email Enrichment"
+        description="Coldcast pricing. Pay-as-you-go credit packs that never expire: scraping $3 per 10,000 credits across Sales Navigator, Apollo, ZoomInfo and LinkedIn; verification $10 per 10,000; waterfall email & domain enrichment $30 per 10,000. Rows with no email found cost nothing."
         keywords="coldcast pricing, sales navigator scraper pricing, email enrichment credits, email verification pricing, apollo scraper cost, zoominfo scraper cost"
         jsonLd={faqLd}
       />
@@ -306,11 +305,11 @@ export default function ClonePricing() {
       {/* Hero */}
       <section className="p-hero">
         <span className="pill">Pricing</span>
-        <h1>Pay for scraping once.<br />Pay for <span className="mark">found emails</span> only.</h1>
-        <p className="lead">One flat plan covers every scraper. Verification and enrichment run on separate credit packs that never expire, and a row with no email found costs nothing.</p>
+        <h1>Pay for what you scrape.<br />Pay for <span className="mark">found emails</span> only.</h1>
+        <p className="lead">Scraping, verification and enrichment are simple credit packs that never expire — scraping starts at $3 per 10,000 credits, and a row with no email found costs nothing.</p>
         <div className="trust">
           <span>No credit card for the trial</span><span>0 bans in 6+ months</span>
-          <span>Cancel any time</span><span>Credits never expire</span>
+          <span>No subscription</span><span>Credits never expire</span>
         </div>
       </section>
 
@@ -340,9 +339,9 @@ export default function ClonePricing() {
         <div className="how-grid">
           <div className="how-card s">
             <div className="n">01 · SCRAPING CREDITS</div>
-            <h3>Included in your monthly plan</h3>
-            <p>600,000 a month, 20,000 a day, shared across every scraper. Reset monthly. They pull rows from Sales Navigator, Apollo, ZoomInfo, LinkedIn Search, post engagers and your own URL uploads.</p>
-            <span className="chip">$49 / month · resets monthly</span>
+            <h3>Pay for what you scrape</h3>
+            <p>1 credit per Sales Nav / Apollo / ZoomInfo row, 2 per account or search row, 10 per post engager or uploaded URL. Buy in packs and a 20,000-row daily cap keeps your account safe.</p>
+            <span className="chip">$3 / 10,000 · never expire</span>
           </div>
           <div className="how-card e">
             <div className="n">02 · ENRICHMENT CREDITS</div>
