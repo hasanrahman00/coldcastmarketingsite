@@ -56,7 +56,8 @@
       rel="stylesheet"
     />
 
-    <!-- Structured data: brand, site & product -->
+    <!-- Structured data: brand, site & product. Aligned with the live page —
+         own logged-in session, 10-provider waterfall, $3/$30/$10 credit packs. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -65,22 +66,36 @@
             "@type": "Organization",
             "@id": "https://www.coldcast.io/#organization",
             "name": "Coldcast",
+            "alternateName": ["Coldcast.io", "Coldcast Sales Navigator Scraper"],
             "url": "https://www.coldcast.io/",
-            "logo": "https://www.coldcast.io/favicon-512x512.png",
-            "image": "https://www.coldcast.io/images/coldcast-b2b-lead-list-builder.png",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.coldcast.io/favicon-512x512.png",
+              "width": 512,
+              "height": 512
+            },
+            "image": "https://www.coldcast.io/og-image.png",
+            "description": "Coldcast is an account-safe LinkedIn Sales Navigator, Apollo and ZoomInfo scraper with built-in waterfall email enrichment and verification for B2B cold outreach.",
+            "email": "contact@coldcast.io",
             "sameAs": [
               "https://www.linkedin.com/company/coldcast-io/",
               "https://www.youtube.com/@coldcastio",
               "https://chromewebstore.google.com/detail/bljolejpindiokpikdpalhofcbiphfoi"
             ],
-            "description": "Coldcast is an account-safe LinkedIn Sales Navigator scraper that exports and enriches leads — verified emails, phone numbers and buying-intent signals — running your own logged-in session in a secure cloud browser at human pace."
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "email": "contact@coldcast.io",
+              "availableLanguage": "English"
+            }
           },
           {
             "@type": "WebSite",
             "@id": "https://www.coldcast.io/#website",
             "url": "https://www.coldcast.io/",
             "name": "Coldcast",
-            "description": "Account-safe LinkedIn Sales Navigator scraper and lead-enrichment tool.",
+            "alternateName": "Coldcast.io",
+            "description": "Account-safe LinkedIn Sales Navigator scraper with waterfall email enrichment and verification.",
             "publisher": { "@id": "https://www.coldcast.io/#organization" },
             "inLanguage": "en-US"
           },
@@ -90,27 +105,51 @@
             "name": "Coldcast",
             "applicationCategory": "BusinessApplication",
             "applicationSubCategory": "Sales Intelligence / Lead Generation",
-            "operatingSystem": "Google Chrome (browser extension)",
+            "operatingSystem": "Web, Google Chrome",
+            "browserRequirements": "Requires Google Chrome",
             "url": "https://www.coldcast.io/",
             "downloadUrl": "https://chromewebstore.google.com/detail/bljolejpindiokpikdpalhofcbiphfoi",
+            "screenshot": "https://www.coldcast.io/images/coldcast-b2b-lead-list-builder.png",
             "publisher": { "@id": "https://www.coldcast.io/#organization" },
-            "description": "Export leads from LinkedIn Sales Navigator with verified emails, phone numbers and buying-intent signals — up to 20,000 a day — running your own logged-in session in a secure cloud browser at human pace, so your account stays safe. Waterfall enrichment across Lusha, SalesQL and ContactOut; clean CSV / XLSX export to your CRM or sequencer.",
+            "description": "Export leads from LinkedIn Sales Navigator, Apollo and ZoomInfo from your own logged-in session at human pace, find and verify work emails through a 10-provider waterfall, and export a send-ready CSV or push straight to HubSpot, Salesforce, Instantly, Smartlead or Lemlist.",
             "featureList": [
-              "One-click export of any Sales Navigator search",
-              "Waterfall email & phone enrichment (Lusha, SalesQL, ContactOut)",
-              "Verified, validated emails — not guesses",
-              "Buying-intent signals on every lead",
-              "Account-safe: runs your own session in a secure cloud browser at human pace",
-              "Up to ~20,000 leads per account per day",
-              "Clean, de-duplicated CSV / XLSX export"
+              "Export any Sales Navigator lead search or saved list",
+              "Apollo and ZoomInfo export without spending their credits",
+              "10-provider waterfall email enrichment, charged only when an email is found",
+              "Syntax, MX, SMTP and catch-all email verification before export",
+              "Runs in your own session at human pace with a 20,000-row daily cap",
+              "Cost preview before every job",
+              "Export to CSV, Google Sheets, HubSpot, Salesforce, Instantly, Smartlead, Lemlist, Reachinbox"
             ],
-            "offers": {
-              "@type": "AggregateOffer",
-              "priceCurrency": "USD",
-              "lowPrice": "0",
-              "highPrice": "49",
-              "offerCount": "3"
-            }
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Scraping credits",
+                "price": "3.00",
+                "priceCurrency": "USD",
+                "description": "10,000 scraping credits (1 credit per Sales Navigator, Apollo or ZoomInfo row). Pay as you go, credits never expire.",
+                "url": "https://www.coldcast.io/pricing",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "name": "Enrichment credits",
+                "price": "30.00",
+                "priceCurrency": "USD",
+                "description": "10,000 enrichment credits, 1 credit per found email.",
+                "url": "https://www.coldcast.io/pricing",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "name": "Verification credits",
+                "price": "10.00",
+                "priceCurrency": "USD",
+                "description": "10,000 email verification credits.",
+                "url": "https://www.coldcast.io/pricing",
+                "availability": "https://schema.org/InStock"
+              }
+            ]
           }
         ]
       }

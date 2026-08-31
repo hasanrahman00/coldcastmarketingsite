@@ -22,7 +22,7 @@ export default function CloneFooter() {
         </div>
 
         <div>
-          <h5>Product</h5>
+          <div className="colh">Product</div>
           <Link to="/products/sales-navigator-scraper">Sales Navigator</Link>
           <Link to="/products/sales-navigator-account-scraper">Sales Nav Accounts</Link>
           <Link to="/products/apollo-scraper">Apollo</Link>
@@ -32,7 +32,7 @@ export default function CloneFooter() {
         </div>
 
         <div>
-          <h5>Enrichment</h5>
+          <div className="colh">Enrichment</div>
           <Link to="/products/waterfall-enricher">Waterfall Enrich</Link>
           <Link to="/products/email-verify">Email Verify</Link>
           <Link to="/products/domain-enrichment">Domain Enrich</Link>
@@ -40,7 +40,7 @@ export default function CloneFooter() {
         </div>
 
         <div>
-          <h5>Resources</h5>
+          <div className="colh">Resources</div>
           <Link to="/blog">Blog</Link>
           <Link to="/blog/evaboot-alternative">Compare</Link>
           <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer">Chrome extension</a>
@@ -48,21 +48,21 @@ export default function CloneFooter() {
         </div>
 
         <div>
-          <h5>Company</h5>
+          <div className="colh">Company</div>
           <Link to="/roles">Solutions</Link>
           <Link to="/pricing">Pricing</Link>
           <Link to="/products">Products</Link>
         </div>
 
         <div>
-          <h5>Legal</h5>
+          <div className="colh">Legal</div>
           <a href="/privacy/">Privacy Policy</a>
           <a href="/terms/">Terms</a>
           <a href="/privacy/">Opt out</a>
         </div>
 
         <div>
-          <h5>Contact</h5>
+          <div className="colh">Contact</div>
           <a href="mailto:contact@coldcast.io">contact@coldcast.io</a>
           <a href="https://www.linkedin.com/company/coldcast-io/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://www.youtube.com/@coldcastio" target="_blank" rel="noopener noreferrer">YouTube</a>

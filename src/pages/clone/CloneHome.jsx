@@ -16,6 +16,7 @@ const LOGO_DOMAINS = [
 ]
 
 const hideOnError = (e) => { e.currentTarget.style.display = 'none' }
+const initials = (name) => name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase()
 
 // Tools tabs — state lives HERE (not in CloneHome) so switching tabs never
 // re-renders the page's <details open> FAQ and forces it back open.
@@ -117,15 +118,15 @@ const TRUST_CARDS = [
 const TESTIMONIALS = [
   {
     q: '"Cancelled Apollo and our verifier the same week. One tool, one bill, and the bounce rate on new domains went under 2%."',
-    img: 'https://randomuser.me/api/portraits/men/54.jpg', name: 'Tyler B.', role: 'Founder, lead-gen agency',
+    name: 'Tyler B.', role: 'Founder, lead-gen agency',
   },
   {
     q: '"I got restricted with another scraper last year. Six months on Coldcast, not a single warning. Running in my own session was the difference."',
-    img: 'https://randomuser.me/api/portraits/women/21.jpg', name: 'Camille H.', role: 'SDR, Series B SaaS',
+    name: 'Camille H.', role: 'SDR, Series B SaaS',
   },
   {
     q: '"Paste URL, five minutes, upload to Instantly. That’s my entire list-building process now."',
-    img: 'https://randomuser.me/api/portraits/men/36.jpg', name: 'Kenneth F.', role: 'Solo founder',
+    name: 'Kenneth F.', role: 'Solo founder',
   },
 ]
 
@@ -172,9 +173,10 @@ export default function CloneHome() {
     <>
       <Seo
         path="/"
-        title="Coldcast: Find High-Intent Warm Leads. Scrape, Enrich, Verify in One Workbench. Zero Bans."
-        description="Coldcast is the B2B lead data platform for cold email. Scrape Sales Navigator, Apollo and ZoomInfo from your own session, enrich every lead through a 10-provider email waterfall, verify, and export. Scraping from $3 per 10,000 credits, pay-per-email enrichment, zero bans."
-        keywords="sales navigator scraper, b2b data platform, email enrichment, email verification, apollo scraper, zoominfo scraper, linkedin lead scraper, waterfall enrichment, cold email lead generation"
+        title="Coldcast — Account-Safe LinkedIn Sales Navigator Scraper"
+        description="Coldcast scrapes Sales Navigator, Apollo and ZoomInfo from your own session, finds and verifies emails via a 10-provider waterfall, and exports to CSV or CRM."
+        ogTitle="Coldcast: Scrape, Enrich, Verify — One Workbench, Zero Bans"
+        ogDescription="Scrape Sales Navigator, Apollo and ZoomInfo from your own session, enrich every lead through a 10-provider email waterfall, verify, and export a send-ready CSV. Zero bans."
         jsonLd={faqLd}
       />
 
@@ -191,9 +193,9 @@ export default function CloneHome() {
           <span className="h1-sub">Scrape, enrich, verify.</span> One workbench. Zero bans.
         </h1>
         <p className="lead">
-          Pull leads who just changed jobs, are hiring, raised money, or engaged with a post. Scrape them
-          from your own browser, find and verify every email in one run, and export a send-ready CSV. No
-          five-tool stack, no banned account.
+          Coldcast is the account-safe LinkedIn Sales Navigator scraper. Pull leads who just changed jobs,
+          are hiring, raised money, or engaged with a post — scrape them from your own session, find and
+          verify every email in one run, and export a send-ready CSV. No five-tool stack, no banned account.
         </p>
         <div className="cta">
           <a href={TRIAL_URL} className="btn">Start free trial</a>
@@ -242,17 +244,17 @@ export default function CloneHome() {
           <div className="url">‹ › ⟳ <span>app.coldcast.io/dashboard</span></div>
           <div className="app">
             <aside>
-              <div className="ws">◉ Coldcast · sojib</div>
+              <div className="ws">◉ Coldcast · Workspace</div>
               <a className="on">Dashboard</a><a>Workbench</a><a>Leads</a>
-              <h6>Scrapers</h6>
+              <div className="grp">Scrapers</div>
               <a>Sales Navigator <small>1</small></a><a>Sales Nav Accounts <small>1</small></a><a>Apollo</a>
               <a>ZoomInfo</a><a>LinkedIn Search</a><a>Post Engagers <small>1</small></a>
-              <h6>Enrichment</h6>
+              <div className="grp">Enrichment</div>
               <a>LinkedIn URL Enrich</a><a>Waterfall Enrich</a><a>Email Verify</a><a>AI SDR · Domain</a>
             </aside>
             <main>
               <div className="top"><span>Dashboard</span><span>50,000 scrapes · 80,514 credits · ● Connected</span></div>
-              <h4>Working late, sojib?</h4>
+              <div className="greet">Working late?</div>
               <div className="ask">Paste a Sales Navigator, Apollo or ZoomInfo search URL. For example: VP Sales at Series A SaaS companies in the US<i>↑</i></div>
               <div className="chips">
                 <span>Scrape a Sales Nav search</span><span>Enrich a CSV of LinkedIn URLs</span>
@@ -273,7 +275,7 @@ export default function CloneHome() {
         <ToolsTabs />
         <div className="cta-strip">
           <div>
-            <h4>Ready to try every tool?</h4>
+            <h3>Ready to try every tool?</h3>
             <p>Sign up free and get 100 leads, 50 enrichment credits and 50 verify credits to explore everything.</p>
           </div>
           <a href={TRIAL_URL} className="btn sans">Start Free Trial</a>
@@ -339,7 +341,7 @@ export default function CloneHome() {
               <div className="row"><span className="a">R</span><div className="e">r.singh@vantacorp.com<span>No provider match · not charged</span></div><span className="t">0 credits</span><span className="st bad">● Not found</span></div>
             </div>
             <div className="timeline">
-              <h6>Lead timeline</h6>
+              <div className="tl-h">Lead timeline</div>
               <div>→ Scraped from Sales Nav<span>0s</span></div>
               <div>◎ Profile parsed<span>0.4s</span></div>
               <div>⌕ Waterfall · Lusha<span>1.1s</span></div>
@@ -399,7 +401,7 @@ export default function CloneHome() {
             <div className="quote" key={t.name}>
               <p>{t.q}</p>
               <div className="who">
-                <img src={t.img} alt="" loading="lazy" onError={hideOnError} />
+                <div className="who-av" aria-hidden="true">{initials(t.name)}</div>
                 <div><b>{t.name}</b><span>{t.role}</span></div>
               </div>
             </div>

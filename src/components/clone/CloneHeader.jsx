@@ -186,7 +186,7 @@ export default function CloneHeader() {
         <div className="cols">
           {m.cols.map((col) => (
             <div key={col.h} className="col">
-              <h6>{col.h}</h6>
+              <div className="colh">{col.h}</div>
               {col.items.map((it) => (
                 <PanelLink key={it.title} item={it} onNav={closeAll} />
               ))}

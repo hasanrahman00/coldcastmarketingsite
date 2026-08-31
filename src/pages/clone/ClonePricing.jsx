@@ -296,9 +296,9 @@ export default function ClonePricing() {
     <>
       <Seo
         path="/pricing"
-        title="Coldcast Pricing: Scraping from $3 per 10,000 Credits + Pay-Per-Email Enrichment"
-        description="Coldcast pricing. Pay-as-you-go credit packs that never expire: scraping $3 per 10,000 credits across Sales Navigator, Apollo, ZoomInfo and LinkedIn; verification $10 per 10,000; waterfall email & domain enrichment $30 per 10,000. Rows with no email found cost nothing."
-        keywords="coldcast pricing, sales navigator scraper pricing, email enrichment credits, email verification pricing, apollo scraper cost, zoominfo scraper cost"
+        title="Coldcast Pricing — Scraping Credits from $3 / 10,000"
+        description="Coldcast pricing: pay-as-you-go credit packs that never expire — scraping $3, verification $10 and enrichment $30 per 10,000 credits. No subscription."
+        ogDescription="Pay-as-you-go credit packs that never expire: scraping $3 per 10,000, verification $10 per 10,000, and waterfall email & domain enrichment $30 per 10,000. Rows with no email found cost nothing."
         jsonLd={faqLd}
       />
 
@@ -324,7 +324,7 @@ export default function ClonePricing() {
 
       <div className="band">
         <div>
-          <h4>Need more credits?</h4>
+          <h3>Need more credits?</h3>
           <p>Agencies and outbound teams get custom volume pricing. Let’s size your plan together.</p>
         </div>
         <a href={DEMO_URL} className="btn">Book a call</a>
