@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#0d1116"/>
+
+  <text x="600" y="72" text-anchor="middle" fill="#ffffff" font-size="38" font-weight="800">Where does the account risk live?</text>
+
+  <!-- Row 1: browser-extension scraper -->
+  <text x="90" y="134" fill="#8b93a0" font-size="17" font-weight="700" letter-spacing="0.5">BROWSER-EXTENSION SCRAPER (Scrupp, Evaboot)</text>
+
+  <rect x="90" y="160" width="280" height="110" rx="12" fill="#141922" stroke="#2a313b"/>
+  <text x="230" y="208" text-anchor="middle" fill="#e6e9ee" font-size="21" font-weight="700">Your browser</text>
+  <text x="230" y="234" text-anchor="middle" fill="#8b93a0" font-size="15">your logged-in session</text>
+
+  <rect x="460" y="160" width="280" height="110" rx="12" fill="#141922" stroke="#2a313b"/>
+  <text x="600" y="208" text-anchor="middle" fill="#e6e9ee" font-size="21" font-weight="700">LinkedIn servers</text>
+  <text x="600" y="234" text-anchor="middle" fill="#8b93a0" font-size="15">sees YOUR account scraping</text>
+
+  <rect x="830" y="160" width="280" height="110" rx="12" fill="#1c1012" stroke="#e5484d" stroke-width="1.5"/>
+  <text x="970" y="208" text-anchor="middle" fill="#f2686c" font-size="21" font-weight="700">Risk: flags land</text>
+  <text x="970" y="234" text-anchor="middle" fill="#f2686c" font-size="21" font-weight="700">on your account</text>
+
+  <g stroke="#4b5563" fill="#4b5563">
+    <line x1="378" y1="215" x2="448" y2="215" stroke-width="3"/><polygon points="448,209 448,221 458,215"/>
+    <line x1="748" y1="215" x2="818" y2="215" stroke-width="3"/><polygon points="818,209 818,221 828,215"/>
+  </g>
+
+  <!-- Row 2: Coldcast account-safe -->
+  <text x="90" y="374" fill="#c3f53c" font-size="17" font-weight="700" letter-spacing="0.5">COLDCAST — ACCOUNT-SAFE ARCHITECTURE</text>
+
+  <rect x="90" y="400" width="280" height="110" rx="12" fill="#131a10" stroke="#c3f53c" stroke-width="1.5"/>
+  <text x="230" y="448" text-anchor="middle" fill="#e6e9ee" font-size="21" font-weight="700">Your Sales Nav search</text>
+  <text x="230" y="474" text-anchor="middle" fill="#8b93a0" font-size="15">nothing else changes</text>
+
+  <rect x="460" y="400" width="280" height="110" rx="12" fill="#131a10" stroke="#c3f53c" stroke-width="1.5"/>
+  <text x="600" y="440" text-anchor="middle" fill="#e6e9ee" font-size="21" font-weight="700">Coldcast engine</text>
+  <text x="600" y="466" text-anchor="middle" fill="#8b93a0" font-size="15">human-pattern extraction</text>
+  <text x="600" y="488" text-anchor="middle" fill="#8b93a0" font-size="15">+ waterfall enrichment</text>
+
+  <rect x="830" y="400" width="280" height="110" rx="12" fill="#131a10" stroke="#c3f53c" stroke-width="1.5"/>
+  <text x="970" y="448" text-anchor="middle" fill="#c3f53c" font-size="21" font-weight="700">Verified, clean CSV</text>
+  <text x="970" y="474" text-anchor="middle" fill="#8b93a0" font-size="15">account stays safe</text>
+
+  <g stroke="#c3f53c" fill="#c3f53c">
+    <line x1="378" y1="455" x2="448" y2="455" stroke-width="3"/><polygon points="448,449 448,461 458,455"/>
+    <line x1="748" y1="455" x2="818" y2="455" stroke-width="3"/><polygon points="818,449 818,461 828,455"/>
+  </g>
+
+  <text x="600" y="592" text-anchor="middle" fill="#7f8894" font-size="18">coldcast.io — safety is the architecture, not a setting</text>
+</svg>

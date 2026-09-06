@@ -12,6 +12,106 @@
 
 export const BLOG_POSTS = [
   {
+    slug: 'scrupp-alternative',
+    tag: 'Compare',
+    title: 'The Best Scrupp Alternative for Safe Sales Navigator Exports (2026)',
+    metaTitle: 'Best Scrupp Alternative 2026: Safer Sales Nav Exports',
+    metaDescription:
+      'Looking for a Scrupp alternative? See why teams switch to Coldcast for account-safe Sales Navigator scraping, waterfall enrichment & verified emails. Try free.',
+    datePublished: '2026-09-01',
+    dateModified: '2026-09-01',
+    readMinutes: 7,
+    image: {
+      src: '/images/blog/scrupp-alternative-hero.svg',
+      width: 1200,
+      height: 630,
+      alt: 'Scrupp alternative comparison: Coldcast account-safe Sales Navigator scraper vs Scrupp Chrome extension',
+      caption: 'Coldcast vs Scrupp — the account-safe way to export Sales Navigator leads.',
+    },
+    excerpt:
+      'Scrupp is a capable Sales Navigator export tool — but it runs as a Chrome extension inside your logged-in LinkedIn session. For a lot of teams, that single architectural fact is the reason to look elsewhere.',
+    sections: [
+      {
+        h2: 'The account-safe Scrupp alternative',
+        blocks: [
+          'Scrupp is a capable Sales Navigator export tool — but it runs as a Chrome extension inside your logged-in LinkedIn session. When a scraper operates through your own browser session, your account is the one taking the risk: unusual read patterns, volume spikes, or extension fingerprinting can all put your Sales Navigator seat — the one you pay $99+/month for — in LinkedIn’s crosshairs.',
+          '**Coldcast is the Scrupp alternative built around one priority: your LinkedIn account never gets flagged.** Same job — turn Sales Navigator searches into clean, enriched, verified lead lists — but with an account-safe architecture, waterfall enrichment across multiple data providers, and built-in email verification, so what lands in your CSV is ready for cold outreach.',
+        ],
+      },
+      {
+        h2: 'Why teams look for a Scrupp alternative',
+        blocks: [
+          'Scrupp does several things well, and we’ll be fair about that below. But three recurring issues push users to switch:',
+          '**1. Browser-session scraping puts your account on the line.** Scrupp’s extension reads Sales Navigator pages from inside your authenticated browser session. Scrupp is careful about it — it throttles to normal browsing speed and doesn’t automate connection requests — but the fundamental exposure remains: every page view is attributed to your account, from your browser. If LinkedIn’s anti-bot systems ever disagree with the extension’s judgment about what “normal speed” looks like, the warning or restriction lands on you.',
+          'Coldcast takes the opposite approach. Extraction is engineered to be account-safe first, mimicking human behavior patterns and staying far inside LinkedIn’s tolerance thresholds — it’s why Coldcast calls itself the [safest LinkedIn Sales Navigator scraper](/products/sales-navigator-scraper) on the market. You get the leads; your Sales Navigator seat stays clean.',
+          {
+            image: {
+              src: '/images/blog/scrupp-alternative-safety-diagram.svg',
+              width: 1200,
+              height: 630,
+              alt: 'Diagram comparing browser-session LinkedIn scraping risk vs Coldcast’s account-safe scraping architecture',
+              caption: 'With a browser-extension scraper the flags land on your account; Coldcast’s architecture keeps the risk off your seat.',
+            },
+          },
+          '**2. Single-vendor enrichment caps your email find rate.** Scrupp reports roughly a 65% email find rate on typical US SaaS targets, with real-time SMTP verification. That’s respectable — but any single-source enrichment approach leaves emails on the table. Coldcast uses [waterfall enrichment](/products/waterfall-enricher): each lead cascades through multiple premium data providers until a verified email is found. In practice, waterfall approaches typically recover 20–40% more valid emails than any single provider alone, which directly translates into more booked meetings from the same search.',
+          '**3. Credits, caps, and per-search limits.** Scrupp prices around credits (free 100 credits to start; roughly $29/month for 1,000 credits, with one-off packs at $35 per 1,000) and inherits Sales Navigator’s ~2,500-leads-per-search ceiling. The model is fine for small volumes, but costs climb as you scale, and phone numbers burn extra credits. Coldcast is pay-as-you-go and its cleaning pipeline means you don’t pay to re-verify junk rows downstream.',
+        ],
+      },
+      {
+        h2: 'Coldcast vs Scrupp at a glance',
+        blocks: [
+          {
+            table: [
+              ['', 'Coldcast', 'Scrupp'],
+              ['Architecture', 'Account-safe scraping (built to avoid flags)', 'Chrome extension in your logged-in session'],
+              ['Account risk', 'Minimized by design — safety is the core product', 'Low-ish, but your session does the work'],
+              ['Email enrichment', 'Waterfall across multiple providers', 'Single pipeline, ~65% find rate claimed'],
+              ['Email verification', 'Built-in verification on every export', 'Real-time SMTP verification'],
+              ['Data cleaning', 'Auto-cleaned names, companies, formatting', '15+ fields, de-duplication'],
+              ['Beyond Sales Navigator', 'Apollo scraper, ZoomInfo scraper, domain enrichment', 'Apollo export'],
+              ['Best for', 'Teams that can’t afford a banned LinkedIn account', 'Small teams comfortable with extension-based export'],
+            ],
+          },
+          'Scrupp details verified September 2026 from scrupp.com; check their site for current pricing.',
+        ],
+      },
+      {
+        h2: 'What makes Coldcast the top Scrupp alternative',
+        blocks: [
+          '**Account safety as the core product, not a footnote.** Most scrapers mention safety in an FAQ. Coldcast is engineered around it — extraction patterns designed to be indistinguishable from human browsing, conservative rate limits, and no risky automation (no auto-connects, no auto-messages, ever). If your SDR team’s pipeline depends on Sales Navigator access, this is the difference that matters at 2 a.m. when a competitor’s tool gets a batch of accounts restricted.',
+          '**Waterfall enrichment, standard.** Instead of betting your find rate on one vendor’s database, Coldcast’s [waterfall enricher](/products/waterfall-enricher) queries multiple providers in sequence and keeps the best verified result. Higher coverage, lower bounce risk, one bill.',
+          '**Verification before your sequencer ever sees the list.** Every email passes through [Coldcast’s email verification](/products/email-verify) so bounces get caught before they torch your sender reputation — not after your cold email domain is already burned.',
+          '**More than Sales Navigator.** When your ICP lives in other databases, the same account-safe approach extends to the [Apollo scraper](/products/apollo-scraper) and [ZoomInfo scraper](/products/zoominfo-scraper), plus [domain enrichment](/products/domain-enrichment) for firmographic data. Scrupp covers Apollo; Coldcast covers the stack.',
+          '**Clean exports, no VA cleanup pass.** Names are properly cased, emojis and certifications stripped from titles, companies normalized — the CSV is CRM-ready the moment it downloads. Pipe it straight to HubSpot, Clay, or Salesforce.',
+        ],
+      },
+      {
+        h2: 'Other Scrupp alternatives, honestly compared',
+        blocks: [
+          'Coldcast isn’t the only option, and different tools fit different jobs:',
+          '**Evaboot** — the best-known Sales Navigator export extension. Simple and polished, with email finding included, but it’s also a Chrome extension running through your session, and enrichment is single-source. See our full [Evaboot alternative guide](/blog/evaboot-alternative).',
+          '**Wiza** — strong real-time email verification and solid Sales Navigator coverage, priced per-email with plans that scale up quickly (~$83/month territory for regular use). Good tool; the trade-offs are cost at volume and, again, session-based extraction. See [Wiza alternative](/blog/wiza-alternative).',
+          '**PhantomBuster** — a general automation platform with hundreds of “Phantoms,” not a dedicated Sales Navigator exporter. Powerful and flexible, but cookie-based automation carries real account risk and the learning curve is steep. Full breakdown: [PhantomBuster alternative](/blog/phantombuster-alternative).',
+          '**FullEnrich / BetterContact** — excellent dedicated waterfall enrichment tools, but they don’t scrape Sales Navigator; you’d still need an exporter in front of them. Coldcast bundles both steps.',
+          'If safety plus enrichment quality is the priority, Coldcast is the strongest overall pick. If you only need occasional small exports and cost is everything, Scrupp’s free 100 credits are a fine place to experiment. For the deeper head-to-head, read [Coldcast vs Scrupp](/blog/coldcast-vs-scrupp).',
+        ],
+      },
+      {
+        h2: 'How to switch from Scrupp to Coldcast',
+        blocks: [
+          'Switching takes minutes because the workflow is familiar: run your Sales Navigator search exactly as you do today, hand it to Coldcast, and download the enriched, verified CSV. Your saved searches, lead lists, and boolean queries all carry over unchanged — nothing about your targeting has to change, only what happens after the search. Start with a small export to compare find rates and data quality against your last Scrupp pull; most teams see the difference in the first hundred rows. From there, connect your CRM or sequencer and scale up. New to the export workflow? Our guide to [exporting Sales Navigator leads to CSV](/blog/export-sales-navigator-leads-to-csv) covers it end to end.',
+        ],
+      },
+    ],
+    faq: [
+      { q: 'Is Coldcast safer than Scrupp?', a: 'Coldcast is built account-safety-first: extraction avoids the patterns LinkedIn’s anti-bot systems flag, rather than running through your logged-in browser session the way Chrome-extension scrapers do. No scraper can promise zero risk — anyone who does is overselling — but architecture matters, and minimizing account exposure is Coldcast’s core design goal.' },
+      { q: 'What does Scrupp cost compared to Coldcast?', a: 'Scrupp starts free (100 credits) with subscriptions from roughly $29/month for 1,000 credits; verified emails and phone numbers consume extra credits. Coldcast is pay-as-you-go with no subscription: scraping is $3 per 10,000 credits, and waterfall enrichment and verification are separate credit packs billed only when they succeed. See current pricing at coldcast.io.' },
+      { q: 'Can Coldcast export the same fields as Scrupp?', a: 'Yes — names, titles, companies, locations, LinkedIn URLs, and more, plus verified emails via waterfall enrichment. Coldcast also cleans the data automatically (proper casing, junk stripped from titles) so exports are CRM-ready without a manual cleanup pass.' },
+      { q: 'Does Coldcast work with regular LinkedIn or only Sales Navigator?', a: 'Coldcast is optimized for Sales Navigator, which exposes far richer search filters and lead data. It also extends beyond LinkedIn with dedicated Apollo and ZoomInfo scrapers, which Scrupp only partially covers.' },
+      { q: 'Will I lose my saved searches if I leave Scrupp?', a: 'No. Your searches live in Sales Navigator, not in Scrupp. Any saved search or lead list you built works immediately with Coldcast — just run the search and export.' },
+    ],
+  },
+  {
     slug: 'wiza-alternative',
     tag: 'Compare',
     title: 'The Best Wiza Alternative in 2026 (Safer Exports, Better Enrichment)',
