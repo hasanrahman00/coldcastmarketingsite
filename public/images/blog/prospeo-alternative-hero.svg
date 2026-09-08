@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#0d1116"/>
+  <circle cx="1120" cy="120" r="200" fill="#ffffff" fill-opacity="0.02"/>
+  <circle cx="1040" cy="380" r="110" fill="#ffffff" fill-opacity="0.02"/>
+
+  <text x="80" y="90" fill="#c3f53c" font-size="20" font-weight="800" letter-spacing="1.5">COLDCAST</text>
+  <text x="80" y="158" fill="#ffffff" font-size="56" font-weight="800">The Prospeo Alternative</text>
+  <text x="80" y="210" fill="#8b93a0" font-size="26">Account-safe scraping. Waterfall enrichment. Verified emails.</text>
+
+  <!-- Coldcast card -->
+  <rect x="80" y="262" width="500" height="284" rx="16" fill="#0f1216" stroke="#c3f53c" stroke-width="1.5"/>
+  <text x="110" y="312" fill="#c3f53c" font-size="28" font-weight="800">Coldcast</text>
+  <g font-size="19" fill="#e6e9ee">
+    <text x="110" y="358"><tspan fill="#c3f53c">✓</tspan>  Account-safe Sales Nav scraping</text>
+    <text x="110" y="400"><tspan fill="#c3f53c">✓</tspan>  Multi-source waterfall enrichment</text>
+    <text x="110" y="442"><tspan fill="#c3f53c">✓</tspan>  Verification included on every email</text>
+    <text x="110" y="484"><tspan fill="#c3f53c">✓</tspan>  Full search exports, clean CSV</text>
+    <text x="110" y="526"><tspan fill="#c3f53c">✓</tspan>  Pay only for verified results</text>
+  </g>
+
+  <!-- Prospeo card -->
+  <rect x="620" y="262" width="500" height="284" rx="16" fill="#0f1216" stroke="#232a33"/>
+  <text x="650" y="312" fill="#8b93a0" font-size="28" font-weight="800">Prospeo</text>
+  <g font-size="19" fill="#8b93a0">
+    <text x="650" y="358">•  Single-index email finding</text>
+    <text x="650" y="400">•  Verification costs 0.5 credits extra</text>
+    <text x="650" y="442">•  2,500 contacts per Sales Nav list</text>
+    <text x="650" y="484">•  Credits reset monthly, no rollover</text>
+    <text x="650" y="526">•  Mobile lookups: 10 credits each</text>
+  </g>
+</svg>
