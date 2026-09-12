@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#0d1116"/>
+
+  <text x="72" y="80" fill="#ffffff" font-size="44" font-weight="800">Best LinkedIn Email Finder Tools</text>
+  <text x="1128" y="82" text-anchor="end" fill="#c3f53c" font-size="44" font-weight="800">2026</text>
+  <text x="72" y="120" fill="#8b93a0" font-size="19">Typical match rate on B2B lists · entry pricing verified Sept 2026</text>
+
+  <!-- Coldcast (highlight) -->
+  <rect x="68" y="155" width="1064" height="62" rx="12" fill="#1a2410" stroke="#c3f53c" stroke-width="2"/>
+  <text x="95" y="193" fill="#c3f53c" font-size="22" font-weight="800">Coldcast</text>
+  <rect x="325" y="175" width="560" height="22" rx="6" fill="#232a33"/>
+  <rect x="325" y="175" width="521" height="22" rx="6" fill="#c3f53c"/>
+  <text x="585" y="192" text-anchor="middle" fill="#0d1116" font-size="14" font-weight="800">93%</text>
+  <text x="1105" y="183" text-anchor="end" fill="#e6e9ee" font-size="18" font-weight="700">$30 / 10k credits</text>
+  <text x="1105" y="203" text-anchor="end" fill="#8b93a0" font-size="13">pay-as-you-go · 10-provider waterfall</text>
+
+  <!-- Wiza -->
+  <rect x="68" y="227" width="1064" height="62" rx="12" fill="#141922" stroke="#1e252e"/>
+  <text x="95" y="265" fill="#e6e9ee" font-size="22">Wiza</text>
+  <rect x="325" y="247" width="560" height="22" rx="6" fill="#232a33"/>
+  <rect x="325" y="247" width="414" height="22" rx="6" fill="#3f4a5a"/>
+  <text x="532" y="264" text-anchor="middle" fill="#e6e9ee" font-size="14" font-weight="700">74%</text>
+  <text x="1105" y="255" text-anchor="end" fill="#e6e9ee" font-size="18" font-weight="700">$49 / mo</text>
+  <text x="1105" y="275" text-anchor="end" fill="#8b93a0" font-size="13">100 emails + phones</text>
+
+  <!-- Prospeo -->
+  <rect x="68" y="299" width="1064" height="62" rx="12" fill="#141922" stroke="#1e252e"/>
+  <text x="95" y="337" fill="#e6e9ee" font-size="22">Prospeo</text>
+  <rect x="325" y="319" width="560" height="22" rx="6" fill="#232a33"/>
+  <rect x="325" y="319" width="403" height="22" rx="6" fill="#3f4a5a"/>
+  <text x="526" y="336" text-anchor="middle" fill="#e6e9ee" font-size="14" font-weight="700">72%</text>
+  <text x="1105" y="327" text-anchor="end" fill="#e6e9ee" font-size="18" font-weight="700">$49 / mo</text>
+  <text x="1105" y="347" text-anchor="end" fill="#8b93a0" font-size="13">2,000 credits</text>
+
+  <!-- Findymail -->
+  <rect x="68" y="371" width="1064" height="62" rx="12" fill="#141922" stroke="#1e252e"/>
+  <text x="95" y="409" fill="#e6e9ee" font-size="22">Findymail</text>
+  <rect x="325" y="391" width="560" height="22" rx="6" fill="#232a33"/>
+  <rect x="325" y="391" width="392" height="22" rx="6" fill="#3f4a5a"/>
+  <text x="521" y="408" text-anchor="middle" fill="#e6e9ee" font-size="14" font-weight="700">70%</text>
+  <text x="1105" y="399" text-anchor="end" fill="#e6e9ee" font-size="18" font-weight="700">$49 / mo</text>
+  <text x="1105" y="419" text-anchor="end" fill="#8b93a0" font-size="13">1,000 credits</text>
+
+  <!-- Hunter.io -->
+  <rect x="68" y="443" width="1064" height="62" rx="12" fill="#141922" stroke="#1e252e"/>
+  <text x="95" y="481" fill="#e6e9ee" font-size="22">Hunter.io</text>
+  <rect x="325" y="463" width="560" height="22" rx="6" fill="#232a33"/>
+  <rect x="325" y="463" width="358" height="22" rx="6" fill="#3f4a5a"/>
+  <text x="504" y="480" text-anchor="middle" fill="#e6e9ee" font-size="14" font-weight="700">64%</text>
+  <text x="1105" y="471" text-anchor="end" fill="#e6e9ee" font-size="18" font-weight="700">$49 / mo</text>
+  <text x="1105" y="491" text-anchor="end" fill="#8b93a0" font-size="13">500 searches · no LinkedIn input</text>
+
+  <!-- Skrapp -->
+  <rect x="68" y="515" width="1064" height="62" rx="12" fill="#141922" stroke="#1e252e"/>
+  <text x="95" y="553" fill="#e6e9ee" font-size="22">Skrapp</text>
+  <rect x="325" y="535" width="560" height="22" rx="6" fill="#232a33"/>
+  <rect x="325" y="535" width="342" height="22" rx="6" fill="#3f4a5a"/>
+  <text x="496" y="552" text-anchor="middle" fill="#e6e9ee" font-size="14" font-weight="700">61%</text>
+  <text x="1105" y="543" text-anchor="end" fill="#e6e9ee" font-size="18" font-weight="700">$49 / mo</text>
+  <text x="1105" y="563" text-anchor="end" fill="#8b93a0" font-size="13">1,000 credits · rollover</text>
+
+  <text x="72" y="602" fill="#7f8894" font-size="14">coldcast.io · match rates from Coldcast testing on typical B2B lists; single-source rates vary by list geography</text>
+</svg>

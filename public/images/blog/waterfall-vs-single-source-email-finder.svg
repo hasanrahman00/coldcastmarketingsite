@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#0d1116"/>
+
+  <text x="72" y="80" fill="#ffffff" font-size="40" font-weight="800">Single-source finder vs waterfall enrichment</text>
+  <text x="72" y="118" fill="#8b93a0" font-size="20">Why cascading 10 providers lifts match rates from ~65% to 90–95%</text>
+
+  <!-- Left panel: single-source -->
+  <rect x="68" y="155" width="490" height="415" rx="16" fill="#141922" stroke="#232a33"/>
+  <text x="313" y="204" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700">Single-source finder</text>
+
+  <rect x="188" y="240" width="250" height="52" rx="10" fill="#0f1216" stroke="#2a313b"/>
+  <text x="313" y="272" text-anchor="middle" fill="#e6e9ee" font-size="18">LinkedIn profile URL</text>
+
+  <rect x="188" y="350" width="250" height="52" rx="10" fill="#0f1216" stroke="#2a313b"/>
+  <text x="313" y="382" text-anchor="middle" fill="#e6e9ee" font-size="18">Provider A (only)</text>
+
+  <rect x="118" y="447" width="190" height="62" rx="10" fill="#0f1216" stroke="#2a313b"/>
+  <text x="213" y="474" text-anchor="middle" fill="#e6e9ee" font-size="17">Email found</text>
+  <text x="213" y="496" text-anchor="middle" fill="#8b93a0" font-size="15" font-weight="700">~65%</text>
+
+  <rect x="322" y="447" width="190" height="62" rx="10" fill="#1c1012" stroke="#3a1e20"/>
+  <text x="417" y="474" text-anchor="middle" fill="#f2686c" font-size="17">Not found</text>
+  <text x="417" y="496" text-anchor="middle" fill="#f2686c" font-size="15" font-weight="700">~35% lost</text>
+
+  <g stroke="#4b5563" fill="#4b5563">
+    <line x1="313" y1="292" x2="313" y2="344" stroke-width="3"/><polygon points="307,344 319,344 313,353"/>
+    <line x1="313" y1="402" x2="313" y2="441" stroke-width="3"/><polygon points="307,441 319,441 313,450"/>
+  </g>
+
+  <text x="313" y="548" text-anchor="middle" fill="#8b93a0" font-size="16">One database. One chance.</text>
+
+  <!-- Right panel: waterfall -->
+  <rect x="630" y="155" width="502" height="415" rx="16" fill="#0f1216" stroke="#c3f53c" stroke-width="1.5"/>
+  <text x="881" y="204" text-anchor="middle" fill="#c3f53c" font-size="22" font-weight="700">Coldcast waterfall (10 providers)</text>
+
+  <g stroke="#3a4452" stroke-width="2" fill="none">
+    <path d="M800 286 L775 305"/>
+    <path d="M775 345 L835 360"/>
+    <path d="M835 400 L895 415"/>
+  </g>
+
+  <rect x="760" y="240" width="250" height="46" rx="10" fill="#141922" stroke="#2a313b"/>
+  <text x="885" y="269" text-anchor="middle" fill="#e6e9ee" font-size="18">LinkedIn profile URL</text>
+
+  <rect x="700" y="305" width="150" height="40" rx="10" fill="#141922" stroke="#2a313b"/>
+  <text x="775" y="330" text-anchor="middle" fill="#e6e9ee" font-size="17">Provider 1</text>
+  <text x="870" y="330" fill="#8b93a0" font-size="15">miss →</text>
+
+  <rect x="760" y="360" width="150" height="40" rx="10" fill="#141922" stroke="#2a313b"/>
+  <text x="835" y="385" text-anchor="middle" fill="#e6e9ee" font-size="17">Provider 2</text>
+  <text x="930" y="385" fill="#8b93a0" font-size="15">miss →</text>
+
+  <rect x="820" y="415" width="150" height="40" rx="10" fill="#141922" stroke="#2a313b"/>
+  <text x="895" y="440" text-anchor="middle" fill="#e6e9ee" font-size="17">Provider 3…10</text>
+  <text x="990" y="440" fill="#c3f53c" font-size="15">hit ✓</text>
+
+  <g stroke="#c3f53c" fill="#c3f53c">
+    <line x1="890" y1="457" x2="890" y2="481" stroke-width="3"/><polygon points="884,481 896,481 890,490"/>
+  </g>
+
+  <rect x="720" y="486" width="330" height="46" rx="10" fill="#c3f53c"/>
+  <text x="885" y="515" text-anchor="middle" fill="#0d1116" font-size="18" font-weight="800">Verified email · 90–95% match</text>
+
+  <text x="881" y="556" text-anchor="middle" fill="#8b93a0" font-size="15">SMTP + catch-all verified · pay only for found emails</text>
+
+  <text x="72" y="606" fill="#8b93a0" font-size="15">coldcast.io/products/waterfall-enricher</text>
+</svg>
