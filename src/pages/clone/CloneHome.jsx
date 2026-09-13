@@ -158,6 +158,17 @@ const FAQS = [
   },
 ]
 
+// Homepage internal links → blog posts. Flows homepage PageRank to the guides,
+// the strongest crawl/indexation signal we control (per the SEO indexation plan).
+const GUIDES = [
+  { to: '/blog/zoominfo-alternative', title: 'ZoomInfo alternative for lead lists', sub: 'Verified lists for pay-as-you-go credits, no annual contract' },
+  { to: '/blog/best-linkedin-email-finder-tools', title: '6 best LinkedIn email finder tools', sub: 'Match rate, pricing and account safety compared' },
+  { to: '/blog/scrape-sales-navigator-without-getting-banned', title: 'Scrape Sales Navigator without getting banned', sub: 'The account-safety playbook for 2026' },
+  { to: '/blog/what-is-waterfall-enrichment', title: 'What is waterfall enrichment?', sub: 'Why cascading providers beats one database' },
+  { to: '/blog/wiza-alternative', title: 'The best Wiza alternative', sub: 'Safer exports and multi-source enrichment' },
+  { to: '/blog/is-linkedin-scraping-legal', title: 'Is LinkedIn scraping legal?', sub: 'What the law actually says in 2026' },
+]
+
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -420,6 +431,22 @@ export default function CloneHome() {
                 {f.a}{f.link ? <> <Link to={f.link.to}>{f.link.label}</Link></> : null}
               </p>
             </details>
+          ))}
+        </div>
+      </section>
+
+      {/* Popular guides — homepage internal links to help crawl + indexation */}
+      <section className="sec" style={{ padding: '56px 32px' }}>
+        <div className="center">
+          <span className="label">Guides</span>
+          <h2 style={{ marginTop: 12 }}>Popular guides</h2>
+        </div>
+        <div className="guides-grid">
+          {GUIDES.map((g) => (
+            <Link key={g.to} to={g.to} className="guide-card">
+              <b>{g.title}</b>
+              <span>{g.sub}</span>
+            </Link>
           ))}
         </div>
       </section>

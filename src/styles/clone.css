@@ -272,6 +272,15 @@ body.cc-body { background: #FAFAF9; overflow-x: hidden; }
 .cc details p { margin-top: 10px; font-size: 15px; line-height: 1.6; color: var(--ink-3); }
 .cc details p a { color: var(--indigo-2); }
 
+/* ===== Popular guides (homepage internal links) ===== */
+.cc .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 980px; margin: 28px auto 0; }
+.cc .guide-card { border: 1px solid var(--line); background: #fff; padding: 20px 22px; transition: .15s; display: block; }
+.cc .guide-card:hover { border-color: var(--indigo); background: var(--bg); }
+.cc .guide-card b { display: block; font-family: var(--head); font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.cc .guide-card span { display: block; font-size: 13px; color: var(--ink-4); margin-top: 6px; line-height: 1.45; }
+@media (max-width: 1000px) { .cc .guides-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .cc .guides-grid { grid-template-columns: 1fr; } }
+
 /* ===== Final CTA ===== */
 .cc .final { padding: 80px 32px; text-align: center; position: relative; overflow: hidden; }
 .cc .final::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(var(--line-2) 1px, transparent 1px); background-size: 22px 22px; opacity: .5; mask-image: radial-gradient(500px 300px at 50% 50%, #000, transparent); -webkit-mask-image: radial-gradient(500px 300px at 50% 50%, #000, transparent); }
