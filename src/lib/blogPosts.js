@@ -12,6 +12,145 @@
 
 export const BLOG_POSTS = [
   {
+    slug: 'zoominfo-alternative',
+    tag: 'Compare',
+    title: 'The ZoomInfo Alternative for Lead Lists (No $15K Contract Required)',
+    metaTitle: 'ZoomInfo Alternative for Lead Lists: Pay $3, Not $15K/Year',
+    metaDescription:
+      'Looking for a ZoomInfo alternative? Coldcast builds verified lead lists from Sales Navigator for pay-as-you-go credits — no $15K contract, no expiring credits.',
+    datePublished: '2026-09-13',
+    dateModified: '2026-09-13',
+    readMinutes: 8,
+    image: {
+      src: '/images/blog/zoominfo-alternative-hero.svg',
+      width: 1200,
+      height: 630,
+      alt: 'ZoomInfo alternative comparison: Coldcast pay-as-you-go lead lists vs ZoomInfo annual contract pricing',
+      caption: 'Coldcast builds verified lead lists from Sales Navigator for pay-as-you-go credits — no annual contract.',
+    },
+    excerpt:
+      'ZoomInfo starts near $15,000/year and most teams pay far more once add-ons land. If all you buy it for is verified lead lists, Coldcast builds the same deliverable from Sales Navigator for pay-as-you-go credits that never expire.',
+    sections: [
+      {
+        h2: 'The ZoomInfo alternative built for lead lists',
+        blocks: [
+          'ZoomInfo is the biggest name in B2B data — and one of the most expensive ways to build a lead list. Entry pricing starts around **$14,995/year for 3 seats and 2,500 credits**, most teams end up paying **$30,000–$60,000 annually** once add-ons and overages land, and unused credits expire at the end of your contract year. If all you need is a steady supply of accurate, verified lead lists, you’re paying for an enterprise platform to do a scraper’s job.',
+          '**Coldcast** is the alternative built specifically for that job: an account-safe scraper + enrichment + verification workbench that turns LinkedIn Sales Navigator searches into verified lead lists for **pay-as-you-go credits that never expire** — scraping from $3 per 10,000 credits, no seats, no annual contract, no sales call.',
+          'This guide covers when Coldcast replaces ZoomInfo, when it doesn’t, and how the numbers compare — honestly.',
+        ],
+      },
+      {
+        h2: 'Why teams look for a ZoomInfo alternative',
+        blocks: [
+          'Three complaints come up again and again:',
+          '**1. The price-to-usage gap.** ZoomInfo’s entry tier works out to roughly 200 contact exports per month. That’s ~$6 per contact at list price — before the widely reported 10–20% renewal increases and the 60-day auto-renewal opt-out window. Teams that just need lists feel this hardest: the platform’s best features (intent data, org charts, integrations) go unused while the credit meter runs out.',
+          '**2. Static database vs. live data.** ZoomInfo is a database. Records are refreshed on a cycle, which means job changes, layoffs, and new hires take time to show up. LinkedIn is where professionals update their own titles the same week they change jobs. A scraper that pulls from a **live Sales Navigator search** is working with data the prospect themselves keeps current.',
+          '**3. Credits that expire, seats you don’t need.** Credits don’t roll over between contract years, and per-seat pricing punishes small teams. If your usage is spiky — big list this month, nothing next month — an annual credit bucket is the wrong shape for how you actually work.',
+        ],
+      },
+      {
+        h2: 'Coldcast: the ZoomInfo alternative for building lead lists',
+        blocks: [
+          'Coldcast doesn’t try to be a ZoomInfo clone. It’s a different architecture that ends in the same deliverable — a clean CSV of verified leads — at a fraction of the cost:',
+          {
+            list: [
+              '**Scrape live from Sales Navigator** — run any Sales Navigator search (filters, boolean, saved lists) and export up to 20,000 rows/day. Coldcast also scrapes [Apollo](/products/apollo-scraper) and [ZoomInfo itself](/products/zoominfo-scraper), so you can extract lists from a ZoomInfo trial or an existing seat before you cancel.',
+              '**Account-safe by design** — Coldcast runs human-paced requests from your own logged-in browser session, enforces daily caps, and never stores your password. Result across tracked users: **zero account bans in 6+ months**. Cheap scrapers get Sales Navigator accounts restricted; Coldcast’s entire product is built around not letting that happen.',
+              '**10-provider waterfall enrichment** — instead of one database’s guess at an email, [waterfall enrichment](/blog/what-is-waterfall-enrichment) queries up to 10 data providers in sequence until a verified match is found: a **90–95% email match rate**, higher than any single provider (ZoomInfo included) achieves alone.',
+              '**Built-in verification** — syntax, MX, SMTP, and catch-all checks via [Email Verify](/products/email-verify), so the list you export is safe to load into a cold email tool without torching your sender reputation.',
+              '**Pay-as-you-go, credits never expire** — scraping $3 / 10,000 credits, enrichment $30 / 10,000, verification $10 / 10,000. No seats, no contract, free trial with 100 leads included.',
+            ],
+          },
+          {
+            image: {
+              src: '/images/blog/zoominfo-alternative-cost-diagram.svg',
+              width: 1200,
+              height: 630,
+              alt: 'Diagram comparing the cost of building a 10,000-lead list with Coldcast versus a ZoomInfo annual subscription',
+              caption: 'A scraped, enriched and verified 10,000-lead list runs about $43 in Coldcast credits versus a ~$15K ZoomInfo contract.',
+            },
+          },
+        ],
+      },
+      {
+        h2: 'Coldcast vs ZoomInfo: side by side',
+        blocks: [
+          {
+            table: [
+              ['', 'Coldcast', 'ZoomInfo'],
+              ['Pricing model', 'Pay-as-you-go credits, never expire', 'Annual contract, credits expire yearly'],
+              ['Entry cost', 'Free trial; then from $3/10K scrape credits', '~$14,995/yr (3 seats, 2,500 credits)'],
+              ['Typical real-world spend', 'Tens of dollars per campaign list', '$30K–$60K/yr (with add-ons/overages)'],
+              ['Data freshness', 'Live from Sales Navigator at scrape time', 'Database refresh cycles'],
+              ['Email accuracy', '90–95% match via 10-provider waterfall + SMTP verification', 'Single-database match rates'],
+              ['Seats', 'None — usage-based', 'Per-seat, $2K–$5K per extra user'],
+              ['Intent data / org charts', 'No', 'Yes'],
+              ['Buying process', 'Self-serve, no sales call', 'Sales-quoted, 60-day auto-renew opt-out'],
+              ['Requires Sales Navigator', 'Yes (~$99/mo)', 'No'],
+            ],
+          },
+        ],
+      },
+      {
+        h2: 'Honest take: when ZoomInfo is still the right choice',
+        blocks: [
+          'Coldcast is not the answer for everyone, and pretending otherwise would waste your time:',
+          {
+            list: [
+              '**You need buyer intent data.** ZoomInfo’s intent signals and website-visitor identification have no equivalent in a scraping workflow.',
+              '**You need direct-dial phone numbers at scale.** ZoomInfo’s phone coverage is a core strength; Coldcast is email-first.',
+              '**Your team lives in an enterprise CRM workflow.** ZoomInfo’s native Salesforce/HubSpot sync, enrichment-on-create, and admin controls suit large revenue orgs with dedicated ops.',
+              '**You can’t use LinkedIn.** Coldcast’s primary source is Sales Navigator; if your ICP isn’t on LinkedIn (some SMB/local niches), a database wins.',
+            ],
+          },
+          'If those describe you, budget for ZoomInfo (or Apollo/Cognism at lower tiers). If what you actually buy ZoomInfo for is lists of people with verified emails, keep reading — the math below is hard to argue with.',
+        ],
+      },
+      {
+        h2: 'The math: a 10,000-lead list',
+        blocks: [
+          '**With ZoomInfo (entry tier):** 2,500 annual credits means a 10,000-contact export needs 4× your yearly allowance — practically, a mid-tier contract at ~$25,000–$30,000/year.',
+          '**With Coldcast:** scrape 10,000 Sales Navigator leads, enrich, and verify — roughly **$43 in credits** ($3 scraping + $30 enrichment + $10 verification), plus your existing Sales Navigator subscription. Even adding Sales Navigator’s ~$99/month, the first-year total is under $1,300 vs. $25,000+.',
+          'That’s not a discount. It’s a different category of spend — moved from “annual software line item requiring procurement” to “campaign cost you put on a card.”',
+        ],
+      },
+      {
+        h2: 'How to switch from ZoomInfo to Coldcast',
+        blocks: [
+          {
+            list: [
+              '**Export what you’ve paid for.** Before your contract lapses, use remaining credits — and note Coldcast’s [ZoomInfo scraper](/products/zoominfo-scraper) can extract your existing lists and searches.',
+              '**Set up Sales Navigator** (if you don’t have it) — its filters (headcount, funding, tenure, boolean title search) rival ZoomInfo’s firmographic filters for prospecting.',
+              '**Install Coldcast and run your first search.** Build the same ICP filter set in Sales Navigator, scrape, and let the [waterfall enricher](/products/waterfall-enricher) find and verify emails. Full walkthrough: [how to export Sales Navigator leads to CSV](/blog/export-sales-navigator-leads-to-csv).',
+              '**Verify before you send.** Even verified lists decay; re-run [verification](/products/email-verify) on any list older than 30 days.',
+              '**Diarize your ZoomInfo opt-out date.** The 60-day auto-renewal window catches teams every year.',
+            ],
+          },
+        ],
+      },
+      {
+        h2: 'Other ZoomInfo alternatives, briefly',
+        blocks: [
+          {
+            list: [
+              '**Apollo.io** — the closest like-for-like database alternative, far cheaper than ZoomInfo, though data quality varies by segment. (You can also [scrape Apollo with Coldcast](/products/apollo-scraper).)',
+              '**Cognism** — strong EU coverage and phone-verified mobiles; still a five-figure annual contract.',
+              '**Lusha / RocketReach** — lighter credit-based lookups; fine for one-off contacts, weak for bulk list-building.',
+              '**Wiza / Evaboot / Scrupp** — Sales Navigator exporters like Coldcast; compare on [account safety](/blog/scrape-sales-navigator-without-getting-banned), match rates, and whether verification is built in or extra.',
+            ],
+          },
+        ],
+      },
+    ],
+    faq: [
+      { q: 'Is Coldcast really cheaper than ZoomInfo?', a: 'For lead-list building, yes, by orders of magnitude: a scraped, enriched, verified 10,000-lead list costs about $43 in Coldcast credits versus a ZoomInfo contract starting near $15,000/year. ZoomInfo justifies its price with intent data, phone coverage, and enterprise integrations — features list-builders rarely use.' },
+      { q: 'Do I need LinkedIn Sales Navigator to use Coldcast?', a: 'Yes — Coldcast scrapes your own Sales Navigator searches (about $99/month from LinkedIn). Coldcast can also scrape Apollo and ZoomInfo if you have access to those platforms.' },
+      { q: 'Is scraping Sales Navigator safe for my LinkedIn account?', a: 'Coldcast is built account-safe: human-paced requests from your own session, daily caps of 20,000 rows, and no stored passwords — with zero account bans across tracked users in 6+ months.' },
+      { q: 'Is Coldcast’s data as accurate as ZoomInfo’s?', a: 'For emails, typically more accurate: Coldcast enriches through a 10-provider waterfall and SMTP-verifies every address (90–95% match rate), while any single database — ZoomInfo included — is limited to its own records. For direct-dial phone numbers and intent data, ZoomInfo is stronger.' },
+      { q: 'Can I export my existing ZoomInfo lists before cancelling?', a: 'Yes. Coldcast’s ZoomInfo scraper exports lists and searches from a live ZoomInfo session, so you can extract value from remaining credits before your renewal date.' },
+    ],
+  },
+  {
     slug: 'best-linkedin-email-finder-tools',
     tag: 'Compare',
     title: 'The 6 Best LinkedIn Email Finder Tools in 2026',

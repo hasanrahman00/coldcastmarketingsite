@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#0d1116"/>
+  <g stroke="#ffffff" stroke-opacity="0.025" stroke-width="1">
+    <line x1="300" y1="0" x2="300" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/><line x1="0" y1="420" x2="1200" y2="420"/>
+  </g>
+
+  <rect x="72" y="62" width="44" height="8" rx="4" fill="#c3f53c"/>
+  <text x="72" y="126" fill="#ffffff" font-size="52" font-weight="800">The ZoomInfo Alternative</text>
+  <text x="72" y="186" fill="#ffffff" font-size="52" font-weight="800">for Lead Lists</text>
+  <text x="72" y="230" fill="#8b93a0" font-size="20">Verified lead lists from Sales Navigator — without the annual contract</text>
+
+  <!-- Coldcast card -->
+  <rect x="68" y="282" width="512" height="272" rx="16" fill="#0f1216" stroke="#c3f53c" stroke-width="1.5"/>
+  <text x="98" y="336" fill="#c3f53c" font-size="28" font-weight="800">Coldcast</text>
+  <g font-size="19" fill="#e6e9ee">
+    <text x="98" y="384">Pay-as-you-go &amp; credits never expire</text>
+    <text x="98" y="422">Live Sales Navigator data</text>
+    <text x="98" y="460">90–95% verified email match</text>
+    <text x="98" y="498">Account-safe • zero bans tracked</text>
+  </g>
+  <text x="98" y="537" fill="#c3f53c" font-size="20" font-weight="800">from $3 / 10,000 credits</text>
+
+  <!-- ZoomInfo card -->
+  <rect x="620" y="282" width="512" height="272" rx="16" fill="#0f1216" stroke="#232a33"/>
+  <text x="650" y="336" fill="#8b93a0" font-size="28" font-weight="800">ZoomInfo</text>
+  <g font-size="19" fill="#8b93a0">
+    <text x="650" y="384">Annual contract • per-seat pricing</text>
+    <text x="650" y="422">Credits expire every year</text>
+    <text x="650" y="460">Database refresh cycles</text>
+    <text x="650" y="498">Auto-renewal, quoted pricing</text>
+  </g>
+  <text x="650" y="537" fill="#a8b0bd" font-size="20" font-weight="800">~$14,995+ / year</text>
+
+  <text x="72" y="592" fill="#7f8894" font-size="17">coldcast.io — the safest LinkedIn Sales Navigator scraper</text>
+</svg>
