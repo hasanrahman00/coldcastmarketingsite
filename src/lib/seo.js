@@ -108,6 +108,17 @@ export const PRODUCT_SEO = {
     ogDescription:
       'Paste a post URL and export every reactor, commenter and reposter with verified emails — account-safe, from your own logged-in session, human-paced in a secure cloud browser.',
   },
+  'linkedin-search-scraper': {
+    name: 'LinkedIn Search Scraper',
+    title: 'LinkedIn Search Scraper: People & Services Export | Coldcast',
+    description:
+      'Export any LinkedIn People or Services search into a verified CSV — enriched with emails, from your own logged-in session at human pace, zero ban risk. No Sales Navigator required.',
+    keywords:
+      'linkedin search scraper, linkedin people search export, linkedin services search scraper, export linkedin search, account-safe linkedin scraper, no sales navigator',
+    ogTitle: 'LinkedIn Search Scraper — Export Any People or Services Search',
+    ogDescription:
+      'Paste a standard LinkedIn People or Services search and export every profile with verified emails — account-safe, from your own logged-in session. No Sales Nav needed.',
+  },
   'sales-navigator-account-scraper': {
     name: 'Sales Nav Account Scraper',
     title: 'Sales Navigator Account Scraper: Company Export | Coldcast',

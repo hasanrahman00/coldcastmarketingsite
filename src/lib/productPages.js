@@ -84,6 +84,85 @@ export const PRODUCT_PAGES = {
     },
   },
 
+  // ─────────────────────────── LinkedIn Search Scraper ──────────────────────
+  'linkedin-search-scraper': {
+    slug: 'linkedin-search-scraper',
+    kind: 'product',
+    emoji: '🔎',
+    color: 'brand',
+    heroVariant: 'centered',
+    howVariant: 'rail',
+    featuresVariant: 'grid',
+    order: ['how', 'stats', 'features', 'comparison', 'benefits', 'faq'],
+    comparison: {
+      heading: 'Any LinkedIn search → a verified list.',
+      rows: [
+        { label: 'Source', them: 'Sales Navigator only', us: 'Standard LinkedIn People & Services search' },
+        { label: 'Sales Nav required', them: 'Yes', us: 'No — works on your normal LinkedIn' },
+        { label: 'Emails', them: 'Separate tool', us: 'Verified, built in' },
+        { label: 'Account risk', them: 'Machine-speed automation', us: 'Your real session, 0 bans' },
+        { label: 'Setup', them: 'Proxies & code', us: 'Paste the search URL' },
+      ],
+    },
+    hero: {
+      eyebrow: 'LinkedIn Search Scraper',
+      title: 'Export any LinkedIn People or Services search into a verified CSV.',
+      subtitle:
+        'Paste a standard LinkedIn People search or a Services search and Coldcast exports every profile, enriched with verified emails — running your own logged-in session in a secure cloud browser, at zero ban risk. No Sales Navigator required.',
+      badges: ['0 account bans', 'People + Services search', 'Verified emails built in'],
+    },
+    how: {
+      heading: 'From a LinkedIn search URL to an enriched list — in minutes.',
+      subtitle: 'No Sales Navigator, no proxies — if you can run the search, Coldcast can export it.',
+      steps: [
+        { emoji: '🧩', title: 'Connect your LinkedIn account', desc: 'Sign in to your own LinkedIn in one click — nothing to install on your machine.' },
+        { emoji: '🔗', title: 'Paste the search URL', desc: 'Any LinkedIn People search or a Services (providers) search — keywords and filters included.' },
+        { emoji: '▶️', title: 'Hit start', desc: 'Coldcast pages through every result at a smooth, human pace with hard limits — never machine-speed, no ban risk.' },
+        { emoji: '💧', title: 'Enrich automatically', desc: 'Waterfall enrichment adds verified emails and firmographics as it exports.' },
+        { emoji: '🧹', title: 'Clean + dedupe', desc: 'Names properly cased, junk stripped from titles, duplicates removed.' },
+        { emoji: '⬇️', title: 'Export the list', desc: 'Download a clean CSV/XLSX or push straight into your sequencer.' },
+      ],
+    },
+    features: {
+      heading: 'Turn a plain LinkedIn search into pipeline.',
+      subtitle: 'The searches you already run every day — now exportable, enriched and verified.',
+      items: [
+        { emoji: '🔎', title: 'People search', desc: 'Export any LinkedIn People search — keywords, titles, locations and industry filters.' },
+        { emoji: '🧰', title: 'Services search', desc: 'Capture LinkedIn Services providers — freelancers and agencies offering a service.' },
+        { emoji: '🚫', title: 'No Sales Navigator needed', desc: 'Works on standard LinkedIn, so you don’t need a Sales Nav seat to build lists.' },
+        { emoji: '💧', title: 'Verified emails built in', desc: 'Waterfall enrichment finds and verifies work emails on the same pass.' },
+        { emoji: '🧹', title: 'Clean, deduped export', desc: 'Cased names, normalised companies, duplicates removed — CRM-ready CSV.' },
+        { emoji: '🛡️', title: 'Account-safe', desc: 'Runs your own logged-in session in a secure cloud browser at human pace — LinkedIn only sees you.' },
+      ],
+    },
+    stats: [
+      { value: '2', label: 'search types' },
+      { value: '70–85%', label: 'email match' },
+      { value: '0', label: 'account bans' },
+      { value: '1', label: 'search URL to start' },
+    ],
+    benefits: {
+      heading: 'Why scrape standard LinkedIn search.',
+      items: [
+        { emoji: '💸', title: 'No Sales Nav tax', desc: 'Build lists without paying for a Sales Navigator seat you may not need.' },
+        { emoji: '🧰', title: 'Reach service providers', desc: 'Services search surfaces freelancers and agencies you can’t filter for elsewhere.' },
+        { emoji: '⚡', title: 'Fast to fire', desc: 'Paste a search you already ran and get a send-ready list in one sitting.' },
+      ],
+    },
+    faq: [
+      { q: 'Do I need Sales Navigator?', a: 'No. The LinkedIn Search scraper works on standard LinkedIn People and Services search — you only need to be signed in to your own LinkedIn account.' },
+      { q: 'What searches can I export?', a: 'Any LinkedIn People search (keywords, title, location, industry filters) and LinkedIn Services searches for freelancers and agencies. Paste the search URL and Coldcast pages through the results.' },
+      { q: 'Are emails included?', a: 'Yes — waterfall enrichment finds and verifies work emails as it exports, so you get a send-ready list, not just names.' },
+      { q: 'Is it safe for my account?', a: 'Yes. Extraction runs your own logged-in session in a secure, isolated cloud browser at human pace with hard limits — never storing your password or bursting at machine speed, which is why Coldcast records zero account bans.' },
+      { q: 'How many results can I export?', a: 'Coldcast works within LinkedIn’s own pagination limits safely; for very large result sets, split the search with filters to stay inside safe daily volumes.' },
+      { q: 'Can I export to CSV?', a: 'Yes — clean, deduplicated, verification-flagged CSV or XLSX, or push straight into your outreach tool.' },
+    ],
+    cta: {
+      title: 'Export your next LinkedIn search.',
+      subtitle: 'Paste a People or Services search URL and get an enriched, verified list — no Sales Navigator required.',
+    },
+  },
+
   // ─────────────────────── Sales Nav Account Scraper ────────────────────────
   'sales-navigator-account-scraper': {
     slug: 'sales-navigator-account-scraper',

@@ -34,7 +34,7 @@ const MENUS = [
           { to: '/products/sales-navigator-account-scraper', Icon: Building2, title: 'Sales Nav Accounts', sub: 'Company lists, domain-enriched' },
           { to: '/products/apollo-scraper', Icon: MapPin, title: 'Apollo', sub: 'Export searches without Apollo credits' },
           { to: '/products/zoominfo-scraper', Icon: Search, title: 'ZoomInfo', sub: 'Contacts and accounts with direct dials' },
-          { to: '/products', Icon: UserSearch, title: 'LinkedIn Search', sub: 'Any People or Services search' },
+          { to: '/products/linkedin-search-scraper', Icon: UserSearch, title: 'LinkedIn Search', sub: 'Any People or Services search' },
           { to: '/products/linkedin-post-scraper', Icon: Heart, title: 'Post Engagers', sub: 'Everyone who liked or commented on a post' },
         ],
       },
