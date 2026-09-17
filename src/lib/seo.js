@@ -132,14 +132,14 @@ export const PRODUCT_SEO = {
   },
   'apollo-scraper': {
     name: 'Apollo Scraper',
-    title: 'Apollo Scraper — Export Whole Lists, No Credits | Coldcast',
+    title: 'Apollo Scraper: Export Leads to CSV, No Credits | Coldcast',
     description:
-      'The account-safe Apollo.io scraper & email extractor. Export any Apollo people or company search to CSV — no export credits, re-verified live, 3x cheaper.',
+      'Account-safe Apollo.io scraper: export any people or company search to CSV/Excel with no export credits, emails SMTP-verified live, 3x cheaper. 100 free leads.',
     keywords:
-      'apollo scraper, apollo.io scraper, apollo email extractor, apollo lead scraper, scrape apollo leads, export apollo to csv, apollo export limit, apollo scraper chrome extension, free apollo scraper, bulk apollo export, apollo company scraper, apify apollo alternative, account-safe apollo scraper, waterfall enrichment, email verification',
-    ogTitle: 'Apollo Scraper — Export Whole Apollo Lists, No Credits',
+      'apollo scraper, apollo.io scraper, apollo scraper 2026, apollo email extractor, apollo lead scraper, apollo leads scraper, apollo exporter, export apollo leads, export apollo leads to csv, export apollo to excel, export apollo to csv, scrape apollo.io, how to scrape apollo.io, apollo export limit, apollo free plan export limit, bypass apollo export limit, apollo export credits, apollo record selection limit, apollo scraper chrome extension, free apollo scraper, free apollo account scraper, bulk apollo export, apollo company scraper, apollo people search export, apollo search url export, apify apollo alternative, account-safe apollo scraper, apollo lead generation, apollo b2b leads, apollo verified emails, real-time email verification, smtp email verification, waterfall enrichment, pay-as-you-go credits, sales navigator scraper',
+    ogTitle: 'Apollo Scraper — Export Whole Apollo Lists to CSV, No Credits',
     ogDescription:
-      'Export any Apollo people or company search to CSV — no per-row export credits, re-verified live with waterfall enrichment, catch-all cleaned, 3x cheaper, account-safe.',
+      'Paste an Apollo people or company search URL and export the whole list (up to 12,000 rows) — no export credits, SMTP-verified live, waterfall-enriched, pay-as-you-go credits that never expire.',
   },
   'zoominfo-scraper': {
     name: 'ZoomInfo Scraper',
