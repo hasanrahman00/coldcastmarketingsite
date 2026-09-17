@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#0d1116"/>
+
+  <text x="80" y="76" fill="#ffffff" font-size="40" font-weight="800">The Safe Apollo Scraping Workflow</text>
+  <text x="80" y="116" fill="#8b93a0" font-size="20">Five steps from Apollo search to campaign-ready leads</text>
+
+  <!-- Row 1 -->
+  <rect x="80" y="168" width="320" height="150" rx="14" fill="#141922" stroke="#232a33"/>
+  <circle cx="112" cy="205" r="16" fill="#c3f53c"/><text x="112" y="211" text-anchor="middle" fill="#0d1116" font-size="16" font-weight="800">1</text>
+  <text x="140" y="212" fill="#ffffff" font-size="20" font-weight="700">Tight ICP search</text>
+  <text x="102" y="250" fill="#8b93a0" font-size="14">Filter by title, industry, size &amp; geo.</text>
+  <text x="102" y="272" fill="#8b93a0" font-size="14">Scrape less, scrape better.</text>
+
+  <rect x="442" y="168" width="320" height="150" rx="14" fill="#141922" stroke="#232a33"/>
+  <circle cx="474" cy="205" r="16" fill="#c3f53c"/><text x="474" y="211" text-anchor="middle" fill="#0d1116" font-size="16" font-weight="800">2</text>
+  <text x="502" y="212" fill="#ffffff" font-size="20" font-weight="700">Throttled extraction</text>
+  <text x="464" y="250" fill="#8b93a0" font-size="14">Cloud scraper with human-like,</text>
+  <text x="464" y="272" fill="#8b93a0" font-size="14">randomized pacing. No credit burn.</text>
+
+  <rect x="804" y="168" width="320" height="150" rx="14" fill="#141922" stroke="#232a33"/>
+  <circle cx="836" cy="205" r="16" fill="#c3f53c"/><text x="836" y="211" text-anchor="middle" fill="#0d1116" font-size="16" font-weight="800">3</text>
+  <text x="864" y="212" fill="#ffffff" font-size="20" font-weight="700">Verify every email</text>
+  <text x="826" y="250" fill="#8b93a0" font-size="14">Split valid / catch-all / invalid</text>
+  <text x="826" y="272" fill="#8b93a0" font-size="14">before anything is sent.</text>
+
+  <!-- Row 2 -->
+  <rect x="442" y="395" width="320" height="150" rx="14" fill="#141922" stroke="#232a33"/>
+  <circle cx="474" cy="432" r="16" fill="#c3f53c"/><text x="474" y="438" text-anchor="middle" fill="#0d1116" font-size="16" font-weight="800">4</text>
+  <text x="502" y="439" fill="#ffffff" font-size="20" font-weight="700">Waterfall enrichment</text>
+  <text x="464" y="477" fill="#8b93a0" font-size="14">Query multiple providers in</text>
+  <text x="464" y="499" fill="#8b93a0" font-size="14">sequence to fill missing emails.</text>
+
+  <rect x="804" y="395" width="320" height="150" rx="14" fill="#0f1216" stroke="#c3f53c" stroke-width="1.5"/>
+  <circle cx="836" cy="432" r="16" fill="#c3f53c"/><text x="836" y="438" text-anchor="middle" fill="#0d1116" font-size="16" font-weight="800">5</text>
+  <text x="864" y="439" fill="#ffffff" font-size="20" font-weight="700">Clean CSV export</text>
+  <text x="826" y="477" fill="#8b93a0" font-size="14">Deduplicated, campaign-ready.</text>
+  <text x="826" y="499" fill="#8b93a0" font-size="14">Sync to CRM or sequencer.</text>
+
+  <!-- arrows -->
+  <g stroke="#c3f53c" fill="#c3f53c">
+    <line x1="408" y1="243" x2="436" y2="243" stroke-width="3"/><polygon points="436,237 436,249 446,243"/>
+    <line x1="770" y1="243" x2="798" y2="243" stroke-width="3"/><polygon points="798,237 798,249 808,243"/>
+    <line x1="770" y1="470" x2="798" y2="470" stroke-width="3"/><polygon points="798,464 798,476 808,470"/>
+  </g>
+  <!-- connector 3 -> 4 -->
+  <g stroke="#c3f53c" fill="#c3f53c">
+    <path d="M964 318 L964 360 L602 360 L602 389" stroke-width="3" fill="none"/><polygon points="596,389 608,389 602,398"/>
+  </g>
+
+  <text x="80" y="588" font-size="18"><tspan fill="#ffffff" font-weight="700">coldcast.io</tspan><tspan fill="#8b93a0">  Account-safe scraping, enrichment &amp; verification</tspan></text>
+</svg>

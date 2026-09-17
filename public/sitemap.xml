@@ -223,6 +223,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.coldcast.io/blog/how-to-scrape-apollo-leads-safely</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.coldcast.io/blog/evaboot-alternative</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>

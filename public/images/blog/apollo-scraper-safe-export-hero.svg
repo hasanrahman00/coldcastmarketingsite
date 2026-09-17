@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#0d1116"/>
+  <circle cx="1080" cy="120" r="230" fill="#ffffff" fill-opacity="0.02"/>
+
+  <text x="80" y="88" fill="#ffffff" font-size="44" font-weight="800">How to Scrape Apollo.io Leads</text>
+  <text x="80" y="146" fill="#c3f53c" font-size="44" font-weight="800">Safely</text>
+  <text x="80" y="190" fill="#8b93a0" font-size="22">Export credit limits vs. account-safe extraction — 2026</text>
+
+  <!-- Left card: Apollo export credits -->
+  <rect x="80" y="232" width="490" height="300" rx="16" fill="#141922" stroke="#232a33"/>
+  <text x="110" y="282" fill="#ffffff" font-size="22" font-weight="700">Apollo export credits / month</text>
+
+  <text x="110" y="322" fill="#8b93a0" font-size="17">Free</text>
+  <rect x="235" y="309" width="6" height="14" rx="3" fill="#3f4a5a"/>
+  <text x="253" y="322" fill="#e6e9ee" font-size="16">10</text>
+
+  <text x="110" y="366" fill="#8b93a0" font-size="17">Basic</text>
+  <rect x="235" y="353" width="63" height="14" rx="3" fill="#3f4a5a"/>
+  <text x="310" y="366" fill="#e6e9ee" font-size="16">1,000</text>
+
+  <text x="110" y="410" fill="#8b93a0" font-size="17">Professional</text>
+  <rect x="235" y="397" width="125" height="14" rx="3" fill="#3f4a5a"/>
+  <text x="372" y="410" fill="#e6e9ee" font-size="16">2,000</text>
+
+  <text x="110" y="454" fill="#8b93a0" font-size="17">Organization</text>
+  <rect x="235" y="441" width="250" height="14" rx="3" fill="#3f4a5a"/>
+  <text x="497" y="454" fill="#e6e9ee" font-size="16">4,000</text>
+
+  <text x="110" y="504" fill="#7f8894" font-size="15">Hard credit meter — extra exports cost extra</text>
+
+  <!-- Right card: Coldcast -->
+  <rect x="630" y="232" width="490" height="300" rx="16" fill="#0f1216" stroke="#c3f53c" stroke-width="1.5"/>
+  <text x="660" y="282" fill="#c3f53c" font-size="22" font-weight="700">Coldcast Apollo Scraper</text>
+  <rect x="660" y="308" width="430" height="18" rx="4" fill="#c3f53c"/>
+  <text x="660" y="352" fill="#e6e9ee" font-size="17">No per-row export credits</text>
+  <g font-size="16" fill="#e6e9ee">
+    <text x="660" y="396"><tspan fill="#c3f53c">✓</tspan> Human-like throttling, enforced by default</text>
+    <text x="660" y="436"><tspan fill="#c3f53c">✓</tspan> Cloud-based — no browser extension risk</text>
+    <text x="660" y="476"><tspan fill="#c3f53c">✓</tspan> Built-in email verification &amp; enrichment</text>
+    <text x="660" y="516"><tspan fill="#c3f53c">✓</tspan> Clean, deduplicated CSV output</text>
+  </g>
+
+  <text x="80" y="588" font-size="18"><tspan fill="#ffffff" font-weight="700">coldcast.io</tspan><tspan fill="#8b93a0">  The account-safe scraping &amp; enrichment platform</tspan></text>
+</svg>
