@@ -88,47 +88,47 @@ export const PRODUCT_SEO = {
   },
   'sales-navigator-scraper': {
     name: 'Sales Navigator Scraper',
-    title: 'LinkedIn Sales Navigator Scraper: 20k Leads/Day | Coldcast',
+    title: 'LinkedIn Sales Navigator Scraper: Export 20k/Day | Coldcast',
     description:
-      'Scrape LinkedIn Sales Navigator from your own logged-in session, human-paced in a secure cloud browser: 20,000 leads a day at zero ban risk, enriched and AI-scored as you export. Start free today.',
+      'Export LinkedIn Sales Navigator leads to CSV/Excel from your own logged-in session, human-paced, zero bans tracked. 20,000 leads/day, 29 columns. Start free.',
     keywords:
-      'Sales Navigator scraper, LinkedIn Sales Navigator export, account-safe LinkedIn scraper, export Sales Nav leads, no ban risk, lead enrichment',
-    ogTitle: 'Sales Navigator Scraper — 20,000 Leads/Day, Zero Ban Risk',
+      'linkedin sales navigator scraper, sales navigator scraper, export sales navigator leads, export sales navigator leads to excel, sales navigator to csv, sales navigator lead list export, export sales navigator account lists, sales navigator email finder, sales navigator scraper chrome extension, account-safe linkedin scraper, no cookie upload, 2,500 leads per search, pay per lead sales navigator export, sales navigator export tool, sync sales navigator leads to hubspot, export sales navigator leads to google sheets, saved lead list export, verified work emails, direct dials, waterfall enrichment, pay-as-you-go credits',
+    ogTitle: 'Sales Navigator Scraper — Export 20,000 Leads/Day, Zero Bans Tracked',
     ogDescription:
-      'Export Sales Nav leads from your own logged-in session, human-paced in a secure cloud browser. 20,000/day, enriched and scored, no code — just paste a search URL.',
+      'Export any Sales Navigator search or saved lead list to CSV or Excel from your own logged-in session, human-paced in a secure cloud browser — 20,000 leads a day, 29 LinkedIn-native columns, no password, cookies or API key. 100 leads free.',
   },
   'linkedin-post-scraper': {
     name: 'LinkedIn Post Scraper',
-    title: 'LinkedIn Post Scraper: Reactions & Comments | Coldcast',
+    title: 'LinkedIn Post Scraper: Likers, Comments & Emails | Coldcast',
     description:
-      'Scrape everyone who reacted, commented on or reposted any LinkedIn post — enriched with verified emails, from your own logged-in session at human pace, zero ban risk. Try it free.',
+      'Scrape every liker, commenter and reposter on any LinkedIn post, with verified emails. Runs in your own session, no cookie upload, zero bans tracked. Try free.',
     keywords:
-      'linkedin post scraper, linkedin post engagement scraper, scrape linkedin comments, scrape post reactions, linkedin reactions scraper, warm outbound leads',
-    ogTitle: 'LinkedIn Post Scraper — Export Every Engager, Enriched',
+      'linkedin post scraper, scrape linkedin post comments, linkedin reactions scraper, linkedin comments scraper, export linkedin post likers, linkedin post likers scraper, linkedin post engagers, scrape linkedin post engagers, likers and commenters, who reacted to a linkedin post, linkedin post engagement scraper, scrape linkedin comments, scrape post reactions, intent signals, buyer intent, warm lead list, no cookie linkedin scraper, account-safe linkedin scraper, linkedin post scraper chrome extension, export linkedin post engagers to google sheets, sync linkedin post engagers to hubspot, verified work emails, waterfall enrichment, warm outbound leads',
+    ogTitle: 'LinkedIn Post Scraper — Export Every Liker, Commenter and Reposter, With Verified Emails',
     ogDescription:
-      'Paste a post URL and export every reactor, commenter and reposter with verified emails — account-safe, from your own logged-in session, human-paced in a secure cloud browser.',
+      'Paste a post URL and export every liker, commenter and reposter with verified emails — one-click Chrome extension, your own logged-in session, human-paced in a secure cloud browser with hard daily caps, no password or cookie upload, zero bans tracked in 6+ months. 10 credits per row, 100 leads free.',
   },
   'linkedin-search-scraper': {
     name: 'LinkedIn Search Scraper',
-    title: 'LinkedIn Search Scraper: People & Services Export | Coldcast',
+    title: 'LinkedIn Search Scraper: Export Results to CSV | Coldcast',
     description:
-      'Export any LinkedIn People or Services search into a verified CSV — enriched with emails, from your own logged-in session at human pace, zero ban risk. No Sales Navigator required.',
+      'Scrape LinkedIn search results into a clean CSV or Excel with verified emails. People & Services search, no Sales Navigator, no cookie upload. Start free.',
     keywords:
-      'linkedin search scraper, linkedin people search export, linkedin services search scraper, export linkedin search, account-safe linkedin scraper, no sales navigator',
-    ogTitle: 'LinkedIn Search Scraper — Export Any People or Services Search',
+      'linkedin search scraper, scrape linkedin search results, linkedin people search export, export linkedin search results to excel, export linkedin search results to csv, linkedin search export, linkedin search exporter, linkedin profile search scraper, extract linkedin profiles from search results, export linkedin search results with email, linkedin search export chrome extension, linkedin services search scraper, export linkedin search, no cookie linkedin scraper, account-safe linkedin scraper, no sales navigator, build lead lists from linkedin search, export linkedin search to google sheets, sync linkedin search to hubspot, pay per row linkedin export, waterfall enrichment, verified work emails',
+    ogTitle: 'LinkedIn Search Scraper — Export Any People or Services Search to CSV, Zero Bans Tracked',
     ogDescription:
-      'Paste a standard LinkedIn People or Services search and export every profile with verified emails — account-safe, from your own logged-in session. No Sales Nav needed.',
+      'Paste a standard LinkedIn People or Services search URL and export every result to CSV or Excel with verified emails and direct dials — one-click Chrome extension, your own logged-in session, human-paced with hard daily caps, no password or cookie upload. 2 credits per row, 100 leads free.',
   },
   'sales-navigator-account-scraper': {
     name: 'Sales Nav Account Scraper',
-    title: 'Sales Navigator Account Scraper: Company Export | Coldcast',
+    title: 'Sales Navigator Account Scraper: Export Companies | Coldcast',
     description:
-      'Export whole company lists from a LinkedIn Sales Navigator account search — firmographics and resolved domains per account, account-safe. Start free today.',
+      'Export every company from a Sales Navigator account search to CSV/Excel — firmographics + resolved domains. Your own session, human-paced, zero bans tracked.',
     keywords:
-      'sales navigator account scraper, sales navigator company scraper, export sales nav accounts, account based marketing list, company search export, firmographics scraper',
-    ogTitle: 'Sales Nav Account Scraper — Export Company Lists, Safely',
+      'sales navigator account scraper, sales navigator company scraper, sales navigator companies scraper, export companies from sales navigator, export sales navigator accounts, export sales nav accounts, sales navigator account search export, sales navigator account list export, sales navigator company list export, export sales navigator to csv, export sales navigator to excel, sales navigator account search url, target account list, abm account list, account based marketing list, company search export, firmographics scraper, company domain export, no cookie sales navigator scraper, account-safe sales navigator scraper, evaboot alternative, phantombuster alternative, wiza account export alternative, apify sales navigator account scraper alternative',
+    ogTitle: 'Sales Navigator Account Scraper — Export Companies to CSV, Zero Bans Tracked',
     ogDescription:
-      'Turn a Sales Navigator account search into a clean company list with domains and firmographics — from your own logged-in session, human-paced with hard limits, zero ban risk.',
+      'Export every company from any Sales Navigator account search with firmographics and a resolved domain per row — from your own logged-in session, human-paced with hard daily caps, no password, cookie upload or API key. 2 credits per account row, 100 leads free.',
   },
   'apollo-scraper': {
     name: 'Apollo Scraper',
@@ -143,47 +143,47 @@ export const PRODUCT_SEO = {
   },
   'zoominfo-scraper': {
     name: 'ZoomInfo Scraper',
-    title: 'ZoomInfo Scraper: Export Data, No Lock-In | Coldcast',
+    title: 'ZoomInfo Scraper: Export Data to CSV, No Credits | Coldcast',
     description:
-      'Export ZoomInfo company and contact data, re-verified in real time with waterfall enrichment — 3x cheaper and no annual lock-in. Start exporting free.',
+      'Account-safe ZoomInfo scraper: export any people or company search to CSV/Excel without using export credits. Re-verified live, no contract. 100 free leads.',
     keywords:
-      'ZoomInfo scraper, export ZoomInfo data, ZoomInfo company and contact export, cheaper ZoomInfo alternative, no annual contract, real-time firmographics',
-    ogTitle: 'ZoomInfo Scraper — Fresh Exports, No Enterprise Lock-In',
+      'zoominfo scraper, zoominfo scraper chrome extension, zoominfo scraper 2026, export zoominfo data, zoominfo export to csv, export zoominfo contacts to csv, export zoominfo to excel, export zoominfo search results, zoominfo bulk export, zoominfo export limit, zoominfo export credits, zoominfo bulk credits, zoominfo credits expire, scrape zoominfo, how to scrape zoominfo, zoominfo data extraction, zoominfo contact export, zoominfo company export, zoominfo people search export, zoominfo firmographics export, account-safe zoominfo scraper, no-code zoominfo scraper, cheaper zoominfo alternative, no annual contract, pay-as-you-go credits, real-time email verification, waterfall enrichment, direct dials, hubspot salesforce sync, apollo scraper, sales navigator scraper',
+    ogTitle: 'ZoomInfo Scraper — Export Any People or Company Search to CSV, No Export Credits',
     ogDescription:
-      'Export ZoomInfo firmographics and contacts together, re-verified live and catch-all cleaned — 3x cheaper, no annual contract.',
+      'Open any ZoomInfo people or company search and export the whole thing to CSV or Excel — one-click Chrome extension, your own logged-in session, human-paced in a secure cloud browser with hard daily caps, no password, cookie upload or API key, zero bans tracked in 6+ months. 1 credit per row, credits never expire, 100 leads free.',
   },
   'waterfall-enricher': {
     name: 'Waterfall Enrichment',
-    title: 'Waterfall Enrichment: Pay Per Valid Email | Coldcast',
+    title: 'Waterfall Email Enrichment Tool: Pay Per Find | Coldcast',
     description:
-      'Waterfall enrichment cascades every provider for verified emails and direct dials, cleans catch-alls, and only charges for 99%-valid hits. Try it free.',
+      'Waterfall email enrichment that cascades up to 10 data providers, verifies every hit, and charges 1 credit only when an email is found. Try free, no card.',
     keywords:
-      'waterfall enrichment, email waterfall enrichment, verified emails and direct dials, pay per valid email, catch-all cleaning, bulk lead enrichment',
-    ogTitle: 'Waterfall Enrichment — Pay Only for 99%-Valid Emails',
+      'waterfall enrichment, waterfall email enrichment tool, email enrichment tool, waterfall enrichment tool, email waterfall enrichment, waterfall enrichment 2026, email find rate, verified work emails, direct dials, direct dial enrichment, pay per find, pay only when email found, pay per valid email, catch-all cleaning, SMTP verification, syntax MX SMTP verification, bulk email enrichment, bulk lead enrichment, enrich CSV names and domains, single-source vs waterfall enrichment, Clay alternative, Clay waterfall alternative, Apollo waterfall enrichment alternative, better than Apollo or ZoomInfo alone, no subscription enrichment credits, credits never expire, HubSpot Salesforce enrichment sync, Instantly Smartlead Lemlist sync, B2B data coverage, protect sender reputation, GTM teams SDR agencies',
+    ogTitle: 'Waterfall Email Enrichment Tool — Up to 10 Providers, Pay Only When Found',
     ogDescription:
-      'Upload names and domains. Coldcast cascades every provider, cleans catch-alls, and charges only for verified, deliverable contacts.',
+      'Upload names and domains. Coldcast cascades up to 10 data providers for verified work emails and direct dials, verifies every hit (syntax, MX, SMTP mailbox, catch-all), and charges 1 credit only when an email is found — $30 per 10,000 credits, no subscription, credits never expire, 50 enrichment credits free with no card.',
   },
   'email-verify': {
     name: 'Email Verification',
-    title: 'Email Verification: Real-Time MX + SMTP | Coldcast',
+    title: 'Bulk Email Verifier + Catch-All Verification | Coldcast',
     description:
-      'Verify emails in real time with live MX and SMTP checks, flag risky catch-alls, and cut bounces to protect your sender reputation. Try it 3x cheaper.',
+      'Bulk email verifier with real-time syntax, MX, SMTP and catch-all checks. Pay-as-you-go, $10 per 10,000 emails, credits never expire. 50 free credits, no card.',
     keywords:
-      'email verification, bulk email verifier, real-time MX SMTP check, catch-all detection, reduce bounce rate, protect sender reputation',
-    ogTitle: 'Email Verification — Real-Time MX + SMTP, Catch-All Aware',
+      'bulk email verifier, email verification tool, email verification, catch-all email verification, catch-all detection, accept-all email, email list cleaning, clean your email list, verify email list, verify email addresses in bulk, bulk email validator, email validation, email checker, bulk email checker, real-time MX SMTP check, SMTP mailbox check, reduce bounce rate, hard bounce, improve email deliverability, protect sender reputation, pay-as-you-go email verification, no subscription email verifier, credits never expire, cold email verification, cold email outreach, email validation vs verification, deduplicated email list, CSV XLSX email verification, sync to Instantly Smartlead Lemlist HubSpot Salesforce Google Sheets, free email verifier, bulk email verifier 2026',
+    ogTitle: 'Bulk Email Verifier — Real-Time MX + SMTP, Catch-All Verification, $10 per 10,000',
     ogDescription:
-      'Clean your whole list with live MX and SMTP checks, detect catch-alls, and slash bounce rates — 3x cheaper than the big verifiers.',
+      'Clean your email list with live syntax, MX and SMTP mailbox checks, separate accept-all (catch-all) domains into their own segment, and cut hard bounces — deduplicated CSV/XLSX or sync to Instantly, Smartlead, Lemlist, HubSpot, Salesforce and Google Sheets. 1 credit per email, $10 per 10,000, pay-as-you-go, credits never expire, 50 free verify credits with no card.',
   },
   'domain-enrichment': {
     name: 'Domain Enrichment',
-    title: 'Domain Enrichment: Firmographics + Contacts | Coldcast',
+    title: 'Domain Enrichment & Company Enrichment Tool | Coldcast',
     description:
-      'Turn any domain into fresh firmographics, technographics and verified contacts — waterfall-enriched and catch-all cleaned, at 3x lower cost. Try it free.',
+      'Turn any domain into company data: firmographics, tech stack and verified contacts. Bulk CSV upload, up to 10 providers, 3 credits per domain, no subscription.',
     keywords:
-      'domain enrichment, domain to company data, firmographics and technographics, verified contacts from domain, tech stack lookup, bulk domain enrichment',
-    ogTitle: 'Domain Enrichment — Firmographics, Tech & Verified Contacts',
+      'domain enrichment, company enrichment tool, domain to company data, company data from domain, enrich company by domain, enrich a company from a domain, bulk domain enrichment, bulk CSV domain upload, firmographic data, firmographics and technographics, technographic data, tech stack lookup, tech stack detection, employee count, verified contacts from domain, CRM enrichment, bulk CRM cleanup, lead scoring, ICP targeting, waterfall enrichment, pay-as-you-go enrichment credits, credits never expire, no API key domain enrichment, domain enrichment 2026',
+    ogTitle: 'Domain Enrichment Tool — Company Data, Tech Stack & Verified Contacts from Any Domain',
     ogDescription:
-      'Give Coldcast a domain, get back fresh firmographics, technographics and waterfall-verified contacts — a third of the usual cost.',
+      'Upload a CSV of domains. Coldcast returns fresh firmographics (industry, employee count, location), technographics and waterfall-verified contacts from up to 10 providers, catch-all cleaned — 3 credits per domain, $30 per 10,000 enrichment credits, no API key, no subscription, credits never expire. Free trial with 50 enrichment credits, no card.',
   },
 }
 
