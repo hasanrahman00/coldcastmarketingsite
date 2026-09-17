@@ -132,14 +132,14 @@ export const PRODUCT_SEO = {
   },
   'apollo-scraper': {
     name: 'Apollo Scraper',
-    title: 'Apollo Scraper: Fresh, Verified Exports | Coldcast',
+    title: 'Apollo Scraper — Export Whole Lists, No Credits | Coldcast',
     description:
-      'Export whole Apollo lists in minutes — re-verified in real time, catch-alls cleaned, and 3x cheaper than per-credit pricing. Pull your first list free.',
+      'The account-safe Apollo.io scraper & email extractor. Export any Apollo people or company search to CSV — no export credits, re-verified live, 3x cheaper.',
     keywords:
-      'Apollo scraper, Apollo.io export, export Apollo lists, real-time email verification, catch-all cleaning, cheaper Apollo alternative',
-    ogTitle: 'Apollo Scraper — Fresh, Verified, 3x Cheaper Exports',
+      'apollo scraper, apollo.io scraper, apollo email extractor, apollo lead scraper, scrape apollo leads, export apollo to csv, apollo export limit, apollo scraper chrome extension, free apollo scraper, bulk apollo export, apollo company scraper, apify apollo alternative, account-safe apollo scraper, waterfall enrichment, email verification',
+    ogTitle: 'Apollo Scraper — Export Whole Apollo Lists, No Credits',
     ogDescription:
-      'Pull entire Apollo searches at once, re-verified live and topped up with waterfall enrichment — a third of per-credit pricing.',
+      'Export any Apollo people or company search to CSV — no per-row export credits, re-verified live with waterfall enrichment, catch-all cleaned, 3x cheaper, account-safe.',
   },
   'zoominfo-scraper': {
     name: 'ZoomInfo Scraper',
